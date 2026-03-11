@@ -1,0 +1,47 @@
+[
+  {
+    "file": "$data/maps/mapEU/textures/buildings/barn/barn01.i3d",
+    "name": "barn01_farmyard",
+    "width": 30.0,
+    "depth": 20.0,
+    "type": "barn",
+    "categories": ["farmyard"],
+    "regions": ["EU"]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/barn/barn02.i3d",
+    "name": "barn02_farmyard",
+    "width": 60.0,
+    "depth": 25.0,
+    "type": "barn",
+    "categories": ["farmyard"],
+    "regions": ["EU"]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/grainSilo/grainSilo.i3d",
+    "name": "grainSilo_farmyard",
+    "width": 30.0,
+    "depth": 30.0,
+    "type": "silo",
+    "categories": ["farmyard", "industrial"],
+    "regions": ["EU"]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/farmhouse/farmhouse01.i3d",
+    "name": "farmhouse01_residential",
+    "width": 14.0,
+    "depth": 9.0,
+    "type": "house",
+    "categories": ["residential"],
+    "regions": ["EU"]
+  },
+  {
+    "file": "$data/maps/mapEU/textures/buildings/house/house01.i3d",
+    "name": "house01_residential",
+    "width": 12.0,
+    "depth": 9.0,
+    "type": "house",
+    "categories": ["residential"],
+    "regions": ["EU"]
+  }
+]

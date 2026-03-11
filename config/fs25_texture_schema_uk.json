@@ -1,0 +1,186 @@
+[
+  {
+    "name": "forestRockRoots",
+    "count": 2,
+    "exclude_weight": true
+  },
+  {
+    "name": "grass",
+    "count": 2,
+    "tags": {
+      "natural": ["grassland", "meadow"],
+      "landuse": ["grass", "meadow", "village_green"]
+    },
+    "color": [34, 255, 34],
+    "priority": 0,
+    "procedural": ["grassMowing"]
+  },
+  {
+    "name": "grassClovers",
+    "count": 2,
+    "tags": { "natural": "scrub" },
+    "color": [0, 200, 80],
+    "priority": 2
+  },
+  {
+    "name": "grassCut",
+    "count": 2
+  },
+  {
+    "name": "grassDirtPatchy",
+    "count": 2,
+    "tags": { "natural": ["wood", "tree_row"] },
+    "width": 2,
+    "color": [0, 252, 124],
+    "priority": 5
+  },
+  {
+    "name": "grassMowing",
+    "count": 2
+  },
+  {
+    "name": "groundMoss",
+    "count": 2
+  },
+  {
+    "name": "dirtMedium",
+    "count": 2,
+    "tags": {
+      "landuse": ["farmyard", "construction"],
+      "amenity": "parking"
+    },
+    "color": [150, 100, 50],
+    "priority": 6
+  },
+  {
+    "name": "dirtDark",
+    "count": 2,
+    "tags": {
+      "barrier": ["hedge", "fence"],
+      "natural": "tree_row"
+    },
+    "width": 2,
+    "color": [80, 50, 20],
+    "priority": 7
+  },
+  {
+    "name": "forestGround",
+    "count": 2,
+    "tags": {
+      "landuse": ["forest"],
+      "natural": ["wood"]
+    },
+    "color": [30, 90, 30],
+    "priority": 5,
+    "usage": "forest"
+  },
+  {
+    "name": "forestGroundLeafy",
+    "count": 2
+  },
+  {
+    "name": "forestMoss",
+    "count": 2
+  },
+  {
+    "name": "gravel",
+    "count": 2,
+    "tags": {
+      "highway": ["track", "bridleway"]
+    },
+    "width": 3,
+    "color": [170, 160, 140],
+    "priority": 8,
+    "info_layer": "roads",
+    "road_texture": "gravel"
+  },
+  {
+    "name": "asphalt",
+    "count": 2,
+    "tags": {
+      "highway": ["secondary", "tertiary"]
+    },
+    "width": 7,
+    "color": [50, 50, 50],
+    "priority": 10,
+    "info_layer": "roads",
+    "road_texture": "asphalt"
+  },
+  {
+    "name": "asphaltDirt",
+    "count": 2,
+    "tags": {
+      "highway": ["unclassified", "residential", "service"]
+    },
+    "width": 5,
+    "color": [90, 85, 75],
+    "priority": 9,
+    "info_layer": "roads",
+    "road_texture": "asphalt"
+  },
+  {
+    "name": "asphaltCracks",
+    "count": 2
+  },
+  {
+    "name": "asphaltDusty",
+    "count": 2
+  },
+  {
+    "name": "asphaltGravel",
+    "count": 2
+  },
+  {
+    "name": "asphaltTwigs",
+    "count": 2
+  },
+  {
+    "name": "concrete",
+    "count": 2,
+    "tags": {
+      "landuse": ["industrial"]
+    },
+    "color": [200, 200, 200],
+    "priority": 11
+  },
+  {
+    "name": "concreteGravelSand",
+    "count": 2
+  },
+  {
+    "name": "concreteRough",
+    "count": 2
+  },
+  {
+    "name": "cobblestone",
+    "count": 2
+  },
+  {
+    "name": "waterPuddle",
+    "count": 2,
+    "tags": {
+      "natural": "water",
+      "waterway": ["stream", "river", "ditch"]
+    },
+    "color": [0, 100, 255],
+    "priority": 12,
+    "background": true,
+    "area_water": true,
+    "usage": "water"
+  },
+  {
+    "name": "dirt",
+    "count": 2,
+    "tags": {
+      "landuse": ["farmland", "field"]
+    },
+    "color": [160, 120, 70],
+    "priority": 3,
+    "usage": "field",
+    "info_layer": "fields"
+  },
+  {
+    "name": "fieldDirt",
+    "count": 2
+  }
+]

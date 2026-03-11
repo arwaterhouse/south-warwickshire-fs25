@@ -1,0 +1,56 @@
+{
+  "DEMSettings": {
+    "adjust_terrain_to_ground_level": true,
+    "multiplier": 1,
+    "minimum_height_scale": 255,
+    "plateau": 0,
+    "ceiling": 0,
+    "water_depth": 2,
+    "blur_radius": 3,
+    "add_foundations": false
+  },
+  "BackgroundSettings": {
+    "generate_background": true,
+    "generate_water": true,
+    "water_blurriness": 20,
+    "remove_center": true,
+    "flatten_roads": true,
+    "flatten_water": true
+  },
+  "GRLESettings": {
+    "farmland_margin": 3,
+    "add_farmyards": true,
+    "base_price": 60000,
+    "price_scale": 100,
+    "add_grass": true,
+    "base_grass": "smallDenseMix",
+    "random_plants": true,
+    "fill_empty_farmlands": true
+  },
+  "I3DSettings": {
+    "add_trees": true,
+    "forest_density": 10,
+    "tree_limit": 20000,
+    "trees_relative_shift": 20,
+    "spline_density": 2,
+    "add_reversed_splines": false,
+    "field_splines": true,
+    "license_plate_prefix": "WAR"
+  },
+  "TextureSettings": {
+    "dissolve": true,
+    "fields_padding": 3,
+    "skip_drains": false,
+    "use_cache": true,
+    "use_precise_tags": false
+  },
+  "SatelliteSettings": {
+    "download_images": false,
+    "zoom_level": 16
+  },
+  "BuildingSettings": {
+    "generate_buildings": false,
+    "region": "EU",
+    "tolerance_factor": 30
+  }
+}
