@@ -1,0 +1,162 @@
+[
+    {
+        "name": "oak_stage01",
+        "reference_id": 1041,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "oak_stage02",
+        "reference_id": 1042,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "oak_stage03",
+        "reference_id": 1043,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "oak_stage04",
+        "reference_id": 1044,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "beech_stage01",
+        "reference_id": 1005,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "beech_stage02",
+        "reference_id": 1006,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "beech_stage03",
+        "reference_id": 1007,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "beech_stage04",
+        "reference_id": 1008,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "birch_stage01",
+        "reference_id": 1009,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "birch_stage02",
+        "reference_id": 1010,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "birch_stage03",
+        "reference_id": 1011,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "birch_stage04",
+        "reference_id": 1012,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "willow_stage01",
+        "reference_id": 1077,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "willow_stage02",
+        "reference_id": 1078,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "willow_stage03",
+        "reference_id": 1079,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "willow_stage04",
+        "reference_id": 1080,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "pine_stage01",
+        "reference_id": 1049,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "pine_stage02",
+        "reference_id": 1050,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "pine_stage03",
+        "reference_id": 1051,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "pine_stage04",
+        "reference_id": 1052,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "cherry_stage01",
+        "reference_id": 1013,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "cherry_stage02",
+        "reference_id": 1014,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "cherry_stage03",
+        "reference_id": 1015,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "cherry_stage04",
+        "reference_id": 1016,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "linden_stage01",
+        "reference_id": 1029,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "linden_stage02",
+        "reference_id": 1030,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "linden_stage03",
+        "reference_id": 1031,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "linden_stage04",
+        "reference_id": 1032,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "aspen_stage01",
+        "reference_id": 1001,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "aspen_stage02",
+        "reference_id": 1002,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "aspen_stage03",
+        "reference_id": 1003,
+        "leaf_type": "broadleaved"
+    },
+    {
+        "name": "aspen_stage04",
+        "reference_id": 1004,
+        "leaf_type": "broadleaved"
+    }
+]

@@ -3,9 +3,9 @@
     "adjust_terrain_to_ground_level": true,
     "multiplier": 1,
     "minimum_height_scale": 255,
-    "plateau": 0,
+    "plateau": 20,
     "ceiling": 0,
-    "water_depth": 2,
+    "water_depth": 10,
     "blur_radius": 3,
     "add_foundations": false
   },
@@ -23,8 +23,8 @@
     "base_price": 60000,
     "price_scale": 100,
     "add_grass": true,
-    "base_grass": "smallDenseMix",
-    "random_plants": true,
+    "base_grass": "meadow",
+    "random_plants": false,
     "fill_empty_farmlands": true
   },
   "I3DSettings": {

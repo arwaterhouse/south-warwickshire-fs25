@@ -1,0 +1,20 @@
+{
+    "game": "FS25",
+    "latitude": 52.089387,
+    "longitude": -1.53229,
+    "country": "United Kingdom",
+    "size": 4096,
+    "output_size": null,
+    "rotation": 0,
+    "dtm_provider": "SRTM 30 m",
+    "custom_osm": true,
+    "custom_dem": false,
+    "is_public": false,
+    "date": "2026-03-12",
+    "time": "15:50:51",
+    "version": "2.9.84",
+    "completed": true,
+    "error": null,
+    "origin": null,
+    "platform": "windows"
+}

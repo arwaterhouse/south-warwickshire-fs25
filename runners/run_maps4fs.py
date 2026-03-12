@@ -7,32 +7,35 @@ Modes:
     python3 run_maps4fs.py                   # terrain only, no buildings
     python3 run_maps4fs.py --buildings       # auto-place your UK buildings
 
-Files needed (same folder):
-    custom_osm.osm
-    fs25_texture_schema_uk.json
-    fs25_texture_schema_uk_buildings.json    (only with --buildings)
-    fs25_tree_schema_uk.json
-    fs25_buildings_schema_uk.json            (only with --buildings)
-    generation_settings.json
-    fs25-map-template-uk.zip                 (only with --buildings, made by prepare_map_template.py)
+Files needed:
+    data/custom_osm.osm
+    config/fs25_texture_schema_uk.json
+    config/fs25_texture_schema_uk_buildings.json    (only with --buildings)
+    config/fs25_tree_schema_uk.json
+    config/fs25_buildings_schema_uk.json            (only with --buildings)
+    config/generation_settings.json
+    runners/fs25-map-template-uk.zip                (only with --buildings, made by prepare_map_template.py)
     OR
-    fs25-map-template.zip                    (stock template, if no custom buildings)
+    runners/fs25-map-template.zip                   (stock template, if no custom buildings)
 """
 
 import json, os, sys
 
 AUTO_BUILDINGS = "--buildings" in sys.argv
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT_DIR = os.path.join(SCRIPT_DIR, "output")
+SCRIPT_DIR  = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR    = os.path.dirname(SCRIPT_DIR)
+CONFIG_DIR  = os.path.join(ROOT_DIR, "config")
+DATA_DIR    = os.path.join(ROOT_DIR, "data")
+OUTPUT_DIR  = os.path.join(ROOT_DIR, "outputs")
 
-CUSTOM_OSM       = os.path.join(SCRIPT_DIR, "custom_osm.osm")
-TEXTURE_SCHEMA   = os.path.join(SCRIPT_DIR,
+CUSTOM_OSM       = os.path.join(DATA_DIR, "custom_osm.osm")
+TEXTURE_SCHEMA   = os.path.join(CONFIG_DIR,
     "fs25_texture_schema_uk_buildings.json" if AUTO_BUILDINGS
     else "fs25_texture_schema_uk.json")
-TREE_SCHEMA      = os.path.join(SCRIPT_DIR, "fs25_tree_schema_uk.json")
-BUILDINGS_SCHEMA = os.path.join(SCRIPT_DIR, "fs25_buildings_schema_uk.json")
-GEN_SETTINGS     = os.path.join(SCRIPT_DIR, "generation_settings.json")
+TREE_SCHEMA      = os.path.join(CONFIG_DIR, "fs25_tree_schema_uk.json")
+BUILDINGS_SCHEMA = os.path.join(CONFIG_DIR, "fs25_buildings_schema_uk.json")
+GEN_SETTINGS     = os.path.join(CONFIG_DIR, "generation_settings.json")
 
 # Template: prefer the UK one (with your buildings bundled), fall back to stock
 CUSTOM_TEMPLATE = None

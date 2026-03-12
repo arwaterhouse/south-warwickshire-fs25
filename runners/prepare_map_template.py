@@ -18,7 +18,9 @@ Usage:
 import os, sys, json, shutil, zipfile, urllib.request
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
-SCHEMA_PATH  = os.path.join(SCRIPT_DIR, "fs25_buildings_schema_uk.json")
+ROOT_DIR     = os.path.dirname(SCRIPT_DIR)
+CONFIG_DIR   = os.path.join(ROOT_DIR, "config")
+SCHEMA_PATH  = os.path.join(CONFIG_DIR, "fs25_buildings_schema_uk.json")
 TEMPLATE_URL = "https://github.com/iwatkot/maps4fsdata/raw/main/fs25/fs25-map-template.zip"
 TEMPLATE_ZIP = os.path.join(SCRIPT_DIR, "fs25-map-template.zip")
 TEMPLATE_DIR = os.path.join(SCRIPT_DIR, "map_template")

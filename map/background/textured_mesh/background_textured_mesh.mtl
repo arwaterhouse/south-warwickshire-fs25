@@ -1,0 +1,7 @@
+# Material with X,Z UV mapping
+newmtl TerrainMaterial_XZ
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+illum 1
+map_Kd background_texture.jpg

@@ -28,9 +28,11 @@ MAP_LAT_MAX = MAP_LAT + HALF * LAT_PER_M
 MAP_LON_MIN = MAP_LON - HALF * LON_PER_M
 MAP_LON_MAX = MAP_LON + HALF * LON_PER_M
 
-OSM_FILE    = Path("custom_osm.osm")
-CROME_FILE  = Path("crome_south_warwickshire_fs25.geojson")
-OUTPUT_FILE = Path("hedge_splines.geojson")
+SCRIPT_DIR  = Path(__file__).resolve().parent
+ROOT_DIR    = SCRIPT_DIR.parent
+OSM_FILE    = ROOT_DIR / "data" / "custom_osm.osm"
+CROME_FILE  = ROOT_DIR / "data" / "crome_south_warwickshire_fs25.geojson"
+OUTPUT_FILE = ROOT_DIR / "outputs" / "hedge_splines.geojson"
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 def any_in_bbox(coords, t=0.3):

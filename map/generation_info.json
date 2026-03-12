@@ -1,0 +1,141 @@
+{
+    "Satellite": {},
+    "Texture": {
+        "coordinates": [
+            52.089387,
+            -1.53229
+        ],
+        "bbox": [
+            52.1078050804709,
+            52.07096891952911,
+            -1.5023141851585768,
+            -1.562265814841423
+        ],
+        "map_size": 4096,
+        "rotation": 0,
+        "minimum_x": -1.562265814841423,
+        "minimum_y": 52.07096891952911,
+        "maximum_x": -1.5023141851585768,
+        "maximum_y": 52.1078050804709
+    },
+    "Background": {
+        "center_latitude": 52.089387,
+        "center_longitude": -1.53229,
+        "epsg3857_string": "-177247.5274361465,-163899.9576591038,6809632.903109887,6822980.4768386455 [EPSG:3857]",
+        "epsg3857_string_with_margin": "-177747,-163399,6809132,6823480 [EPSG:3857]",
+        "height": 8192,
+        "width": 8192,
+        "north": 52.12622316094179,
+        "south": 52.05255083905821,
+        "east": -1.4723383703171538,
+        "west": -1.592241629682846,
+        "DEM": {
+            "original": {
+                "min": 65.0,
+                "max": 231.0,
+                "deviation": 166.0,
+                "dtype": "int16",
+                "shape": "(265, 432)"
+            },
+            "multiplied": {
+                "min": 65.0,
+                "max": 231.0,
+                "deviation": 166.0,
+                "dtype": "int16",
+                "shape": "(8192, 8192)"
+            },
+            "raised_lowered": {
+                "min": 20.0,
+                "max": 186.0,
+                "deviation": 166.0,
+                "dtype": "int16",
+                "shape": "(8192, 8192)"
+            },
+            "height_scale": {
+                "height_scale_from_settings": 255,
+                "adjusted_height_scale": 255,
+                "mesh_z_scaling_factor": 257.0,
+                "height_scale_multiplier": 1.0
+            },
+            "normalized": {
+                "min": 5140.0,
+                "max": 47802.0,
+                "deviation": 42662.0,
+                "dtype": "uint16",
+                "shape": "(8192, 8192)"
+            }
+        },
+        "Mesh": [
+            {
+                "name": "FULL",
+                "x_size": 8192.0,
+                "y_size": 8192.0,
+                "z_size": 165.7743,
+                "x_center": 4118.393,
+                "y_center": -4113.4888,
+                "z_center": -108.7966
+            },
+            {
+                "name": "plane_water",
+                "x_size": 7600.0,
+                "y_size": 6272.0,
+                "z_size": 0.0,
+                "x_center": 4787.002,
+                "y_center": -4210.1138,
+                "z_center": -0.0
+            },
+            {
+                "name": "elevated_water",
+                "x_size": 7600.0,
+                "y_size": 6272.0,
+                "z_size": 116.0195,
+                "x_center": 4787.874,
+                "y_center": -4210.5282,
+                "z_center": -74.9109
+            }
+        ]
+    },
+    "GRLE": {},
+    "Config": {
+        "Overview": {
+            "epsg3857_string": "-177247.5274361465,-163899.9576591038,6809632.903109887,6822980.4768386455 [EPSG:3857]",
+            "epsg3857_string_with_margin": "-177747,-163399,6809132,6823480 [EPSG:3857]",
+            "south": 52.12622316094179,
+            "west": 52.05255083905821,
+            "north": -1.4723383703171538,
+            "east": -1.592241629682846,
+            "height": 8192,
+            "width": 8192
+        },
+        "Fog": {
+            "minimum_height": 33,
+            "maximum_height": 172
+        },
+        "license_plate_country_name": "united kingdom"
+    },
+    "Road": {
+        "road_textures": [
+            "gravel-bright"
+        ],
+        "total_OSM_roads": 398,
+        "total_fitted_roads": 103,
+        "total_patches_created": 22
+    },
+    "I3d": {
+        "Forests": {
+            "available_tree_count": 1046904,
+            "step_by_limit": 52,
+            "tree_count": 20133,
+            "tree_limit": 20000,
+            "initial_step": 10,
+            "actual_step": 52,
+            "shift": 2.0
+        },
+        "Fields": {
+            "added_fields": 226,
+            "skipped_fields": 155,
+            "skipped_field_ids": []
+        }
+    },
+    "Building": {}
+}

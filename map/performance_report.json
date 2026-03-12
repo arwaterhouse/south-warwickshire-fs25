@@ -1,0 +1,48 @@
+{
+    "Satellite": {
+        "process": 3.16239
+    },
+    "Texture": {
+        "_prepare_weights": 2.93608,
+        "fetch_osm_data": 17.79379,
+        "draw": 22.16932,
+        "add_borders": 0.19934,
+        "dissolve": 3.47286
+    },
+    "Background": {
+        "preprocess": 0.003,
+        "create_background_textures": 3.85179,
+        "subtraction": 2.53032,
+        "create_foundations": 0.05288,
+        "flatten_roads": 17.69822,
+        "generate_obj_files": 24.91865,
+        "decimate_background_mesh": 13.7562,
+        "texture_background_mesh": 1.88497,
+        "convert_background_mesh_to_i3d": 3.55746,
+        "generate_water_resources_obj": 3.97237,
+        "convert_water_mesh_to_i3d": 0.67698
+    },
+    "DEM": {
+        "resize_to_output": 0.01087,
+        "determine_height_scale": 0.0068,
+        "normalize_data": 0.42821,
+        "process": 1.96979
+    },
+    "GRLE": {
+        "_add_farmlands": 2.41845,
+        "_add_plants": 1.2685,
+        "get_resized_weight": 0.21511,
+        "_process_environment": 0.14866,
+        "process": 7.12705
+    },
+    "Config": {
+        "_adjust_fog": 0.1631,
+        "_set_overview": 1.56248,
+        "update_license_plates": 0.11199
+    },
+    "I3d": {
+        "_add_fields": 0.62817,
+        "_add_forests": 2.17264,
+        "_add_splines": 0.82111
+    }
+}

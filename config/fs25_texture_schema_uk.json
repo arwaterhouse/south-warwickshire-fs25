@@ -98,7 +98,7 @@
     "name": "asphalt",
     "count": 2,
     "tags": {
-      "highway": ["secondary", "tertiary"]
+      "highway": ["trunk", "primary", "secondary", "tertiary"]
     },
     "width": 7,
     "color": [50, 50, 50],

@@ -175,6 +175,8 @@
     "count": 2,
     "tags": {
       "highway": [
+        "trunk",
+        "primary",
         "secondary",
         "tertiary"
       ]
