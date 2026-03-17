@@ -286,7 +286,14 @@ def export_building(label: str, src_model: str, ext: str, dst_dir: Path) -> str:
     Returns a short status tag: 'i3d' | 'fbx' | 'obj' | 'converted' | 'failed'
     """
     src_dir  = os.path.dirname(src_model)
+    parent_dir = os.path.dirname(src_dir)   # e.g. british_house_001/ when model is in model/
     basename = os.path.splitext(os.path.basename(src_model))[0]
+
+    def _copy_all_textures() -> None:
+        """Copy textures from src_dir AND from sibling textures/ folder in parent."""
+        copy_textures_from_dir(src_dir, str(dst_dir))
+        if parent_dir and parent_dir != src_dir:
+            copy_textures_from_dir(parent_dir, str(dst_dir))
 
     if ext == ".i3d":
         dst = dst_dir / os.path.basename(src_model)
@@ -295,15 +302,14 @@ def export_building(label: str, src_model: str, ext: str, dst_dir: Path) -> str:
             dst_ref = dst_dir / os.path.basename(ref)
             if not dst_ref.exists():
                 shutil.copy2(ref, dst_ref)
-        copy_textures_from_dir(src_dir, str(dst_dir))
+        _copy_all_textures()
         rewrite_i3d_paths(str(dst))
         return "i3d"
 
     if ext in (".fbx", ".obj", ".dae", ".3ds"):
         dst = dst_dir / os.path.basename(src_model)
         shutil.copy2(src_model, dst)
-        copy_textures_from_dir(src_dir, str(dst_dir))
-        # For OBJ also copy the .mtl explicitly
+        _copy_all_textures()
         if ext == ".obj":
             mtl = os.path.join(src_dir, basename + ".mtl")
             if os.path.isfile(mtl):
@@ -315,14 +321,14 @@ def export_building(label: str, src_model: str, ext: str, dst_dir: Path) -> str:
         dst_fbx = str(dst_dir / (basename + ".fbx"))
         ok = convert_to_fbx_via_blender(src_model, dst_fbx)
         if ok:
-            copy_textures_from_dir(src_dir, str(dst_dir))
+            _copy_all_textures()
             return "converted→fbx"
         return "blender-failed"
 
     # No Blender — copy raw and flag
     dst = dst_dir / os.path.basename(src_model)
     shutil.copy2(src_model, dst)
-    copy_textures_from_dir(src_dir, str(dst_dir))
+    _copy_all_textures()
     return f"{ext.lstrip('.')} (needs Blender to convert)"
 
 
