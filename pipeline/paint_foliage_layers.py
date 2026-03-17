@@ -122,7 +122,7 @@ def soft_blur(img: Image.Image, radius: int = 4) -> Image.Image:
 
 def save_foliage(img: Image.Image, name: str):
     path = FOLIAGE_DIR / name
-    img.save(str(path))
+    img.save(str(path), optimize=True, compress_level=9)
     print(f"  → {path.name}  (max={np.max(np.array(img))})")
 
 
