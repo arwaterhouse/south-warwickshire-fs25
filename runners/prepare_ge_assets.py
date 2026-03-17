@@ -337,8 +337,20 @@ for label, folder_path in mod_folders:
     candidates = best_models(by_ext)
 
     if not candidates:
-        print(f"  ⚠️  {label}")
-        print(f"       └─ no 3D model files found (check folder contents)")
+        # Show what IS in the folder so the user knows what to do
+        all_files = []
+        for rd, _, fnames in os.walk(folder_path):
+            for f in fnames:
+                all_files.append(f)
+        exts = sorted({Path(f).suffix.lower() for f in all_files if Path(f).suffix})
+        if all_files:
+            ext_summary = "  ".join(exts) if exts else "unknown types"
+            print(f"  ❌  {label}")
+            print(f"       └─ {len(all_files)} file(s) but no 3D model — found: {ext_summary}")
+            print(f"       └─ Need one of: .fbx  .obj  .glb  .blend  .i3d")
+        else:
+            print(f"  ❌  {label}")
+            print(f"       └─ folder is empty — model not yet sourced")
         counts["skipped"] += 1
         continue
 
