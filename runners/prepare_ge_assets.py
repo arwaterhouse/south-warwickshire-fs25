@@ -2,42 +2,93 @@
 """
 prepare_ge_assets.py — South Warwickshire FS25
 ===============================================
-Scans BUILDINGS_ROOT directly (no schema required) and for every .i3d found:
-  1. Copies the .i3d + all referenced textures/shapes into
-       outputs/ge_ready/<folder_label>/<building_name>/
-  2. Rewrites absolute/relative texture paths inside the .i3d to simple
-     basenames so Giants Editor can open the file without missing-file errors.
+Scans BUILDINGS_ROOT for every supported 3D model format and exports each
+building into a clean, self-contained folder under outputs/ge_ready/.
+
+Supported source formats (in preference order):
+  .i3d    → fix texture paths, copy as-is  (GE native)
+  .fbx    → copy as-is                     (GE can import directly)
+  .obj    → copy with .mtl + textures      (GE can import directly)
+  .glb    → convert to FBX via Blender     (if Blender is installed)
+  .gltf   → convert to FBX via Blender     (if Blender is installed)
+  .blend  → export to FBX via Blender      (if Blender is installed)
+  .dae    → copy as-is / convert via Blender
+
+For GE import:
+  i3d  → File → Import → I3D
+  fbx  → File → Import → FBX
+  obj  → File → Import → OBJ
 
 Usage:
     python3 runners/prepare_ge_assets.py
-    python3 runners/prepare_ge_assets.py /path/to/other/BUILDINGS
+    python3 runners/prepare_ge_assets.py /path/to/BUILDINGS
 """
 
-import os, sys, re, shutil
+import os, sys, re, shutil, subprocess, tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 # ── Config ────────────────────────────────────────────────────────────────────
 DEFAULT_BUILDINGS_ROOT = "/Users/alexwaterhouse/Documents/Modelling/FS/BUILDINGS"
-BUILDINGS_ROOT = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_BUILDINGS_ROOT
-BUILDINGS_ROOT = os.path.expanduser(BUILDINGS_ROOT)
+BUILDINGS_ROOT = os.path.expanduser(sys.argv[1] if len(sys.argv) > 1 else DEFAULT_BUILDINGS_ROOT)
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 ROOT_DIR   = SCRIPT_DIR.parent
 OUTPUT_DIR = ROOT_DIR / "outputs" / "ge_ready"
 
-ASSET_EXTS = {".png", ".dds", ".jpg", ".jpeg", ".tga", ".xml", ".lua"}
-SHAPE_EXTS = {".shapes"}   # covers both .shapes and .i3d.shapes
+# 3D formats in preference order (first found wins per folder)
+MODEL_EXTS_ORDERED = [".i3d", ".fbx", ".obj", ".glb", ".gltf", ".blend", ".dae", ".3ds"]
+MODEL_EXTS         = set(MODEL_EXTS_ORDERED)
 
-SKIP_DIRS  = {"textures", "shaders", "materials", "sounds", "effects", "scripts"}
+# Texture / material extensions to always copy alongside the model
+TEXTURE_EXTS = {".png", ".dds", ".jpg", ".jpeg", ".tga", ".bmp",
+                ".mtl", ".xml", ".lua"}
+SHAPE_SUFFIXES = (".shapes", ".i3d.shapes")
+
+SKIP_DIRS = {"textures", "shaders", "materials", "sounds", "effects", "scripts"}
+
+# Blender executable candidates (Mac + Linux)
+BLENDER_CANDIDATES = [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "/Applications/Blender.app/Contents/MacOS/blender",
+    "blender",
+    "/usr/bin/blender",
+    "/usr/local/bin/blender",
+]
+
+# ── Blender detection ─────────────────────────────────────────────────────────
+
+def find_blender() -> str | None:
+    for path in BLENDER_CANDIDATES:
+        try:
+            r = subprocess.run([path, "--version"], capture_output=True, timeout=5)
+            if r.returncode == 0:
+                return path
+        except (FileNotFoundError, subprocess.TimeoutExpired):
+            pass
+    return None
 
 
-# ── Folder discovery (mirrors scan_my_buildings logic) ───────────────────────
+BLENDER = find_blender()
 
-def has_building_files(folder: str) -> bool:
+# ── Folder discovery ──────────────────────────────────────────────────────────
+
+def has_any_model(folder: str) -> bool:
     try:
         for f in os.listdir(folder):
-            if f.lower().endswith((".i3d", ".xml")) and f.lower() != "moddesc.xml":
+            if Path(f).suffix.lower() in MODEL_EXTS:
+                return True
+    except PermissionError:
+        pass
+    return False
+
+
+def has_building_files(folder: str) -> bool:
+    """True if this folder directly contains model or xml files."""
+    try:
+        for f in os.listdir(folder):
+            fl = f.lower()
+            if Path(fl).suffix in MODEL_EXTS or (fl.endswith(".xml") and fl != "moddesc.xml"):
                 return True
     except PermissionError:
         pass
@@ -45,7 +96,7 @@ def has_building_files(folder: str) -> bool:
 
 
 def discover_mod_folders(root: str) -> list[tuple[str, str]]:
-    """(label, path) for every building folder under root, two levels deep."""
+    """(label, path) for every building folder, up to two levels deep."""
     result = []
     for cat in sorted(os.scandir(root), key=lambda e: e.name):
         if not cat.is_dir() or cat.name.startswith("."):
@@ -59,20 +110,37 @@ def discover_mod_folders(root: str) -> list[tuple[str, str]]:
     return result
 
 
-def find_i3d_files(folder: str) -> list[str]:
-    results = []
+# ── Model finding ─────────────────────────────────────────────────────────────
+
+def find_models_in_folder(folder: str) -> dict[str, list[str]]:
+    """
+    Walk folder and return {ext: [abs_paths]} for all model files found.
+    Skips pure-asset subdirs.
+    """
+    by_ext: dict[str, list[str]] = {}
     for root_dir, dirs, files in os.walk(folder):
         dirs[:] = [d for d in dirs if d.lower() not in SKIP_DIRS]
         for f in files:
-            if f.lower().endswith(".i3d"):
-                results.append(os.path.join(root_dir, f))
-    return results
+            ext = Path(f).suffix.lower()
+            if ext in MODEL_EXTS:
+                by_ext.setdefault(ext, []).append(os.path.join(root_dir, f))
+    return by_ext
+
+
+def best_models(by_ext: dict[str, list[str]]) -> list[tuple[str, str]]:
+    """
+    Return (ext, path) list using the best available format.
+    Prefer i3d > fbx > obj > glb > gltf > blend > dae.
+    """
+    for ext in MODEL_EXTS_ORDERED:
+        if ext in by_ext:
+            return [(ext, p) for p in by_ext[ext]]
+    return []
 
 
 # ── Asset helpers ─────────────────────────────────────────────────────────────
 
-def collect_referenced_files(i3d_path: str) -> list[str]:
-    """Parse i3d XML and collect every external file it references on disk."""
+def collect_i3d_refs(i3d_path: str) -> list[str]:
     src_dir = os.path.dirname(i3d_path)
     found = []
     ref_attrs = {
@@ -81,77 +149,178 @@ def collect_referenced_files(i3d_path: str) -> list[str]:
         "colorMapFilename", "reflectionMapFilename",
     }
     try:
-        tree = ET.parse(i3d_path)
-        for elem in tree.getroot().iter():
+        for elem in ET.parse(i3d_path).getroot().iter():
             for attr, val in elem.attrib.items():
-                is_ref = (attr in ref_attrs or
-                          any(val.lower().endswith(e)
-                              for e in (".png", ".dds", ".shapes", ".i3d.shapes",
-                                        ".xml", ".jpg", ".jpeg", ".tga")))
-                if is_ref:
-                    candidate = os.path.normpath(os.path.join(src_dir, val))
-                    if os.path.isfile(candidate) and candidate not in found:
-                        found.append(candidate)
+                if attr in ref_attrs or any(
+                    val.lower().endswith(e)
+                    for e in (".png", ".dds", ".shapes", ".i3d.shapes", ".xml")
+                ):
+                    c = os.path.normpath(os.path.join(src_dir, val))
+                    if os.path.isfile(c) and c not in found:
+                        found.append(c)
     except Exception:
         pass
     return found
 
 
-def copy_siblings(src_dir: str, dst_dir: str) -> None:
-    """Copy all asset files sitting next to the i3d into dst_dir."""
+def copy_textures_from_dir(src_dir: str, dst_dir: str) -> int:
+    """Copy all texture / material / shape files from src_dir → dst_dir."""
+    n = 0
     for fname in os.listdir(src_dir):
         src = os.path.join(src_dir, fname)
         if not os.path.isfile(src):
             continue
-        ext = os.path.splitext(fname)[1].lower()
-        is_shape = fname.lower().endswith(".i3d.shapes") or ext in SHAPE_EXTS
-        if ext in ASSET_EXTS or is_shape:
+        fl = fname.lower()
+        if Path(fl).suffix in TEXTURE_EXTS or any(fl.endswith(s) for s in SHAPE_SUFFIXES):
             dst = os.path.join(dst_dir, fname)
             if not os.path.exists(dst):
                 shutil.copy2(src, dst)
+                n += 1
+    return n
 
 
-def rewrite_paths_to_relative(i3d_path: str) -> None:
-    """Replace any ../../ or absolute paths in the i3d with bare basenames."""
+def rewrite_i3d_paths(i3d_path: str) -> None:
+    """Replace any ../../ or absolute paths inside i3d with bare filenames."""
     try:
-        with open(i3d_path, "r", encoding="utf-8", errors="replace") as fh:
-            content = fh.read()
+        txt = Path(i3d_path).read_text(encoding="utf-8", errors="replace")
+        file_exts = r"\.(?:png|dds|jpg|jpeg|tga|shapes|xml)"
+        txt = re.sub(
+            rf'(["\'])([^"\']+?{file_exts})\1',
+            lambda m: f'{m.group(1)}{os.path.basename(m.group(2))}{m.group(1)}',
+            txt, flags=re.IGNORECASE,
+        )
+        Path(i3d_path).write_text(txt, encoding="utf-8")
     except Exception as e:
-        print(f"    ⚠️  Cannot read for path rewrite: {e}")
-        return
+        print(f"      ⚠️  Path rewrite failed: {e}")
 
-    file_exts = r"\.(?:png|dds|jpg|jpeg|tga|shapes|xml)"
 
-    def _basename(m: re.Match) -> str:
-        q, val = m.group(1), m.group(2)
-        return f"{q}{os.path.basename(val)}{q}"
+# ── Blender conversion ────────────────────────────────────────────────────────
 
-    content = re.sub(
-        rf'(["\'])([^"\']+?{file_exts})\1',
-        _basename,
-        content,
-        flags=re.IGNORECASE,
-    )
+BLENDER_EXPORT_SCRIPT = """
+import bpy, sys, os
 
+src  = sys.argv[sys.argv.index('--') + 1]
+dst  = sys.argv[sys.argv.index('--') + 2]
+
+# Clear scene
+bpy.ops.wm.read_factory_settings(use_empty=True)
+
+ext = os.path.splitext(src)[1].lower()
+if ext == '.blend':
+    bpy.ops.wm.open_mainfile(filepath=src)
+elif ext in ('.glb', '.gltf'):
+    bpy.ops.import_scene.gltf(filepath=src)
+elif ext == '.obj':
+    bpy.ops.wm.obj_import(filepath=src)
+elif ext == '.dae':
+    bpy.ops.wm.collada_import(filepath=src)
+elif ext == '.fbx':
+    bpy.ops.import_scene.fbx(filepath=src)
+else:
+    print(f'Unsupported: {ext}')
+    sys.exit(1)
+
+# Apply all transforms
+for obj in bpy.context.scene.objects:
+    if obj.type == 'MESH':
+        bpy.context.view_layer.objects.active = obj
+        bpy.ops.object.transform_apply(location=False, rotation=True, scale=True)
+
+bpy.ops.export_scene.fbx(
+    filepath=dst,
+    use_selection=False,
+    embed_textures=False,
+    path_mode='COPY',
+    axis_forward='-Z',
+    axis_up='Y',
+    bake_space_transform=True,
+)
+print(f'Exported: {dst}')
+"""
+
+
+def convert_to_fbx_via_blender(src_path: str, dst_fbx: str) -> bool:
+    """Use Blender headlessly to convert src → FBX. Returns True on success."""
+    if not BLENDER:
+        return False
+    with tempfile.NamedTemporaryFile(suffix=".py", mode="w",
+                                     delete=False, encoding="utf-8") as tf:
+        tf.write(BLENDER_EXPORT_SCRIPT)
+        script_path = tf.name
     try:
-        with open(i3d_path, "w", encoding="utf-8") as fh:
-            fh.write(content)
-    except Exception as e:
-        print(f"    ⚠️  Cannot write rewritten i3d: {e}")
+        result = subprocess.run(
+            [BLENDER, "--background", "--python", script_path,
+             "--", src_path, dst_fbx],
+            capture_output=True, text=True, timeout=120,
+        )
+        return result.returncode == 0 and os.path.isfile(dst_fbx)
+    except Exception:
+        return False
+    finally:
+        os.unlink(script_path)
+
+
+# ── Export one building ───────────────────────────────────────────────────────
+
+def export_building(label: str, src_model: str, ext: str, dst_dir: Path) -> str:
+    """
+    Copy / convert one model file into dst_dir.
+    Returns a short status tag: 'i3d' | 'fbx' | 'obj' | 'converted' | 'failed'
+    """
+    src_dir  = os.path.dirname(src_model)
+    basename = os.path.splitext(os.path.basename(src_model))[0]
+
+    if ext == ".i3d":
+        dst = dst_dir / os.path.basename(src_model)
+        shutil.copy2(src_model, dst)
+        for ref in collect_i3d_refs(src_model):
+            dst_ref = dst_dir / os.path.basename(ref)
+            if not dst_ref.exists():
+                shutil.copy2(ref, dst_ref)
+        copy_textures_from_dir(src_dir, str(dst_dir))
+        rewrite_i3d_paths(str(dst))
+        return "i3d"
+
+    if ext in (".fbx", ".obj", ".dae", ".3ds"):
+        dst = dst_dir / os.path.basename(src_model)
+        shutil.copy2(src_model, dst)
+        copy_textures_from_dir(src_dir, str(dst_dir))
+        # For OBJ also copy the .mtl explicitly
+        if ext == ".obj":
+            mtl = os.path.join(src_dir, basename + ".mtl")
+            if os.path.isfile(mtl):
+                shutil.copy2(mtl, dst_dir / (basename + ".mtl"))
+        return ext.lstrip(".")
+
+    # .blend / .glb / .gltf — need Blender
+    if BLENDER:
+        dst_fbx = str(dst_dir / (basename + ".fbx"))
+        ok = convert_to_fbx_via_blender(src_model, dst_fbx)
+        if ok:
+            copy_textures_from_dir(src_dir, str(dst_dir))
+            return "converted→fbx"
+        return "blender-failed"
+
+    # No Blender — copy raw and flag
+    dst = dst_dir / os.path.basename(src_model)
+    shutil.copy2(src_model, dst)
+    copy_textures_from_dir(src_dir, str(dst_dir))
+    return f"{ext.lstrip('.')} (needs Blender to convert)"
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 if not os.path.isdir(BUILDINGS_ROOT):
-    print(f"ERROR: BUILDINGS_ROOT not found: {BUILDINGS_ROOT}")
-    print("       Run on your Mac, or pass the path as an argument.")
+    print(f"ERROR: BUILDINGS_ROOT not found:\n  {BUILDINGS_ROOT}")
+    print("Run on your Mac, or pass the path as an argument.")
     sys.exit(1)
 
 print("=" * 60)
 print("  South Warwickshire FS25 — Prepare GE Assets")
 print("=" * 60)
-print(f"  Source : {BUILDINGS_ROOT}")
-print(f"  Output : {OUTPUT_DIR}")
+print(f"  Source  : {BUILDINGS_ROOT}")
+print(f"  Output  : {OUTPUT_DIR}")
+print(f"  Blender : {BLENDER or 'not found — .blend/.glb/.gltf will be copied raw'}")
 print()
 
 if OUTPUT_DIR.exists():
@@ -161,50 +330,53 @@ OUTPUT_DIR.mkdir(parents=True)
 mod_folders = discover_mod_folders(BUILDINGS_ROOT)
 print(f"  Found {len(mod_folders)} building folder(s)\n")
 
-ok = skipped = 0
+counts = {"ok": 0, "skipped": 0, "needs_blender": 0}
 
 for label, folder_path in mod_folders:
-    i3d_files = find_i3d_files(folder_path)
-    if not i3d_files:
-        print(f"  ⚠️  {label} — no .i3d files found, skipped")
-        skipped += 1
+    by_ext = find_models_in_folder(folder_path)
+    candidates = best_models(by_ext)
+
+    if not candidates:
+        print(f"  ⚠️  {label}")
+        print(f"       └─ no 3D model files found (check folder contents)")
+        counts["skipped"] += 1
         continue
 
-    # Use label as the output folder name (replace / with _)
     out_label = label.replace("/", "_")
 
-    for i3d_src in i3d_files:
-        name     = os.path.splitext(os.path.basename(i3d_src))[0]
-        dst_dir  = OUTPUT_DIR / out_label / name
+    for ext, src_model in candidates:
+        name    = os.path.splitext(os.path.basename(src_model))[0]
+        dst_dir = OUTPUT_DIR / out_label / name
         dst_dir.mkdir(parents=True, exist_ok=True)
 
-        # Copy i3d
-        dst_i3d = dst_dir / os.path.basename(i3d_src)
-        shutil.copy2(i3d_src, dst_i3d)
-
-        # Copy all referenced external files
-        for ref in collect_referenced_files(i3d_src):
-            dst_ref = dst_dir / os.path.basename(ref)
-            if not dst_ref.exists():
-                shutil.copy2(ref, dst_ref)
-
-        # Copy anything else sitting next to the i3d
-        copy_siblings(os.path.dirname(i3d_src), str(dst_dir))
-
-        # Rewrite paths inside the copied i3d → relative basenames
-        rewrite_paths_to_relative(str(dst_i3d))
-
+        status = export_building(label, src_model, ext, dst_dir)
         n_files = len(list(dst_dir.iterdir()))
-        print(f"  ✅  {label}/{name:35s} ({n_files} files)")
-        ok += 1
+
+        needs_blender = "needs Blender" in status or "blender-failed" in status
+        icon = "⚠️ " if needs_blender else "✅"
+        print(f"  {icon} {label}/{name}")
+        print(f"       └─ {status}  ({n_files} file{'s' if n_files != 1 else ''})")
+
+        if needs_blender:
+            counts["needs_blender"] += 1
+        else:
+            counts["ok"] += 1
 
 print()
-print(f"  Exported : {ok} building(s)  |  Skipped : {skipped}")
+print(f"  Exported   : {counts['ok']}")
+print(f"  No models  : {counts['skipped']}")
+if counts["needs_blender"]:
+    print(f"  Needs Blender : {counts['needs_blender']}")
+    print()
+    print("  Install Blender to auto-convert .blend / .glb / .gltf → FBX")
+    print("  https://www.blender.org/download/")
 print()
-print("NEXT STEPS:")
-print("  In Giants Editor: File → Import → I3D")
-print(f"  Navigate to:  {OUTPUT_DIR}/<folder>/<name>/<name>.i3d")
+print("IMPORT INTO GIANTS EDITOR:")
+print("  i3d files → File → Import → I3D")
+print("  fbx files → File → Import → FBX")
+print("  obj files → File → Import → OBJ")
+print(f"\n  Assets are in: {OUTPUT_DIR}")
 print()
-print("  To place buildings on the map run:")
-print("    python3 pipeline/place_farm_placeables.py")
-print("    python3 pipeline/place_windmill.py")
+print("TO PLACE BUILDINGS ON THE MAP:")
+print("  python3 pipeline/place_farm_placeables.py")
+print("  python3 pipeline/place_windmill.py")
