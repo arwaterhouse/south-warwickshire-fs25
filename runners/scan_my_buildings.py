@@ -144,7 +144,7 @@ def parse_moddesc(mod_folder: str) -> list[dict]:
 
 
 def find_i3d_files(mod_folder: str) -> list[str]:
-    """Fallback: walk the mod folder for .i3d files, skipping asset-only dirs."""
+    """Walk the mod folder for .i3d files, skipping pure-asset dirs."""
     results = []
     skip = {"textures", "shaders", "materials", "sounds", "effects", "scripts"}
     for root_dir, dirs, files in os.walk(mod_folder):
@@ -155,28 +155,103 @@ def find_i3d_files(mod_folder: str) -> list[str]:
     return results
 
 
-def extract_size_from_i3d(i3d_path: str) -> tuple[float, float] | None:
-    """Try to read a bounding box from the i3d file itself."""
+def find_xml_placeables(mod_folder: str) -> list[str]:
+    """Walk the mod folder for XML files that look like placeable descriptors."""
+    results = []
+    skip = {"textures", "shaders", "materials", "sounds", "effects", "scripts"}
+    for root_dir, dirs, files in os.walk(mod_folder):
+        dirs[:] = [d for d in dirs if d.lower() not in skip]
+        for f in files:
+            if f.lower().endswith(".xml") and f.lower() not in ("moddesc.xml",):
+                results.append(os.path.join(root_dir, f))
+    return results
+
+
+def extract_size_from_xml(xml_path: str) -> tuple[float, float] | None:
+    """Try every known FS25 XML size attribute pattern."""
     try:
-        tree = ET.parse(i3d_path)
+        tree = ET.parse(xml_path)
         root = tree.getroot()
         for elem in root.iter():
-            for attr in ("boundingVolume", "clipDistance"):
-                val = elem.get(attr)
-                if val:
-                    nums = re.findall(r"[-\d.]+", val)
-                    if len(nums) >= 6:
+            # Pattern 1: sizeX / sizeZ  (storageExtension, etc.)
+            for w_attr, d_attr in [
+                ("sizeX", "sizeZ"), ("width", "depth"), ("width", "length"),
+                ("sizeWidth", "sizeDepth"), ("sizeWidth", "sizeLength"),
+                ("widthX", "lengthZ"),
+            ]:
+                wv, dv = elem.get(w_attr), elem.get(d_attr)
+                if wv and dv:
+                    try:
+                        w, d = float(wv), float(dv)
+                        if 1 < w < 500 and 1 < d < 500:
+                            return round(w, 1), round(d, 1)
+                    except (ValueError, TypeError):
+                        pass
+
+            # Pattern 2: <size width="..." depth="..."/> child element
+            for child in elem:
+                if child.tag.lower() in ("size", "dimensions"):
+                    wv = child.get("width") or child.get("x") or child.get("sizeX")
+                    dv = child.get("depth") or child.get("z") or child.get("length") or child.get("sizeZ")
+                    if wv and dv:
                         try:
-                            xs = [float(nums[i]) for i in [0, 3]]
-                            zs = [float(nums[i]) for i in [2, 5]]
-                            w  = abs(xs[1] - xs[0])
-                            d  = abs(zs[1] - zs[0])
-                            if 3 < w < 200 and 3 < d < 200:
+                            w, d = float(wv), float(dv)
+                            if 1 < w < 500 and 1 < d < 500:
                                 return round(w, 1), round(d, 1)
-                        except (ValueError, IndexError):
+                        except (ValueError, TypeError):
                             pass
     except Exception:
         pass
+    return None
+
+
+def extract_size_from_i3d(i3d_path: str) -> tuple[float, float] | None:
+    """Try companion XML first, then parse the i3d for bounding box data."""
+
+    # 1. Companion XML with same basename (most reliable for FS25)
+    companion = os.path.splitext(i3d_path)[0] + ".xml"
+    if os.path.isfile(companion):
+        dims = extract_size_from_xml(companion)
+        if dims:
+            return dims
+
+    # 2. Any XML files in the same directory
+    i3d_dir = os.path.dirname(i3d_path)
+    for fname in os.listdir(i3d_dir):
+        if fname.lower().endswith(".xml") and fname.lower() != "moddesc.xml":
+            dims = extract_size_from_xml(os.path.join(i3d_dir, fname))
+            if dims:
+                return dims
+
+    # 3. Parse the i3d itself for boundingVolume
+    try:
+        tree = ET.parse(i3d_path)
+        root = tree.getroot()
+        best = None
+        best_vol = 0.0
+        for elem in root.iter():
+            for attr in ("boundingVolume", "clipDistance"):
+                val = elem.get(attr)
+                if not val:
+                    continue
+                nums = re.findall(r"[-\d.]+", val)
+                if len(nums) >= 6:
+                    try:
+                        xs = [float(nums[i]) for i in [0, 3]]
+                        zs = [float(nums[i]) for i in [2, 5]]
+                        w = abs(xs[1] - xs[0])
+                        d = abs(zs[1] - zs[0])
+                        vol = w * d
+                        if 1 < w < 500 and 1 < d < 500 and vol > best_vol:
+                            best = (round(w, 1), round(d, 1))
+                            best_vol = vol
+                    except (ValueError, IndexError):
+                        pass
+        if best:
+            return best
+    except Exception:
+        pass
+
     return None
 
 
@@ -195,13 +270,44 @@ if not os.path.isdir(BUILDINGS_ROOT):
     print("  or pass the path as an argument:  python3 runners/scan_my_buildings.py /path/to/BUILDINGS")
     sys.exit(1)
 
-mod_folders = sorted(
-    (entry.name, entry.path)
-    for entry in os.scandir(BUILDINGS_ROOT)
-    if entry.is_dir() and not entry.name.startswith(".")
-)
+def has_building_files(folder: str) -> bool:
+    """True if this folder directly contains any .i3d or .xml files."""
+    try:
+        for f in os.listdir(folder):
+            if f.lower().endswith((".i3d", ".xml")) and f.lower() != "moddesc.xml":
+                return True
+    except PermissionError:
+        pass
+    return False
 
-print(f"  Found {len(mod_folders)} mod folder(s)\n")
+
+def discover_mod_folders(root: str) -> list[tuple[str, str]]:
+    """
+    Return (label, path) for every building mod found under root.
+
+    Logic:
+      - For each immediate subfolder of root (agricultural, residential, …):
+          - If it directly contains .i3d/.xml files → treat it as one mod
+          - Otherwise recurse one more level (e.g. residential/british_house_001)
+    """
+    result = []
+    for cat_entry in sorted(os.scandir(root), key=lambda e: e.name):
+        if not cat_entry.is_dir() or cat_entry.name.startswith("."):
+            continue
+        if has_building_files(cat_entry.path):
+            result.append((cat_entry.name, cat_entry.path))
+        else:
+            # Recurse one level — each subfolder is its own building
+            for sub_entry in sorted(os.scandir(cat_entry.path), key=lambda e: e.name):
+                if sub_entry.is_dir() and not sub_entry.name.startswith("."):
+                    label = f"{cat_entry.name}/{sub_entry.name}"
+                    result.append((label, sub_entry.path))
+    return result
+
+
+mod_folders = discover_mod_folders(BUILDINGS_ROOT)
+
+print(f"  Found {len(mod_folders)} building folder(s)\n")
 
 # ── Scan each mod ──────────────────────────────────────────────────────────────
 
@@ -213,7 +319,7 @@ for label, mod_folder in mod_folders:
     items = parse_moddesc(mod_folder)
 
     if not items:
-        # Fallback: find .i3d files directly
+        # Fallback A: find .i3d files directly
         i3d_files = find_i3d_files(mod_folder)
         for i3d in i3d_files:
             dims = extract_size_from_i3d(i3d)
@@ -224,6 +330,35 @@ for label, mod_folder in mod_folders:
                 "dimensions":    dims,
                 "name":          name,
                 "placeable_xml": None,
+            })
+
+    if not items:
+        # Fallback B: XML-only folders (civic, residential, windmill etc.)
+        # Parse every XML in the folder for size + i3d reference
+        xml_files = find_xml_placeables(mod_folder)
+        for xml_path in xml_files:
+            dims = extract_size_from_xml(xml_path)
+            name = os.path.splitext(os.path.basename(xml_path))[0]
+            # Try to find an i3d reference inside the XML
+            i3d_ref = None
+            try:
+                xt = ET.parse(xml_path)
+                xr = xt.getroot()
+                for el in xr.iter():
+                    for av in el.attrib.values():
+                        if isinstance(av, str) and av.lower().endswith(".i3d"):
+                            i3d_ref = av
+                            break
+                    if i3d_ref:
+                        break
+            except Exception:
+                pass
+            items.append({
+                "i3d_absolute":  None,
+                "i3d_relative":  i3d_ref,
+                "dimensions":    dims,
+                "name":          name,
+                "placeable_xml": xml_path,
             })
 
     if not items:
