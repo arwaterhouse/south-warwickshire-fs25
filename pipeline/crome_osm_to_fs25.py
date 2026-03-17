@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 CROME 2024 + OSM → FS25 Map Pipeline
-South Warwickshire (4x4km centred at 52.099207, -1.549866)
+South Warwickshire (4x4km centred at 52.089387, -1.532290)
 
 Combines:
   - DEFRA CROME crop data  → field type assignments
@@ -28,8 +28,9 @@ from pathlib import Path
 from collections import defaultdict
 
 # ── Map configuration ──────────────────────────────────────────────────────────
-MAP_CENTRE_LAT  = 52.099207967429024
-MAP_CENTRE_LON  = -1.549866940535522
+# Must match coordinates= in runners/run_maps4fs.py and MAP_LAT/LON in generate_hedges.py
+MAP_CENTRE_LAT  = 52.089387
+MAP_CENTRE_LON  = -1.532290
 MAP_HALF_KM     = 2.0          # 4x4 km map
 LAT_PER_KM      = 1 / 111.32
 LON_PER_KM      = 1 / (111.32 * math.cos(math.radians(MAP_CENTRE_LAT)))

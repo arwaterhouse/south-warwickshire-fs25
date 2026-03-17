@@ -30,7 +30,7 @@ MAP_LON_MAX = MAP_LON + HALF * LON_PER_M
 
 SCRIPT_DIR  = Path(__file__).resolve().parent
 ROOT_DIR    = SCRIPT_DIR.parent
-OSM_FILE    = ROOT_DIR / "data" / "custom_osm.osm"
+OSM_FILE    = ROOT_DIR / "data" / "south_warwickshire_enriched.osm"
 CROME_FILE  = ROOT_DIR / "data" / "crome_south_warwickshire_fs25.geojson"
 OUTPUT_FILE = ROOT_DIR / "outputs" / "hedge_splines.geojson"
 

@@ -1,48 +1,45 @@
 {
     "Satellite": {
-        "process": 3.16239
+        "process": 3.18076
     },
     "Texture": {
-        "_prepare_weights": 2.93608,
-        "fetch_osm_data": 17.79379,
-        "draw": 22.16932,
-        "add_borders": 0.19934,
-        "dissolve": 3.47286
-    },
-    "Background": {
-        "preprocess": 0.003,
-        "create_background_textures": 3.85179,
-        "subtraction": 2.53032,
-        "create_foundations": 0.05288,
-        "flatten_roads": 17.69822,
-        "generate_obj_files": 24.91865,
-        "decimate_background_mesh": 13.7562,
-        "texture_background_mesh": 1.88497,
-        "convert_background_mesh_to_i3d": 3.55746,
-        "generate_water_resources_obj": 3.97237,
-        "convert_water_mesh_to_i3d": 0.67698
+        "_prepare_weights": 2.9282399999999997,
+        "draw": 21.991930000000004,
+        "add_borders": 0.20155,
+        "dissolve": 3.24806
     },
     "DEM": {
-        "resize_to_output": 0.01087,
-        "determine_height_scale": 0.0068,
-        "normalize_data": 0.42821,
-        "process": 1.96979
+        "resize_to_output": 0.01289,
+        "determine_height_scale": 0.00686,
+        "normalize_data": 0.43339,
+        "process": 1.94363
+    },
+    "Water": {
+        "create_water_mask": 3.39455,
+        "process": 3.41876
+    },
+    "Background": {
+        "create_foundations": 0.01031,
+        "generate_obj_files": 11.1999,
+        "decimate_background_mesh": 14.08704,
+        "texture_background_mesh": 1.69737,
+        "convert_background_mesh_to_i3d": 2.8471
     },
     "GRLE": {
-        "_add_farmlands": 2.41845,
-        "_add_plants": 1.2685,
-        "get_resized_weight": 0.21511,
-        "_process_environment": 0.14866,
-        "process": 7.12705
+        "_add_farmlands": 0.15933,
+        "_add_plants": 1.26413,
+        "get_resized_weight": 0.20987,
+        "_process_environment": 0.14664,
+        "process": 4.78065
     },
     "Config": {
-        "_adjust_fog": 0.1631,
-        "_set_overview": 1.56248,
-        "update_license_plates": 0.11199
+        "_adjust_fog": 0.16965,
+        "_set_overview": 1.55727,
+        "update_license_plates": 0.08552
     },
-    "I3d": {
-        "_add_fields": 0.62817,
-        "_add_forests": 2.17264,
-        "_add_splines": 0.82111
+    "Scene": {
+        "_add_fields": 0.59222,
+        "_add_forests": 5.68683,
+        "_add_splines": 0.66051
     }
 }
