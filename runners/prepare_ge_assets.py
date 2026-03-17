@@ -163,37 +163,41 @@ def collect_i3d_refs(i3d_path: str) -> list[str]:
     return found
 
 
-def copy_textures_from_dir(src_dir: str, dst_dir: str) -> int:
+def copy_textures_from_dir(src_dir: str, dst_dir: str, max_depth: int = 3) -> int:
     """
-    Copy all texture / material / shape files from src_dir → dst_dir (flat).
-    Also recurses into common texture subdirectories (textures/, Textures/,
-    materials/, Maps/, etc.) so FBX assets from Sketchfab/similar are complete.
+    Recursively walk src_dir (up to max_depth) and copy every texture /
+    material / shape file into dst_dir (flat).  Skips model-format files and
+    pure-model subdirs so we don't accidentally copy meshes as textures.
     """
-    TEXTURE_SUBDIRS = {"textures", "texture", "materials", "material",
-                       "maps", "images", "assets", "albedo", "normal"}
+    SKIP = {"__macosx", ".git"}
     n = 0
 
     def _copy_file(src: str) -> None:
         nonlocal n
         fl = os.path.basename(src).lower()
-        if Path(fl).suffix in TEXTURE_EXTS or any(fl.endswith(s) for s in SHAPE_SUFFIXES):
+        ext = Path(fl).suffix
+        is_shape = any(fl.endswith(s) for s in SHAPE_SUFFIXES)
+        is_model = ext in MODEL_EXTS
+        if (ext in TEXTURE_EXTS or is_shape) and not is_model:
             dst = os.path.join(dst_dir, os.path.basename(src))
             if not os.path.exists(dst):
                 shutil.copy2(src, dst)
                 n += 1
 
-    # Files directly in src_dir
-    for fname in os.listdir(src_dir):
-        full = os.path.join(src_dir, fname)
-        if os.path.isfile(full):
-            _copy_file(full)
-        elif os.path.isdir(full) and fname.lower() in TEXTURE_SUBDIRS:
-            # One level of recursion into texture subfolders
-            for sub_fname in os.listdir(full):
-                sub_full = os.path.join(full, sub_fname)
-                if os.path.isfile(sub_full):
-                    _copy_file(sub_full)
+    def _walk(folder: str, depth: int) -> None:
+        if depth > max_depth:
+            return
+        try:
+            entries = os.scandir(folder)
+        except PermissionError:
+            return
+        for entry in entries:
+            if entry.is_file():
+                _copy_file(entry.path)
+            elif entry.is_dir() and entry.name.lower() not in SKIP:
+                _walk(entry.path, depth + 1)
 
+    _walk(src_dir, 0)
     return n
 
 
@@ -290,8 +294,9 @@ def export_building(label: str, src_model: str, ext: str, dst_dir: Path) -> str:
     basename = os.path.splitext(os.path.basename(src_model))[0]
 
     def _copy_all_textures() -> None:
-        """Copy textures from src_dir AND from sibling textures/ folder in parent."""
+        """Copy textures from src_dir tree AND sibling dirs in parent."""
         copy_textures_from_dir(src_dir, str(dst_dir))
+        # Also search parent folder (catches model/ + sibling textures/ pattern)
         if parent_dir and parent_dir != src_dir:
             copy_textures_from_dir(parent_dir, str(dst_dir))
 
