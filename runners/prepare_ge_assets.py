@@ -164,18 +164,36 @@ def collect_i3d_refs(i3d_path: str) -> list[str]:
 
 
 def copy_textures_from_dir(src_dir: str, dst_dir: str) -> int:
-    """Copy all texture / material / shape files from src_dir → dst_dir."""
+    """
+    Copy all texture / material / shape files from src_dir → dst_dir (flat).
+    Also recurses into common texture subdirectories (textures/, Textures/,
+    materials/, Maps/, etc.) so FBX assets from Sketchfab/similar are complete.
+    """
+    TEXTURE_SUBDIRS = {"textures", "texture", "materials", "material",
+                       "maps", "images", "assets", "albedo", "normal"}
     n = 0
-    for fname in os.listdir(src_dir):
-        src = os.path.join(src_dir, fname)
-        if not os.path.isfile(src):
-            continue
-        fl = fname.lower()
+
+    def _copy_file(src: str) -> None:
+        nonlocal n
+        fl = os.path.basename(src).lower()
         if Path(fl).suffix in TEXTURE_EXTS or any(fl.endswith(s) for s in SHAPE_SUFFIXES):
-            dst = os.path.join(dst_dir, fname)
+            dst = os.path.join(dst_dir, os.path.basename(src))
             if not os.path.exists(dst):
                 shutil.copy2(src, dst)
                 n += 1
+
+    # Files directly in src_dir
+    for fname in os.listdir(src_dir):
+        full = os.path.join(src_dir, fname)
+        if os.path.isfile(full):
+            _copy_file(full)
+        elif os.path.isdir(full) and fname.lower() in TEXTURE_SUBDIRS:
+            # One level of recursion into texture subfolders
+            for sub_fname in os.listdir(full):
+                sub_full = os.path.join(full, sub_fname)
+                if os.path.isfile(sub_full):
+                    _copy_file(sub_full)
+
     return n
 
 
