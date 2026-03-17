@@ -51,6 +51,7 @@ GE_READY   = Path(sys.argv[1]) if len(sys.argv) > 1 else REPO_ROOT / "outputs" /
 # ── Config ─────────────────────────────────────────────────────────────────
 MAX_DIM      = 2048          # maximum texture size per axis (FS25 practical limit)
 IMAGE_EXTS   = {".png", ".jpg", ".jpeg", ".tga", ".bmp", ".tif", ".tiff"}
+DDS_EXT      = ".dds"
 MODEL_EXTS   = {".i3d", ".mtl", ".fbx", ".obj", ".dae"}
 
 # Filename tokens that identify a normal map
@@ -280,13 +281,35 @@ def main():
     total_before = total_after = 0
     total_resized = total_converted = total_optimised = 0
 
+    folder_sizes: list[tuple[str, int]] = []
+
     for folder in building_folders:
-        # Each top-level folder may itself contain sub-folders per model
-        # Process recursively by finding the leaf dirs that contain textures
+        folder_bytes = sum(
+            f.stat().st_size for f in folder.rglob("*") if f.is_file()
+        )
+        folder_sizes.append((folder.name, folder_bytes))
+
+        dds_files     = [f for f in folder.rglob("*")
+                         if f.suffix.lower() == DDS_EXT and f.is_file()]
         texture_files = [f for f in folder.rglob("*")
                          if f.suffix.lower() in IMAGE_EXTS and f.is_file()]
-        if not texture_files:
-            print(f"  ─  {folder.name}  (no textures)")
+        shapes_files  = [f for f in folder.rglob("*")
+                         if f.suffix.lower() in (".shapes",) and f.is_file()]
+
+        folder_mb = folder_bytes / 1_048_576
+        shapes_mb = sum(f.stat().st_size for f in shapes_files) / 1_048_576
+
+        if not texture_files and not dds_files:
+            # No raster textures at all — show what IS there
+            shape_note = f"  {shapes_mb:.0f} MB shapes" if shapes_files else ""
+            print(f"  ─  {folder.name}  (no raster textures,{shape_note}  {folder_mb:.0f} MB total)")
+            continue
+
+        if not texture_files and dds_files:
+            # Already fully DDS — nothing to convert
+            dds_mb = sum(f.stat().st_size for f in dds_files) / 1_048_576
+            print(f"  ✔  {folder.name}")
+            print(f"       {len(dds_files)} DDS already (optimal)  |  {dds_mb:.1f} MB textures  |  {folder_mb:.0f} MB total")
             continue
 
         stats = process_building(folder, tool_name, tool_exe)
@@ -308,18 +331,48 @@ def main():
             parts.append(f"{stats['resized']} resized")
         if stats["optimised"]:
             parts.append(f"{stats['optimised']} PNG-opt")
-        tag = "  ".join(parts) if parts else "no textures"
+        tag = "  ".join(parts) if parts else "already optimal"
 
         print(f"  ✅  {folder.name}")
-        print(f"       {tag}  |  saved {saved_kb:.0f} KB  ({pct:.0f}%)")
+        print(f"       {tag}  |  saved {saved_kb:.0f} KB  ({pct:.0f}%)  |  {folder_mb:.0f} MB total")
 
     total_saved_mb = (total_before - total_after) / 1_048_576
+    grand_total_mb = sum(s for _, s in folder_sizes) / 1_048_576
     print()
     print("─" * 60)
-    print(f"  Total saved  : {total_saved_mb:.1f} MB")
-    print(f"  DDS converts : {total_converted}")
-    print(f"  Resized      : {total_resized}")
-    print(f"  PNG-opt only : {total_optimised}")
+    print(f"  Total folder size : {grand_total_mb:.1f} MB")
+    print(f"  Texture saved     : {total_saved_mb:.1f} MB")
+    print(f"  DDS converts      : {total_converted}")
+    print(f"  Resized           : {total_resized}")
+    print(f"  PNG-opt only      : {total_optimised}")
+
+    # ── Size breakdown: top 10 largest folders ──────────────────────────
+    print()
+    print("  Top folders by size:")
+    for name, sz in sorted(folder_sizes, key=lambda x: x[1], reverse=True)[:10]:
+        mb = sz / 1_048_576
+        bar = "█" * int(mb / max(s for _, s in folder_sizes) * 20)
+        print(f"    {mb:6.0f} MB  {bar:<20}  {name}")
+
+    # ── Warn about likely map_assets duplicates ──────────────────────────
+    map_asset_names = {
+        n.removeprefix("map_assets_")
+        for n, _ in folder_sizes if n.startswith("map_assets_")
+    }
+    dupes = [
+        (n, s) for n, s in folder_sizes
+        if not n.startswith("map_assets_") and n in map_asset_names
+    ]
+    if dupes:
+        dupe_mb = sum(s for _, s in dupes) / 1_048_576
+        print()
+        print(f"  ⚠️  Possible duplicates ({dupe_mb:.0f} MB):")
+        print("      map_assets_* folders mirror these building folders.")
+        print("      If map_assets_* only contain XML references (no .shapes),")
+        print("      you can remove them to recover space:")
+        for n, s in dupes:
+            print(f"        {s/1_048_576:6.0f} MB  {n}  ←→  map_assets_{n}")
+
     print()
     if not tool_name:
         print("TIP: Install nvcompress for full DDS conversion:")
