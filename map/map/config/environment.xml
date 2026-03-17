@@ -277,30 +277,32 @@
             <presets>
                 
                 <preset id="SUNNY_BLUE_SKY" envMapCloudProbeIndex="1">
-                    <cloudType type="15" precipitation="0" densityScale="0.01">
+                    <!-- UK: even "blue sky" days have some scattered cumulus -->
+                    <cloudType type="15" precipitation="0" densityScale="0.014">
                         <baseShape tiling="1400" />
                         <erosion tiling="1400" />
                         <curlNoise tiling="4096" hHeightFractionModifier="1" modifier="5" />
                     </cloudType>
                     <globalCoverage>
-                        <combinedNoise edge0="0.9" edge1="1" />
+                        <combinedNoise edge0="0.72" edge1="1" />
                         <noise0 weight="0.314507" edge0="0.09" edge1="0.99" />
                         <noise1 weight="0.525494" edge0="0" edge1="0.88" />
                         <noise2 weight="0.16" edge0="0" edge1="0.9" />
                         <erosionWeight weight="0.15" />
                     </globalCoverage>
-                    <cirrusCoverage weight="0.01" />
+                    <cirrusCoverage weight="0.05" />
                     <groundAlbedo color="0.5 0.5 0.75" />
                 </preset>
                 
                 <preset id="SUNNY_LIGHT_CLOUDS_1" envMapCloudProbeIndex="1">
-                    <cloudType type="13" precipitation="0" densityScale="0.011">
+                    <!-- UK: typical partly cloudy day, more coverage than default -->
+                    <cloudType type="13" precipitation="0" densityScale="0.016">
                         <baseShape tiling="1400" />
                         <erosion tiling="800" />
                         <curlNoise tiling="4096" heightFractionModifier="1" modifier="300" />
                     </cloudType>
                     <globalCoverage>
-                        <combinedNoise edge0="0.45" edge1="0.97" />
+                        <combinedNoise edge0="0.30" edge1="0.97" />
                         <noise0 weight="0.740887" edge0="0.2" edge1="0.99" />
                         <noise1 weight="0.18" edge0="0" edge1="0.9" />
                         <noise2 weight="0.0791135" edge0="0.15" edge1="0.9" />
@@ -311,13 +313,14 @@
                 </preset>
                 
                 <preset id="SUNNY_LIGHT_CLOUDS_2" envMapCloudProbeIndex="1">
-                    <cloudType type="15" precipitation="0" densityScale="0.011">
+                    <!-- UK: broken cloud, roughly 3-4 oktas -->
+                    <cloudType type="15" precipitation="0" densityScale="0.016">
                         <baseShape tiling="1400" />
                         <erosion tiling="1200" />
                         <curlNoise tiling="4096" heightFractionModifier="2" modifier="350" />
                     </cloudType>
                     <globalCoverage>
-                        <combinedNoise edge0="0.57" edge1="0.94" />
+                        <combinedNoise edge0="0.38" edge1="0.94" />
                         <noise0 weight="0.608035" edge0="0.09" edge1="0.99" />
                         <noise1 weight="0.341965" edge0="0.31" edge1="0.78" />
                         <noise2 weight="0.05" edge0="0.09" edge1="1" />
@@ -328,13 +331,14 @@
                 </preset>
                 
                 <preset id="SUNNY_LIGHT_CLOUDS_3" envMapCloudProbeIndex="1">
-                    <cloudType type="14" precipitation="0" densityScale="0.012">
+                    <!-- UK: mostly cloudy but bright, 5 oktas, typical British "sunny" day -->
+                    <cloudType type="14" precipitation="0" densityScale="0.017">
                         <baseShape tiling="1400" />
                         <erosion tiling="900" />
                         <curlNoise tiling="4096" heightFractionModifier="9" modifier="375" />
                     </cloudType>
                     <globalCoverage>
-                        <combinedNoise edge0="0.54" edge1="1" />
+                        <combinedNoise edge0="0.36" edge1="1" />
                         <noise0 weight="0.314507" edge0="0.14" edge1="0.96" />
                         <noise1 weight="0.525494" edge0="0.11" edge1="0.88" />
                         <noise2 weight="0.16" edge0="0" edge1="0.81" />
@@ -500,7 +504,8 @@
         </clouds>
 
         <season name="spring">
-            <object typeName="SUN" class="WeatherObject" weight="18">
+            <!-- UK spring: changeable, more cloud than sun, frequent showers -->
+            <object typeName="SUN" class="WeatherObject" weight="10">
                 <variation weight="1" minHours="6" maxHours="12" minTemperature="14" maxTemperature="18">
                     <clouds presetId="SUNNY_BLUE_SKY" />
                     <rain presetId="DUST" />
@@ -522,7 +527,7 @@
                     <wind speed="13" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="CLOUDY" class="WeatherObject" weight="18">
+            <object typeName="CLOUDY" class="WeatherObject" weight="22">
                 <variation weight="1" minHours="5" maxHours="10" minTemperature="11" maxTemperature="16">
                     <clouds presetId="CLOUDY_LIGHT" />
                     <rain presetId="DUST_WINDY" />
@@ -544,7 +549,7 @@
                     <wind speed="28" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="RAIN" class="WeatherObject" weight="14">
+            <object typeName="RAIN" class="WeatherObject" weight="18">
                 <variation weight="1" minHours="1" maxHours="3" minTemperature="9" maxTemperature="15">
                     <clouds presetId="RAIN_1" />
                     <rain presetId="RAIN_LIGHT" />
@@ -566,7 +571,8 @@
                     <wind speed="68" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="HAIL" class="WeatherObjectHail" weight="5">
+            <!-- Hail is possible in UK spring (April/May convective showers) -->
+            <object typeName="HAIL" class="WeatherObjectHail" weight="4">
                 <variation weight="1" minHours="1" maxHours="3" minTemperature="9" maxTemperature="15">
                     <clouds presetId="RAIN_1" />
                     <rain presetId="HAIL" />
@@ -588,21 +594,15 @@
                     <wind speed="68" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="TWISTER" class="WeatherObjectTwister" weight="1">
-                <variation weight="1" minHours="3" maxHours="6" minTemperature="6" maxTemperature="13">
-                    <clouds presetId="TWISTER_1" />
-                    <rain presetId="RAIN_TWISTER" />
-                    <wind speed="120" cirrusSpeedFactor="0.80" />
-                    <twister metersPerHour="150" />
-                </variation>
-            </object>
+            <!-- No twisters in the UK -->
 
             <fog>
                 <groundFog>
                     <coverageEdge0 min="0.05" max="0.4" />
                     <coverageEdge1 min="0.6" max="1" />
                     <extraHeight min="4" max="15" />
-                    <groundLevelDensity min="0.05" max="0.25" />
+                    <!-- UK spring: morning fog common in the Midlands -->
+                    <groundLevelDensity min="0.08" max="0.35" />
                     <minValleyDepth min="3" max="8" />
                     <startDayTimeMinutes min="180" max="280" />
                     <endDayTimeMinutes min="480" max="600" />
@@ -618,51 +618,52 @@
             </fog>
         </season>
         <season name="summer">
-            <object typeName="SUN" class="WeatherObject" weight="20">
-                <variation weight="3" minHours="6" maxHours="12" minTemperature="24" maxTemperature="34">
+            <!-- UK summer: warm but rarely hot, mixed sun and cloud, temps capped at ~26C -->
+            <object typeName="SUN" class="WeatherObject" weight="14">
+                <variation weight="1" minHours="6" maxHours="12" minTemperature="18" maxTemperature="26">
                     <clouds presetId="SUNNY_BLUE_SKY" />
                     <rain presetId="DUST" />
                     <wind speed="4" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="6" maxHours="12" minTemperature="20" maxTemperature="31">
+                <variation weight="1" minHours="6" maxHours="12" minTemperature="17" maxTemperature="24">
                     <clouds presetId="SUNNY_LIGHT_CLOUDS_1" />
                     <rain presetId="DUST" />
                     <wind speed="8" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="8" maxHours="12" minTemperature="19" maxTemperature="29">
+                <variation weight="1" minHours="8" maxHours="12" minTemperature="16" maxTemperature="23">
                     <clouds presetId="SUNNY_LIGHT_CLOUDS_2" />
                     <rain presetId="DUST" />
                     <wind speed="10" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="8" maxHours="12" minTemperature="19" maxTemperature="29">
+                <variation weight="1" minHours="8" maxHours="12" minTemperature="16" maxTemperature="22">
                     <clouds presetId="SUNNY_LIGHT_CLOUDS_3" />
                     <rain presetId="DUST" />
                     <wind speed="13" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="CLOUDY" class="WeatherObject" weight="16">
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="18" maxTemperature="27">
+            <object typeName="CLOUDY" class="WeatherObject" weight="20">
+                <variation weight="1" minHours="5" maxHours="10" minTemperature="15" maxTemperature="22">
                     <clouds presetId="CLOUDY_LIGHT" />
                     <rain presetId="DUST_WINDY" />
                     <wind speed="17" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="17" maxTemperature="26">
+                <variation weight="1" minHours="5" maxHours="10" minTemperature="14" maxTemperature="21">
                     <clouds presetId="CLOUDY" />
                     <rain presetId="DUST_WINDY" />
                     <wind speed="21" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="16" maxTemperature="25">
+                <variation weight="1" minHours="5" maxHours="10" minTemperature="13" maxTemperature="20">
                     <clouds presetId="CLOUDY_MEDIUM" />
                     <rain presetId="DUST_WINDY" />
                     <wind speed="24" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="16" maxTemperature="25">
+                <variation weight="1" minHours="5" maxHours="10" minTemperature="13" maxTemperature="20">
                     <clouds presetId="CLOUDY_DENSE" />
                     <rain presetId="DUST_WINDY" />
                     <wind speed="28" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="RAIN" class="WeatherObject" weight="12">
+            <object typeName="RAIN" class="WeatherObject" weight="14">
                 <variation weight="1" minHours="1" maxHours="3" minTemperature="15" maxTemperature="24">
                     <clouds presetId="RAIN_1" />
                     <rain presetId="RAIN_LIGHT" />
@@ -684,20 +685,14 @@
                     <wind speed="68" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="TWISTER" class="WeatherObjectTwister" weight="1">
-                <variation weight="1" minHours="3" maxHours="6" minTemperature="6" maxTemperature="13">
-                    <clouds presetId="TWISTER_1" />
-                    <rain presetId="RAIN_TWISTER" />
-                    <wind speed="120" cirrusSpeedFactor="0.80" />
-                    <twister metersPerHour="150" />
-                </variation>
-            </object>
+            <!-- No twisters in the UK -->
 
             <fog>
                 <groundFog>
                     <coverageEdge0 min="0.05" max="0.4" />
                     <coverageEdge1 min="0.6" max="1" />
                     <extraHeight min="4" max="15" />
+                    <!-- UK summer: light morning mist, burns off quickly -->
                     <groundLevelDensity min="0.01" max="0.05" />
                     <minValleyDepth min="3" max="8" />
                     <startDayTimeMinutes min="180" max="280" />
@@ -714,7 +709,8 @@
             </fog>
         </season>
         <season name="autumn">
-            <object typeName="SUN" class="WeatherObject" weight="8">
+            <!-- UK autumn: predominantly overcast and wet, rare sunny spells -->
+            <object typeName="SUN" class="WeatherObject" weight="4">
                 <variation weight="1" minHours="6" maxHours="12" minTemperature="15" maxTemperature="25">
                     <clouds presetId="SUNNY_BLUE_SKY" />
                     <rain presetId="DUST" />
@@ -736,45 +732,46 @@
                     <wind speed="13" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="CLOUDY" class="WeatherObject" weight="10">
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="9" maxTemperature="20">
+            <object typeName="CLOUDY" class="WeatherObject" weight="14">
+                <variation weight="1" minHours="5" maxHours="10" minTemperature="9" maxTemperature="17">
                     <clouds presetId="CLOUDY_LIGHT" />
                     <rain presetId="DUST_WINDY" />
                     <wind speed="17" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="8" maxTemperature="19">
+                <variation weight="1" minHours="5" maxHours="10" minTemperature="8" maxTemperature="16">
                     <clouds presetId="CLOUDY" />
                     <rain presetId="DUST_WINDY" />
                     <wind speed="21" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="8" maxTemperature="20">
+                <variation weight="1" minHours="5" maxHours="10" minTemperature="7" maxTemperature="15">
                     <clouds presetId="CLOUDY_MEDIUM" />
                     <rain presetId="DUST_WINDY" />
                     <wind speed="24" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="7" maxTemperature="17">
+                <variation weight="1" minHours="5" maxHours="10" minTemperature="6" maxTemperature="14">
                     <clouds presetId="CLOUDY_DENSE" />
                     <rain presetId="DUST_WINDY" />
                     <wind speed="28" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="RAIN" class="WeatherObject" weight="6">
-                <variation weight="1" minHours="1" maxHours="3" minTemperature="7" maxTemperature="18">
+            <!-- UK autumn is the wettest season - heavy, persistent rain common -->
+            <object typeName="RAIN" class="WeatherObject" weight="22">
+                <variation weight="1" minHours="2" maxHours="6" minTemperature="7" maxTemperature="15">
                     <clouds presetId="RAIN_1" />
                     <rain presetId="RAIN_LIGHT" />
                     <wind speed="38" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="1" maxHours="3" minTemperature="6" maxTemperature="15">
+                <variation weight="1" minHours="2" maxHours="6" minTemperature="6" maxTemperature="14">
                     <clouds presetId="RAIN_2" />
                     <rain presetId="RAIN" />
                     <wind speed="44" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="1" maxHours="3" minTemperature="6" maxTemperature="15">
+                <variation weight="1" minHours="1" maxHours="4" minTemperature="5" maxTemperature="13">
                     <clouds presetId="RAIN_3" />
                     <rain presetId="RAIN_HEAVY" />
                     <wind speed="57" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="1" maxHours="3" minTemperature="5" maxTemperature="14">
+                <variation weight="1" minHours="1" maxHours="3" minTemperature="4" maxTemperature="12">
                     <clouds presetId="RAIN_4" />
                     <rain presetId="RAIN_HEAVY" />
                     <wind speed="68" cirrusSpeedFactor="0.80" />
@@ -786,7 +783,8 @@
                     <coverageEdge0 min="0.05" max="0.4" />
                     <coverageEdge1 min="0.6" max="1" />
                     <extraHeight min="4" max="15" />
-                    <groundLevelDensity min="0.05" max="0.25" />
+                    <!-- UK autumn: heavy morning fog common across the Midlands -->
+                    <groundLevelDensity min="0.10" max="0.40" />
                     <minValleyDepth min="3" max="8" />
                     <startDayTimeMinutes min="180" max="280" />
                     <endDayTimeMinutes min="480" max="600" />
@@ -802,51 +800,76 @@
             </fog>
         </season>
         <season name="winter">
-            <object typeName="SUN" class="WeatherObject" weight="4">
-                <variation weight="1" minHours="6" maxHours="12" minTemperature="-6" maxTemperature="10">
+            <!-- UK winter: mostly grey and wet, very little sun, snow is rare in Warwickshire -->
+            <object typeName="SUN" class="WeatherObject" weight="2">
+                <variation weight="1" minHours="6" maxHours="10" minTemperature="-2" maxTemperature="9">
                     <clouds presetId="SUNNY_BLUE_SKY" />
                     <rain presetId="SNOW_DUST" />
                     <wind speed="4" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="6" maxHours="12" minTemperature="-5" maxTemperature="7">
+                <variation weight="1" minHours="6" maxHours="10" minTemperature="-3" maxTemperature="8">
                     <clouds presetId="SUNNY_LIGHT_CLOUDS_1" />
                     <rain presetId="SNOW_DUST" />
                     <wind speed="8" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="8" maxHours="12" minTemperature="-6" maxTemperature="6">
+                <variation weight="1" minHours="6" maxHours="10" minTemperature="-3" maxTemperature="7">
                     <clouds presetId="SUNNY_LIGHT_CLOUDS_2" />
                     <rain presetId="SNOW_DUST" />
                     <wind speed="10" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="8" maxHours="12" minTemperature="-5" maxTemperature="5">
+                <variation weight="1" minHours="6" maxHours="10" minTemperature="-2" maxTemperature="6">
                     <clouds presetId="SUNNY_LIGHT_CLOUDS_3" />
                     <rain presetId="SNOW_DUST" />
                     <wind speed="13" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="CLOUDY" class="WeatherObject" weight="7">
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="-6" maxTemperature="7">
+            <object typeName="CLOUDY" class="WeatherObject" weight="8">
+                <variation weight="1" minHours="5" maxHours="12" minTemperature="-3" maxTemperature="8">
                     <clouds presetId="CLOUDY_LIGHT" />
                     <rain presetId="SNOW_DUST" />
                     <wind speed="17" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="-7" maxTemperature="6">
+                <variation weight="1" minHours="5" maxHours="12" minTemperature="-4" maxTemperature="7">
                     <clouds presetId="CLOUDY" />
                     <rain presetId="SNOW_DUST" />
                     <wind speed="21" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="-8" maxTemperature="6">
+                <variation weight="1" minHours="5" maxHours="12" minTemperature="-5" maxTemperature="6">
                     <clouds presetId="CLOUDY_MEDIUM" />
                     <rain presetId="SNOW_DUST" />
                     <wind speed="24" cirrusSpeedFactor="0.80" />
                 </variation>
-                <variation weight="1" minHours="5" maxHours="10" minTemperature="-9" maxTemperature="5">
+                <variation weight="1" minHours="5" maxHours="12" minTemperature="-5" maxTemperature="5">
                     <clouds presetId="CLOUDY_DENSE" />
                     <rain presetId="SNOW_DUST" />
                     <wind speed="28" cirrusSpeedFactor="0.80" />
                 </variation>
             </object>
-            <object typeName="SNOW" class="WeatherObject" weight="5">
+            <!-- UK winter rain is more common than snow - persistent drizzle and frontal rain -->
+            <object typeName="RAIN" class="WeatherObject" weight="10">
+                <variation weight="1" minHours="3" maxHours="10" minTemperature="2" maxTemperature="9">
+                    <clouds presetId="RAIN_1" />
+                    <rain presetId="RAIN_LIGHT" />
+                    <wind speed="38" cirrusSpeedFactor="0.80" />
+                </variation>
+                <variation weight="1" minHours="3" maxHours="10" minTemperature="1" maxTemperature="8">
+                    <clouds presetId="RAIN_2" />
+                    <rain presetId="RAIN" />
+                    <wind speed="44" cirrusSpeedFactor="0.80" />
+                </variation>
+                <variation weight="1" minHours="2" maxHours="6" minTemperature="1" maxTemperature="7">
+                    <clouds presetId="RAIN_3" />
+                    <rain presetId="RAIN_HEAVY" />
+                    <wind speed="57" cirrusSpeedFactor="0.80" />
+                </variation>
+                <variation weight="1" minHours="1" maxHours="4" minTemperature="0" maxTemperature="6">
+                    <clouds presetId="RAIN_4" />
+                    <rain presetId="RAIN_HEAVY" />
+                    <wind speed="68" cirrusSpeedFactor="0.80" />
+                </variation>
+            </object>
+            <!-- Snow is possible but rare in Warwickshire; light falls only -->
+            <object typeName="SNOW" class="WeatherObject" weight="3">
                 <variation weight="1" minHours="4" maxHours="8" minTemperature="-8" maxTemperature="5">
                     <clouds presetId="RAIN_1" />
                     <rain presetId="SNOW" />
@@ -874,17 +897,18 @@
                     <coverageEdge0 min="0.05" max="0.4" />
                     <coverageEdge1 min="0.6" max="1" />
                     <extraHeight min="4" max="15" />
-                    <groundLevelDensity min="0.01" max="0.05" />
+                    <!-- UK winter: freezing fog common in Midlands, especially in valleys -->
+                    <groundLevelDensity min="0.05" max="0.35" />
                     <minValleyDepth min="3" max="8" />
-                    <startDayTimeMinutes min="180" max="280" />
-                    <endDayTimeMinutes min="480" max="600" />
+                    <startDayTimeMinutes min="180" max="340" />
+                    <endDayTimeMinutes min="540" max="660" />
                     <weatherTypes>
                         <weatherType name="SUN" />
                         <weatherType name="CLOUDY" />
                     </weatherTypes>
                 </groundFog>
                 <heightFog>
-                    <groundLevelDensity min="0.05" max="0.2" />
+                    <groundLevelDensity min="0.08" max="0.3" />
                     <maxHeight min="33" max="172" />
                 </heightFog>
             </fog>
