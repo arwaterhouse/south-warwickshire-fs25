@@ -1,0 +1,7 @@
+South Warwickshire FS25 — Building Scan Report
+============================================================
+
+Review each entry below.
+If dimensions show 0.0×0.0 you MUST measure the building in
+Giants Editor or check the mod page and update the JSON.
+
