@@ -1,3 +1,0 @@
-The files in this directory can be used to create the mesh files manually in Blender. However, it's recommended to use the ready-to-use i3d files located in the assets directory. There you'll find the i3d files, that can be imported directly into the Giants Editor without any additional processing.
-
-Please find the ready-to-use water i3d files in the assets/water directory.
