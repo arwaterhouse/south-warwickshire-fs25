@@ -40,6 +40,9 @@ except ImportError:
     print("ERROR: Pillow is required.  Run:  pip3 install pillow numpy")
     sys.exit(1)
 
+# Allow very large textures (some FS25 assets exceed Pillow's default limit)
+Image.MAX_IMAGE_PIXELS = None
+
 # ── Paths ──────────────────────────────────────────────────────────────────
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT  = SCRIPT_DIR.parent
@@ -184,14 +187,12 @@ def process_building(folder: Path, tool_name, tool_exe) -> dict:
         stats["bytes_before"] += tex.stat().st_size
 
         try:
-            img = Image.open(tex).convert(img.mode if hasattr(img, "mode") else "RGBA"
-                                          if tex.suffix.lower() == ".png" else "RGB")
-        except Exception:
+            img = Image.open(tex)
+            img.load()  # force full decode now so errors surface here
+        except Exception as e:
+            print(f"       ⚠️  skipping {tex.name}: {e}")
             stats["bytes_after"] += tex.stat().st_size
             continue
-
-        # Re-open cleanly
-        img = Image.open(tex)
         orig_w, orig_h = img.size
         tw, th = target_dim(orig_w, orig_h)
         resized = (tw != orig_w or th != orig_h)
@@ -230,8 +231,7 @@ def process_building(folder: Path, tool_name, tool_exe) -> dict:
                 stats["converted"] += 1
                 continue
 
-        # ── Fallback: optimised PNG ────────────────────────────────────
-        save_mode = img.mode
+        # ── Fallback: optimised PNG / JPEG ────────────────────────────
         if tex.suffix.lower() in (".jpg", ".jpeg"):
             if img.mode == "RGBA":
                 img = img.convert("RGB")
