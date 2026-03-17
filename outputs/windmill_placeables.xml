@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<map>
+  <placeables>
+    <placeable filename="$data/placeables/windmill/windmill01.i3d" posX="1006.16" posY="0" posZ="855.55" rotX="0" rotY="0" rotZ="0" name="Tysoe Windmill" />
+  </placeables>
+</map>
