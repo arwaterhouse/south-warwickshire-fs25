@@ -118,5 +118,45 @@
     "name": "cherry_stage04",
     "reference_id": 1016,
     "leaf_type": "broadleaved"
+  },
+  {
+    "name": "linden_stage01",
+    "reference_id": 1029,
+    "leaf_type": "broadleaved"
+  },
+  {
+    "name": "linden_stage02",
+    "reference_id": 1030,
+    "leaf_type": "broadleaved"
+  },
+  {
+    "name": "linden_stage03",
+    "reference_id": 1031,
+    "leaf_type": "broadleaved"
+  },
+  {
+    "name": "linden_stage04",
+    "reference_id": 1032,
+    "leaf_type": "broadleaved"
+  },
+  {
+    "name": "aspen_stage01",
+    "reference_id": 1001,
+    "leaf_type": "broadleaved"
+  },
+  {
+    "name": "aspen_stage02",
+    "reference_id": 1002,
+    "leaf_type": "broadleaved"
+  },
+  {
+    "name": "aspen_stage03",
+    "reference_id": 1003,
+    "leaf_type": "broadleaved"
+  },
+  {
+    "name": "aspen_stage04",
+    "reference_id": 1004,
+    "leaf_type": "broadleaved"
   }
 ]
