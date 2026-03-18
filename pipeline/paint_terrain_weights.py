@@ -204,16 +204,16 @@ def main():
     print(f"grassDirtPatchy: {n} features")
     save_weight(patchy_img, "grassDirtPatchy")
 
-    # ── 5. Asphalt – main tarmac roads (secondary, tertiary) ─────────────────
+    # ── 5. Asphalt – main tarmac roads (primary, secondary, tertiary) ──────────
     asphalt_img = new_canvas()
     asphalt_draw = ImageDraw.Draw(asphalt_img)
-    asphalt_highways = {"secondary", "tertiary"}
+    asphalt_highways = {"primary", "secondary", "tertiary"}
     n = 0
     for feat in roads:
         props = feat["properties"]
         hw = props.get("highway", "")
         if hw in asphalt_highways:
-            w = m_to_px(props.get("width_m", 6.0))
+            w = m_to_px(props.get("width_m", 10.0))
             draw_line_feature(asphalt_draw, feat["geometry"], w)
             n += 1
     print(f"asphalt        : {n} features")

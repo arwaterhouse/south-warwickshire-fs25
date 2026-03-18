@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="100" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
+    <author>Bláckice and LivinOnAPlayer</author>
+    <version>1.0.0.0</version>
+
+<title>
+<en>UK Large Beef Shed</en>
+</title>
+
+<description>
+<en><![CDATA[
+Category: Animal Pens
+Price: $120,000
+Daily upkeep: $35
+Animals: 80 Cows
+]]></en>
+<de><![CDATA[
+Shopkategorie: Tiergehege
+Preis: 120.000€
+Täglicher Unterhalt: 35€
+Tiere: 80 Kühe
+]]></de>
+<fr><![CDATA[
+Catégorie: Enclos des animaux
+Prix: 120 000€
+Entretien quotidien: 35€
+Animales: 80 Vaches
+]]></fr>
+</description>
+
+    <iconFilename>icon_ukLargeBeefShed.dds</iconFilename>
+
+    <multiplayer supported="true" />
+
+    <storeItems>
+        <storeItem xmlFilename="ukLargeBeefShed.xml"/>
+    </storeItems>
+	
+    <placeableTypes>
+        <type name="cowHusbandryManure" parent="baseHusbandry" filename="$dataS/scripts/vehicles/Vehicle.lua">
+        <specialization name="husbandryWater" />
+        <specialization name="husbandryStraw" />
+        <specialization name="manureHeap" />
+		<specialization name="husbandryLiquidManure" />
+        </type>
+    </placeableTypes>	
+	
+    <l10n>
+        
+	</l10n>
+	
+</modDesc>

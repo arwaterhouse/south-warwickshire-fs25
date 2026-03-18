@@ -83,40 +83,93 @@
     "count": 2
   },
   {
-    "name": "gravel",
-    "count": 2,
-    "tags": {
-      "highway": ["track", "bridleway"]
-    },
-    "width": 3,
-    "color": [170, 160, 140],
-    "priority": 8,
-    "info_layer": "roads",
-    "road_texture": "gravel"
-  },
-  {
     "name": "asphalt",
     "count": 2,
     "tags": {
       "highway": ["trunk", "primary", "secondary", "tertiary"]
     },
-    "width": 7,
+    "width": 10,
     "color": [50, 50, 50],
     "priority": 10,
     "info_layer": "roads",
     "road_texture": "asphalt"
   },
   {
-    "name": "asphaltDirt",
+    "name": "asphaltCracks",
     "count": 2,
     "tags": {
-      "highway": ["unclassified", "residential", "service"]
+      "highway": ["unclassified"]
     },
-    "width": 5,
-    "color": [90, 85, 75],
+    "width": 4.5,
+    "color": [70, 65, 60],
     "priority": 9,
     "info_layer": "roads",
     "road_texture": "asphalt"
+  },
+  {
+    "name": "asphaltTwigs",
+    "count": 2,
+    "tags": {
+      "highway": ["residential"]
+    },
+    "width": 4.0,
+    "color": [65, 62, 55],
+    "priority": 8,
+    "info_layer": "roads",
+    "road_texture": "asphalt"
+  },
+  {
+    "name": "serviceRoad",
+    "count": 2,
+    "tags": {
+      "highway": ["service"]
+    },
+    "width": 3.0,
+    "color": [100, 95, 80],
+    "priority": 7,
+    "info_layer": "roads",
+    "road_texture": "asphalt",
+    "custom_textures": {
+      "baseColor": "references/service_road_textures/Road_pbjhxep0_2K_BaseColor.jpg",
+      "normal":    "references/service_road_textures/Road_pbjhxep0_2K_Normal.jpg",
+      "roughness": "references/service_road_textures/Road_pbjhxep0_2K_Roughness.jpg"
+    }
+  },
+  {
+    "name": "gravel",
+    "count": 2,
+    "tags": {
+      "highway": ["track"]
+    },
+    "width": 3.5,
+    "color": [170, 160, 140],
+    "priority": 6,
+    "info_layer": "roads",
+    "road_texture": "gravel"
+  },
+  {
+    "name": "mudGravel",
+    "count": 2,
+    "tags": {
+      "highway": ["bridleway"]
+    },
+    "width": 2.5,
+    "color": [140, 125, 105],
+    "priority": 6,
+    "info_layer": "roads",
+    "road_texture": "gravel"
+  },
+  {
+    "name": "grassDirtPatchy",
+    "count": 2,
+    "tags": {
+      "highway": ["footway", "path"]
+    },
+    "width": 1.5,
+    "color": [90, 100, 60],
+    "priority": 5,
+    "info_layer": "roads",
+    "road_texture": "gravel"
   },
   {
     "name": "asphaltCracks",

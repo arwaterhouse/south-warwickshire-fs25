@@ -1,0 +1,45 @@
+<!-- Add this inside map.i3d <Scene> section -->
+<TransformGroup name="map_buildings" translation="0 0 0">
+  <TransformGroup name="building_0001" translation="-1351.6 0 1735.79" rotation="0 0 0" referenceId="2001"/>
+  <TransformGroup name="building_0002" translation="1529.0 0 70.27" rotation="0 0 0" referenceId="2002"/>
+  <TransformGroup name="building_0003" translation="1857.85 0 -753.66" rotation="0 0 0" referenceId="2003"/>
+  <TransformGroup name="building_0004" translation="1881.0 0 -759.88" rotation="0 0 0" referenceId="2004"/>
+  <TransformGroup name="building_0005" translation="1777.46 0 -822.35" rotation="0 0 0" referenceId="2002"/>
+  <TransformGroup name="building_0006" translation="1816.7 0 -816.33" rotation="0 0 0" referenceId="2001"/>
+  <TransformGroup name="building_0007" translation="1820.14 0 -797.39" rotation="0 0 0" referenceId="2002"/>
+  <TransformGroup name="building_0008" translation="1823.16 0 -841.19" rotation="0 0 0" referenceId="2005"/>
+  <TransformGroup name="building_0009" translation="1854.31 0 -772.6" rotation="0 0 0" referenceId="2006"/>
+  <TransformGroup name="building_0010" translation="1597.19 0 -495.4" rotation="0 0 0" referenceId="2001"/>
+  <TransformGroup name="building_0011" translation="-1077.46 0 -1005.75" rotation="0 0 0" referenceId="2005"/>
+  <TransformGroup name="building_0012" translation="-1204.95 0 -1027.89" rotation="0 0 0" referenceId="2004"/>
+  <TransformGroup name="building_0013" translation="-1224.43 0 -1036.19" rotation="0 0 0" referenceId="2002"/>
+  <TransformGroup name="building_0014" translation="-1268.89 0 -1024.67" rotation="0 0 0" referenceId="2006"/>
+  <TransformGroup name="building_0015" translation="-1201.98 0 -1095.48" rotation="0 0 0" referenceId="2002"/>
+  <TransformGroup name="building_0016" translation="-1203.92 0 -1063.61" rotation="0 0 0" referenceId="2006"/>
+  <TransformGroup name="building_0017" translation="-1185.28 0 -1041.65" rotation="0 0 0" referenceId="2007"/>
+  <TransformGroup name="building_0018" translation="663.47 0 -1098.7" rotation="0 0 0" referenceId="2008"/>
+  <TransformGroup name="building_0019" translation="656.83 0 -1103.91" rotation="0 0 0" referenceId="2008"/>
+  <TransformGroup name="building_0020" translation="690.98 0 -1132.56" rotation="0 0 0" referenceId="2001"/>
+  <TransformGroup name="building_0021" translation="646.94 0 -1163.33" rotation="0 0 0" referenceId="2004"/>
+  <TransformGroup name="building_0022" translation="671.08 0 -1140.74" rotation="0 0 0" referenceId="2006"/>
+  <TransformGroup name="building_0023" translation="1261.96 0 -1040.67" rotation="0 0 0" referenceId="2008"/>
+  <TransformGroup name="building_0024" translation="1220.07 0 -1031.66" rotation="0 0 0" referenceId="2009"/>
+  <TransformGroup name="building_0025" translation="1240.4 0 -1024.51" rotation="0 0 0" referenceId="2009"/>
+  <TransformGroup name="building_0026" translation="1259.96 0 -1012.66" rotation="0 0 0" referenceId="2005"/>
+  <TransformGroup name="building_0027" translation="1717.39 0 -1614.57" rotation="0 0 0" referenceId="2009"/>
+  <TransformGroup name="building_0028" translation="1732.69 0 -1693.52" rotation="0 0 0" referenceId="2005"/>
+  <TransformGroup name="building_0029" translation="1724.15 0 -1673.85" rotation="0 0 0" referenceId="2005"/>
+  <TransformGroup name="building_0030" translation="1723.87 0 -1655.2" rotation="0 0 0" referenceId="2010"/>
+  <TransformGroup name="building_0031" translation="1711.02 0 -1626.17" rotation="0 0 0" referenceId="2009"/>
+  <TransformGroup name="building_0032" translation="1685.39 0 -1642.65" rotation="0 0 0" referenceId="2005"/>
+  <TransformGroup name="building_0033" translation="1677.21 0 -1470.81" rotation="0 0 0" referenceId="2004"/>
+  <TransformGroup name="building_0034" translation="1666.36 0 -1477.41" rotation="0 0 0" referenceId="2004"/>
+  <TransformGroup name="building_0035" translation="1665.75 0 -1497.6" rotation="0 0 0" referenceId="2004"/>
+  <TransformGroup name="building_0036" translation="-408.12 0 1035.9" rotation="0 0 0" referenceId="2004"/>
+  <TransformGroup name="building_0037" translation="204.89 0 520.9" rotation="0 0 0" referenceId="2001"/>
+  <TransformGroup name="building_0038" translation="184.46 0 549.51" rotation="0 0 0" referenceId="2006"/>
+  <TransformGroup name="building_0039" translation="126.26 0 595.36" rotation="0 0 0" referenceId="2006"/>
+  <TransformGroup name="building_0040" translation="-1617.24 0 610.76" rotation="0 0 0" referenceId="2011"/>
+  <TransformGroup name="building_0041" translation="-1621.07 0 635.61" rotation="0 0 0" referenceId="2008"/>
+  <TransformGroup name="building_0042" translation="-1642.18 0 662.36" rotation="0 0 0" referenceId="2001"/>
+</TransformGroup>

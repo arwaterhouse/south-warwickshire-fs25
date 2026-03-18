@@ -722,29 +722,12 @@ def sanity_check():
 
 def warn_inconsistency():
     """
-    Warn about the map-centre mismatch between crome_osm_to_fs25.py
-    and run_maps4fs.py / generate_hedges.py.
-
-    crome_osm_to_fs25.py uses MAP_CENTRE_LAT=52.099207, MAP_CENTRE_LON=-1.549866
-    run_maps4fs.py uses coordinates=(52.089387, -1.532290)
-
-    The mismatch (~1.1 km south, ~1.2 km west) means:
-    - fs25_roads.geojson, fs25_buildings.geojson etc. used a different bbox
-      for filtering, so features near the map edges may be missing/extra.
-    - The features that ARE in those files are still in WGS84 and will be
-      correctly positioned by this script using the maps4fs centre.
-    - Recommend fixing crome_osm_to_fs25.py to use coordinates=(52.089387, -1.532290).
+    Previously there was a map-centre mismatch between crome_osm_to_fs25.py
+    and run_maps4fs.py. This has been resolved — both now use the authoritative
+    centre: MAP_CENTRE_LAT=52.089387, MAP_CENTRE_LON=-1.532290.
+    Function retained as a no-op.
     """
-    print()
-    print("  ⚠  NOTE: Map centre inconsistency detected")
-    print("     crome_osm_to_fs25.py  uses: 52.099207, -1.549866")
-    print("     run_maps4fs.py        uses: 52.089387, -1.532290  ← authoritative")
-    print("     Delta: ~1093 m south, ~1198 m west in bbox filtering")
-    print("     Features in GeoJSON files are still WGS84 and will be correctly")
-    print("     converted using the authoritative centre. However, road/building")
-    print("     coverage near map edges may be slightly inconsistent.")
-    print("     Fix: update MAP_CENTRE_LAT/LON in crome_osm_to_fs25.py to match.")
-    print()
+    pass
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────

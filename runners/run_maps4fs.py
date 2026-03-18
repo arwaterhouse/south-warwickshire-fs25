@@ -8,7 +8,7 @@ Modes:
     python3 run_maps4fs.py --buildings       # auto-place your UK buildings
 
 Files needed:
-    data/custom_osm.osm
+    data/south_warwickshire_enriched.osm   ← AUTHORITATIVE OSM SOURCE (do not use custom_osm.osm)
     config/fs25_texture_schema_uk.json
     config/fs25_texture_schema_uk_buildings.json    (only with --buildings)
     config/fs25_tree_schema_uk.json
@@ -29,7 +29,9 @@ CONFIG_DIR  = os.path.join(ROOT_DIR, "config")
 DATA_DIR    = os.path.join(ROOT_DIR, "data")
 OUTPUT_DIR  = os.path.join(ROOT_DIR, "outputs")
 
-CUSTOM_OSM       = os.path.join(DATA_DIR, "custom_osm.osm")
+# NOTE: Always use south_warwickshire_enriched.osm as the authoritative OSM source.
+# custom_osm.osm is kept as a fallback only — do NOT edit it directly; edit the enriched file.
+CUSTOM_OSM       = os.path.join(DATA_DIR, "south_warwickshire_enriched.osm")
 TEXTURE_SCHEMA   = os.path.join(CONFIG_DIR,
     "fs25_texture_schema_uk_buildings.json" if AUTO_BUILDINGS
     else "fs25_texture_schema_uk.json")
