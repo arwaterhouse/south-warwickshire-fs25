@@ -154,7 +154,7 @@ def _detect_dds_tool() -> tuple[str | None, str | None]:
             r = subprocess.run([exe, "-list", "format"], capture_output=True, timeout=5)
             if r.returncode == 0 and b"DDS" in r.stdout.upper():
                 return "magick", exe
-        except FileNotFoundError:
+        except (FileNotFoundError, subprocess.TimeoutExpired):
             pass
     # squish (pure Python)
     if SQUISH_OK:
