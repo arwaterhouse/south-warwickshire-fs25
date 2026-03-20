@@ -1,0 +1,56 @@
+South Warwickshire FS25 — Power Line Splines
+====================================================
+
+Generated from: data/custom_osm.osm
+Output file   : outputs/sw_powerline_splines.i3d
+
+Spline groups:
+  powerlines_high  :   1 splines  (~1.3 km total)
+  powerlines_minor :  24 splines  (~12.4 km total)
+
+====================================================
+GIANTS EDITOR WORKFLOW
+====================================================
+
+Prerequisites:
+  • GE 10 installed
+  • SplineToolkit.lua in GE scripts folder
+    (download: https://www.farming-simulator.com/mod.php?mod_id=354375)
+
+Step 1 — Import splines
+  File → Import → outputs/sw_powerline_splines.i3d
+  You'll see two groups added to the scene:
+    powerlines_high   — high-voltage routes (pylon spacing ~80 m)
+    powerlines_minor  — distribution/telegraph (pole spacing ~50 m)
+
+Step 2 — Snap splines to terrain
+  Select the powerlines group (or individual spline)
+  Scripts → SplineToolkit → Set Spline on Terrain
+  Height offset: 0
+  Click Execute
+
+Step 3 — Generate poles for minor lines
+  Select each spline in powerlines_minor
+  Scripts → SplineToolkit → Powerline Generator
+  Pole model: BulletBill wooden telegraph pole (FS25-patched)
+  Spacing: 50 m
+  Click Execute
+
+Step 4 — Generate pylons for high-voltage lines
+  Select each spline in powerlines_high
+  Same script, use pylon/lattice tower model
+  Spacing: 80 m
+  Click Execute
+
+Step 5 — Cleanup
+  • Delete any splines that don't match reality (check satellite view)
+  • Manually reposition any poles that land on roads or buildings
+  • Delete the trailing wire TransformGroup on each line end (GE artefact)
+
+Step 6 — Save
+  File → Save
+
+Map constants used:
+  MAP_LAT  = 52.089387
+  MAP_LON  = -1.53229
+  MAP_SIZE = 4096.0 m
