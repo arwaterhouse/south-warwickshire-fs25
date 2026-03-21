@@ -1,0 +1,126 @@
+FS22 → FS25 Conversion Report
+====================================================
+Mode: APPLIED
+
+WARNINGS  powerTelegraphPack.i3d
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+CLEAN  background_terrain.i3d
+PATCHED  background_terrain_binary.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×1)
+PATCHED  map_bounds.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×4)
+PATCHED  powerLineBOX10m.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×1)
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+PATCHED  powerLineSubstation.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×3)
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+PATCHED  powerline10m.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×2)
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+CLEAN  powerlines_segment01.i3d
+WARNINGS  telegraphLine.i3d
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+CLEAN  roads_asphalt-white.i3d
+PATCHED  roads_asphalt-white_binary.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×1)
+PATCHED  roads_asphalt-white-10m.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×1)
+CLEAN  roads_asphalt-white-6m.i3d
+CLEAN  roads_tracks.i3d
+CLEAN  roads_gravel-bright.i3d
+PATCHED  roads_gravel-bright_binary.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×1)
+CLEAN  roads_main.i3d
+CLEAN  roads_minor.i3d
+CLEAN  roads_service.i3d
+CLEAN  sw_roads_10m.i3d
+CLEAN  sw_roads_main.i3d
+CLEAN  sw_roads_service.i3d
+CLEAN  sw_service_roads.i3d
+CLEAN  hedge10m.i3d
+CLEAN  hedge9m.i3d
+PATCHED  grass.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×4)
+PATCHED  licensePlatesPL.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×4)
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+PATCHED  map.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×2932)
+CLEAN  sounds.i3d
+CLEAN  splines.i3d
+CLEAN  storageShed1.i3d
+CLEAN  britishbaleshed.i3d
+PATCHED  GrainShed.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×4)
+  ⚠ glass materials: In GE: select glass mesh → detailSpecular → set to clearGlass_specular
+PATCHED  7Bar.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×37)
+PATCHED  shed01.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×21)
+PATCHED  shed01UB.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×21)
+PATCHED  shed01UB_B.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×21)
+PATCHED  shed01_B.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×21)
+PATCHED  shed02.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×40)
+PATCHED  shed02UB.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×40)
+PATCHED  shed02UB_B.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×40)
+PATCHED  shed02_B.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×40)
+PATCHED  shed03R.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×40)
+PATCHED  shed03RUB.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×40)
+PATCHED  shed04.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×5)
+CLEAN  FS25_UK_BaleShed.i3d
+CLEAN  FS25_UK_BaleShedAL.i3d
+PATCHED  FS25_UK_CattleShed.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×4)
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+CLEAN  navMesh.i3d
+PATCHED  FS25_GrainMachineShed.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×2)
+  ⚠ glass materials: In GE: select glass mesh → detailSpecular → set to clearGlass_specular
+WARNINGS  FS25_UK_LargeBeefShed.i3d
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+CLEAN  navMesh.i3d
+CLEAN  FS25_MachineShed_3Bay.i3d
+WARNINGS  machineShed02.i3d
+  ⚠ glass materials: In GE: select glass mesh → detailSpecular → set to clearGlass_specular
+PATCHED  FS25_UK_machineShed.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×10)
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ glass materials: In GE: select glass mesh → detailSpecular → set to clearGlass_specular
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+CLEAN  grainShed.i3d
+CLEAN  biggreenshed.i3d
+PATCHED  britishhedge.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×1)
+CLEAN  feedbaria.i3d
+PATCHED  greemopenbarn.i3d
+  fix: castsShadows="false" on lights → remove (FS25 handles automatically) (×1)
+  ⚠ glass materials: In GE: select glass mesh → detailSpecular → set to clearGlass_specular
+CLEAN  hayshed.i3d
+CLEAN  heaged.i3d
+CLEAN  sheepGoatBarn.i3d
+CLEAN  ukStilePack.i3d
+
+────────────────────────────────────────────────────
+  Clean:    31
+  Patched:  29
+  Warnings: 4
+  Errors:   0

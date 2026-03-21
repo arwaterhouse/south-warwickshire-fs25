@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<prefabDesc descVersion="1">
+    <author>BulletBill</author>
+    <version>1.0.0.0</version>
+	
+	<title>
+        <en>UK Powerline And Telegraph Pack</en>
+		<de>UK Powerline Und Telegraph Pack</de>
+		<fr>Pack CPL Et Télégraphe Royaume-Uni</fr>		
+    </title>
+	
+	<iconFilename>icon.dds</iconFilename>
+	
+	<description>
+        <en>
+            <![CDATA[This pack contains a collection of UK style powerlines and telegraph poles. This pack can be altered into multiple configurations to suit the map makers needs.
+
+- Telegraph pole with footsteps, guidewire, transformer box, cables, cable guard, and two types of wire connector.
+- Telegraph substation box, new and old versions.
+- Building powerline connecter.
+- 11kv Powerline pole with optional wire styles, 2 different transformers, guide wire, cables, cable guard, and anti climbing deterrent.
+- 11kv Powerline dual pole, with substation transformer, cables, cable guard, and anti climbing deterrent.]]>
+        </en>
+        <de>
+            <![CDATA[Dieses Paket enthält eine Sammlung von Stromleitungen und Telegrafenmasten im britischen Stil. Dieses Paket kann in mehrere Konfigurationen geändert werden, um den Anforderungen des Kartenherstellers gerecht zu werden.
+
+- Telegrafenmast mit Trittstufen, Führungsdraht, Transformatorkasten, Kabeln, Kabelschutz und zwei Arten von Kabelverbindern.
+- Telegrafen-Unterstationskasten, neue und alte Versionen.
+- Gebäude-Powerline-Anschluss.
+- 11-kV-Powerline-Mast mit optionalen Drahtarten, 2 verschiedenen Transformatoren, Leitdraht, Kabeln, Kabelschutz und Kletterschutz.
+- 11-kV-Powerline, zweipolig, mit Umspannwerkstransformator, Kabeln, Kabelschutz und Kletterschutz.]]>
+        </de>
+        <fr>
+            <![CDATA[Ce pack contient une collection de lignes électriques et de poteaux télégraphiques de style britannique. Ce pack peut être modifié en plusieurs configurations pour répondre aux besoins des cartographes.
+
+- Poteau télégraphique avec marchepieds, fil de guidage, boîtier de transformateur, câbles, protège-câbles et deux types de connecteurs de fils.
+- Boîte de sous-station télégraphique, nouvelles et anciennes versions.
+- Connecteur CPL du bâtiment.
+- Poteau Powerline 11kv avec styles de fil en option, 2 transformateurs différents, fil de guidage, câbles, protège-câble et dissuasif anti-escalade.
+- Bipolaire Powerline 11kv, avec transformateur de sous-station, câbles, protège-câbles et dissuasif anti-escalade.]]>
+        </fr>		
+		
+    </description>
+	
+	<categories>
+        <category>others</category>
+    </categories>
+	
+	<prefabs>
+		<prefab name="powerTelegraphPack" i3dFilename="powerTelegraphPack.i3d" />		
+    </prefabs>
+</prefabDesc>

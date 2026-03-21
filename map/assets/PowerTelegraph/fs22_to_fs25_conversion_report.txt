@@ -1,0 +1,13 @@
+FS22 → FS25 Conversion Report
+====================================================
+Mode: APPLIED
+
+WARNINGS  powerTelegraphPack.i3d
+  ⚠ vehicleShader: In GE: select material → change shader to $data/shaders/defaultShader.xml
+  ⚠ FS22 $data texture path: Verify this shader exists in your FS25 $data/shaders/ install
+
+────────────────────────────────────────────────────
+  Clean:    0
+  Patched:  0
+  Warnings: 1
+  Errors:   0

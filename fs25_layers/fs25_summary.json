@@ -21,7 +21,7 @@
   "osm": {
     "forest": 105,
     "water": 23,
-    "road_road": 86,
+    "road_road": 88,
     "road_footpath": 53,
     "road_dirt_track": 21,
     "road_service": 87,
@@ -30,12 +30,12 @@
     "hedges": 19,
     "building_farm_building": 3,
     "building_commercial": 4,
-    "total_ways_in_bbox": 1343
+    "total_ways_in_bbox": 1361
   },
   "layer_counts": {
     "fields": 3830,
     "hedges": 19,
-    "roads": 247,
+    "roads": 249,
     "buildings": 569,
     "water": 23,
     "forest": 105

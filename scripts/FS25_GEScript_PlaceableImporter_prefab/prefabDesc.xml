@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<prefabDesc descVersion="1">
+    <author>Aslan</author>
+    <version>1.1.0.0</version>
+	
+	<title>
+		<de>GE10 Skript - Placeable Importer</de>
+		<en>GE10 Script - Placeable Importer</en>
+	</title>
+    <description>
+	<de><![CDATA[
+Mit diesem GIANTS-Editor-Skript können alle Placeables inklusive Zäunen in die Map importiert werden, die in einer ausgewählten „placeable.xml“ definiert sind.
+
+Im Gegensatz zum PlaceableToolkit von GIANTS arbeitet dieses Skript ausschließlich mit einer Visualisierung während der Bauphase der Karte. Das bedeutet: Du kannst Objekte und Zäune zunächst im Spiel platzieren und diese anschließend mit dem Skript im GIANTS Editor importieren, um beim weiteren Mapbau eine vollständige visuelle Darstellung aller Objekte zu haben.
+
+Zusätzlich erstellt das Skript ein Ingame-Skript, das beim Laden der Karte im Spiel die importierten Visualisierungs-Placeables wieder aus der I3D entfernt, sodass die echten Placeables normal geladen werden. Dafür muss im GE-Skript eine „modDesc.xml“ ausgewählt sein.
+
+Installation:
+1.) Suche den Installationspfad des GIANTS Editors. Standardmäßig:
+   "C:\Program Files\GIANTS Software\GIANTS_Editor_10.X.X\"
+2.) Kopiere das Skript „PlaceableImporter.lua“ aus dem Prefab in den Script-Ordner des GIANTS Editors.
+3.) Das Skript steht anschließend im GIANTS Editor über die Menüleiste unter „Skripte“ zur Verfügung.
+
+INFO:
+- Um Placeables aus Mods zu laden, wird beim ersten Starten des Scripts ein Ordner namens „modPlaceholders“ erstellt, darin müssen alle benötigten Mods entpackt werden.
+- Objekt Placeables können im Editor verschoben/rotiert - und per Button in der .XML aktualisert werden. Stelle dafür sicher dass die Placeables in der .XML eine "uniqueId" besitzen.
+- Zäune können auch dauerhaft in die Map übernommen werden, indem die gewünschten Zaun-Objekte außerhalb des „placeablePlaceholders“-Nodes verschoben werden. Beachte dabei, dass bei Mod-Zäunen gegebenenfalls Texturpfade angepasst werden müssen.
+
+-----------------------------
+Changelog 1.1:
+- Mehrere alternative Pfadfehler korrigiert
+- placeable.xml wird nun automatisch mit der modDesc.xml geladen
+- Benuterdefinierter Pfad einer placeable.xml möglich
+- Neue Optionen hinzugefügt. Funktionsweise entnehmen Sie bitte über den Info-Button
+]]>
+	</de>
+	<en><![CDATA[
+This GIANTS Editor script allows you to import all placeables, including fences, into your map that are defined in a selected “placeable.xml”.
+
+Unlike the official PlaceableToolkit by GIANTS, this script works purely with a visual representation during the map building phase. This means you can first place objects and fences in-game and then import them into the GIANTS Editor using this script to maintain a complete visual overview of all placed elements while continuing map development.
+
+Additionally, the script generates an in-game script that automatically removes the imported visualization placeables from the I3D when the map is loaded in-game, allowing the real placeables to load normally. For this feature to work, a “modDesc.xml” must be selected in the GE script.
+
+Installation:
+1.) Locate your GIANTS Editor installation directory. By default:
+   "C:\Program Files\GIANTS Software\GIANTS_Editor_10.X.X\"
+2.) Copy the script “PlaceableImporter.lua” from the prefab into the GIANTS Editor script folder.
+3.) The script will then be available in the GIANTS Editor via the menu bar under “Scripts”.
+
+INFO:
+- To load placeables from mods, the script creates a folder named “modPlaceholders” on first launch. All required mods must be extracted into this folder.
+- Object placeables can be moved/rotated in the editor and updated back to the .XML via the update button. Make sure the placeables in the .XML contain a "uniqueId".
+- Fences can also be permanently integrated into the map by moving the desired fence objects outside of the “placeablePlaceholders” node. When using mod fences, texture paths may need to be adjusted.
+
+-----------------------------
+Changelog 1.1:
+- Fixed multiple alternative path resolution issues
+- placeable.xml is now loaded automatically via modDesc.xml
+- Custom placeable.xml path is now supported
+- New options added. Please refer to the info button for details
+]]>
+	</en>
+    </description>
+	
+	<categories>
+        <category>other</category>
+    </categories>
+	
+	<iconFilename>PlaceableImporter_icon.dds</iconFilename>
+    
+    <prefabs>
+		<prefab name="Script" xmlFilename="PlaceableImporter.lua" />
+    </prefabs>
+	
+</prefabDesc>

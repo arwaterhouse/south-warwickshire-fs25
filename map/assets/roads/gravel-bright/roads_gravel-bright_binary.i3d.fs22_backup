@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<i3D xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="roads_gravel-bright" version="1.6" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="i3dConverter" version="1.0" />
+  </Asset>
+  <Files>
+    <File fileId="1" filename="gravel-bright.dds" />
+  </Files>
+  <Materials>
+    <Material name="roads_gravel-bright_material" materialId="1">
+      <Texture fileId="1" />
+    </Material>
+  </Materials>
+  <Shapes externalShapesFile="roads_gravel-bright_binary.i3d.shapes">
+  </Shapes>
+  <Scene>
+    <TransformGroup name="roads_gravel-bright" nodeId="4">
+      <Shape name="roads_gravel-bright_shape" shapeId="1" static="true" nodeId="5" castsShadows="false" receiveShadows="true" materialIds="1" collisionFilterGroup="0x601c" collisionFilterMask="0xfffffbff" translation="856.2117846043097 54.25342439449975 235.28353278472514" />
+    </TransformGroup>
+  </Scene>
+</i3D>

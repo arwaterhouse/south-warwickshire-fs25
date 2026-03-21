@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="92">
+    <author>CP_Modding</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>british farm pack</en>
+    </title>
+    <description>
+        <en>
+            <![CDATA[british farm pack hope u like it]]>
+        </en>
+    </description>
+    <iconFilename>icon.dds</iconFilename>
+    <multiplayer supported="true" />
+
+    <storeItems>
+        <storeItem xmlFilename="hayshed.xml"/>
+        <storeItem xmlFilename="greenopenbarn.xml"/>
+        <storeItem xmlFilename="britishhedge.xml"/>
+        <storeItem xmlFilename="biggreenshed.xml"/>
+    </storeItems>
+
+    <l10n>
+        <text name="shopItem_hayshed">
+            <en>hayshed</en>
+        </text>
+    </l10n>
+</modDesc>

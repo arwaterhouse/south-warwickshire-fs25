@@ -200,6 +200,7 @@ def parse_osm(osm_path):
                 buildings.append(geojson_feature(
                     polygon_geometry(coords),
                     {"building": tags.get("building", "yes"),
+                     "fs25:building": tags.get("fs25:building", ""),
                      "fs25_type": btype,
                      "name": tags.get("name", ""),
                      "area_ha": round(area, 4)}
@@ -305,7 +306,7 @@ def write_geojson(features, path):
     gj = {"type": "FeatureCollection", "features": features}
     with open(path, 'w') as f:
         json.dump(gj, f, separators=(',', ':'))
-    print(f"  → {path}  ({len(features)} features)")
+    print(f"  -> {path}  ({len(features)} features)")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
@@ -359,7 +360,7 @@ def main():
     }
     with open(out / 'fs25_summary.json', 'w') as f:
         json.dump(summary, f, indent=2)
-    print(f"  → {out}/fs25_summary.json")
+    print(f"  -> {out}/fs25_summary.json")
 
     print("\n=== Pipeline Summary ===")
     print(f"  Fields (CROME):  {len(crome_features):>5}")

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="britishhedge.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.2"/>
+  </Asset>
+
+  <Files>
+    <File fileId="1" filename="placeables/textures/Hedge_new.png"/>
+    <File fileId="4" filename="placeables/textures/shrub01_LOD.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="Box" materialId="40" diffuseColor="0.8 0.8 0.8 1" specularColor="0.494118 1 0.494118">
+    </Material>
+    <Material name="Material.001" materialId="41" alphaBlending="true">
+      <Texture fileId="4"/>
+    </Material>
+    <Material name="material10" materialId="42">
+      <Texture fileId="1"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="britishhedge.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <TransformGroup name="shrubLong9m_LOD" scale="0.647415 1 1" lodDistance="0 120" lodBlending="false" clipDistance="1200" nodeId="47">
+      <Shape name="shrubLong9m_lod0" translation="3.7541 -0.5 0" scale="1.1 1.1 1.1" shapeId="1" clipDistance="1000" nodeId="48" castsShadows="true" receiveShadows="true" materialIds="42">
+        <Shape name="collisionBox" translation="0.029085 -0.0249956 0" scale="0.85 1 1" shapeId="2" static="true" collisionFilterGroup="0x1000" collisionFilterMask="0x1000" clipDistance="100" nodeId="49" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="40"/>
+      </Shape>
+      <Shape name="shrubLong9m_lod1" translation="3.78165 -0.5 0" scale="0.6 0.6 0.5" shapeId="3" clipDistance="900" nodeId="50" castsShadows="true" receiveShadows="true" materialIds="41"/>
+    </TransformGroup>
+  </Scene>
+
+</i3D>

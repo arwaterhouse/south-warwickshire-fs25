@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<i3D xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="background_terrain" version="1.6" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="i3dConverter" version="1.0" />
+  </Asset>
+  <Files>
+    <File fileId="1" filename="background_texture.dds" />
+  </Files>
+  <Materials>
+    <Material name="background_terrain_material" materialId="1">
+      <Texture fileId="1" />
+    </Material>
+  </Materials>
+  <Shapes externalShapesFile="background_terrain_binary.i3d.shapes">
+  </Shapes>
+  <Scene>
+    <TransformGroup name="background_terrain" nodeId="4">
+      <Shape name="background_terrain_shape" shapeId="1" static="true" nodeId="5" castsShadows="false" receiveShadows="true" materialIds="1" translation="0 165.9727626459144 0" />
+    </TransformGroup>
+  </Scene>
+</i3D>

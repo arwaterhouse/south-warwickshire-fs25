@@ -50,13 +50,20 @@ UK_BUILDINGS = [
     ("FS25_UK_MachineryShed", "placeables/machineShed02/machineShed02.xml", 24, 12, ["farmyard"]),
     ("FS25_UK_Grain_MachineryShed", "FS25_GrainMachineShed.xml", 30, 15, ["farmyard"]),
     
-    # Grain Sheds (RDM pack has multiple)
-    ("FS25_RDM_BritishGrainSheds", "shed01.xml", 20, 12, ["farmyard"]),
-    ("FS25_RDM_BritishGrainSheds", "shed02.xml", 24, 14, ["farmyard"]),
-    ("FS25_RDM_BritishGrainSheds", "shed03.xml", 28, 16, ["farmyard"]),
-    ("FS25_RDM_BritishGrainSheds", "shed04.xml", 32, 18, ["farmyard"]),
-    ("FS25_UkStyleGrainShed", "grainShed.xml", 25, 15, ["farmyard"]),
-    ("FS25_OldEnglishShed", "grain_shed.xml", 20, 10, ["farmyard"]),
+    # Grain Sheds (RDM pack - Green/Blue, with/without concrete pad)
+    ("FS25_RDM_BritishGrainSheds", "shed01.xml", 20, 12, ["farmyard"]),      # Green, 1 door, concrete
+    ("FS25_RDM_BritishGrainSheds", "shed01_B.xml", 20, 12, ["farmyard"]),    # Blue, 1 door, concrete
+    ("FS25_RDM_BritishGrainSheds", "shed01UB.xml", 20, 12, ["farmyard"]),    # Green, 1 door, no pad
+    ("FS25_RDM_BritishGrainSheds", "shed01UB_B.xml", 20, 12, ["farmyard"]),  # Blue, 1 door, no pad
+    ("FS25_RDM_BritishGrainSheds", "shed02.xml", 24, 14, ["farmyard"]),      # Green, 2 doors, concrete
+    ("FS25_RDM_BritishGrainSheds", "shed02_B.xml", 24, 14, ["farmyard"]),    # Blue, 2 doors, concrete
+    ("FS25_RDM_BritishGrainSheds", "shed02UB.xml", 24, 14, ["farmyard"]),    # Green, 2 doors, no pad
+    ("FS25_RDM_BritishGrainSheds", "shed02UB_B.xml", 24, 14, ["farmyard"]),  # Blue, 2 doors, no pad
+    ("FS25_RDM_BritishGrainSheds", "shed03R.xml", 28, 16, ["farmyard"]),     # Green, 2 doors + vehicle cover
+    ("FS25_RDM_BritishGrainSheds", "shed03RUB.xml", 28, 16, ["farmyard"]),   # Green, 2 doors + cover, no pad
+    ("FS25_RDM_BritishGrainSheds", "shed04.xml", 32, 18, ["farmyard"]),      # Sliding door
+    ("FS25_UkStyleGrainShed", "grainShed.xml", 25, 15, ["farmyard"]),        # Green, partition wall
+    ("FS25_OldEnglishShed", "grain_shed.xml", 20, 10, ["farmyard"]),         # Weathered/old style
     
     # Livestock
     ("FS25_UK_CattleShed", "FS25_UK_CattleShed.xml", 40, 20, ["farmyard", "livestock"]),
@@ -77,39 +84,69 @@ UK_BUILDINGS = [
 # Usage in JOSM/iD: building=machine_shed_3bay (or any tag below)
 
 EXACT_TAG_TO_BUILDING = {
-    # Machine sheds
-    "machine_shed_3bay":     ("FS25_UK_MachineShed_3Bay", "UK_MachineShed_3Bay.xml"),
-    "machine_shed":          ("FS25_UK_MachineryShed", "placeables/machineShed02/machineShed02.xml"),
-    "grain_machine_shed":    ("FS25_UK_Grain_MachineryShed", "FS25_GrainMachineShed.xml"),
+    # ═══════════════════════════════════════════════════════════════════════════
+    # MACHINE SHEDS - Open-sided, for tractors/implements
+    # ═══════════════════════════════════════════════════════════════════════════
+    "machine_shed_3bay":     ("FS25_UK_MachineShed_3Bay", "UK_MachineShed_3Bay.xml"),  # 3 bays, grey metal
+    "machine_shed":          ("FS25_UK_MachineryShed", "placeables/machineShed02/machineShed02.xml"),  # Grey metal
+    "grain_machine_shed":    ("FS25_UK_Grain_MachineryShed", "FS25_GrainMachineShed.xml"),  # Green, combined
     
-    # Grain sheds - different sizes
-    "grain_shed_small":      ("FS25_RDM_BritishGrainSheds", "shed01.xml"),
-    "grain_shed_medium":     ("FS25_RDM_BritishGrainSheds", "shed02.xml"),
-    "grain_shed_large":      ("FS25_RDM_BritishGrainSheds", "shed03.xml"),
-    "grain_shed_xlarge":     ("FS25_RDM_BritishGrainSheds", "shed04.xml"),
-    "grain_shed":            ("FS25_UkStyleGrainShed", "grainShed.xml"),
-    "old_shed":              ("FS25_OldEnglishShed", "grain_shed.xml"),
+    # ═══════════════════════════════════════════════════════════════════════════
+    # GRAIN SHEDS - RDM British Grain Sheds (Green or Blue, 1 or 2 doors)
+    # ═══════════════════════════════════════════════════════════════════════════
+    # Small (1000T) - 1 Door
+    "grain_shed_1door_green":       ("FS25_RDM_BritishGrainSheds", "shed01.xml"),     # Green, concrete pad
+    "grain_shed_1door_blue":        ("FS25_RDM_BritishGrainSheds", "shed01_B.xml"),   # Blue, concrete pad
+    "grain_shed_1door_green_nopad": ("FS25_RDM_BritishGrainSheds", "shed01UB.xml"),   # Green, no pad
+    "grain_shed_1door_blue_nopad":  ("FS25_RDM_BritishGrainSheds", "shed01UB_B.xml"), # Blue, no pad
     
-    # Livestock
-    "cattle_shed":           ("FS25_UK_CattleShed", "FS25_UK_CattleShed.xml"),
-    "beef_shed":             ("FS25_UK_LargeBeefShed", "FS25_UK_LargeBeefShed.xml"),
-    "sheep_barn":            ("FS25_englishStyleSheepBarn", "sheepGoatBarn.xml"),
+    # Medium (2000T) - 2 Doors
+    "grain_shed_2door_green":       ("FS25_RDM_BritishGrainSheds", "shed02.xml"),     # Green, concrete pad
+    "grain_shed_2door_blue":        ("FS25_RDM_BritishGrainSheds", "shed02_B.xml"),   # Blue, concrete pad
+    "grain_shed_2door_green_nopad": ("FS25_RDM_BritishGrainSheds", "shed02UB.xml"),   # Green, no pad
+    "grain_shed_2door_blue_nopad":  ("FS25_RDM_BritishGrainSheds", "shed02UB_B.xml"), # Blue, no pad
     
-    # Storage
-    "bale_shed":             ("FS25_UK_BaleShed", "FS25_UK_BaleShed.xml"),
+    # Large (3000T) - 2 Doors + Vehicle Cover
+    "grain_shed_cover_green":       ("FS25_RDM_BritishGrainSheds", "shed03R.xml"),    # Green, concrete pad
+    "grain_shed_cover_green_nopad": ("FS25_RDM_BritishGrainSheds", "shed03RUB.xml"),  # Green, no pad
     
-    # Field Gates - 7 Bar style, different widths
-    # All use the same model (width selected in-game), but you can tag for documentation
-    "field_gate":            ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Default
-    "field_gate_0.9m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Pedestrian
-    "field_gate_1.2m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Pedestrian
-    "field_gate_1.5m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Small
-    "field_gate_2.4m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Standard
-    "field_gate_3m":         ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Medium
-    "field_gate_3.3m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Medium
-    "field_gate_3.6m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Large
-    "field_gate_4.2m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Wide
-    "field_gate_double":     ("FS25_RDM_BritishFieldGates", "7Bar.xml"),  # Double 3.6m
+    # XL (2500T) - Sliding Door
+    "grain_shed_sliding":           ("FS25_RDM_BritishGrainSheds", "shed04.xml"),     # Sliding door
+    
+    # Other grain sheds
+    "grain_shed":            ("FS25_UkStyleGrainShed", "grainShed.xml"),    # Green, partition wall
+    "old_shed":              ("FS25_OldEnglishShed", "grain_shed.xml"),     # Weathered corrugated
+    
+    # ═══════════════════════════════════════════════════════════════════════════
+    # LIVESTOCK - Animal housing
+    # ═══════════════════════════════════════════════════════════════════════════
+    "cattle_shed":           ("FS25_UK_CattleShed", "FS25_UK_CattleShed.xml"),       # 35 cows, green
+    "beef_shed":             ("FS25_UK_LargeBeefShed", "FS25_UK_LargeBeefShed.xml"), # 80 cows, large
+    "sheep_barn":            ("FS25_englishStyleSheepBarn", "sheepGoatBarn.xml"),    # Red brick, 35 sheep
+    
+    # ═══════════════════════════════════════════════════════════════════════════
+    # STORAGE
+    # ═══════════════════════════════════════════════════════════════════════════
+    "bale_shed":             ("FS25_UK_BaleShed", "FS25_UK_BaleShed.xml"),           # Open-sided bale store
+    
+    # ═══════════════════════════════════════════════════════════════════════════
+    # FIELD GATES - 7 Bar British style (width selected in-game)
+    # ═══════════════════════════════════════════════════════════════════════════
+    "field_gate":            ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_0.9m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_1.2m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_1.5m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_2.4m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_3m":         ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_3.3m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_3.6m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_4.2m":       ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    "field_gate_double":     ("FS25_RDM_BritishFieldGates", "7Bar.xml"),
+    
+    # ═══════════════════════════════════════════════════════════════════════════
+    # STILES - Pedestrian crossing (prefab - static)
+    # ═══════════════════════════════════════════════════════════════════════════
+    "stile":                 ("FS25_ukStilepack_prefab", "prefabDesc.xml"),
 }
 
 # Which OSM building types are farm buildings (for fallback size-based matching)?
