@@ -1,0 +1,1292 @@
+<licensePlates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/mapLicensePlates.xsd">
+    <font name="LICENSE_PLATE_UK" />
+
+    <licensePlate filename="maps/mapUS/licensePlates/licensePlatesUK.i3d" node="0" type="ELONGATED" width="0.52" height="0.11">
+        <font size="0.075" scaleX="0.85" scaleY="1"/>
+
+        <variations>
+            <variation> <!-- without distinguishing code 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.1950" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.1349" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="-0.0748" numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="-0.0148" numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="0.0729"  numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.1330"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.1931"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|1|0" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="NONE"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- without distinguishing fantasy code 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.176" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.126" numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="-0.076" numerical="true" alphabetical="true" special="true" />
+		<value node="0|3" posX="-0.026" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="0.024"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="0.075"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.125"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.176"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.227"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|1|0" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="NONE"/>
+                <value node="1|2|1" isStatic="true" position="ANY"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- eu gb blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.1708" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.1107" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="-0.0507" numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.0092"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="0.0971"  numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.1572"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.2173"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="ANY"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="NONE"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- eu gb blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.176" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.126" numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="-0.076" numerical="true" alphabetical="true" special="true" />
+		<value node="0|3" posX="-0.026" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="0.024"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="0.075"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.125"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.176"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.227"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="ANY"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="ANY"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- gb blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.1708" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.1107" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="-0.0507" numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.0092"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="0.0971"  numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.1572"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.2173"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="ANY"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="ANY"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="NONE"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- gb blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.176" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.126" numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="-0.076" numerical="true" alphabetical="true" special="true" />
+		<value node="0|3" posX="-0.026" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="0.024"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="0.075"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.125"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.176"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.227"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="ANY"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="ANY"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="ANY"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- uk blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.1708" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.1107" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="-0.0507" numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.0092"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="0.0971"  numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.1572"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.2173"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="ANY"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="ANY"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="NONE"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- uk blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.176" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.126" numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="-0.076" numerical="true" alphabetical="true" special="true" />
+		<value node="0|3" posX="-0.026" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="0.024"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="0.075"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.125"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.176"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.227"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="ANY"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="ANY"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="ANY"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- ire stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.176" numerical="true" alphabetical="false" />
+                <value node="0|1" posX="-0.126" numerical="true" alphabetical="false" />
+                <value node="0|2" posX="-0.076" numerical="true"  alphabetical="false" />
+
+		<value node="0|3" posX="-0.026" numerical="false"  alphabetical="false" special="true"  />
+
+                <value node="0|4" posX="0.024"  numerical="false" alphabetical="true" />
+                <value node="0|5" posX="0.075"  numerical="false"  alphabetical="true" special="true" />
+
+                <value node="0|6" posX="0.125"  numerical="true" alphabetical="false" special="true" />
+                <value node="0|7" posX="0.176" numerical="true"  alphabetical="false" />
+                <value node="0|8" posX="0.227"  numerical="true" alphabetical="false" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="ANY"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="ANY"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="NONE"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- ire fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.176" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.126" numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="-0.076" numerical="true" alphabetical="true" special="true" />
+		<value node="0|3" posX="-0.026" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="0.024"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="0.075"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.125"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.176"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.227"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="ANY"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="ANY"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="ANY"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- sco blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.1708" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.1107" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="-0.0507" numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.0092"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="0.0971"  numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.1572"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.2173"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="ANY"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="ANY"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="NONE"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- sco blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.176" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.126" numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="-0.076" numerical="true" alphabetical="true" special="true" />
+		<value node="0|3" posX="-0.026" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="0.024"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="0.075"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.125"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.176"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.227"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="ANY"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="ANY"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|2|0" isStatic="true" position="ANY"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- cmy blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.1708" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.1107" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="-0.0507" numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.0092"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="0.0971"  numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.1572"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.2173"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="ANY"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="ANY"/>
+
+                <value node="1|2|0" isStatic="true" position="NONE"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- cmy blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.176" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.126" numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="-0.076" numerical="true" alphabetical="true" special="true" />
+		<value node="0|3" posX="-0.026" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="0.024"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="0.075"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.125"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.176"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.227"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0" isStatic="true" position="ANY"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="ANY"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="ANY"/>
+
+                <value node="1|2|0" isStatic="true" position="ANY"/>
+                <value node="1|2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+        </variations>
+
+        <frame node="2" widthOffset="0.005" heightOffsetTop="0.005" heightOffsetBot="0.015"/>
+    </licensePlate>
+
+    <licensePlate filename="maps/mapUS/licensePlates/licensePlatesUK.i3d" node="1" type="SQUARISH" width="0.279" height="0.203">
+        <font size="0.075" scaleX="0.85" scaleY="1"/>
+
+        <variations>
+            <variation> <!-- without distinguishing code 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.0931" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.0316" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="0.0306"  numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.0938"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="-0.0632" numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="-0.0014" numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.0604"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="NONE"/>
+                <value node="1|1" isStatic="true" position="NONE"/>
+                <value node="1|2" isStatic="true" position="BACK"/>
+                <value node="1|3" isStatic="true" position="FRONT"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="NONE"/>
+
+                <value node="2|0" isStatic="true" position="NONE"/>
+                <value node="2|1" isStatic="true" position="ANY"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- without distinguishing fantasy code 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.063" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.008"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="0.047"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|3" posX="0.103" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="-0.078"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="-0.028"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.023" numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.073"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.124"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="NONE"/>
+                <value node="1|1" isStatic="true" position="NONE"/>
+                <value node="1|2" isStatic="true" position="BACK"/>
+                <value node="1|3" isStatic="true" position="FRONT"/>
+
+                <value node="1|4|0" isStatic="true" position="ANY"/>
+                <value node="1|4|1" isStatic="true" position="NONE"/>
+
+                <value node="2|0" isStatic="true" position="NONE"/>
+                <value node="2|1" isStatic="true" position="ANY"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- eu gb blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.0655" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.0040" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="0.0537"  numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.1119"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="-0.0354" numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.0218"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.0792"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="ANY"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="NONE"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- eu gb blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.063" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.008"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="0.047"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|3" posX="0.103" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="-0.078"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="-0.028"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.023" numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.073"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.124"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="ANY"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="ANY"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="ANY"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- gb blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.0655" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.0040" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="0.0537"  numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.1119"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="-0.0354" numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.0218"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.0792"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="ANY"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="ANY"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="NONE"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- gb blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.063" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.008"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="0.047"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|3" posX="0.103" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="-0.078"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="-0.028"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.023" numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.073"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.124"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="ANY"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="ANY"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="ANY"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- uk blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.0655" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.0040" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="0.0537"  numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.1119"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="-0.0354" numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.0218"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.0792"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="ANY"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="ANY"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="NONE"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- uk blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.063" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.008"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="0.047"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|3" posX="0.103" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="-0.078"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="-0.028"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.023" numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.073"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.124"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="ANY"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="ANY"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="ANY"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- ire blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.063" numerical="true" alphabetical="false" />
+                <value node="0|1" posX="-0.008"  numerical="true" alphabetical="false" />
+                <value node="0|2" posX="0.047"  numerical="true" alphabetical="false" />
+                <value node="0|3" posX="0.103" numerical="false" alphabetical="false" special="true" />
+                <value node="0|4" posX="-0.078"  numerical="false" alphabetical="true" />
+                <value node="0|5" posX="-0.028"  numerical="false" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.023" numerical="true" alphabetical="false" special="true" />
+                <value node="0|7" posX="0.073"  numerical="true" alphabetical="false" />
+                <value node="0|8" posX="0.124"  numerical="true" alphabetical="false" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="ANY"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="ANY"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="NONE"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- ire blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.063" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.008"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="0.047"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|3" posX="0.103" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="-0.078"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="-0.028"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.023" numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.073"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.124"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="ANY"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="ANY"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="ANY"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- sco blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.0655" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.0040" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="0.0537"  numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.1119"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="-0.0354" numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.0218"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.0792"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="ANY"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="ANY"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="NONE"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- sco blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.063" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.008"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="0.047"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|3" posX="0.103" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="-0.078"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="-0.028"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.023" numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.073"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.124"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="ANY"/>
+                <value node="1|0|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="ANY"/>
+                <value node="1|1|0|5" isStatic="true" position="NONE"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="ANY"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+
+            <variation> <!-- cmy blue stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.0655" numerical="false" alphabetical="true" />
+                <value node="0|1" posX="-0.0040" numerical="false" alphabetical="true" />
+
+                <value node="0|2" posX="0.0537"  numerical="true"  alphabetical="false" nextSection="true" />
+                <value node="0|3" posX="0.1119"  numerical="true"  alphabetical="false" />
+
+                <value node="0|4" posX="-0.0354" numerical="false" alphabetical="true"  nextSection="true" />
+                <value node="0|5" posX="0.0218"  numerical="false" alphabetical="true" />
+                <value node="0|6" posX="0.0792"  numerical="false" alphabetical="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="ANY"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="ANY"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="NONE"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+            <variation> <!-- cmy blue fantasy stripe 2 area code, 2 age identifier, 3 letters -->
+                <value node="0|0" posX="-0.063" numerical="true" alphabetical="true" special="true" />
+                <value node="0|1" posX="-0.008"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|2" posX="0.047"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|3" posX="0.103" numerical="true" alphabetical="true" special="true" />
+                <value node="0|4" posX="-0.078"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|5" posX="-0.028"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|6" posX="0.023" numerical="true" alphabetical="true" special="true" />
+                <value node="0|7" posX="0.073"  numerical="true" alphabetical="true" special="true" />
+                <value node="0|8" posX="0.124"  numerical="true" alphabetical="true" special="true" />
+
+                <value node="1|0" isStatic="true" position="BACK"/>
+                <value node="1|1" isStatic="true" position="FRONT"/>
+                <value node="1|2" isStatic="true" position="NONE"/>
+                <value node="1|3" isStatic="true" position="NONE"/>
+
+                <value node="1|0|0|0" isStatic="true" position="NONE"/>
+                <value node="1|0|0|1" isStatic="true" position="NONE"/>
+                <value node="1|0|0|2" isStatic="true" position="NONE"/>
+                <value node="1|0|0|3" isStatic="true" position="NONE"/>
+                <value node="1|0|0|4" isStatic="true" position="NONE"/>
+                <value node="1|0|0|5" isStatic="true" position="ANY"/>
+
+                <value node="1|1|0|0" isStatic="true" position="NONE"/>
+                <value node="1|1|0|1" isStatic="true" position="NONE"/>
+                <value node="1|1|0|2" isStatic="true" position="NONE"/>
+                <value node="1|1|0|3" isStatic="true" position="NONE"/>
+                <value node="1|1|0|4" isStatic="true" position="NONE"/>
+                <value node="1|1|0|5" isStatic="true" position="ANY"/>
+
+                <value node="1|4|0" isStatic="true" position="NONE"/>
+                <value node="1|4|1" isStatic="true" position="ANY"/>
+
+                <value node="2|0" isStatic="true" position="ANY"/>
+                <value node="2|1" isStatic="true" position="NONE"/>
+
+                <material materialSlotName="licensePlateBlueBackground_mat">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateBlueBackground_mat1">
+                    <colorScale value="0.0123 0.1413 0.5776"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat">
+                    <colorScale value="1.0000 0.5970 0.0000"/>
+                </material>
+                <material materialSlotName="licensePlateText_mat1">
+                    <colorScale value="1.0000 1.0000 1.0000"/>
+                </material>
+            </variation>
+        </variations>
+
+        <frame node="2" widthOffset="0.005" heightOffsetTop="0.005" heightOffsetBot="0.015"/>
+    </licensePlate>
+
+    <colorConfigurations materialName="licensePlateColored_mat" useDefaultColors="false">
+        <colorConfiguration name="$l10n_ui_colorBlack" color="0.021 0.021 0.021" isDefault="true"/>
+    </colorConfigurations>
+
+    <placement defaultType="both"/>
+</licensePlates>

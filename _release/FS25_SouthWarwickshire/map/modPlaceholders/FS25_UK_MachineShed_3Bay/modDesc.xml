@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="103">
+<author>Bláckice and LivinOnAPlayer</author>
+<version>1.0.0.0</version>
+<title>
+<en>UK 3-Bay Machinery Shed</en>		
+</title>
+
+<description>
+<en><![CDATA[
+Category: Sheds
+Price: $30,000
+Daily upkeep: $5
+]]></en>
+
+<de><![CDATA[
+Shopkategorie: Hallen
+Preis: 30.000€
+Täglicher Unterhalt: 5€
+]]></de>
+
+<fr><![CDATA[
+Catégorie: Abris
+Prix: 30 000€
+Entretien quotidien: 5€
+]]></fr>
+
+</description>
+
+<iconFilename>icon_FS25_MachineShed_3Bay.dds</iconFilename>
+<multiplayer supported="true"/>
+
+<storeItems>
+<storeItem xmlFilename="UK_MachineShed_3Bay.xml"/>
+</storeItems>
+	
+</modDesc>

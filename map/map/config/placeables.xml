@@ -48,4 +48,22 @@
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml" position="-1642.18 0 662.36" rotation="0 0 0" id="46"/>
     <placeable filename="placeables/FS25_UkStyleGrainShed/grainShed.xml" position="-1267.87 0 -1958.01" rotation="0 0 0" id="47"/>
     <placeable filename="placeables/FS25_UK_BaleShed/FS25_UK_BaleShed.xml" position="-1282.01 0 -1914.95" rotation="0 0 0" id="48"/>
+    <placeable filename="placeables/FS22_British_Storage_Shed/storageShed1.xml" position="0 0 0" rotation="0 0 0" id="49"/>
+    <placeable filename="placeables/FS22_britishbaleshed/britishbaleshed.xml" position="0 0 0" rotation="0 0 0" id="50"/>
+    <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed02UB_B.xml" position="0 0 0" rotation="0 0 0" id="51"/>
+    <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed02_B.xml" position="0 0 0" rotation="0 0 0" id="52"/>
+    <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed03.xml" position="0 0 0" rotation="0 0 0" id="53"/>
+    <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed03RUB.xml" position="0 0 0" rotation="0 0 0" id="54"/>
+    <placeable filename="placeables/FS25_UK_BaleShed/UKBaleShed.xml" position="0 0 0" rotation="0 0 0" id="55"/>
+    <placeable filename="placeables/FS25_UK_BaleShed/UKBaleShedAL.xml" position="0 0 0" rotation="0 0 0" id="56"/>
+    <placeable filename="placeables/FS25_UK_CattleShed/ukCattleShed.xml" position="0 0 0" rotation="0 0 0" id="57"/>
+    <placeable filename="placeables/FS25_UK_Grain_MachineryShed/ukGrainMachineryShed.xml" position="0 0 0" rotation="0 0 0" id="58"/>
+    <placeable filename="placeables/FS25_UK_LargeBeefShed/ukLargeBeefShed.xml" position="0 0 0" rotation="0 0 0" id="59"/>
+    <placeable filename="placeables/FS25_UK_MachineryShed/xml/machineShed02.xml" position="0 0 0" rotation="0 0 0" id="60"/>
+    <placeable filename="placeables/FS25_UK_Shed/ukShed.xml" position="0 0 0" rotation="0 0 0" id="61"/>
+    <placeable filename="placeables/FS25_britishshedpack/biggreenshed.xml" position="0 0 0" rotation="0 0 0" id="62"/>
+    <placeable filename="placeables/FS25_britishshedpack/britishhedge.xml" position="0 0 0" rotation="0 0 0" id="63"/>
+    <placeable filename="placeables/FS25_britishshedpack/greenopenbarn.xml" position="0 0 0" rotation="0 0 0" id="64"/>
+    <placeable filename="placeables/FS25_britishshedpack/hayshed.xml" position="0 0 0" rotation="0 0 0" id="65"/>
+    <placeable filename="placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.xml" position="0 0 0" rotation="0 0 0" id="66"/>
 </placeables>

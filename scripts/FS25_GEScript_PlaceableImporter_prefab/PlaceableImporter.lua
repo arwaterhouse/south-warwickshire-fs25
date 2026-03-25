@@ -919,6 +919,12 @@ function PlaceableImporter:loadPlaceablesFromXML(filePath)
 
 						-- local placeableNode = self:loadPlaceable(i3dPath, objectsNode, position, rotation, uniqueId, childDeleteNodes)
 
+						-- Stamp the source XML filename so the export script (and copies
+						-- made in GE) always know which placeable file this object maps to.
+						if placeableNode then
+							setUserAttribute(placeableNode, "placeableFile", 3, objectXMLFilePath)
+						end
+
 						----------------------------------------------------------------
 						-- HUSBANDRY FENCE
 						----------------------------------------------------------------

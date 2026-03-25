@@ -1,378 +1,250 @@
 -- Author: South Warwickshire FS25 Pipeline
--- Name: SW Foliage by Material
--- Description: Paints foliage based on which terrain MATERIAL LAYER is painted
---              at each point — works like GE's "Restrict to Materials" tool.
+-- Name: SW Foliage by Material  (v3 — group-based, no manual sampling)
+-- Description: Paints foliage based on terrain MATERIAL GROUPS.
+--              Reads exact RGBA signatures straight from the map.i3d — no
+--              manual colour sampling needed. The user picks a named group
+--              (e.g. "GRASS & FOREST", "MUD DARK") and assigns a foliage
+--              preset or marks it EXCLUDE.
 --
---              Instead of sampling RGBA colours, this script reads the terrain
---              layer names directly from the map's i3d file, lists them in the
---              UI, and lets you assign a foliage preset to each one.
+-- Why groups, not individual layers?
+--   getTerrainAttributesAtWorldPos() returns a blended RGBA driven by each
+--   layer's "attributes" field in the i3d. Many layers share IDENTICAL
+--   attribute values — e.g. grass01, grassClovers01, forestLeaves01 and
+--   forestGrass01 ALL resolve to the same R=0.155 G=0.082 B=0.037 W=0.7.
+--   It is physically impossible to distinguish them at runtime. They are
+--   grouped here by their actual signature.
 --
---              At each scan point it checks the material layer's density map
---              value — if the material is present (value > 0) it paints the
---              assigned foliage mix. Materials marked EXCLUDE are used to
---              block painting (fields, roads, farmland, etc.).
+-- Groups for this South Warwickshire map (extracted from map.i3d):
+--   GRASS & FOREST  R=0.155 G=0.082 B=0.037 W=0.7
+--     grass01/02, grassClovers01/02, grassDirtStones01/02,
+--     grassDirtPatchy01/02, grassDirtPatchyDry01/02, grassMoss01/02,
+--     grassFreshShort01/02, grassFreshMiddle01/02, grassCut01/02,
+--     forestGrass01/02, forestLeaves01/02, forestNeedels01/02,
+--     pebblesForestGround01/02
+--   GRAVEL MOSS     R=0.155 G=0.082 B=0.037 W=0.3
+--     gravelDirtMoss01/02, gravelPebblesMoss01/02,
+--     gravelPebblesMossPatchy01/02
+--   ASPHALT / ROAD  R=0.071 G=0.063 B=0.063 W=0.0
+--     asphalt01/02, asphaltCracks01/02, asphaltTwigs01/02
+--   GRAVEL / STONE  R=0.157 G=0.141 B=0.122 W=0.0
+--     gravel01/02, gravelSmall01/02
+--   ROCK / CONCRETE R=0.220 G=0.212 B=0.196 W=0.0
+--     forestRockRoots01/02, rock01/02, rockForest01/02,
+--     rockyForestGround01/02, concrete01/02, concreteShattered01/02,
+--     concreteGravelSand01/02, concretePebbles01/02
+--   CONCRETE DIRT   R=0.165 G=0.149 B=0.125 W=0.0
+--     concreteDirt01/02
+--   MUD GRAVEL      R=0.176 G=0.153 B=0.133 W=1.0
+--     mudGravel01/02
+--   MUD DARK        R=0.071 G=0.055 B=0.043 W=1.0
+--     mudDark01/02  (cultivated dark soil — good for field exclusion)
+--   MUD LIGHT       R=0.137 G=0.114 B=0.078 W=1.0
+--     mudLight01/02, mudPebblesLight01/02
+--   MUD TRACKS      R=0.062 G=0.044 B=0.027 W=1.0
+--     mudTracks01  (tire-track / freshly cultivated — very distinct)
+--   MUD TRACKS 2    R=0.137 G=0.098 B=0.075 W=1.0
+--     mudTracks02
+--   MUD LEAVES      R=0.082 G=0.075 B=0.027 W=1.0
+--     mudLeaves01/02
+--   MUD PEBBLES     R=0.067 G=0.051 B=0.039 W=1.0
+--     mudPebbles01/02
+--   MUD DARK PATCHY R=0.078 G=0.067 B=0.043 W=1.0
+--     mudDarkGrassPatchy01/02
+--   ASPHALT DUSTY   R=0.137 G=0.129 B=0.116 W=0.0
+--     asphaltDusty01/02
+--   ROCK FLOOR TILE R=0.208 G=0.184 B=0.165 W=0.0
+--     rockFloorTiles01/02
+--   SAND            R=0.230 G=0.122 B=0.061 W=1.0
+--     sand01/02
 --
--- Workflow:
---   1. Script loads — it scans the i3d and lists all terrain layer names.
---   2. Use "Prev Layer / Next Layer" buttons on each slot to pick a material.
---   3. Use "Next Preset" to assign a foliage mix per material.
---   4. Mark field/road/farmland materials as EXCLUDE to block foliage there.
---   5. Click "Paint Next Partition" (64 clicks = full 4× map).
+-- Suggested SW Warwickshire setup:
+--   GRASS & FOREST → GRASS & MEADOW  (open fields, verges, woodland floor)
+--   GRAVEL MOSS    → FIELD MARGIN    (mossy farm tracks and paths)
+--   ASPHALT / ROAD → EXCLUDE         (tarmac, no foliage)
+--   GRAVEL / STONE → EXCLUDE         (gravel paths)
+--   ROCK / CONCRETE → EXCLUDE        (hard surfaces)
+--   MUD DARK       → EXCLUDE         (cultivated fields / dark ploughed soil)
+--   MUD TRACKS     → EXCLUDE         (freshly cultivated / tire tracks)
+--   MUD GRAVEL     → EXCLUDE         (farm track entrances)
 --
--- British foliage presets (South Warwickshire):
---   WOODLAND FLOOR  → ForestGrass, bracken fern, clover (bluebell sub), DryBranch
---   GRASS & MEADOW  → GrassDenseMix (cow parsley), GrassMedium, Meadow
---   HEDGEROW SCRUB  → hazelnut (dominant), boxwood (blackthorn/hawthorn sub)
---   FIELD MARGIN    → GrassSmall, Clover (very sparse — thin strip only)
---   NONE            → skip this slot / do not paint
+--   For WOODLAND FLOOR specifically, use sw_foliage_zone_painter_v2.lua
+--   with the sw_forest_splines.i3d group — forest boundaries are splines
+--   and will give a much cleaner result than texture matching.
 --
 -- Hide: no
 -- AlwaysLoaded: no
 
 source("editorUtils.lua")
 
--- ── Foliage presets (British / South Warwickshire) ────────────────────────────
+-- ── Material signature groups (extracted from this map's map.i3d) ─────────────
+-- R, G, B, W are the exact attribute values. tol = match tolerance.
+-- Members = the layer names that share this signature (informational).
 
-local PRESET_NAMES = {
-    "WOODLAND FLOOR",
-    "GRASS & MEADOW",
-    "HEDGEROW SCRUB",
-    "FIELD MARGIN",
-    "NONE",
+local GROUPS = {
+    { name="GRASS & FOREST",
+      R=0.155, G=0.082, B=0.037, W=0.7, tol=0.018,
+      members="grass01/02, grassClovers, grassDirtStones, grassDirtPatchy, grassMoss, "..
+              "grassFresh, grassCut, forestGrass, forestLeaves, forestNeedels, pebblesForestGround" },
+    { name="GRAVEL MOSS",
+      R=0.155, G=0.082, B=0.037, W=0.3, tol=0.018,
+      members="gravelDirtMoss, gravelPebblesMoss, gravelPebblesMossPatchy" },
+    { name="ASPHALT / ROAD",
+      R=0.071, G=0.063, B=0.063, W=0.0, tol=0.015,
+      members="asphalt01/02, asphaltCracks, asphaltTwigs" },
+    { name="GRAVEL / STONE",
+      R=0.157, G=0.141, B=0.122, W=0.0, tol=0.015,
+      members="gravel01/02, gravelSmall01/02" },
+    { name="ROCK / CONCRETE",
+      R=0.220, G=0.212, B=0.196, W=0.0, tol=0.018,
+      members="rock, rockForest, rockyForestGround, forestRockRoots, "..
+              "concrete, concreteShattered, concreteGravelSand, concretePebbles" },
+    { name="CONCRETE DIRT",
+      R=0.165, G=0.149, B=0.125, W=0.0, tol=0.015,
+      members="concreteDirt01/02" },
+    { name="MUD GRAVEL",
+      R=0.176, G=0.153, B=0.133, W=1.0, tol=0.015,
+      members="mudGravel01/02" },
+    { name="MUD DARK  (cultivated soil)",
+      R=0.071, G=0.055, B=0.043, W=1.0, tol=0.015,
+      members="mudDark01/02  — use as field/ploughed-soil EXCLUDE" },
+    { name="MUD TRACKS  (freshly cultivated)",
+      R=0.062, G=0.044, B=0.027, W=1.0, tol=0.012,
+      members="mudTracks01  — very distinct, good for field EXCLUDE" },
+    { name="MUD TRACKS 2",
+      R=0.137, G=0.098, B=0.075, W=1.0, tol=0.015,
+      members="mudTracks02" },
+    { name="MUD LIGHT",
+      R=0.137, G=0.114, B=0.078, W=1.0, tol=0.015,
+      members="mudLight01/02, mudPebblesLight01/02" },
+    { name="MUD LEAVES",
+      R=0.082, G=0.075, B=0.027, W=1.0, tol=0.015,
+      members="mudLeaves01/02" },
+    { name="MUD PEBBLES",
+      R=0.067, G=0.051, B=0.039, W=1.0, tol=0.012,
+      members="mudPebbles01/02" },
+    { name="MUD DARK PATCHY",
+      R=0.078, G=0.067, B=0.043, W=1.0, tol=0.012,
+      members="mudDarkGrassPatchy01/02, mudDarkMossPatchy01/02" },
+    { name="ASPHALT DUSTY",
+      R=0.137, G=0.129, B=0.116, W=0.0, tol=0.015,
+      members="asphaltDusty01/02" },
+    { name="ROCK FLOOR TILES",
+      R=0.208, G=0.184, B=0.165, W=0.0, tol=0.015,
+      members="rockFloorTiles01/02, rockFloorTilesPattern01/02" },
+    { name="SAND",
+      R=0.230, G=0.122, B=0.061, W=1.0, tol=0.015,
+      members="sand01/02" },
+    { name="— no group selected —",
+      R=nil, G=nil, B=nil, W=nil, tol=0,
+      members="" },
 }
 
+local NUM_GROUPS = #GROUPS
+
+-- ── Foliage presets (British / South Warwickshire) ────────────────────────────
+
+local PRESET_NAMES = { "WOODLAND FLOOR", "GRASS & MEADOW", "HEDGEROW SCRUB", "FIELD MARGIN", "NONE" }
+
 local PRESET_LAYERS = {
-    -- [1] WOODLAND FLOOR  — Warwickshire oak/ash woodland understory
-    --   SwordFern = bracken (dominant in SW Warks), DeerFern = damp shade fern,
-    --   Clover = bluebell carpet substitute, DryBranch = leaf litter / deadwood,
-    --   StarFlower = wood anemone / herb robert / wild garlic equivalent,
-    --   hazelnutSmall = hazel seedling layer (defining tree of Warks woodland)
-    { {ft="forestPlants", ch=9,  nc=5},  -- ForestGrass      (×4)
-      {ft="forestPlants", ch=9,  nc=5},
-      {ft="forestPlants", ch=9,  nc=5},
-      {ft="forestPlants", ch=9,  nc=5},
-      {ft="forestPlants", ch=7,  nc=5},  -- SwordFern/bracken (×3)
-      {ft="forestPlants", ch=7,  nc=5},
-      {ft="forestPlants", ch=7,  nc=5},
-      {ft="forestPlants", ch=8,  nc=5},  -- DeerFern          (×2)
-      {ft="forestPlants", ch=8,  nc=5},
-      {ft="forestPlants", ch=2,  nc=5},  -- Clover/bluebell   (×3)
-      {ft="forestPlants", ch=2,  nc=5},
-      {ft="forestPlants", ch=2,  nc=5},
-      {ft="forestPlants", ch=1,  nc=5},  -- DryBranch/leaf litter (×2)
-      {ft="forestPlants", ch=1,  nc=5},
-      {ft="forestPlants", ch=3,  nc=5},  -- StarFlower/wood anemone
-      {ft="decoBush",     ch=13, nc=4},  -- hazelnutSmall seedling
-    },
-
-    -- [2] GRASS & MEADOW  — British pasture / road verge
-    --   GrassDenseMix = tall rank grass + cow parsley / hogweed visual
-    --   GrassMedium   = standard meadow grass
-    --   Meadow        = wildflowers (buttercup, daisy, clover heads)
-    --   GrassSmall    = fine fescue (slightly maintained feel)
-    { {ft="decoFoliage", ch=1,  nc=5},  -- GrassDenseMix/cow parsley (×3)
-      {ft="decoFoliage", ch=1,  nc=5},
-      {ft="decoFoliage", ch=1,  nc=5},
-      {ft="decoFoliage", ch=10, nc=5},  -- GrassMedium        (×3)
-      {ft="decoFoliage", ch=10, nc=5},
-      {ft="decoFoliage", ch=10, nc=5},
-      {ft="meadow",      ch=2,  nc=5},  -- Meadow wildflowers (×2)
-      {ft="meadow",      ch=2,  nc=5},
-      {ft="decoFoliage", ch=9,  nc=5},  -- GrassSmall/fescue
-    },
-
-    -- [3] HEDGEROW SCRUB  — Warwickshire hedgerow species
-    --   Hazel (Corylus avellana) dominant — THE defining hedgerow shrub of SW Warks.
-    --   boxwoodSmall/Med stand in for hawthorn, blackthorn, elder, dog rose.
-    --   blueberrySmall = low thorny layer (dog rose, bramble equivalent).
-    { {ft="decoBush",    ch=13, nc=4},  -- hazelnutSmall    (×4 — dominant)
-      {ft="decoBush",    ch=13, nc=4},
-      {ft="decoBush",    ch=13, nc=4},
-      {ft="decoBush",    ch=13, nc=4},
-      {ft="decoBush",    ch=14, nc=4},  -- hazelnutMedium   (×2)
-      {ft="decoBush",    ch=14, nc=4},
-      {ft="decoBush",    ch=15, nc=4},  -- hazelnutBig
-      {ft="decoBush",    ch=10, nc=4},  -- boxwoodSmall     (blackthorn/hawthorn)
-      {ft="decoBush",    ch=11, nc=4},  -- boxwoodMedium    (elder)
-      {ft="decoBush",    ch=6,  nc=4},  -- blueberrySmall   (dog rose/bramble)
-    },
-
-    -- [4] FIELD MARGIN  — sparse thin strip at field edge, very light touch
-    --   GrassSmall dominant (fine fescue/rye grass), occasional clover.
-    --   Intentionally very sparse — Warwickshire field margins are narrow.
-    { {ft="decoFoliage",  ch=9,  nc=5}, -- GrassSmall    (×5 — dominant)
-      {ft="decoFoliage",  ch=9,  nc=5},
-      {ft="decoFoliage",  ch=9,  nc=5},
-      {ft="decoFoliage",  ch=9,  nc=5},
-      {ft="decoFoliage",  ch=9,  nc=5},
-      {ft="decoFoliage",  ch=10, nc=5}, -- GrassMedium   (×2)
-      {ft="decoFoliage",  ch=10, nc=5},
-      {ft="forestPlants", ch=2,  nc=5}, -- Clover        (white clover)
-      {ft="meadow",       ch=2,  nc=5}, -- Meadow        (occasional wildflower)
-    },
-
-    -- [5] NONE — slot is unused, no foliage painted
+    -- [1] WOODLAND FLOOR
+    { {ft="forestPlants",ch=9,nc=5},{ft="forestPlants",ch=9,nc=5},
+      {ft="forestPlants",ch=9,nc=5},{ft="forestPlants",ch=9,nc=5},
+      {ft="forestPlants",ch=7,nc=5},{ft="forestPlants",ch=7,nc=5},
+      {ft="forestPlants",ch=7,nc=5},{ft="forestPlants",ch=8,nc=5},
+      {ft="forestPlants",ch=8,nc=5},{ft="forestPlants",ch=2,nc=5},
+      {ft="forestPlants",ch=2,nc=5},{ft="forestPlants",ch=2,nc=5},
+      {ft="forestPlants",ch=1,nc=5},{ft="forestPlants",ch=1,nc=5},
+      {ft="forestPlants",ch=3,nc=5},{ft="decoBush",ch=13,nc=4} },
+    -- [2] GRASS & MEADOW
+    { {ft="decoFoliage",ch=1,nc=5},{ft="decoFoliage",ch=1,nc=5},
+      {ft="decoFoliage",ch=1,nc=5},{ft="decoFoliage",ch=10,nc=5},
+      {ft="decoFoliage",ch=10,nc=5},{ft="decoFoliage",ch=10,nc=5},
+      {ft="meadow",ch=2,nc=5},{ft="meadow",ch=2,nc=5},
+      {ft="decoFoliage",ch=9,nc=5} },
+    -- [3] HEDGEROW SCRUB
+    { {ft="decoBush",ch=13,nc=4},{ft="decoBush",ch=13,nc=4},
+      {ft="decoBush",ch=13,nc=4},{ft="decoBush",ch=13,nc=4},
+      {ft="decoBush",ch=14,nc=4},{ft="decoBush",ch=14,nc=4},
+      {ft="decoBush",ch=15,nc=4},{ft="decoBush",ch=10,nc=4},
+      {ft="decoBush",ch=11,nc=4},{ft="decoBush",ch=6,nc=4} },
+    -- [4] FIELD MARGIN
+    { {ft="decoFoliage",ch=9,nc=5},{ft="decoFoliage",ch=9,nc=5},
+      {ft="decoFoliage",ch=9,nc=5},{ft="decoFoliage",ch=9,nc=5},
+      {ft="decoFoliage",ch=9,nc=5},{ft="decoFoliage",ch=10,nc=5},
+      {ft="decoFoliage",ch=10,nc=5},{ft="forestPlants",ch=2,nc=5},
+      {ft="meadow",ch=2,nc=5} },
+    -- [5] NONE
     {},
 }
 
--- ── Terrain layer discovery ───────────────────────────────────────────────────
--- GE terrain paint layers can be named two ways depending on the map:
---   camelCase:   "forestLeaves01"  (shown in i3d XML)
---   UPPER_SNAKE: "FOREST_LEAVES"   (shown in GE paint UI / plane lookup)
---
--- getTerrainDataPlaneByName() uses whichever format the map's terrain actually
--- registered. So we:
---   1. Collect candidate names from the i3d XML (multiple XML paths)
---   2. Generate name variants for each (camelCase, UPPER_SNAKE, stripped suffix)
---   3. Probe each variant against the terrain — keep only the ones that work
---   4. Also probe a broad hardcoded list covering both formats
--- Only verified names appear in the UI.
+-- ── Slot state ────────────────────────────────────────────────────────────────
+-- 6 PAINT slots + 6 EXCLUDE slots = 12 total
 
--- Convert camelCase to UPPER_SNAKE: "forestLeaves01" → "FOREST_LEAVES"
-local function camelToUpperSnake(s)
-    s = s:gsub("%d+$", "")                 -- strip trailing digits
-    s = s:gsub("(%l)(%u)", "%1_%2")        -- insert _ before each uppercase
-    return s:upper()
+local NUM_PAINT   = 6
+local NUM_EXCLUDE = 6
+
+local paintSlots = {}
+for i=1,NUM_PAINT do
+    paintSlots[i] = { groupIdx=NUM_GROUPS, preset=5,  -- default: no group, NONE preset
+                      groupLabel=nil, presetLabel=nil }
 end
 
--- Generate all plausible name variants for a raw layer name
-local function nameVariants(raw)
-    local seen = {}
-    local out  = {}
-    local function add(n)
-        if n and #n > 0 and not seen[n] then
-            seen[n] = true
-            table.insert(out, n)
-        end
-    end
-    add(raw)
-    add(raw:lower())
-    add(raw:upper())
-    add(camelToUpperSnake(raw))
-    -- strip trailing digits variant
-    local stripped = raw:gsub("%d+$", "")
-    add(stripped)
-    add(stripped:upper())
-    add(camelToUpperSnake(stripped))
-    return out
+local excludeSlots = {}
+for i=1,NUM_EXCLUDE do
+    excludeSlots[i] = { groupIdx=NUM_GROUPS, groupLabel=nil }
 end
 
--- Probe whether a name resolves to a real terrain data plane
-local function probeLayerName(terrainId, name)
-    if not name or #name == 0 then return false end
-    local ok, id = pcall(getTerrainDataPlaneByName, terrainId, name)
-    return ok and id ~= nil and id ~= 0
-end
+-- ── Scan settings ─────────────────────────────────────────────────────────────
 
-local function discoverTerrainLayers(terrainId)
-    -- Step 1: collect raw names from i3d XML (multiple paths)
-    local rawNames = {}
-    local seen     = {}
-    local function addRaw(n)
-        if n and #n > 0 and not seen[n] then seen[n]=true; table.insert(rawNames, n) end
-    end
+local scanSpacing = 2.0
+local scanDensity = 0.70
+local brushM      = 1.2
+local TOTAL_PARTITIONS = 64
 
-    local fileName = getSceneFilename()
-    if fileName and #fileName > 0 then
-        local xmlFile = loadXMLFile("map.i3d.mat", fileName)
-        if xmlFile then
-            local paths = {
-                "i3D.Scene.TerrainTransformGroup.Layers.Layer(%d)#name",
-                "i3D.Scene.TerrainTransformGroup.Layers.DetailLayer(%d)#name",
-                "i3D.Scene.TerrainTransformGroup.Layers.PaintedLayer(%d)#name",
-                "i3D.Scene.TerrainTransformGroup.Layers.TerrainLayer(%d)#name",
-            }
-            for _, path in ipairs(paths) do
-                local idx = 0
-                while true do
-                    local n = getXMLString(xmlFile, string.format(path, idx))
-                    if n == nil then break end
-                    addRaw(n)
-                    idx = idx + 1
-                end
-            end
-            delete(xmlFile)
-        end
-    end
+-- ── Helpers ───────────────────────────────────────────────────────────────────
 
-    -- Step 2: broad hardcoded candidate list covering both naming conventions
-    local hardcoded = {
-        -- camelCase format
-        "grass01","grassClovers01","grassDry01","grassLong01",
-        "forestFloor01","forestGrass01","forestLeaves01","forestBrush01",
-        "dirt01","dirtGravel01","gravelCoarse01","gravelFine01",
-        "cultivatedDirt01","fieldGround01","stubble01","cropResidue01",
-        "asphalt01","concrete01","gravelRoad01","cobblestone01",
-        "sand01","mud01","rock01","rockMoss01",
-        "hedgerow01","scrub01","bramble01","bush01",
-        "water01","riverBed01",
-        -- UPPER_SNAKE format (GE paint UI names)
-        "GRASS","GRASS_CLOVERS","GRASS_DRY","GRASS_LONG",
-        "FOREST_FLOOR","FOREST_GRASS","FOREST_LEAVES","FOREST_BRUSH",
-        "DIRT","DIRT_GRAVEL","GRAVEL_COARSE","GRAVEL_FINE",
-        "CULTIVATED_DIRT","FIELD_GROUND","STUBBLE","CROP_RESIDUE",
-        "ASPHALT","CONCRETE","GRAVEL_ROAD","COBBLESTONE",
-        "SAND","MUD","ROCK","ROCK_MOSS",
-        "HEDGEROW","SCRUB","BRAMBLE","BUSH",
-    }
-    for _, n in ipairs(hardcoded) do addRaw(n) end
-
-    -- Step 3: probe every raw name + its variants, keep working ones
-    local verified = {}
-    local vSeen    = {}
-
-    if terrainId == nil then
-        -- Can't probe without terrain — return raw names as best guess
-        print("[SW Foliage Mat] WARNING: terrain not found at startup — cannot verify layer names.")
-        for _, n in ipairs(rawNames) do
-            if not vSeen[n] then vSeen[n]=true; table.insert(verified, n) end
-        end
-    else
-        print("[SW Foliage Mat] Probing terrain layers...")
-        for _, raw in ipairs(rawNames) do
-            for _, variant in ipairs(nameVariants(raw)) do
-                if not vSeen[variant] then
-                    if probeLayerName(terrainId, variant) then
-                        vSeen[variant] = true
-                        table.insert(verified, variant)
-                        print(string.format("  ✓ '%s'", variant))
-                    end
-                end
-            end
-        end
-    end
-
-    if #verified == 0 then
-        print("[SW Foliage Mat] WARNING: no terrain paint layers resolved.")
-        print("  Try clicking 'Probe Layers' after the map is fully loaded.")
-        verified = rawNames  -- show raw names as fallback
-    end
-
-    table.insert(verified, 1, "— select a layer —")
-    return verified
-end
-
--- Terrain ref needed for probing — get it once now
 local function getTerrainId()
     local scene = getRootNode()
-    for i = 0, getNumOfChildren(scene) - 1 do
-        local child = getChildAt(scene, i)
-        if getName(child) == "terrain" then return child end
+    for i=0,getNumOfChildren(scene)-1 do
+        local child = getChildAt(scene,i)
+        if getName(child)=="terrain" then return child end
     end
     return nil
 end
 
-local TERRAIN_LAYERS = discoverTerrainLayers(getTerrainId())
-
-print(string.format("[SW Foliage Mat] %d verified terrain layers available:",
-    #TERRAIN_LAYERS - 1))
-for i = 2, #TERRAIN_LAYERS do
-    print(string.format("  [%d] %s", i-1, TERRAIN_LAYERS[i]))
+local function coloursMatch(R,G,B,W, gR,gG,gB,gW, tol)
+    return math.abs(R-gR)<=tol and math.abs(G-gG)<=tol
+       and math.abs(B-gB)<=tol and math.abs(W-gW)<=tol
 end
-
--- ── Slot state ────────────────────────────────────────────────────────────────
--- Each slot targets one terrain material layer and paints one foliage preset.
--- Slots marked 'exclude' suppress painting (field/road/farmland/residential).
-
-local NUM_SLOTS = 8   -- 6 paint + 2 dedicated exclude (shown differently in UI)
-local slots = {}
-for i = 1, NUM_SLOTS do
-    slots[i] = {
-        layerIdx = 1,          -- index into TERRAIN_LAYERS (1 = "— select —")
-        preset   = 5,          -- index into PRESET_NAMES (5 = NONE)
-        exclude  = false,      -- if true, BLOCK foliage where this material is
-        layerLabel  = nil,     -- UI label refs (set after UI built)
-        presetLabel = nil,
-        exLabel     = nil,
-    }
-end
-
--- Convenience: default last 2 slots as exclude
-slots[7].exclude = true
-slots[8].exclude = true
-
--- ── Scan settings ─────────────────────────────────────────────────────────────
-
-local scanSpacing = 2.0    -- metres between scan points
-local scanDensity = 0.70   -- base paint probability per matched point
-local brushM      = 1.2    -- brush footprint (metres)
-local matThreshold = 0     -- material weight threshold (> this = present)
-                           -- 0 = any non-zero coverage counts
-
-local TOTAL_PARTITIONS = 64
-
--- ── Plane helpers ─────────────────────────────────────────────────────────────
 
 local _planeCache = {}
 local _planeDiag  = {}
 
-local function getPlaneId(terrainId, name)
-    if _planeCache[name] == nil then
-        local id = getTerrainDataPlaneByName(terrainId, name)
-        _planeCache[name] = (id ~= nil and id ~= 0) and id or 0
-        if _planeCache[name] == 0 then
-            print(string.format("[SW Foliage Mat] WARNING: plane '%s' not found on this terrain", name))
-        else
-            print(string.format("[SW Foliage Mat] Plane '%s' → id=%s", name, tostring(_planeCache[name])))
+local function getPlaneId(terrainId, ftName)
+    if _planeCache[ftName]==nil then
+        local id = getTerrainDataPlaneByName(terrainId, ftName)
+        _planeCache[ftName] = (id~=nil and id~=0) and id or 0
+        if _planeCache[ftName]==0 then
+            print(string.format("[SW Foliage Mat] WARNING: foliage plane '%s' not found", ftName))
         end
     end
-    return _planeCache[name]
+    return _planeCache[ftName]
 end
 
--- ── Material presence check ───────────────────────────────────────────────────
--- Uses DensityMapModifier + DensityMapFilter to check whether a terrain material
--- layer has any coverage at the given world position.
--- Returns true if the material is painted there (value > matThreshold).
-
-local MAT_NC = 8   -- terrain paint layers are typically 8-bit weight maps
-
-local function isMaterialPresent(terrainId, matLayerName, wx, wz, halfEps)
-    local planeId = getPlaneId(terrainId, matLayerName)
-    if planeId == 0 then return false end
-
-    local diagKey = "mat:"..matLayerName
-    if not _planeDiag[diagKey] then
-        _planeDiag[diagKey] = true
-        print(string.format("[SW Foliage Mat] DIAG mat='%s' planeId=%s nc=%d threshold>%d",
-            matLayerName, tostring(planeId), MAT_NC, matThreshold))
+local function paintFoliageAt(terrainId, wx,wz, entries, brushHalf)
+    local e = entries[math.random(1,#entries)]
+    local pid = getPlaneId(terrainId, e.ft)
+    if pid==0 then return false end
+    local dKey = e.ft..":"..e.ch
+    if not _planeDiag[dKey] then
+        _planeDiag[dKey]=true
+        print(string.format("[SW Foliage Mat] First paint: plane='%s' ch=%d nc=%d",e.ft,e.ch,e.nc))
     end
-
-    local mod = DensityMapModifier.new(planeId, 0, MAT_NC)
+    local mod = DensityMapModifier.new(pid, 0, e.nc)
     mod:setParallelogramWorldCoords(
-        wx - halfEps, wz - halfEps,
-        wx + halfEps, wz - halfEps,
-        wx - halfEps, wz + halfEps,
-        DensityCoordType.POINT_POINT_POINT)
-
-    local filter = DensityMapFilter.new(planeId, 0, MAT_NC)
-    filter:setValueCompareParams(DensityValueCompareType.GREATER, matThreshold)
-
-    local numCells, totalCount, coverCount = mod:executeGet(filter)
-    return (coverCount ~= nil and coverCount > 0)
-end
-
--- ── Foliage paint ─────────────────────────────────────────────────────────────
-
-local function paintFoliageAt(terrainId, wx, wz, layerEntries, brushHalf)
-    local entry = layerEntries[math.random(1, #layerEntries)]
-    local pid   = getPlaneId(terrainId, entry.ft)
-    if pid == 0 then return false end
-
-    local fDiag = entry.ft..":"..entry.nc..":"..entry.ch
-    if not _planeDiag[fDiag] then
-        _planeDiag[fDiag] = true
-        local maxV = (2^entry.nc)-1
-        print(string.format("[SW Foliage Mat] DIAG fol='%s' nc=%d ch=%d maxAllowed=%d ok=%s",
-            entry.ft, entry.nc, entry.ch, maxV, tostring(entry.ch>=0 and entry.ch<=maxV)))
-    end
-
-    local mod = DensityMapModifier.new(pid, 0, entry.nc)
-    mod:setParallelogramWorldCoords(
-        wx - brushHalf, wz - brushHalf,
-        wx + brushHalf, wz - brushHalf,
-        wx - brushHalf, wz + brushHalf,
-        DensityCoordType.POINT_POINT_POINT)
-    mod:executeSet(entry.ch)
+        wx-brushHalf,wz-brushHalf, wx+brushHalf,wz-brushHalf,
+        wx-brushHalf,wz+brushHalf, DensityCoordType.POINT_POINT_POINT)
+    mod:executeSet(e.ch)
     return true
 end
 
@@ -391,7 +263,7 @@ local function updatePartLabel()
                 TOTAL_PARTITIONS, sessionPainted, sessionSkipped))
         else
             partitionLabel:setValue(string.format(
-                "Next: partition %d / %d  |  painted=%d  excluded=%d",
+                "Next: partition %d/%d  |  painted=%d  excluded=%d",
                 nextPartition, TOTAL_PARTITIONS, sessionPainted, sessionSkipped))
         end
     end
@@ -406,110 +278,95 @@ end
 
 local function runNextPartition()
     if nextPartition > TOTAL_PARTITIONS then
-        print("[SW Foliage Mat] All partitions done. Click Reset to start over.")
-        return
+        print("[SW Foliage Mat] All partitions done. Click Reset to start over."); return
     end
 
-    -- Check at least one active paint slot
     local hasActive = false
-    for i=1,NUM_SLOTS do
-        local s = slots[i]
-        if s.layerIdx > 1 and not s.exclude and s.preset < 5 then
-            hasActive = true; break
-        end
+    for i=1,NUM_PAINT do
+        local s = paintSlots[i]
+        if GROUPS[s.groupIdx].R ~= nil and s.preset < 5 then hasActive=true; break end
     end
     if not hasActive then
         print("[SW Foliage Mat] ERROR: No paint slots configured.")
-        print("  Assign a layer AND a foliage preset (not NONE) to at least one slot.")
+        print("  Assign a group AND a foliage preset (not NONE) to at least one PAINT slot.")
         return
     end
 
     local terrainId = getTerrainId()
-    if terrainId == nil then print("[SW Foliage Mat] ERROR: terrain not found"); return end
+    if terrainId==nil then print("[SW Foliage Mat] ERROR: terrain not found"); return end
 
     local p           = nextPartition
     local terrainSize = getTerrainSize(terrainId)
     local halfSize    = terrainSize / 2
-    local numSec      = math.sqrt(TOTAL_PARTITIONS)   -- 8
+    local numSec      = math.sqrt(TOTAL_PARTITIONS)
     local secSize     = terrainSize / numSec
     local brushHalf   = brushM * 0.5
-    local matEps      = scanSpacing * 0.5  -- half-size of material query box
 
-    local col    = ((p-1) % numSec)
-    local row    = math.floor((p-1) / numSec)
-    local xStart = -halfSize + col * secSize
-    local zStart = -halfSize + row * secSize
-    local xEnd   = xStart + secSize
-    local zEnd   = zStart + secSize
+    local col = ((p-1) % numSec)
+    local row = math.floor((p-1) / numSec)
+    local xStart = -halfSize + col*secSize
+    local zStart = -halfSize + row*secSize
+    local xEnd = xStart+secSize
+    local zEnd = zStart+secSize
 
-    -- Natural density variation per partition (40-100% of base)
-    math.randomseed(p * 7919)
-    local densityMult  = 0.4 + math.random() * 0.6
-    local effectiveDen = scanDensity * densityMult
-    local brushScale   = 0.8 + math.random() * 0.6
-    local effectiveBH  = brushHalf * brushScale
-    math.randomseed(p * 31337)
+    -- Natural density variation per partition
+    math.randomseed(p*7919)
+    local eff_den = scanDensity * (0.4 + math.random()*0.6)
+    local eff_bh  = brushHalf  * (0.8 + math.random()*0.6)
+    math.randomseed(p*31337)
 
-    local painted = 0
-    local skipped = 0
+    local painted=0; local skipped=0
 
     local x = xStart
     while x <= xEnd do
         local z = zStart
         while z <= zEnd do
+            if math.random() <= eff_den then
+                local R,G,B,W = getTerrainAttributesAtWorldPos(
+                    terrainId, x,300,z, true,true,true,true,false)
 
-            if math.random() <= effectiveDen then
-                -- 1. Check EXCLUDE slots first — if any exclude material is here, skip
+                -- 1. Exclusion check
                 local excluded = false
-                for i=1,NUM_SLOTS do
-                    local s = slots[i]
-                    if s.exclude and s.layerIdx > 1 then
-                        local matName = TERRAIN_LAYERS[s.layerIdx]
-                        if isMaterialPresent(terrainId, matName, x, z, matEps) then
-                            excluded = true
-                            skipped  = skipped + 1
-                            break
+                for i=1,NUM_EXCLUDE do
+                    local ex = excludeSlots[i]
+                    local g  = GROUPS[ex.groupIdx]
+                    if g.R ~= nil then
+                        if coloursMatch(R,G,B,W, g.R,g.G,g.B,g.W, g.tol) then
+                            excluded=true; skipped=skipped+1; break
                         end
                     end
                 end
 
                 if not excluded then
-                    -- 2. Check each PAINT slot — first matching slot wins
-                    for i=1,NUM_SLOTS do
-                        local s = slots[i]
-                        if not s.exclude and s.layerIdx > 1 and s.preset < 5 then
-                            local matName = TERRAIN_LAYERS[s.layerIdx]
-                            if isMaterialPresent(terrainId, matName, x, z, matEps) then
-                                -- Add position jitter so scan grid doesn't show through
-                                local jx = x + (math.random()-0.5)*scanSpacing*0.8
-                                local jz = z + (math.random()-0.5)*scanSpacing*0.8
-                                if paintFoliageAt(terrainId, jx, jz,
-                                        PRESET_LAYERS[s.preset], effectiveBH) then
-                                    painted = painted + 1
+                    -- 2. Paint check — first matching slot wins
+                    for i=1,NUM_PAINT do
+                        local s = paintSlots[i]
+                        local g = GROUPS[s.groupIdx]
+                        if g.R ~= nil and s.preset < 5 then
+                            if coloursMatch(R,G,B,W, g.R,g.G,g.B,g.W, g.tol) then
+                                local jx = x+(math.random()-0.5)*scanSpacing*0.8
+                                local jz = z+(math.random()-0.5)*scanSpacing*0.8
+                                if paintFoliageAt(terrainId, jx,jz,
+                                        PRESET_LAYERS[s.preset], eff_bh) then
+                                    painted=painted+1
                                 end
-                                break  -- only paint once per scan point
+                                break
                             end
                         end
                     end
                 end
             end
-
             z = z + scanSpacing
         end
         x = x + scanSpacing
     end
 
-    sessionPainted = sessionPainted + painted
-    sessionSkipped = sessionSkipped + skipped
-
-    print(string.format(
-        "[SW Foliage Mat] Partition %d/%d  density=%.0f%%  brush=%.2fm  → %d painted  %d excluded",
-        p, TOTAL_PARTITIONS, effectiveDen*100, effectiveBH*2, painted, skipped))
-
-    nextPartition = nextPartition + 1
+    sessionPainted=sessionPainted+painted; sessionSkipped=sessionSkipped+skipped
+    print(string.format("[SW Foliage Mat] Partition %d/%d  eff_den=%.0f%%  → %d painted  %d excluded",
+        p,TOTAL_PARTITIONS, eff_den*100, painted, skipped))
+    nextPartition=nextPartition+1
     updatePartLabel()
-
-    if nextPartition > TOTAL_PARTITIONS then
+    if nextPartition>TOTAL_PARTITIONS then
         print(string.format("[SW Foliage Mat] ✓ Complete! %d painted | %d excluded",
             sessionPainted, sessionSkipped))
     end
@@ -523,113 +380,87 @@ local borderSizer = UIRowLayoutSizer.new()
 UIPanel.new(frameSizer, borderSizer, -1,-1,-1,-1, BorderDirection.ALL, 6)
 
 UILabel.new(borderSizer,
-    "Assign terrain MATERIAL LAYERS → foliage presets.\n"..
-    "Works like GE Restrict to Materials — paints only where that\n"..
-    "layer is painted on the terrain. Mark field/road layers EXCLUDE.",
+    "Select MATERIAL GROUPS — no sampling needed, RGBA values\n"..
+    "are read automatically from your map.i3d.",
     TextAlignment.LEFT)
 UIHorizontalLine.new(borderSizer, -1,-1,-1,-1, BorderDirection.BOTTOM, 4)
 
--- Slot label for PAINT vs EXCLUDE header
-UILabel.new(borderSizer, "SLOTS 1-6  →  PAINT foliage", TextAlignment.LEFT)
+-- ── PAINT SLOTS ───────────────────────────────────────────────────────────────
+UILabel.new(borderSizer, "PAINT SLOTS (foliage is painted where this group is)", TextAlignment.LEFT)
 UIHorizontalLine.new(borderSizer, -1,-1,-1,-1, BorderDirection.BOTTOM, 2)
 
-for slotIdx=1,NUM_SLOTS do
-    local si = slotIdx
-    local isPaintSlot = (si <= 6)
-
-    -- Slot header
+for i=1,NUM_PAINT do
+    local si = i
     local hRow = UIRowLayoutSizer.new()
     UIPanel.new(borderSizer, hRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 1)
-    if isPaintSlot then
-        UILabel.new(hRow, string.format("PAINT %d", si), TextAlignment.LEFT)
-    else
-        UILabel.new(hRow, string.format("EXCLUDE %d", si-6), TextAlignment.LEFT)
-    end
+    UILabel.new(hRow, string.format("Paint %d:", si), TextAlignment.LEFT)
 
-    -- Layer cycling row
-    local lRow = UIRowLayoutSizer.new()
-    UIPanel.new(borderSizer, lRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 1)
-
-    UIButton.new(lRow, "◀", function()
-        slots[si].layerIdx = ((slots[si].layerIdx - 2 + #TERRAIN_LAYERS) % #TERRAIN_LAYERS) + 1
-        slots[si].layerLabel:setValue(TERRAIN_LAYERS[slots[si].layerIdx])
-        print(string.format("[SW Foliage Mat] Slot %d layer → '%s'",
-            si, TERRAIN_LAYERS[slots[si].layerIdx]))
+    local gRow = UIRowLayoutSizer.new()
+    UIPanel.new(borderSizer, gRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 1)
+    UIButton.new(gRow, "◀", function()
+        paintSlots[si].groupIdx = ((paintSlots[si].groupIdx-2+NUM_GROUPS)%NUM_GROUPS)+1
+        local g = GROUPS[paintSlots[si].groupIdx]
+        paintSlots[si].groupLabel:setValue(g.name)
+        print(string.format("[SW Foliage Mat] Paint %d → %s  (%s)", si, g.name, g.members))
+    end)
+    local gLbl = UITextArea.new(gRow,
+        GROUPS[paintSlots[si].groupIdx].name,
+        TextAlignment.LEFT, false,true,200,22,-1,22, BorderDirection.NONE,0,0)
+    paintSlots[si].groupLabel = gLbl
+    UIButton.new(gRow, "▶", function()
+        paintSlots[si].groupIdx = (paintSlots[si].groupIdx%NUM_GROUPS)+1
+        local g = GROUPS[paintSlots[si].groupIdx]
+        paintSlots[si].groupLabel:setValue(g.name)
+        print(string.format("[SW Foliage Mat] Paint %d → %s  (%s)", si, g.name, g.members))
     end)
 
-    local layLbl = UITextArea.new(lRow,
-        TERRAIN_LAYERS[slots[si].layerIdx],
-        TextAlignment.LEFT, false, true, 180, 22, -1, 22, BorderDirection.NONE, 0, 0)
-    slots[si].layerLabel = layLbl
-
-    UIButton.new(lRow, "▶", function()
-        slots[si].layerIdx = (slots[si].layerIdx % #TERRAIN_LAYERS) + 1
-        slots[si].layerLabel:setValue(TERRAIN_LAYERS[slots[si].layerIdx])
-        print(string.format("[SW Foliage Mat] Slot %d layer → '%s'",
-            si, TERRAIN_LAYERS[slots[si].layerIdx]))
+    local pRow = UIRowLayoutSizer.new()
+    UIPanel.new(borderSizer, pRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 3)
+    local pLbl = UITextArea.new(pRow,
+        "Preset: "..PRESET_NAMES[paintSlots[si].preset],
+        TextAlignment.LEFT, false,true,200,22,-1,22, BorderDirection.NONE,0,0)
+    paintSlots[si].presetLabel = pLbl
+    UIButton.new(pRow, "Next Preset", function()
+        paintSlots[si].preset = (paintSlots[si].preset%#PRESET_NAMES)+1
+        paintSlots[si].presetLabel:setValue("Preset: "..PRESET_NAMES[paintSlots[si].preset])
     end)
-
-    -- Preset row (only for PAINT slots — exclude slots don't need a preset)
-    if isPaintSlot then
-        local pRow = UIRowLayoutSizer.new()
-        UIPanel.new(borderSizer, pRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 3)
-
-        local pLbl = UITextArea.new(pRow,
-            "Preset: "..PRESET_NAMES[slots[si].preset],
-            TextAlignment.LEFT, false, true, 200, 22, -1, 22, BorderDirection.NONE, 0, 0)
-        slots[si].presetLabel = pLbl
-
-        UIButton.new(pRow, "Next Preset", function()
-            slots[si].preset = (slots[si].preset % #PRESET_NAMES) + 1
-            slots[si].presetLabel:setValue("Preset: "..PRESET_NAMES[slots[si].preset])
-            print(string.format("[SW Foliage Mat] Slot %d preset → %s",
-                si, PRESET_NAMES[slots[si].preset]))
-        end)
-    else
-        -- Exclude slot: just a note label
-        local eRow = UIRowLayoutSizer.new()
-        UIPanel.new(borderSizer, eRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 3)
-        UILabel.new(eRow, "  → foliage BLOCKED where this material is painted", TextAlignment.LEFT)
-    end
 
     UIHorizontalLine.new(borderSizer, -1,-1,-1,-1, BorderDirection.BOTTOM, 2)
-
-    -- Header between paint and exclude slots
-    if si == 6 then
-        UILabel.new(borderSizer, "SLOTS 7-8  →  EXCLUDE (no foliage painted here)", TextAlignment.LEFT)
-        UIHorizontalLine.new(borderSizer, -1,-1,-1,-1, BorderDirection.BOTTOM, 2)
-    end
 end
 
--- Re-probe button — rescans the terrain for valid layer names after map load
-local probeRow = UIRowLayoutSizer.new()
-UIPanel.new(borderSizer, probeRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 2)
+-- ── EXCLUDE SLOTS ─────────────────────────────────────────────────────────────
+UILabel.new(borderSizer, "EXCLUDE SLOTS (no foliage where this group is)", TextAlignment.LEFT)
+UIHorizontalLine.new(borderSizer, -1,-1,-1,-1, BorderDirection.BOTTOM, 2)
 
--- Layer list label (updates after re-probe)
-local layerListLabel = UITextArea.new(probeRow,
-    string.format("%d layers verified — see log", #TERRAIN_LAYERS - 1),
-    TextAlignment.LEFT, false, true, 220, 22, -1, 22, BorderDirection.NONE, 0, 0)
+for i=1,NUM_EXCLUDE do
+    local ei = i
+    local eRow = UIRowLayoutSizer.new()
+    UIPanel.new(borderSizer, eRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 1)
+    UILabel.new(eRow, string.format("Excl %d:", ei), TextAlignment.LEFT)
 
-UIButton.new(probeRow, "Re-probe Layers", function()
-    local tid = getTerrainId()
-    local newLayers = discoverTerrainLayers(tid)
-    -- Rebuild TERRAIN_LAYERS in-place
-    while #TERRAIN_LAYERS > 0 do table.remove(TERRAIN_LAYERS) end
-    for _, v in ipairs(newLayers) do table.insert(TERRAIN_LAYERS, v) end
-    -- Reset all slot indices to sentinel
-    for i=1,NUM_SLOTS do
-        slots[i].layerIdx = 1
-        if slots[i].layerLabel then
-            slots[i].layerLabel:setValue(TERRAIN_LAYERS[1])
-        end
-    end
-    layerListLabel:setValue(string.format("%d layers verified — see log", #TERRAIN_LAYERS - 1))
-    print(string.format("[SW Foliage Mat] Re-probed: %d valid layers", #TERRAIN_LAYERS - 1))
-end)
+    local gRow = UIRowLayoutSizer.new()
+    UIPanel.new(borderSizer, gRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 3)
+    UIButton.new(gRow, "◀", function()
+        excludeSlots[ei].groupIdx = ((excludeSlots[ei].groupIdx-2+NUM_GROUPS)%NUM_GROUPS)+1
+        local g = GROUPS[excludeSlots[ei].groupIdx]
+        excludeSlots[ei].groupLabel:setValue(g.name)
+        print(string.format("[SW Foliage Mat] Excl %d → %s  (%s)", ei, g.name, g.members))
+    end)
+    local gLbl = UITextArea.new(gRow,
+        GROUPS[excludeSlots[ei].groupIdx].name,
+        TextAlignment.LEFT, false,true,200,22,-1,22, BorderDirection.NONE,0,0)
+    excludeSlots[ei].groupLabel = gLbl
+    UIButton.new(gRow, "▶", function()
+        excludeSlots[ei].groupIdx = (excludeSlots[ei].groupIdx%NUM_GROUPS)+1
+        local g = GROUPS[excludeSlots[ei].groupIdx]
+        excludeSlots[ei].groupLabel:setValue(g.name)
+        print(string.format("[SW Foliage Mat] Excl %d → %s  (%s)", ei, g.name, g.members))
+    end)
 
-UIHorizontalLine.new(borderSizer, -1,-1,-1,-1, BorderDirection.BOTTOM, 3)
+    UIHorizontalLine.new(borderSizer, -1,-1,-1,-1, BorderDirection.BOTTOM, 2)
+end
 
--- Progress + controls
+-- ── CONTROLS ──────────────────────────────────────────────────────────────────
 local progRow = UIRowLayoutSizer.new()
 UIPanel.new(borderSizer, progRow, -1,-1,-1,-1, BorderDirection.BOTTOM, 2)
 partitionLabel = UITextArea.new(progRow,
@@ -646,23 +477,18 @@ UIButton.new(rstRow, "Reset (start over)", resetPartitions)
 
 window:showWindow()
 
-print("\n[SW Foliage by Material] Ready.")
-print("How to use:")
-print("  PAINT slots 1-6: pick a terrain layer with ◀ ▶, assign a foliage preset.")
-print("  EXCLUDE slots 7-8: pick field/road/farmland layers — foliage is blocked there.")
-print("  Then click 'Paint Next Partition' up to 64 times for the whole map.")
+print("\n[SW Foliage by Material] Ready — groups pre-loaded from map.i3d.")
+print("Recommended setup for South Warwickshire:")
+print("  Paint 1 → GRASS & FOREST  → GRASS & MEADOW")
+print("  Paint 2 → GRAVEL MOSS     → FIELD MARGIN")
+print("  Excl  1 → ASPHALT / ROAD")
+print("  Excl  2 → GRAVEL / STONE")
+print("  Excl  3 → ROCK / CONCRETE")
+print("  Excl  4 → MUD DARK (cultivated soil)")
+print("  Excl  5 → MUD TRACKS (freshly cultivated)")
+print("  Excl  6 → MUD GRAVEL (farm track entrances)")
 print("")
-print("Suggested SW Warwickshire slot setup:")
-print("  Slot 1 → forestFloor01 / forestGrass01   → WOODLAND FLOOR")
-print("  Slot 2 → grass01 / grassClovers01         → GRASS & MEADOW")
-print("  Slot 3 → hedgerow01 / scrub01             → HEDGEROW SCRUB")
-print("  Slot 4 → grassDirt01 (roadside verge)     → GRASS & MEADOW")
-print("  Slot 5 → grassDry01 (field margin)        → FIELD MARGIN")
-print("  Slot 6 → (optional extra)")
-print("  Slot 7 (EXCLUDE) → cultivatedDirt01       → blocks fields")
-print("  Slot 8 (EXCLUDE) → asphalt01 / concrete01 → blocks roads")
-print("")
-print("Detected terrain layers:")
-for i=2, #TERRAIN_LAYERS do
-    print(string.format("  %s", TERRAIN_LAYERS[i]))
-end
+print("NOTE: grass01, forestLeaves01, grassClovers01 etc all share identical")
+print("RGBA — they are indistinguishable at runtime. For WOODLAND FLOOR")
+print("specifically, use sw_foliage_zone_painter_v2.lua with sw_forest_splines.i3d.")
+print(string.format("\n%d material groups available.", NUM_GROUPS-1))

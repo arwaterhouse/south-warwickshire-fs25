@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<prefabDesc descVersion="1">
+    <author>RhodTehMod</author>
+    <version>1.0.0.0</version>
+
+    <title>
+        <en>British Stile Pack</en>
+        <de>British Stile-Paket</de>
+    </title>
+
+    <description>
+        <en><![CDATA[A usuable British Stile pack, aswell as being decoration for your british/european maps]]></en>        
+        <de><![CDATA[Ein brauchbares Paket im britischen Stil, das auch als Dekoration für Ihre britischen/europäischen Karten dient]]></de>
+    </description>
+
+    <categories>
+        <category>Static, Tool, Other</category>
+    </categories>
+
+    <iconFilename>icon_ukStilePack.dds</iconFilename>
+
+</prefabDesc>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="105">
+    <author>A2_oki, Weksi</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Grist Mill With Mixer</en>
+        <de>Schrotmühle Mit Mischer</de>
+    </title>
+
+<description>
+<en>
+<![CDATA[Grist mill with mixer
+
+Price: 14000$
+Capacity: 1100 liters
+Cycles per hour: 5000 liters
+
+Products:
+- Wheat 2l + barley = pig food 3l
+- Wheat 2l + barley + oats = pig food 4l
+- Wheat 2l + canola + maize = pig food 4l
+
+- Wheat 2l + barley + oats = pig food 4l
+- Wheat 2l + canola + SOYBEAN = pig food 4l
+
+Pallet with mineral feed
+
+Price: 1000$
+Capacity: 1050 liters
+]]>
+</en>
+<de>
+<![CDATA[Getreidemühle mit Mixer
+
+Preis: 14000€
+Fassungsvermögen: 1100 Liter
+Zyklen pro Stunde: 5000 Liter
+
+Produkte:
+- Weizen 2l + Gerste = Schweinefutter 3l
+- Weizen 2l + Gerste + Hafer = Schweinefutter 4l
+- Weizen 2l + Raps + Mais = Schweinefutter 4l
+
+- Weizen 2l + Gerste + Hafer = Schweinefutter 4l
+- Weizen 2l + Raps + SOJABOHNE = Schweinefutter 4l
+
+
+Palette mit Mineralfutter
+
+Preis: 1000€
+Fassungsvermögen: 1050 Liter
+]]>
+</de>
+</description>
+
+    <iconFilename>icon_srutownik.dds</iconFilename>
+    <multiplayer supported="true"/>
+
+    <l10n>
+        <text name="gristMill"><en>Grist Mill</en><de>Schrotmühle</de></text>
+
+    </l10n>
+	
+	<storeItems>
+        <storeItem xmlFilename="srutownik.xml"/>
+	<storeItem xmlFilename="Paleta.xml" />
+        <storeItem xmlFilename="srutownikpig.xml"/>
+    </storeItems>
+
+</modDesc>

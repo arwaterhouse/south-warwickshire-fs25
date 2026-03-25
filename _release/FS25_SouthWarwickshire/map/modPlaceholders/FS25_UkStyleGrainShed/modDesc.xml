@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="99">
+    <author>JGW_Modding</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>UK Style Grain Shed</en>
+		<de>Getreideschuppen Im Britischen Stil</de>
+		<fr>Hangar À Grains De Style Britannique</fr>
+    </title>
+    <description>
+    <en>
+<![CDATA[Medium Sized Grain Shed With A Center Partition wall:
+- Price:£65000]]>
+    </en>
+    <de>
+<![CDATA[Mittelgroßer Getreideschuppen mit einer Mitteltrennwand:
+- Preis:€65.000]]>
+    </de>
+    <fr>
+<![CDATA[
+Hangar À Grains De Taille Moyenne Avec Une Cloison De Séparation Centrale :
+- Prix:$65 000]]>
+     </fr>   
+    </description>
+    <iconFilename>icon_grainShed.dds</iconFilename>
+    <multiplayer supported="true" />
+	    
+    <storeItems>
+        <storeItem xmlFilename="grainShed.xml"/>		
+	</storeItems>
+	
+	<l10n>
+         <text name="action_lightOn">
+            <en>Switch light on</en>
+            <de>Licht anschalten</de>
+        </text>
+		<text name="action_lightOut">
+            <en>Switch light off</en>
+            <de>Licht ausschalten</de>
+        </text>
+		<text name="partition_wall">
+            <en>Partition Wall</en>
+            <de>Trennwand</de>
+	    </text>
+	</l10n>
+</modDesc>

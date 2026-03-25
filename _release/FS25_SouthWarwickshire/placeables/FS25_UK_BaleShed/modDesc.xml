@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="100">
+	<author>Bláckice and LivinOnAPlayer</author>
+	<version>1.0.0.0</version>
+	
+<title>
+    <en>UK Bale Shed</en>		
+</title>
+
+<description>
+<en><![CDATA[
+Lizard UK Bale Shed with Autoload
+Category: Sheds
+Price: $35,500
+Daily upkeep: $5
+
+Lizard UK Bale Shed
+Category: Sheds
+Price: $35,500
+Daily upkeep: $5
+]]></en>
+				
+<de><![CDATA[
+Lizard UK Bale Shed with Autoload
+Shopkategorie: Hallen
+Preis: 35.500€
+Täglicher Unterhalt: 5€
+
+Lizard UK Bale Shed
+Shopkategorie: Hallen
+Preis: 35.500€
+Täglicher Unterhalt: 5€
+]]></de>
+				
+<fr><![CDATA[
+Lizard UK Bale Shed with Autoload
+Catégorie: Abris
+Prix: 35 500€
+Entretien quotidien: 5€
+
+Lizard UK Bale Shed
+Catégorie: Abris
+Prix: 35 500€
+Entretien quotidien: 5€
+]]></fr>
+</description>
+
+<iconFilename>icon_FS25_UK_BaleShed.dds</iconFilename>
+<multiplayer supported="true"/>
+
+<storeItems>
+	<storeItem xmlFilename="UKBaleShedAL.xml"/>
+	<storeItem xmlFilename="UKBaleShed.xml"/>
+</storeItems>
+
+</modDesc>

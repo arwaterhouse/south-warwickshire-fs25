@@ -1,0 +1,7 @@
+newmtl RoadMaterial
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.3 0.3 0.3
+Ns 10.0
+illum 2
+map_Kd asphalt-white.dds
