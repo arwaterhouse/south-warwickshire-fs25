@@ -1,0 +1,1745 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5387413555555556,
+          52.10706227777777
+        ]
+      },
+      "properties": {
+        "name": "St. Lawrence",
+        "schema_name": "barn01_farmyard",
+        "category": "religious",
+        "fs25_x": -441.26,
+        "fs25_z": -1967.61,
+        "footprint_w": 29.6,
+        "footprint_d": 16.3,
+        "area_m2": 223.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5387908,
+          52.10456742
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -444.64,
+        "fs25_z": -1689.88,
+        "footprint_w": 22.3,
+        "footprint_d": 19.7,
+        "area_m2": 248.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5393053399999999,
+          52.10471892
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -479.84,
+        "fs25_z": -1706.75,
+        "footprint_w": 23.7,
+        "footprint_d": 15.5,
+        "area_m2": 186.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5389602333333334,
+          52.10470544444444
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "grainSilo_farmyard",
+        "category": "farmyard",
+        "fs25_x": -456.23,
+        "fs25_z": -1705.25,
+        "footprint_w": 30.7,
+        "footprint_d": 26.3,
+        "area_m2": 489.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.56222448,
+          52.09964756000001
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -2047.47,
+        "fs25_z": -1142.21,
+        "footprint_w": 13.8,
+        "footprint_d": 15.7,
+        "area_m2": 90.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5620877454545452,
+          52.09973993636363
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -2038.12,
+        "fs25_z": -1152.49,
+        "footprint_w": 14.5,
+        "footprint_d": 15.1,
+        "area_m2": 109.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.56204012,
+          52.09869824
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -2034.86,
+        "fs25_z": -1036.53,
+        "footprint_w": 13.9,
+        "footprint_d": 14.0,
+        "area_m2": 96.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.561854288888889,
+          52.09860194444444
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -2022.15,
+        "fs25_z": -1025.81,
+        "footprint_w": 14.7,
+        "footprint_d": 14.8,
+        "area_m2": 95.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.54804266,
+          52.098421740000006
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1077.46,
+        "fs25_z": -1005.75,
+        "footprint_w": 24.2,
+        "footprint_d": 22.6,
+        "area_m2": 279.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5499066400000001,
+          52.09862062
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1204.95,
+        "fs25_z": -1027.89,
+        "footprint_w": 14.1,
+        "footprint_d": 19.8,
+        "area_m2": 154.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55019142,
+          52.098695240000005
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "grainSilo_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1224.43,
+        "fs25_z": -1036.19,
+        "footprint_w": 32.1,
+        "footprint_d": 41.5,
+        "area_m2": 764.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.550841411111111,
+          52.09859172222222
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1268.89,
+        "fs25_z": -1024.67,
+        "footprint_w": 56.7,
+        "footprint_d": 100.6,
+        "area_m2": 3215.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.54986322,
+          52.099227819999996
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "grainSilo_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1201.98,
+        "fs25_z": -1095.48,
+        "footprint_w": 38.3,
+        "footprint_d": 34.6,
+        "area_m2": 786.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.549891542857143,
+          52.098941485714285
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1203.92,
+        "fs25_z": -1063.61,
+        "footprint_w": 59.6,
+        "footprint_d": 33.0,
+        "area_m2": 631.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.549619011111111,
+          52.09874428888889
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1185.28,
+        "fs25_z": -1041.65,
+        "footprint_w": 28.3,
+        "footprint_d": 20.6,
+        "area_m2": 289.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5492645,
+          52.09820194
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1161.03,
+        "fs25_z": -981.28,
+        "footprint_w": 8.1,
+        "footprint_d": 8.8,
+        "area_m2": 42.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.549206,
+          52.09840918571428
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -1157.03,
+        "fs25_z": -1004.35,
+        "footprint_w": 19.2,
+        "footprint_d": 18.6,
+        "area_m2": 131.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5497036153846153,
+          52.09842541538462
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -1191.07,
+        "fs25_z": -1006.16,
+        "footprint_w": 32.2,
+        "footprint_d": 35.0,
+        "area_m2": 518.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5230827857142857,
+          52.09906447142857
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": 629.76,
+        "fs25_z": -1077.3,
+        "footprint_w": 17.5,
+        "footprint_d": 16.8,
+        "area_m2": 127.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.52274106,
+          52.09909785999999
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": 653.13,
+        "fs25_z": -1081.01,
+        "footprint_w": 15.4,
+        "footprint_d": 19.2,
+        "area_m2": 165.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.52258988,
+          52.09925671999999
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": 663.47,
+        "fs25_z": -1098.7,
+        "footprint_w": 9.4,
+        "footprint_d": 11.5,
+        "area_m2": 52.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.52268708,
+          52.09930352
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": 656.83,
+        "fs25_z": -1103.91,
+        "footprint_w": 10.9,
+        "footprint_d": 10.5,
+        "area_m2": 63.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5221877696333335,
+          52.099560880665
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": 690.98,
+        "fs25_z": -1132.56,
+        "footprint_w": 17.8,
+        "footprint_d": 33.9,
+        "area_m2": 139.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5228315399999999,
+          52.09983734
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": 646.94,
+        "fs25_z": -1163.33,
+        "footprint_w": 14.3,
+        "footprint_d": 11.9,
+        "area_m2": 78.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5224786172413791,
+          52.0996343862069
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": 671.08,
+        "fs25_z": -1140.74,
+        "footprint_w": 68.3,
+        "footprint_d": 75.2,
+        "area_m2": 2365.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.53687682,
+          52.10764664
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -313.73,
+        "fs25_z": -2032.66,
+        "footprint_w": 22.2,
+        "footprint_d": 29.0,
+        "area_m2": 320.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.537010742857143,
+          52.107417157142855
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -322.89,
+        "fs25_z": -2007.12,
+        "footprint_w": 20.0,
+        "footprint_d": 14.0,
+        "area_m2": 151.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.53739318,
+          52.107466120000005
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -349.05,
+        "fs25_z": -2012.57,
+        "footprint_w": 8.7,
+        "footprint_d": 8.7,
+        "area_m2": 37.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5375128142857142,
+          52.10754421428572
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -357.23,
+        "fs25_z": -2021.26,
+        "footprint_w": 13.4,
+        "footprint_d": 15.2,
+        "area_m2": 86.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5425438066666668,
+          52.10746781333333
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -701.34,
+        "fs25_z": -2012.76,
+        "footprint_w": 24.8,
+        "footprint_d": 19.8,
+        "area_m2": 264.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5419711176470587,
+          52.107518482352944
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -662.17,
+        "fs25_z": -2018.4,
+        "footprint_w": 28.9,
+        "footprint_d": 16.3,
+        "area_m2": 272.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5416307285714286,
+          52.10754035714285
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -638.89,
+        "fs25_z": -2020.83,
+        "footprint_w": 16.0,
+        "footprint_d": 12.9,
+        "area_m2": 134.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.54117648,
+          52.107582660000006
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -607.82,
+        "fs25_z": -2025.54,
+        "footprint_w": 13.7,
+        "footprint_d": 16.0,
+        "area_m2": 149.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5409367571428572,
+          52.10760165714286
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -591.43,
+        "fs25_z": -2027.66,
+        "footprint_w": 14.7,
+        "footprint_d": 17.7,
+        "area_m2": 182.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5403206999999999,
+          52.10763422307692
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -549.29,
+        "fs25_z": -2031.28,
+        "footprint_w": 25.0,
+        "footprint_d": 15.7,
+        "area_m2": 241.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5388096666666666,
+          52.10761215555556
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -445.94,
+        "fs25_z": -2028.82,
+        "footprint_w": 26.7,
+        "footprint_d": 19.8,
+        "area_m2": 231.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.53735514,
+          52.10641666
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -346.45,
+        "fs25_z": -1895.74,
+        "footprint_w": 32.9,
+        "footprint_d": 20.3,
+        "area_m2": 267.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.53755138,
+          52.10652376
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -359.87,
+        "fs25_z": -1907.66,
+        "footprint_w": 19.8,
+        "footprint_d": 14.1,
+        "area_m2": 134.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5371905818181817,
+          52.10668076363636
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -335.19,
+        "fs25_z": -1925.14,
+        "footprint_w": 15.8,
+        "footprint_d": 21.2,
+        "area_m2": 178.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5375557263157895,
+          52.10685868421052
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -360.17,
+        "fs25_z": -1944.95,
+        "footprint_w": 39.7,
+        "footprint_d": 17.7,
+        "area_m2": 271.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5377723545454545,
+          52.10667367272727
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -374.98,
+        "fs25_z": -1924.35,
+        "footprint_w": 16.4,
+        "footprint_d": 17.3,
+        "area_m2": 131.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.537963442857143,
+          52.10669242857143
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -388.05,
+        "fs25_z": -1926.44,
+        "footprint_w": 15.8,
+        "footprint_d": 25.5,
+        "area_m2": 201.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5376204599999999,
+          52.10670328
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "house01_residential",
+        "category": "residential",
+        "fs25_x": -364.6,
+        "fs25_z": -1927.65,
+        "footprint_w": 12.6,
+        "footprint_d": 10.4,
+        "area_m2": 68.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5292945333333332,
+          52.08470773333334
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": 204.89,
+        "fs25_z": 520.9,
+        "footprint_w": 29.5,
+        "footprint_d": 22.4,
+        "area_m2": 450.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5295932,
+          52.08445067142857
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": 184.46,
+        "fs25_z": 549.51,
+        "footprint_w": 45.9,
+        "footprint_d": 55.5,
+        "area_m2": 1506.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5304440866666666,
+          52.084038786666675
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": 126.26,
+        "fs25_z": 595.36,
+        "footprint_w": 77.4,
+        "footprint_d": 97.2,
+        "area_m2": 4069.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55394744,
+          52.08424794
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1481.34,
+        "fs25_z": 572.08,
+        "footprint_w": 17.9,
+        "footprint_d": 27.0,
+        "area_m2": 228.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5545118,
+          52.08443711111111
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1519.94,
+        "fs25_z": 551.02,
+        "footprint_w": 22.5,
+        "footprint_d": 16.2,
+        "area_m2": 136.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55430404,
+          52.08455692
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1505.73,
+        "fs25_z": 537.68,
+        "footprint_w": 21.6,
+        "footprint_d": 14.3,
+        "area_m2": 109.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5538509111111112,
+          52.084431466666665
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1474.73,
+        "fs25_z": 551.65,
+        "footprint_w": 26.6,
+        "footprint_d": 19.6,
+        "area_m2": 179.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55308416,
+          52.0843466
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -1422.29,
+        "fs25_z": 561.1,
+        "footprint_w": 18.3,
+        "footprint_d": 14.1,
+        "area_m2": 115.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55247496,
+          52.08373389999999
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1380.62,
+        "fs25_z": 629.3,
+        "footprint_w": 37.0,
+        "footprint_d": 51.8,
+        "area_m2": 878.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.555934357142857,
+          52.08390047142857
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1617.24,
+        "fs25_z": 610.76,
+        "footprint_w": 12.2,
+        "footprint_d": 24.8,
+        "area_m2": 192.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5559903800000001,
+          52.08367724
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1621.07,
+        "fs25_z": 635.61,
+        "footprint_w": 10.1,
+        "footprint_d": 16.9,
+        "area_m2": 149.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55629896,
+          52.08343692
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "grainSilo_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1642.18,
+        "fs25_z": 662.36,
+        "footprint_w": 31.3,
+        "footprint_d": 28.6,
+        "area_m2": 671.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55480824,
+          52.084396600000005
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -1540.21,
+        "fs25_z": 555.53,
+        "footprint_w": 10.5,
+        "footprint_d": 14.5,
+        "area_m2": 99.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.555160088888889,
+          52.08433662222222
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -1564.28,
+        "fs25_z": 562.21,
+        "footprint_w": 18.6,
+        "footprint_d": 20.0,
+        "area_m2": 211.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5458571333333333,
+          52.10723614444444
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -927.97,
+        "fs25_z": -1986.97,
+        "footprint_w": 25.7,
+        "footprint_d": 15.0,
+        "area_m2": 267.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.545013,
+          52.10729117272728
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -870.23,
+        "fs25_z": -1993.09,
+        "footprint_w": 19.6,
+        "footprint_d": 24.0,
+        "area_m2": 280.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5444633777777779,
+          52.10731994444444
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -832.64,
+        "fs25_z": -1996.3,
+        "footprint_w": 13.5,
+        "footprint_d": 17.6,
+        "area_m2": 142.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5442614571428572,
+          52.10733324285714
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -818.83,
+        "fs25_z": -1997.78,
+        "footprint_w": 13.4,
+        "footprint_d": 16.6,
+        "area_m2": 126.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5441240999999999,
+          52.107433
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -809.43,
+        "fs25_z": -2008.88,
+        "footprint_w": 15.7,
+        "footprint_d": 24.3,
+        "area_m2": 146.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.543805394117647,
+          52.107377770588236
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -787.64,
+        "fs25_z": -2002.73,
+        "footprint_w": 15.8,
+        "footprint_d": 24.0,
+        "area_m2": 233.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.543355090909091,
+          52.10748470909091
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -756.84,
+        "fs25_z": -2014.64,
+        "footprint_w": 22.7,
+        "footprint_d": 24.0,
+        "area_m2": 300.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5426742142857144,
+          52.10770562857143
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -710.26,
+        "fs25_z": -2039.23,
+        "footprint_w": 11.1,
+        "footprint_d": 13.9,
+        "area_m2": 92.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5432411,
+          52.10778176
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -749.04,
+        "fs25_z": -2047.7,
+        "footprint_w": 12.3,
+        "footprint_d": 8.5,
+        "area_m2": 47.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.54298908,
+          52.10768978
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -731.8,
+        "fs25_z": -2037.47,
+        "footprint_w": 9.7,
+        "footprint_d": 15.7,
+        "area_m2": 61.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5430329142857142,
+          52.10749431428571
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -734.8,
+        "fs25_z": -2015.71,
+        "footprint_w": 24.4,
+        "footprint_d": 17.9,
+        "area_m2": 224.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5413692272727273,
+          52.10762885454546
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -621.01,
+        "fs25_z": -2030.68,
+        "footprint_w": 18.1,
+        "footprint_d": 19.0,
+        "area_m2": 233.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5407507200000001,
+          52.107605160000006
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "house01_residential",
+        "category": "residential",
+        "fs25_x": -578.7,
+        "fs25_z": -2028.05,
+        "footprint_w": 12.2,
+        "footprint_d": 10.4,
+        "area_m2": 106.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.53916998,
+          52.10756406
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -470.58,
+        "fs25_z": -2023.47,
+        "footprint_w": 8.3,
+        "footprint_d": 12.2,
+        "area_m2": 59.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.53904878,
+          52.107446319999994
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -462.29,
+        "fs25_z": -2010.36,
+        "footprint_w": 9.4,
+        "footprint_d": 10.3,
+        "area_m2": 59.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5394128454545457,
+          52.10736389090909
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -487.19,
+        "fs25_z": -2001.19,
+        "footprint_w": 28.1,
+        "footprint_d": 19.6,
+        "area_m2": 256.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5501535117647058,
+          52.1067277882353
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -1221.84,
+        "fs25_z": -1930.38,
+        "footprint_w": 27.1,
+        "footprint_d": 34.2,
+        "area_m2": 349.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55157472,
+          52.10605905999999
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1319.05,
+        "fs25_z": -1855.93,
+        "footprint_w": 11.8,
+        "footprint_d": 13.9,
+        "area_m2": 111.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55127404,
+          52.10580336
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -1298.48,
+        "fs25_z": -1827.47,
+        "footprint_w": 21.3,
+        "footprint_d": 29.6,
+        "area_m2": 319.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.552262611111111,
+          52.10596117777778
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "farmhouse01_residential",
+        "category": "residential",
+        "fs25_x": -1366.1,
+        "fs25_z": -1845.04,
+        "footprint_w": 21.6,
+        "footprint_d": 30.6,
+        "area_m2": 314.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55141524,
+          52.10773644
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1308.14,
+        "fs25_z": -2042.66,
+        "footprint_w": 52.8,
+        "footprint_d": 42.6,
+        "area_m2": 1100.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55245904,
+          52.107667479999996
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "grainSilo_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1379.53,
+        "fs25_z": -2034.98,
+        "footprint_w": 39.3,
+        "footprint_d": 27.6,
+        "area_m2": 515.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55192468,
+          52.10751636
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "grainSilo_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1342.98,
+        "fs25_z": -2018.16,
+        "footprint_w": 35.5,
+        "footprint_d": 28.5,
+        "area_m2": 486.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5514051285714285,
+          52.1072686
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1307.45,
+        "fs25_z": -1990.58,
+        "footprint_w": 17.2,
+        "footprint_d": 18.6,
+        "area_m2": 167.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55102294,
+          52.107321060000004
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1281.3,
+        "fs25_z": -1996.42,
+        "footprint_w": 26.1,
+        "footprint_d": 20.4,
+        "area_m2": 244.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5505949399999999,
+          52.107200979999995
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1252.03,
+        "fs25_z": -1983.05,
+        "footprint_w": 12.7,
+        "footprint_d": 12.6,
+        "area_m2": 87.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55082654,
+          52.10697603999999
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn01_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1267.87,
+        "fs25_z": -1958.01,
+        "footprint_w": 24.6,
+        "footprint_d": 35.0,
+        "area_m2": 367.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5510332615384614,
+          52.10658925384616
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1282.01,
+        "fs25_z": -1914.95,
+        "footprint_w": 81.2,
+        "footprint_d": 97.4,
+        "area_m2": 1853.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5517217571428572,
+          52.106800299999996
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1329.1,
+        "fs25_z": -1938.45,
+        "footprint_w": 60.6,
+        "footprint_d": 94.3,
+        "area_m2": 1467.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55133028,
+          52.1068573
+        ]
+      },
+      "properties": {
+        "name": "",
+        "schema_name": "barn02_farmyard",
+        "category": "farmyard",
+        "fs25_x": -1302.33,
+        "fs25_z": -1944.79,
+        "footprint_w": 43.7,
+        "footprint_d": 61.4,
+        "area_m2": 812.6
+      }
+    }
+  ]
+}

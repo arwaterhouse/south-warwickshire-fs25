@@ -66,9 +66,10 @@ LUCODE_CATEGORY = {
 
 # ── OSM highway → FS25 road classification ─────────────────────────────────────
 HIGHWAY_FS25 = {
-    "motorway": None, "trunk": None, "primary": None,          # outside scope
-    "secondary":   {"fs25_type": "road",        "width": 6.0},
-    "tertiary":    {"fs25_type": "road",        "width": 5.0},
+    "motorway": None, "trunk": None,
+    "primary":     {"fs25_type": "road",        "width": 10.0},
+    "secondary":   {"fs25_type": "road",        "width": 10.0},
+    "tertiary":    {"fs25_type": "road",        "width": 10.0},
     "unclassified":{"fs25_type": "road",        "width": 4.5},
     "residential": {"fs25_type": "road",        "width": 4.0},
     "service":     {"fs25_type": "service",     "width": 3.0},
@@ -77,7 +78,7 @@ HIGHWAY_FS25 = {
     "footway":     {"fs25_type": "footpath",    "width": 1.5},
     "path":        {"fs25_type": "footpath",    "width": 1.5},
     "steps":       None,
-    "raceway":     {"fs25_type": "road",        "width": 8.0},
+    "raceway":     {"fs25_type": "road",        "width": 8.5},
 }
 
 # ── OSM building → FS25 building type ─────────────────────────────────────────
@@ -199,6 +200,7 @@ def parse_osm(osm_path):
                 buildings.append(geojson_feature(
                     polygon_geometry(coords),
                     {"building": tags.get("building", "yes"),
+                     "fs25:building": tags.get("fs25:building", ""),
                      "fs25_type": btype,
                      "name": tags.get("name", ""),
                      "area_ha": round(area, 4)}
@@ -304,7 +306,7 @@ def write_geojson(features, path):
     gj = {"type": "FeatureCollection", "features": features}
     with open(path, 'w') as f:
         json.dump(gj, f, separators=(',', ':'))
-    print(f"  → {path}  ({len(features)} features)")
+    print(f"  -> {path}  ({len(features)} features)")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
@@ -358,7 +360,7 @@ def main():
     }
     with open(out / 'fs25_summary.json', 'w') as f:
         json.dump(summary, f, indent=2)
-    print(f"  → {out}/fs25_summary.json")
+    print(f"  -> {out}/fs25_summary.json")
 
     print("\n=== Pipeline Summary ===")
     print(f"  Fields (CROME):  {len(crome_features):>5}")

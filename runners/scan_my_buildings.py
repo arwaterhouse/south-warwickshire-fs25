@@ -20,16 +20,24 @@ import xml.etree.ElementTree as ET
 
 # ── Where are your extracted mods? ────────────────────────────────────────────
 # Edit these paths to point to your extracted mod folders.
-# These are the mods you listed — update the paths to match where YOU extracted them.
 # Each entry is: ("human label", "path/to/extracted/mod/root")
+
+# Base path to your extracted buildings
+BUILDINGS_BASE = r"C:\Users\Alex Waterhouse\Documents\south-warwickshire-fs25\outputs\GE_ready\BUILDINGS\agricultural"
+
 MOD_FOLDERS = [
-    # Update these paths ↓↓↓
-    ("British Farm Pack",        r"C:\Users\YOU\Desktop\mods\FS25_BritishFarmPack"),
-    ("LivinOnAPlayer MachineShed", r"C:\Users\YOU\Desktop\mods\FS25_UK_MachineShed_3Bay"),
-    ("LivinOnAPlayer ShedWorkshop", r"C:\Users\YOU\Desktop\mods\FS25_UK_Shed"),
-    ("British Grain Sheds",      r"C:\Users\YOU\Desktop\mods\FS25_BritishGrainSheds"),
-    ("Farmer_Andy BF Buildings", r"C:\Users\YOU\Desktop\mods\FS25_BFBritishBuildings"),
-    ("UK Stone Buildings",       r"C:\Users\YOU\Desktop\mods\FS25_UKStoneBuildings"),
+    ("UK MachineShed 3Bay",      os.path.join(BUILDINGS_BASE, "FS25_UK_MachineShed_3Bay")),
+    ("UK Cattle Shed",           os.path.join(BUILDINGS_BASE, "FS25_UK_CattleShed")),
+    ("UK Grain Machinery Shed",  os.path.join(BUILDINGS_BASE, "FS25_UK_Grain_MachineryShed")),
+    ("UK Large Beef Shed",       os.path.join(BUILDINGS_BASE, "FS25_UK_LargeBeefShed")),
+    ("British Field Gates",      os.path.join(BUILDINGS_BASE, "FS25_RDM_BritishFieldGates")),
+    ("Old English Shed",         os.path.join(BUILDINGS_BASE, "FS25_OldEnglishShed")),
+    ("UK Bale Shed",             os.path.join(BUILDINGS_BASE, "FS25_UK_BaleShed")),
+    ("English Style Sheep Barn", os.path.join(BUILDINGS_BASE, "FS25_englishStyleSheepBarn")),
+    ("British Grain Sheds",      os.path.join(BUILDINGS_BASE, "FS25_RDM_BritishGrainSheds")),
+    ("UK Style Grain Shed",      os.path.join(BUILDINGS_BASE, "FS25_UkStyleGrainShed")),
+    ("UK Machinery Shed",        os.path.join(BUILDINGS_BASE, "FS25_UK_MachineryShed")),
+    ("UK Stile Pack",            os.path.join(BUILDINGS_BASE, "FS25_ukStilepack_prefab")),
 ]
 
 # ── Category hints — map mod names / file name fragments → category ────────────
@@ -289,7 +297,7 @@ for e in schema_entries:
         "regions":    e["regions"],
     })
 
-out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fs25_buildings_schema_uk.json")
+out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "config", "fs25_buildings_schema_uk.json")
 with open(out_path, "w") as f:
     json.dump(clean_schema, f, indent=2)
 

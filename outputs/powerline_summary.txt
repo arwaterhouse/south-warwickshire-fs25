@@ -6,7 +6,7 @@ Output file   : outputs/sw_powerline_splines.i3d
 
 Spline groups:
   powerlines_high  :   1 splines  (~1.3 km total)
-  powerlines_minor :  24 splines  (~12.4 km total)
+  powerlines_minor :  25 splines  (~12.5 km total)
 
 ====================================================
 GIANTS EDITOR WORKFLOW

@@ -1,0 +1,869 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5520506,
+          52.07379416
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": -1351.6,
+        "fs25_z": 1735.79,
+        "footprint": "34.0x30.0m",
+        "area_m2": 576.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55321306,
+          52.07994922
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01UB_B.xml",
+        "fs25_x": -1431.11,
+        "fs25_z": 1050.61,
+        "footprint": "25.9x26.0m",
+        "area_m2": 341.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5387908,
+          52.10456742
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01UB.xml",
+        "fs25_x": -444.64,
+        "fs25_z": -1689.88,
+        "footprint": "22.3x19.7m",
+        "area_m2": 248.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5393053399999999,
+          52.104718919999996
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_BaleShed",
+        "xml": "FS25_UK_BaleShed.xml",
+        "fs25_x": -479.84,
+        "fs25_z": -1706.75,
+        "footprint": "23.7x15.5m",
+        "area_m2": 186.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5389602333333334,
+          52.10470544444444
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UkStyleGrainShed",
+        "xml": "grainShed.xml",
+        "fs25_x": -456.23,
+        "fs25_z": -1705.25,
+        "footprint": "30.7x26.3m",
+        "area_m2": 489.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.50993578,
+          52.0887558
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_CattleShed",
+        "xml": "FS25_UK_CattleShed.xml",
+        "fs25_x": 1529.0,
+        "fs25_z": 70.27,
+        "footprint": "37.4x35.5m",
+        "area_m2": 642.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5051279,
+          52.09615720000001
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishFieldGates",
+        "xml": "7Bar.xml",
+        "fs25_x": 1857.85,
+        "fs25_z": -753.66,
+        "footprint": "11.5x4.2m",
+        "area_m2": 47.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.50478944,
+          52.096213060000004
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01.xml",
+        "fs25_x": 1881.0,
+        "fs25_z": -759.88,
+        "footprint": "19.6x16.4m",
+        "area_m2": 121.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.50630316,
+          52.09677424
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01UB.xml",
+        "fs25_x": 1777.46,
+        "fs25_z": -822.35,
+        "footprint": "33.9x38.0m",
+        "area_m2": 546.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5057294142857143,
+          52.09672018571428
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed02UB.xml",
+        "fs25_x": 1816.7,
+        "fs25_z": -816.33,
+        "footprint": "30.1x20.7m",
+        "area_m2": 424.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5056791571428572,
+          52.09655004285714
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": 1820.14,
+        "fs25_z": -797.39,
+        "footprint": "27.3x37.3m",
+        "area_m2": 635.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5056350222222223,
+          52.096943544444436
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UkStyleGrainShed",
+        "xml": "grainShed.xml",
+        "fs25_x": 1823.16,
+        "fs25_z": -841.19,
+        "footprint": "25.6x17.3m",
+        "area_m2": 305.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5051796333333334,
+          52.096327355555566
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": 1854.31,
+        "fs25_z": -772.6,
+        "footprint": "47.0x40.0m",
+        "area_m2": 1106.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5089387,
+          52.09383722
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": 1597.19,
+        "fs25_z": -495.4,
+        "footprint": "30.1x31.1m",
+        "area_m2": 462.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5480426600000001,
+          52.098421740000006
+        ]
+      },
+      "properties": {
+        "mod": "FS25_OldEnglishShed",
+        "xml": "grain_shed.xml",
+        "fs25_x": -1077.46,
+        "fs25_z": -1005.75,
+        "footprint": "24.2x22.6m",
+        "area_m2": 279.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5499066400000001,
+          52.09862062
+        ]
+      },
+      "properties": {
+        "mod": "FS25_OldEnglishShed",
+        "xml": "grain_shed.xml",
+        "fs25_x": -1204.95,
+        "fs25_z": -1027.89,
+        "footprint": "14.1x19.8m",
+        "area_m2": 154.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55019142,
+          52.098695240000005
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_LargeBeefShed",
+        "xml": "FS25_UK_LargeBeefShed.xml",
+        "fs25_x": -1224.43,
+        "fs25_z": -1036.19,
+        "footprint": "32.1x41.5m",
+        "area_m2": 764.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.550663721408,
+          52.098996094793996
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_CattleShed",
+        "xml": "FS25_UK_CattleShed.xml",
+        "fs25_x": -1256.73,
+        "fs25_z": -1069.68,
+        "footprint": "41.1x31.5m",
+        "area_m2": 752.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.54986322,
+          52.099227819999996
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed02.xml",
+        "fs25_x": -1201.98,
+        "fs25_z": -1095.48,
+        "footprint": "38.3x34.6m",
+        "area_m2": 786.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.550054828452,
+          52.09900887681799
+        ]
+      },
+      "properties": {
+        "mod": "FS25_OldEnglishShed",
+        "xml": "grain_shed.xml",
+        "fs25_x": -1215.09,
+        "fs25_z": -1071.11,
+        "footprint": "30.5x27.4m",
+        "area_m2": 449.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.54957113251,
+          52.098725977941434
+        ]
+      },
+      "properties": {
+        "mod": "FS25_OldEnglishShed",
+        "xml": "grain_shed.xml",
+        "fs25_x": -1182.0,
+        "fs25_z": -1039.62,
+        "footprint": "20.5x14.8m",
+        "area_m2": 146.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.52258988,
+          52.09925672000001
+        ]
+      },
+      "properties": {
+        "mod": "FS25_OldEnglishShed",
+        "xml": "grain_shed.xml",
+        "fs25_x": 663.47,
+        "fs25_z": -1098.7,
+        "footprint": "9.4x11.5m",
+        "area_m2": 52.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5226870799999999,
+          52.09930352
+        ]
+      },
+      "properties": {
+        "mod": "FS25_OldEnglishShed",
+        "xml": "grain_shed.xml",
+        "fs25_x": 656.83,
+        "fs25_z": -1103.91,
+        "footprint": "10.9x10.5m",
+        "area_m2": 63.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.522187769633333,
+          52.099560880664995
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": 690.98,
+        "fs25_z": -1132.56,
+        "footprint": "17.8x33.9m",
+        "area_m2": 139.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5228315399999999,
+          52.09983734
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01.xml",
+        "fs25_x": 646.94,
+        "fs25_z": -1163.33,
+        "footprint": "14.3x11.9m",
+        "area_m2": 78.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5223147822411112,
+          52.09984651983555
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_LargeBeefShed",
+        "xml": "FS25_UK_LargeBeefShed.xml",
+        "fs25_x": 682.29,
+        "fs25_z": -1164.35,
+        "footprint": "50.5x38.7m",
+        "area_m2": 1118.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5138398800000001,
+          52.09873548
+        ]
+      },
+      "properties": {
+        "mod": "FS25_OldEnglishShed",
+        "xml": "grain_shed.xml",
+        "fs25_x": 1261.96,
+        "fs25_z": -1040.67,
+        "footprint": "14.7x9.7m",
+        "area_m2": 72.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.51445232,
+          52.098654499999995
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01_B.xml",
+        "fs25_x": 1220.07,
+        "fs25_z": -1031.66,
+        "footprint": "19.5x21.6m",
+        "area_m2": 260.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.51415512,
+          52.09859028000001
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01_B.xml",
+        "fs25_x": 1240.4,
+        "fs25_z": -1024.51,
+        "footprint": "18.5x21.9m",
+        "area_m2": 249.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5138690999999997,
+          52.098483814285714
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01_B.xml",
+        "fs25_x": 1259.96,
+        "fs25_z": -1012.66,
+        "footprint": "22.9x25.7m",
+        "area_m2": 330.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5071813666666667,
+          52.10389088888889
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed02.xml",
+        "fs25_x": 1717.39,
+        "fs25_z": -1614.57,
+        "footprint": "17.4x22.3m",
+        "area_m2": 154.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5069577400000003,
+          52.10460012
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UkStyleGrainShed",
+        "xml": "grainShed.xml",
+        "fs25_x": 1732.69,
+        "fs25_z": -1693.52,
+        "footprint": "26.0x23.5m",
+        "area_m2": 254.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5070826333333334,
+          52.10442336666667
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UkStyleGrainShed",
+        "xml": "grainShed.xml",
+        "fs25_x": 1724.15,
+        "fs25_z": -1673.85,
+        "footprint": "24.4x21.6m",
+        "area_m2": 221.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5070866375,
+          52.1042558125
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_MachineShed_3Bay",
+        "xml": "UK_MachineShed_3Bay.xml",
+        "fs25_x": 1723.87,
+        "fs25_z": -1655.2,
+        "footprint": "36.8x29.5m",
+        "area_m2": 264.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5072745666666667,
+          52.103995077777775
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed02.xml",
+        "fs25_x": 1711.02,
+        "fs25_z": -1626.17,
+        "footprint": "21.6x21.2m",
+        "area_m2": 236.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5076491857142857,
+          52.104143099999995
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UkStyleGrainShed",
+        "xml": "grainShed.xml",
+        "fs25_x": 1685.39,
+        "fs25_z": -1642.65,
+        "footprint": "24.1x25.7m",
+        "area_m2": 294.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.50776888,
+          52.102599440000006
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01.xml",
+        "fs25_x": 1677.21,
+        "fs25_z": -1470.81,
+        "footprint": "14.6x14.7m",
+        "area_m2": 84.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5079275,
+          52.10265869999999
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01.xml",
+        "fs25_x": 1666.36,
+        "fs25_z": -1477.41,
+        "footprint": "14.9x14.7m",
+        "area_m2": 86.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.50793636,
+          52.10284013999999
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01.xml",
+        "fs25_x": 1665.75,
+        "fs25_z": -1497.6,
+        "footprint": "20.7x18.4m",
+        "area_m2": 130.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5382567363636364,
+          52.08008141818181
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed01.xml",
+        "fs25_x": -408.12,
+        "fs25_z": 1035.9,
+        "footprint": "20.6x17.1m",
+        "area_m2": 165.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5292945333333332,
+          52.084707733333325
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": 204.89,
+        "fs25_z": 520.9,
+        "footprint": "29.5x22.4m",
+        "area_m2": 450.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5295931999999997,
+          52.08445067142858
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": 184.46,
+        "fs25_z": 549.51,
+        "footprint": "45.9x55.5m",
+        "area_m2": 1506.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5304440866666664,
+          52.08403878666666
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_LargeBeefShed",
+        "xml": "FS25_UK_LargeBeefShed.xml",
+        "fs25_x": 126.26,
+        "fs25_z": 595.36,
+        "footprint": "77.4x97.2m",
+        "area_m2": 4069.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5559343571428574,
+          52.08390047142858
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_MachineryShed",
+        "xml": "placeables/machineShed02/machineShed02.xml",
+        "fs25_x": -1617.24,
+        "fs25_z": 610.76,
+        "footprint": "12.2x24.8m",
+        "area_m2": 192.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5559903800000001,
+          52.08367724
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": -1621.07,
+        "fs25_z": 635.61,
+        "footprint": "10.1x16.9m",
+        "area_m2": 149.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5562989600000001,
+          52.08343692
+        ]
+      },
+      "properties": {
+        "mod": "FS25_RDM_BritishGrainSheds",
+        "xml": "shed04.xml",
+        "fs25_x": -1642.18,
+        "fs25_z": 662.36,
+        "footprint": "31.3x28.6m",
+        "area_m2": 671.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55082654,
+          52.10697603999999
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UkStyleGrainShed",
+        "xml": "grainShed.xml",
+        "fs25_x": -1267.87,
+        "fs25_z": -1958.01,
+        "footprint": "24.6x35.0m",
+        "area_m2": 367.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5510332615384617,
+          52.10658925384616
+        ]
+      },
+      "properties": {
+        "mod": "FS25_UK_BaleShed",
+        "xml": "FS25_UK_BaleShed.xml",
+        "fs25_x": -1282.01,
+        "fs25_z": -1914.95,
+        "footprint": "81.2x97.4m",
+        "area_m2": 1853.6
+      }
+    }
+  ]
+}

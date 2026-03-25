@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="96">
+    <author>Reddog</author>
+    <version>1.0.0.0</version>
+
+	<title>
+            <en>British Field Gates</en>
+            <de>Britische Feldtore</de>
+
+    </title>
+	
+<description>
+<en>
+<![CDATA[British Field Gates
+
+7 Bar 
+Price: $150
+Gate width: 0.9m, 1.2m, 1.5m, 2.4m, 3m, 3.3m, 3.6m, 4.2m and a double 3.6m
+]]>
+</en>
+<de>
+<![CDATA[Britische Feldtore
+
+7 Balken 
+Preis: 150€
+Torbreite: 0,9m, 1,2m, 1,5m, 2,4m, 3m, 3,3m, 3,6m, 4,2m und ein doppeltes 3,6m
+]]>
+</de>
+</description>
+    
+
+    <iconFilename>icon_BritishFieldGates.dds</iconFilename>
+	<multiplayer supported="true"/>
+
+    <storeItems>
+		<storeItem xmlFilename="7Bar.xml"/>
+	</storeItems>
+	
+	<l10n>
+        <text name="shopItem_7bar">
+			<en>British 7 Bar Field Gates</en>
+			<de>Britische 7 Bar Feldtore</de>
+		</text>
+	</l10n>
+</modDesc>

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="newFence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../shared/xml/schema/placeable.xsd">
+    <storeData>
+        <name>$l10n_shopItem_7bar</name>
+        <functions>
+            <function>$l10n_function_decoration</function>
+        </functions>
+        <image>store_7Bar.dds</image>
+        <price>150</price>
+        <dailyUpkeep>0</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>NONE</brand>
+        <species>PLACEABLE</species>
+        <category>fences</category>
+        <canBeSold>true</canBeSold>
+        <showInStore>true</showInStore>
+
+
+        <brush>
+            <type>newFence</type>
+            <category>decoration</category>
+            <tab>newFences</tab>
+        </brush>
+        <audioMemoryUsage>0</audioMemoryUsage>
+        <vertexBufferMemoryUsage>352000</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>132864</indexBufferMemoryUsage>
+        <textureMemoryUsage>1441792</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+		<boughtWithFarmland>false</boughtWithFarmland>
+        <filename>7Bar.i3d</filename>
+    </base>
+    <clearAreas/>
+    <leveling/>
+    <indoorAreas/>
+    <testAreas/>
+    <placement useRandomYRotation="false" useManualYRotation="true">
+        <sounds>
+            <place template="fenceWoodImp" />
+            <destroy template="destroyFence" />
+        </sounds>
+    </placement>
+
+    <fence>
+		<segment id="GATE_0.9" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gate09m" length="1.199">
+                <animatedObject saveId="door03" >
+                    <animation duration="6">
+                        <part node="gate09mOpen">
+                            <keyFrame time="0.12" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 -110 0"/>
+                        </part>
+                        <part node="gate09mSpring">
+							<keyFrame time="0.06" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.12" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.15" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.21" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gate09mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.06" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.12" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.15" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.21" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gate09mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gate09m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gate09m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gate09m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>
+		<segment id="GATE_122" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gate122m" length="1.504">
+                <animatedObject saveId="door03" >
+                    <animation duration="6">
+                        <part node="gate122mOpen">
+                            <keyFrame time="0.12" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 -110 0"/>
+                        </part>
+                        <part node="gate122mSpring">
+							<keyFrame time="0.06" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.12" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.15" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.21" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gate122mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.06" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.12" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.15" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.21" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gate122mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gate122m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gate122m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gate122m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>	
+		<segment id="GATE_153" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gate153m" length="1.814">
+                <animatedObject saveId="door03" >
+                    <animation duration="6">
+                        <part node="gate153mOpen">
+                            <keyFrame time="0.12" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 -110 0"/>
+                        </part>
+                        <part node="gate153mSpring">
+							<keyFrame time="0.06" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.12" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.15" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.21" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gate153mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.06" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.12" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.15" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.21" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gate153mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gate153m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gate153m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gate153m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>	
+		<segment id="GATE_244m" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gate244m" length="2.725">
+                <animatedObject saveId="door03" >
+                    <animation duration="6">
+                        <part node="gate244mOpen">
+                            <keyFrame time="0.12" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 -110 0"/>
+                        </part>
+                        <part node="gate244mSpring">
+							<keyFrame time="0.06" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.12" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.15" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.21" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gate244mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.06" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.12" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.15" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.21" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gate244mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gate244m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gate244m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gate244m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>	
+		<segment id="GATE_3m" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gate3m" length="3.284">
+                <animatedObject saveId="door03" >
+                    <animation duration="6">
+                        <part node="gate3mOpen">
+                            <keyFrame time="0.12" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 -110 0"/>
+                        </part>
+                        <part node="gate3mSpring">
+							<keyFrame time="0.06" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.12" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.15" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.21" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gate3mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.06" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.12" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.15" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.21" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gate3mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gate3m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gate3m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gate3m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>
+		<segment id="GATE_335m" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gate335m" length="3.634">
+                <animatedObject saveId="door03" >
+                    <animation duration="6">
+                        <part node="gate335mOpen">
+                            <keyFrame time="0.12" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 -110 0"/>
+                        </part>
+                        <part node="gate335mSpring">
+							<keyFrame time="0.06" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.12" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.15" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.21" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gate335mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.06" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.12" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.15" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.21" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gate335mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gate335m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gate335m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gate335m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>		
+		<segment id="GATE_366m" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gate366m" length="3.944">
+                <animatedObject saveId="door03" >
+                    <animation duration="6">
+                        <part node="gate366mOpen">
+                            <keyFrame time="0.12" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 -110 0"/>
+                        </part>
+                        <part node="gate366mSpring">
+							<keyFrame time="0.06" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.12" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.15" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.21" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gate366mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.06" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.12" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.15" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.21" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gate366mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gate366m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gate366m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gate366m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>	
+		<segment id="GATE_427m" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gate427m" length="4.665">
+                <animatedObject saveId="door03" >
+                    <animation duration="6">
+                        <part node="gate427mOpen">
+                            <keyFrame time="0.12" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 -110 0"/>
+                        </part>
+                        <part node="gate427mSpring">
+							<keyFrame time="0.06" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.12" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.15" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.21" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gate427mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.06" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.12" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.15" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.21" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gate427mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gate427m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gate427m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gate427m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>			
+		<segment id="GATE_d366m" class="FenceGate" maxVerticalAngle="45">
+            <gate node="gated366m" length="7.699">
+                <animatedObject saveId="door03" >
+                    <animation duration="8">
+                        <part node="gated366mOpenA">
+                            <keyFrame time="0.2" rotation="0 0 0"/>
+                            <keyFrame time="0.9" rotation="0 -110 0"/>
+                        </part>
+						<part node="gated366mOpenB">
+                            <keyFrame time="0.3" rotation="0 0 0"/>
+                            <keyFrame time="1" rotation="0 110 0"/>
+                        </part>
+						<part node="gated366mLatch">
+                            <keyFrame time="0" rotation="0 0 0"/>
+                            <keyFrame time="0.2" rotation="-176.2 0 0"/>
+                        </part>
+                        <part node="gated366mSpring">
+							<keyFrame time="0.16" translation="0 0 0" scale="1 1 1" />
+							<keyFrame time="0.22" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.25" translation="0 0 0"  scale="1 1 0.399" />
+							<keyFrame time="0.31" translation="0 0 0" scale="1 1 1" />
+                        </part>                        
+						<part node="gated366mHandle">
+							<keyFrame time="0" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.16" translation="0 0 0" rotation="0 0 0" />
+							<keyFrame time="0.22" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.25" translation="0 0 -0.098" rotation="0 0 0" />
+							<keyFrame time="0.31" translation="0 0 0" rotation="0 0 0" />
+                        </part>
+                    </animation>
+                    <controls triggerNode="gated366mTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openDoor" negText="action_closeDoor" />
+                    <sounds>
+                        <moving linkNode="gated366m" template="metalDoorsLoop" />
+                        <posEnd linkNode="gated366m" template="metalDoorsOpen" />
+                        <negEnd linkNode="gated366m" template="metalDoorsClose" />
+                    </sounds>
+                </animatedObject>
+            </gate>
+        </segment>	
+    </fence>
+
+
+
+    <i3dMappings>
+		<i3dMapping id="gate09m" node="0>0"/>
+		<i3dMapping id="gate09mOpen" node="0>0|0"/>
+		<i3dMapping id="gate09mSpring" node="0>0|0|1|1"/>
+		<i3dMapping id="gate09mHandle" node="0>0|0|1|0"/>
+		<i3dMapping id="gate09mTrigger" node="0>0|0|2"/>
+	
+	
+		<i3dMapping id="gate122m" node="0>1"/>
+		<i3dMapping id="gate122mOpen" node="0>1|0"/>
+		<i3dMapping id="gate122mSpring" node="0>1|0|1|1"/>
+		<i3dMapping id="gate122mHandle" node="0>1|0|1|0"/>
+		<i3dMapping id="gate122mTrigger" node="0>1|0|2"/>
+		
+		<i3dMapping id="gate153m" node="0>2"/>
+		<i3dMapping id="gate153mOpen" node="0>2|0"/>
+		<i3dMapping id="gate153mSpring" node="0>2|0|1|1"/>
+		<i3dMapping id="gate153mHandle" node="0>2|0|1|0"/>
+		<i3dMapping id="gate153mTrigger" node="0>2|0|2"/>
+
+		<i3dMapping id="gate244m" node="0>3"/>
+		<i3dMapping id="gate244mOpen" node="0>3|0"/>
+		<i3dMapping id="gate244mSpring" node="0>3|0|1|1"/>
+		<i3dMapping id="gate244mHandle" node="0>3|0|1|0"/>
+		<i3dMapping id="gate244mTrigger" node="0>3|0|2"/>		
+		
+		<i3dMapping id="gate3m" node="0>4"/>
+		<i3dMapping id="gate3mOpen" node="0>4|0"/>
+		<i3dMapping id="gate3mSpring" node="0>4|0|1|1"/>
+		<i3dMapping id="gate3mHandle" node="0>4|0|1|0"/>
+		<i3dMapping id="gate3mTrigger" node="0>4|0|2"/>		
+
+		<i3dMapping id="gate335m" node="0>5"/>
+		<i3dMapping id="gate335mOpen" node="0>5|0"/>
+		<i3dMapping id="gate335mSpring" node="0>5|0|1|1"/>
+		<i3dMapping id="gate335mHandle" node="0>5|0|1|0"/>
+		<i3dMapping id="gate335mTrigger" node="0>5|0|2"/>	
+
+		<i3dMapping id="gate366m" node="0>6"/>
+		<i3dMapping id="gate366mOpen" node="0>6|0"/>
+		<i3dMapping id="gate366mSpring" node="0>6|0|1|1"/>
+		<i3dMapping id="gate366mHandle" node="0>6|0|1|0"/>
+		<i3dMapping id="gate366mTrigger" node="0>6|0|2"/>	
+
+		<i3dMapping id="gate427m" node="0>7"/>
+		<i3dMapping id="gate427mOpen" node="0>7|0"/>
+		<i3dMapping id="gate427mSpring" node="0>7|0|1|1"/>
+		<i3dMapping id="gate427mHandle" node="0>7|0|1|0"/>
+		<i3dMapping id="gate427mTrigger" node="0>7|0|2"/>	
+		
+		<i3dMapping id="gated366m" node="0>8"/>
+		<i3dMapping id="gated366mOpenA" node="0>8|0"/>
+		<i3dMapping id="gated366mOpenB" node="0>8|1"/>
+		<i3dMapping id="gated366mSpring" node="0>8|0|1|1"/>
+		<i3dMapping id="gated366mHandle" node="0>8|0|1|0"/>
+		<i3dMapping id="gated366mTrigger" node="0>8|0|2"/>	
+		<i3dMapping id="gated366mLatch" node="0>8|0|1|2"/>	
+    </i3dMappings>
+</placeable>

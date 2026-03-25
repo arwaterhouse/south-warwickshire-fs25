@@ -1,0 +1,48 @@
+{
+  "map": {
+    "centre_lat": 52.089387,
+    "centre_lon": -1.53229,
+    "size_km": 4.0,
+    "bbox": [
+      52.07142077650018,
+      -1.5615304080805976,
+      52.10735322349982,
+      -1.5030495919194022
+    ]
+  },
+  "crome": {
+    "woodland": 326,
+    "fallow": 507,
+    "grassland": 1887,
+    "arable": 1032,
+    "farmyard": 77,
+    "vegetable": 1
+  },
+  "osm": {
+    "forest": 105,
+    "water": 23,
+    "road_road": 88,
+    "road_footpath": 53,
+    "road_dirt_track": 21,
+    "road_service": 87,
+    "building_church": 4,
+    "building_house": 558,
+    "hedges": 19,
+    "building_farm_building": 3,
+    "building_commercial": 4,
+    "total_ways_in_bbox": 1345
+  },
+  "layer_counts": {
+    "fields": 3830,
+    "hedges": 19,
+    "roads": 249,
+    "buildings": 569,
+    "water": 23,
+    "forest": 105
+  },
+  "notes": {
+    "osm_coverage": "~70% of map area (missing ~1km N edge, ~300m W edge)",
+    "hedge_count": 19,
+    "crome_parcels": 3830
+  }
+}

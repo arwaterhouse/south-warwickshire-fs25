@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="garageSolarPanels" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+    <storeData>
+        <name>UK Style Grain Shed</name>
+        <functions>
+            <function>$l10n_function_garageBulk</function>
+        </functions>
+        <image>store_grainShed.dds</image>
+        <price>65000</price>
+        <dailyUpkeep>80</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <species>PLACEABLE</species>
+        <category>sheds</category>
+        <canBeSold>true</canBeSold>
+        <showInStore>true</showInStore>
+        <vertexBufferMemoryUsage>761856</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>112128</indexBufferMemoryUsage>
+        <textureMemoryUsage>5046272</textureMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <filename>grainShed.i3d</filename>
+		<boughtWithFarmland>true</boughtWithFarmland>
+        <canBeRenamed>true</canBeRenamed>
+    </base>
+
+    <placement useRandomYRotation="false" useManualYRotation="true" placementRotationSnapAngle="90" placementPositionSnapSize="0.5" >
+        <testAreas>
+            <testArea startNode="testAreaStart" endNode="testAreaEnd" />
+        </testAreas>
+
+        <sounds>
+            <place template="medImp" />
+        </sounds>
+    </placement>
+
+    <clearAreas>
+        <clearArea startNode="clearAreaStart" widthNode="clearAreaWidth" heightNode="clearAreaHeight"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="5" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="levelAreaStart" widthNode="levelAreaWidth" heightNode="levelAreaHeight" groundType="asphalt"/>
+        </levelAreas>
+    </leveling>
+
+    <indoorAreas>
+        <indoorArea startNode="indoorAreaStart" widthNode="indoorAreaWidth" heightNode="indoorAreaHeight"/>
+    </indoorAreas>
+
+    <tipOcclusionUpdateAreas>
+        <tipOcclusionUpdateArea startNode="tipOcclusionUpdateAreaStart" endNode="tipOcclusionUpdateAreaEnd" />
+    </tipOcclusionUpdateAreas>
+
+    <ai>
+        <updateAreas>
+            <updateArea startNode="tipOcclusionUpdateAreaStart" endNode="tipOcclusionUpdateAreaEnd" />
+        </updateAreas>
+    </ai>
+
+    <animatedObjects>
+	   <animatedObject index="rollerDoor" >
+            <animation duration="5">
+                <part node="rollerDoorVis">
+                    <keyFrame time="0.0" translation="0 0 0"/>
+                    <keyFrame time="1.0" translation="0 7.2 0"/>
+                </part>
+                <part node="rollerDoorColBottom">
+                    <keyFrame time="0.0" translation="0 0 0"/>
+                    <keyFrame time="1.0" translation="0 6.78 0"/>
+                </part>
+                <part node="rollerDoorColTop">
+                    <keyFrame time="0.0" translation="0 0 0"/>
+					<keyFrame time="0.5" translation="0 0 0"/>
+                    <keyFrame time="1.0" translation="0 3.26 0"/>
+                </part>
+                <shader node="rollerDoorVis" parameterName="visibilityCutThreshold">
+                    <keyFrame time="0.0" values="0 - - -" />
+                    <keyFrame time="1.0" values="1 - - -" />
+                </shader>
+			</animation>
+            <controls triggerNode="rollerDoorTrigger" posAction="ACTIVATE_HANDTOOL" posText="open roller door" negText="close roller door" />
+            <sounds>
+                <moving linkNode="0" template="rollingGarageDoor" />
+                <posEnd linkNode="1" template="slidingGateMetalOpen" />
+                <negEnd linkNode="2" template="slidingGateMetalClose" />
+            </sounds>
+        </animatedObject>
+		
+		<animatedObject>
+            <animation duration="1.0">
+                <part node="spotLight_0">
+                    <keyFrame time="0" visibility="false" />
+                    <keyFrame time="1.0" visibility="true" />
+                </part>
+				<part node="emisive_0">
+                    <keyFrame time="0" visibility="false" />
+                    <keyFrame time="1.0" visibility="true" />
+                </part>
+				
+				<part node="spotLight_1">
+                    <keyFrame time="0" visibility="false" />
+                    <keyFrame time="0.3" visibility="true" />
+                </part>
+				<part node="emisive_1">
+                    <keyFrame time="0" visibility="false" />
+                    <keyFrame time="0.4" visibility="true" />
+                </part>
+				
+				<part node="spotLight_2">
+                    <keyFrame time="0." visibility="false" />
+                    <keyFrame time="1.0" visibility="true" />
+                </part>
+				<part node="emisive_2">
+                    <keyFrame time="0" visibility="false" />
+                    <keyFrame time="0.5" visibility="true" />
+                </part>
+			</animation>	
+                 <controls triggerNode="lightTrigger" posAction="ACTIVATE_HANDTOOL" posText="grain shed lights on" negText="grain shed lights off" />
+        </animatedObject>
+	</animatedObjects>
+	
+	<solarPanels>
+        <solarPanelsConfigurations title="$l10n_partition_wall">
+            <solarPanelsConfiguration name="$l10n_ui_no" isActive="true">
+				<objectChange node="tipCollision01" rigidBodyTypeActive="static" rigidBodyTypeInactive="none"/>
+				<objectChange node="tipCollision02" rigidBodyTypeActive="none" rigidBodyTypeInactive="static"/>
+				<objectChange node="wallPartition" visibilityActive="false"/>
+				<objectChange node="wallPartitionGirders" visibilityActive="false"/>
+				<objectChange node="wallPartitionCol" rigidBodyTypeActive="none" rigidBodyTypeInactive="static"/>
+            </solarPanelsConfiguration>
+			
+			<solarPanelsConfiguration name="$l10n_ui_yes" isActive="true" price="3750">
+                <objectChange node="tipCollision01" rigidBodyTypeActive="none" rigidBodyTypeInactive="static"/>
+				<objectChange node="tipCollision02" rigidBodyTypeActive="static" rigidBodyTypeInactive="none"/>
+				<objectChange node="wallPartition" visibilityActive="true"/>
+				<objectChange node="wallPartitionGirders" visibilityActive="true"/>
+				<objectChange node="wallPartitionCol" rigidBodyTypeActive="static" rigidBodyTypeInactive="none"/>
+            </solarPanelsConfiguration>
+        </solarPanelsConfigurations>
+    </solarPanels>
+
+    <i3dMappings>
+  <i3dMapping id="grainShed" node="0>" />
+  <i3dMapping id="clearAreas" node="0>0" />
+  <i3dMapping id="clearAreaStart" node="0>0|0" />
+  <i3dMapping id="clearAreaWidth" node="0>0|0|0" />
+  <i3dMapping id="clearAreaHeight" node="0>0|0|1" />
+  <i3dMapping id="levelAreas" node="0>1" />
+  <i3dMapping id="levelAreaStart" node="0>1|0" />
+  <i3dMapping id="levelAreaWidth" node="0>1|0|0" />
+  <i3dMapping id="levelAreaHeight" node="0>1|0|1" />
+  <i3dMapping id="indoorAreas" node="0>2" />
+  <i3dMapping id="indoorAreaStart" node="0>2|0" />
+  <i3dMapping id="indoorAreaWidth" node="0>2|0|0" />
+  <i3dMapping id="indoorAreaHeight" node="0>2|0|1" />
+  <i3dMapping id="testAreas" node="0>3" />
+  <i3dMapping id="testAreaStart" node="0>3|0" />
+  <i3dMapping id="testAreaEnd" node="0>3|0|0" />
+  <i3dMapping id="tipOcclusionUpdateAreas" node="0>4" />
+  <i3dMapping id="tipOcclusionUpdateAreaStart" node="0>4|0" />
+  <i3dMapping id="tipOcclusionUpdateAreaEnd" node="0>4|0|0" />
+  <i3dMapping id="visuals" node="0>5" />
+  <i3dMapping id="electricBox" node="0>5|0" />
+  <i3dMapping id="electricSwitch" node="0>5|1" />
+  <i3dMapping id="galvDoorRunners" node="0>5|2" />
+  <i3dMapping id="gutters" node="0>5|3" />
+  <i3dMapping id="mainFrame" node="0>5|4" />
+  <i3dMapping id="mainWalls" node="0>5|5" />
+  <i3dMapping id="rollerDoor" node="0>5|6" />
+  <i3dMapping id="rollerDoorColBottom" node="0>5|6|0" />
+  <i3dMapping id="rollerDoorColTop" node="0>5|6|1" />
+  <i3dMapping id="rollerDoorTrigger" node="0>5|6|2" />
+  <i3dMapping id="rollerDoorVis" node="0>5|6|3" />
+  <i3dMapping id="tinSheets" node="0>5|7" />
+  <i3dMapping id="wood" node="0>5|8" />
+  <i3dMapping id="wallPartition" node="0>5|9" />
+  <i3dMapping id="wallPartitionGirders" node="0>5|10" />
+  <i3dMapping id="shedFloor" node="0>5|11" />
+  <i3dMapping id="lights" node="0>6" />
+  <i3dMapping id="lightTrigger" node="0>6|0" />
+  <i3dMapping id="lightBody_0" node="0>6|1" />
+  <i3dMapping id="clearPlastic_0" node="0>6|1|0" />
+  <i3dMapping id="emisive_0" node="0>6|1|1" />
+  <i3dMapping id="spotLight_0" node="0>6|1|2" />
+  <i3dMapping id="lightBody_1" node="0>6|2" />
+  <i3dMapping id="clearPlastic_1" node="0>6|2|0" />
+  <i3dMapping id="emisive_1" node="0>6|2|1" />
+  <i3dMapping id="spotLight_1" node="0>6|2|2" />
+  <i3dMapping id="lightBody_2" node="0>6|3" />
+  <i3dMapping id="clearPlastic_2" node="0>6|3|0" />
+  <i3dMapping id="emisive_2" node="0>6|3|1" />
+  <i3dMapping id="spotLight_2" node="0>6|3|2" />
+  <i3dMapping id="collisions" node="0>7" />
+  <i3dMapping id="tipCollisions" node="0>7|0" />
+  <i3dMapping id="tipCollision01" node="0>7|0|0" />
+  <i3dMapping id="tipCollision02" node="0>7|0|1" />
+  <i3dMapping id="wallPartitionCol" node="0>7|1" />
+  <i3dMapping id="shedCollision" node="0>7|2" />
+  <i3dMapping id="occluderMesh" node="0>8" />
+</i3dMappings>
+</placeable>

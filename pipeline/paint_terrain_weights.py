@@ -193,64 +193,118 @@ def main():
     print(f"forestGround   : {n} features")
     save_weight(forest_img, "forestGround")
 
-    # ── 4. Grass-dirt patchy – fallow / forest edge transition ───────────────
-    patchy_img = new_canvas()
-    patchy_draw = ImageDraw.Draw(patchy_img)
+    # ── 4. ForestEdge – fallow / forest edge transition ──────────────────────
+    forestedge_img = new_canvas()
+    forestedge_draw = ImageDraw.Draw(forestedge_img)
     n = 0
     for feat in fields:
         if feat["properties"].get("fs25_category") in ("Fallow", "fallow", "Woodland", "woodland"):
-            draw_polygon_feature(patchy_draw, feat["geometry"])
+            draw_polygon_feature(forestedge_draw, feat["geometry"])
             n += 1
-    print(f"grassDirtPatchy: {n} features")
-    save_weight(patchy_img, "grassDirtPatchy")
+    print(f"forestEdge     : {n} features")
+    save_weight(forestedge_img, "forestEdge")
 
-    # ── 5. Asphalt – main tarmac roads (secondary, tertiary) ─────────────────
+    # ── 5. Asphalt – main tarmac roads (primary, secondary, tertiary) ──────────
     asphalt_img = new_canvas()
     asphalt_draw = ImageDraw.Draw(asphalt_img)
-    asphalt_highways = {"secondary", "tertiary"}
+    asphalt_highways = {"primary", "secondary", "tertiary"}
     n = 0
     for feat in roads:
         props = feat["properties"]
         hw = props.get("highway", "")
         if hw in asphalt_highways:
-            w = m_to_px(props.get("width_m", 6.0))
+            w = m_to_px(props.get("width_m", 10.0))
             draw_line_feature(asphalt_draw, feat["geometry"], w)
             n += 1
     print(f"asphalt        : {n} features")
     save_weight(asphalt_img, "asphalt")
 
-    # ── 6. AsphaltDirt – minor roads (unclassified, residential, service) ────
-    asphaltdirt_img = new_canvas()
-    asphaltdirt_draw = ImageDraw.Draw(asphaltdirt_img)
-    minor_highways = {"unclassified", "residential", "service"}
+    # ── 6. AsphaltCracks – unclassified roads ─────────────────────────────────
+    asphaltcracks_img = new_canvas()
+    asphaltcracks_draw = ImageDraw.Draw(asphaltcracks_img)
     n = 0
     for feat in roads:
         props = feat["properties"]
         hw = props.get("highway", "")
-        if hw in minor_highways:
+        if hw == "unclassified":
             w = m_to_px(props.get("width_m", 4.5))
-            draw_line_feature(asphaltdirt_draw, feat["geometry"], w)
+            draw_line_feature(asphaltcracks_draw, feat["geometry"], w)
             n += 1
-    print(f"asphaltDirt    : {n} features")
-    save_weight(asphaltdirt_img, "asphaltDirt")
+    print(f"asphaltCracks  : {n} features")
+    save_weight(asphaltcracks_img, "asphaltCracks")
 
-    # ── 7. Gravel – farm tracks and bridleways ────────────────────────────────
+    # ── 7. AsphaltTwigs – residential roads ───────────────────────────────────
+    asphalttwigs_img = new_canvas()
+    asphalttwigs_draw = ImageDraw.Draw(asphalttwigs_img)
+    n = 0
+    for feat in roads:
+        props = feat["properties"]
+        hw = props.get("highway", "")
+        if hw == "residential":
+            w = m_to_px(props.get("width_m", 4.0))
+            draw_line_feature(asphalttwigs_draw, feat["geometry"], w)
+            n += 1
+    print(f"asphaltTwigs   : {n} features")
+    save_weight(asphalttwigs_img, "asphaltTwigs")
+
+    # ── 8. ServiceRoad – service roads ────────────────────────────────────────
+    serviceroad_img = new_canvas()
+    serviceroad_draw = ImageDraw.Draw(serviceroad_img)
+    n = 0
+    for feat in roads:
+        props = feat["properties"]
+        hw = props.get("highway", "")
+        if hw == "service":
+            w = m_to_px(props.get("width_m", 3.0))
+            draw_line_feature(serviceroad_draw, feat["geometry"], w)
+            n += 1
+    print(f"serviceRoad    : {n} features")
+    save_weight(serviceroad_img, "serviceRoad")
+
+    # ── 9. Gravel – farm tracks ───────────────────────────────────────────────
     gravel_img = new_canvas()
     gravel_draw = ImageDraw.Draw(gravel_img)
-    track_highways = {"track", "bridleway"}
     n = 0
     for feat in roads:
         props = feat["properties"]
         hw = props.get("highway", "")
         fs25 = props.get("fs25_type", "")
-        if hw in track_highways or fs25 == "dirt_track":
+        if hw == "track" or fs25 == "dirt_track":
             w = m_to_px(props.get("width_m", 3.5))
             draw_line_feature(gravel_draw, feat["geometry"], w)
             n += 1
     print(f"gravel         : {n} features")
     save_weight(gravel_img, "gravel")
 
-    # ── 8. WaterPuddle – water bodies (polygons) and streams/ditches (lines) ─
+    # ── 10. MudGravel – bridleways ────────────────────────────────────────────
+    mudgravel_img = new_canvas()
+    mudgravel_draw = ImageDraw.Draw(mudgravel_img)
+    n = 0
+    for feat in roads:
+        props = feat["properties"]
+        hw = props.get("highway", "")
+        if hw == "bridleway":
+            w = m_to_px(props.get("width_m", 2.5))
+            draw_line_feature(mudgravel_draw, feat["geometry"], w)
+            n += 1
+    print(f"mudGravel      : {n} features")
+    save_weight(mudgravel_img, "mudGravel")
+
+    # ── 11. GrassDirtPatchy – footpaths and paths ─────────────────────────────
+    grassdirt_img = new_canvas()
+    grassdirt_draw = ImageDraw.Draw(grassdirt_img)
+    n = 0
+    for feat in roads:
+        props = feat["properties"]
+        hw = props.get("highway", "")
+        if hw in {"footway", "path"}:
+            w = m_to_px(props.get("width_m", 1.5))
+            draw_line_feature(grassdirt_draw, feat["geometry"], w)
+            n += 1
+    print(f"grassDirtPatchy: {n} features")
+    save_weight(grassdirt_img, "grassDirtPatchy")
+
+    # ── 12. WaterPuddle – water bodies (polygons) and streams/ditches (lines) ─
     water_img = new_canvas()
     water_draw = ImageDraw.Draw(water_img)
     n = 0
@@ -265,7 +319,7 @@ def main():
     print(f"waterPuddle    : {n} features")
     save_weight(water_img, "waterPuddle")
 
-    # ── 9. DirtDark – hedge lines ─────────────────────────────────────────────
+    # ── 13. DirtDark – hedge lines ────────────────────────────────────────────
     dirtdark_img = new_canvas()
     dirtdark_draw = ImageDraw.Draw(dirtdark_img)
     hedge_w = m_to_px(HEDGE_WIDTH_M)
@@ -281,7 +335,7 @@ def main():
     print(f"dirtDark       : {n} features")
     save_weight(dirtdark_img, "dirtDark")
 
-    # ── 10. DirtMedium – farmyard areas ──────────────────────────────────────
+    # ── 14. DirtMedium – farmyard areas ───────────────────────────────────────
     dirtmedium_img = new_canvas()
     dirtmedium_draw = ImageDraw.Draw(dirtmedium_img)
     n = 0

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="powerLineBOX10m.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="10.0.9"/>
+  </Asset>
+
+  <Files>
+    <File fileId="4" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="16" filename="$data/shared/defaultPlastic_vmask.dds"/>
+    <File fileId="2" filename="$data/shared/default_normal.dds"/>
+    <File fileId="3" filename="$data/shared/default_specular.dds"/>
+    <File fileId="17" filename="../PowerTelegraph/textures/barbedWire_diffuse.dds"/>
+    <File fileId="12" filename="../PowerTelegraph/textures/telegraph_diffuse.dds"/>
+    <File fileId="13" filename="../PowerTelegraph/textures/telegraph_normal.dds"/>
+    <File fileId="14" filename="../PowerTelegraph/textures/telegraph_specular.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="barbedWire_mat" materialId="5" alphaBlending="true">
+      <Texture fileId="17"/>
+    </Material>
+    <Material name="greyCable_mat" materialId="12" diffuseColor="0.8 0.8 0.8 1" customShaderId="4">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="16"/>
+    </Material>
+    <Material name="i3d_default_material" materialId="14" diffuseColor="0.8 0.8 0.8 1" specularColor="0.6 1 0">
+    </Material>
+    <Material name="metalBolts_mat" materialId="16" diffuseColor="0.8 0.8 0.8 1" customShaderId="4">
+      <Normalmap fileId="13"/>
+      <Glossmap fileId="14"/>
+    </Material>
+    <Material name="metalGalvWire2_mat" materialId="17" diffuseColor="0.8 0.8 0.8 1" customShaderId="4">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+    </Material>
+    <Material name="telegraphPole_mat" materialId="18">
+      <Texture fileId="12"/>
+      <Normalmap fileId="13"/>
+      <Glossmap fileId="14"/>
+    </Material>
+    <Material name="warningDecal_mat" materialId="21" alphaBlending="true">
+      <Texture fileId="12"/>
+      <Normalmap fileId="13"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="powerLineBOX10m.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <TransformGroup name="powerLineBOX10m" translation="-9 0 0" nodeId="626128">
+      <TransformGroup name="powerLines" translation="0 10.18 0" nodeId="626129">
+        <Shape name="electricWire70m" translation="0.9 0 0.27" shapeId="1" nodeId="626130" castsShadows="true" receiveShadows="true" materialIds="17"/>
+        <Shape name="electricWire70m" translation="-0.9 0 0.27" shapeId="1" nodeId="626131" castsShadows="true" receiveShadows="true" materialIds="17"/>
+      </TransformGroup>
+      <Shape name="powerLine10m" shapeId="2" nodeId="626132" castsShadows="true" receiveShadows="true" materialIds="18">
+        <Shape name="mainCOL" shapeId="3" static="true" nodeId="626133" castsShadows="true" receiveShadows="true" nonRenderable="true" materialIds="14"/>
+      </Shape>
+      <TransformGroup name="highClip" clipDistance="500" nodeId="626134">
+        <TransformGroup name="metalTopPlate" nodeId="626135">
+          <Shape name="metalTopPlate" translation="0 9.8 0" shapeId="4" nodeId="626136" castsShadows="true" receiveShadows="true" materialIds="16"/>
+          <Shape name="metalTopPlateCyl" translation="0 9.8 0" shapeId="5" nodeId="626137" castsShadows="true" receiveShadows="true" materialIds="16"/>
+          <Shape name="metalTopPlateV" translation="0 9.8 0" shapeId="6" nodeId="626138" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        </TransformGroup>
+        <Shape name="decalPowerLine" translation="0 4 0" shapeId="7" nodeId="626139" castsShadows="true" receiveShadows="true" materialIds="21"/>
+        <Shape name="transformerBracket" translation="0 7.01 0.5" shapeId="8" nodeId="626140" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="transformerPlate" translation="0 7.063 0.739998" shapeId="9" nodeId="626141" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="transformerPlateDecal" translation="0 7.37 0.705" shapeId="10" nodeId="626142" castsShadows="false" receiveShadows="false" materialIds="21"/>
+        <Shape name="resistors" translation="0 10.0878 0.229996" shapeId="11" nodeId="626143" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="transformerResistor" translation="0 7.7781 0.783604" shapeId="12" nodeId="626144" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="transformer" translation="0 7.068 0.739998" shapeId="13" nodeId="626145" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="guideWireLarge" translation="0 9.37 -0.249" rotation="25 -0 0" shapeId="14" nodeId="626146" castsShadows="true" receiveShadows="true" materialIds="17">
+          <Shape name="wireGuard" translation="0 -9 0" shapeId="15" nodeId="626147" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        </Shape>
+      </TransformGroup>
+      <TransformGroup name="lowClip" clipDistance="50" nodeId="626148">
+        <Shape name="boltsMetalPlate" translation="0 9.79899 0.160001" shapeId="16" nodeId="626149" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="boltsMetalPlate2" translation="0 9.79899 0.160001" shapeId="17" nodeId="626150" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="boltsBOX" translation="0 7.01 0.5" shapeId="18" nodeId="626151" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="cableConnectorTEL" translation="-2.33201e-07 9.515 -0.024" rotation="0 90 0" shapeId="19" nodeId="626152" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="groundCables" translation="0 7.44366 0.949482" shapeId="20" nodeId="626153" castsShadows="true" receiveShadows="true" materialIds="12"/>
+        <Shape name="idiotGuard" translation="0 3 0" shapeId="21" nodeId="626154" castsShadows="true" receiveShadows="true" materialIds="16">
+          <Shape name="barbedWire" translation="-1.49012e-08 0 0" shapeId="22" nodeId="626155" castsShadows="true" receiveShadows="true" materialIds="5"/>
+        </Shape>
+        <Shape name="cableProtectorBOX" shapeId="23" nodeId="626156" castsShadows="true" receiveShadows="true" materialIds="16"/>
+        <Shape name="cableBracketBOX" translation="4.76837e-07 4 -0.1505" shapeId="24" nodeId="626157" castsShadows="true" receiveShadows="true" materialIds="18"/>
+        <Shape name="transformerWire" translation="-7.45058e-08 8.777 0.689992" shapeId="25" nodeId="626158" castsShadows="true" receiveShadows="true" materialIds="17"/>
+      </TransformGroup>
+    </TransformGroup>
+  </Scene>
+
+</i3D>

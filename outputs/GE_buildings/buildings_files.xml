@@ -1,0 +1,12 @@
+<!-- Add these to map.i3d <Files> section -->
+<File fileId="2001" filename="../../map/placeables/FS25_RDM_BritishGrainSheds/shed04.i3d"/>
+<File fileId="2002" filename="../../map/placeables/FS25_UK_BaleShed/FS25_UK_BaleShed.i3d"/>
+<File fileId="2003" filename="../../map/placeables/FS25_UkStyleGrainShed/grainShed.i3d"/>
+<File fileId="2004" filename="../../map/placeables/FS25_UK_CattleShed/FS25_UK_CattleShed.i3d"/>
+<File fileId="2005" filename="../../map/placeables/FS25_RDM_BritishFieldGates/7Bar.i3d"/>
+<File fileId="2006" filename="../../map/placeables/FS25_RDM_BritishGrainSheds/shed01.i3d"/>
+<File fileId="2007" filename="../../map/placeables/FS25_OldEnglishShed/GrainShed.i3d"/>
+<File fileId="2008" filename="../../map/placeables/FS25_UK_LargeBeefShed/FS25_UK_LargeBeefShed.i3d"/>
+<File fileId="2009" filename="../../map/placeables/FS25_RDM_BritishGrainSheds/shed02.i3d"/>
+<File fileId="2010" filename="../../map/placeables/FS25_UK_MachineShed_3Bay/FS25_MachineShed_3Bay.i3d"/>
+<File fileId="2011" filename="../../map/placeables/FS25_UK_MachineryShed/placeables/machineShed02/machineShed02.i3d"/>

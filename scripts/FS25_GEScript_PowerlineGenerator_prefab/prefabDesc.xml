@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<prefabDesc descVersion="1">
+    <author>Aslan</author>
+    <version>1.0.0.0</version>
+	
+	<title>
+		<de>GE10 Skript - Powerline Generator</de>
+        <en>GE10 Script - Powerline Generator</en>
+    </title>
+    <description>
+	<de><![CDATA[
+Mit diesem leistungsstarken GIANTS-Editor-Skript lässt sich in kürzester Zeit ein komplettes Stromleitungsnetz erstellen – von einfachen Leitungsabschnitten bis hin zu komplexen Verzweigungen und Kreuzungen.
+
+Strommasten werden über definierte Verbindungspunkte im Szenegraph miteinander verbunden, die Kabel werden automatisch als Mesh generiert und korrekt im Projekt organisiert. Dabei bleiben Struktur und Hierarchie jederzeit übersichtlich und nachvollziehbar.
+
+Die erzeugten Stromleitungen verwenden den LS25-Standard (inkl. Windreaktion), sodass sie sich im Spiel realistisch bewegen und nahtlos in bestehende Karten integrieren.
+
+Eine ausführliche, mehrsprachige Anleitung (DE / EN / PL / FR) ist direkt im Tool integriert.
+
+Installation:
+1.) Suchen Sie den Installationspfad des GIANTS Editors. Standardmäßig: "C:\Program Files\GIANTS Software\GIANTS_Editor_10.X.X\"
+2.) Kopieren Sie das Skript "PowerlineGenerator.lua" aus dem Prefab in den Script-Ordner des GIANTS Editors.
+3.) Das Skript steht anschließend im GIANTS Editor über die Menüleiste unter „Skripte“ zur Verfügung.
+]]>
+	</de>
+	<en><![CDATA[
+With this powerful GIANTS Editor script, a complete powerline network can be created in a short amount of time – from simple line segments to complex branches and crossings.
+
+Power poles are connected via defined connection points in the Scenegraph, and the cables are automatically generated as meshes and properly organized within the project structure. The hierarchy remains clean and easy to manage at all times.
+
+The generated powerlines use the official LS25 standard (including wind reaction), ensuring realistic in-game movement and seamless integration into existing maps.
+
+A detailed, multilingual guide (DE / EN / PL / FR) is included directly within the tool.
+
+Installation:
+1.) Navigate to your GIANTS Editor installation directory. Default path: "C:\Program Files\GIANTS Software\GIANTS_Editor_10.X.X\"
+2.) Copy the file "SplineToolkit.lua" and the folder "fenceImages" from the prefab into the GIANTS Editor script folder.
+3.) The script will then be available in the GIANTS Editor via the menu bar under “Scripts”.
+]]>
+	</en>
+    </description>
+
+	<iconFilename>PowerlineGenerator_icon.dds</iconFilename>
+    
+    <prefabs>
+		<prefab name="Script" xmlFilename="PowerlineGenerator.lua" />
+    </prefabs>
+	
+</prefabDesc>
