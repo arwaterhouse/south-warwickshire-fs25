@@ -170,6 +170,27 @@ CROP_STATES = {
 }
 
 
+# ── South Warwickshire real-world arable distribution ────────────────────────
+# Raw CROME area data is skewed by non-farmable land (road verges, village
+# greens, rough pasture) and reports 57% grass. Real game fields in South
+# Warwickshire around Shipston-on-Stour are predominantly arable.
+# Source: AHDB Arable/combinable crop statistics for Warwickshire + local
+# knowledge of the area. Percentages are of PLAYABLE FIELD count.
+SW_DISTRIBUTION = {
+    "WHEAT":       85,   # 35% — dominant crop, Cotswold limestone soils suit it
+    "BARLEY":      53,   # 22% — both spring and winter barley widespread
+    "OILSEEDRAPE": 36,   # 15% — yellow fields very visible in SW Warwickshire
+    "OAT":         17,   #  7% — reasonable presence in rotation
+    "GRASS":       29,   # 12% — some livestock/dairy farms, rough pasture
+    "MAIZE":        5,   #  2% — growing in area for AD/dairy feed
+    None:          12,   #  5% — fallow/set-aside/bare cultivated ground
+    "SUGARBEET":    2,   #  1%
+    "POTATO":       2,   #  1%
+    "CARROT":       1,   # <1%
+    "SOYBEAN":      1,   # <1%
+}   # total = 243
+
+
 def weighted_choice(rng, options):
     """Pick from [(value, weight)] or [(v1, v2, weight)] list."""
     total = sum(o[-1] for o in options)
@@ -182,11 +203,28 @@ def weighted_choice(rng, options):
     return options[-1][:-1]
 
 
-def compute_distribution(geojson_path: str) -> dict:
+def compute_distribution(geojson_path: str, use_sw_override: bool = True) -> tuple:
     """
-    Read CROME GeoJSON and compute area-weighted crop distribution.
-    Returns {fruit_type: total_area_ha} for playable types only.
+    Return crop distribution as {fruit: count} and total field count.
+
+    By default uses the SW_DISTRIBUTION override which reflects real South
+    Warwickshire arable farming patterns. Raw CROME area data is available
+    with --use-crome-distribution but is skewed by non-farmable grassland.
     """
+    if use_sw_override:
+        total = sum(SW_DISTRIBUTION.values())
+        print("  Using South Warwickshire arable distribution (not raw CROME areas)")
+        print(f"  Total fields in distribution: {total}")
+        print()
+        print("  Crop distribution:")
+        for fruit, count in sorted(SW_DISTRIBUTION.items(), key=lambda x: -x[1]):
+            label = fruit if fruit else "FALLOW (bare)"
+            pct = count / total * 100
+            print(f"    {label:<16} {count:>4} fields  ({pct:.1f}%)")
+        # Return field counts as pseudo-areas (count = area weight)
+        return dict(SW_DISTRIBUTION), float(total)
+
+    # Raw CROME area-weighted path
     with open(geojson_path) as f:
         data = json.load(f)
 
@@ -197,32 +235,25 @@ def compute_distribution(geojson_path: str) -> dict:
         props = feat["properties"]
         lucode = props.get("lucode", "")
         area_ha = float(props.get("area_ha", 0))
-
         mapping = LUCODE_MAP.get(lucode)
-
-        # Skip non-playable (woodland, farmyard, unmapped)
         if mapping is None:
             skipped += 1
             continue
-
         category = mapping["category"]
         if category not in PLAYABLE_CATEGORIES:
             skipped += 1
             continue
-
-        fruit = mapping["fruit"]  # May be None for fallow
-        area_by_fruit[fruit] += area_ha
+        area_by_fruit[mapping["fruit"]] += area_ha
 
     total_ha = sum(area_by_fruit.values())
     print(f"  CROME parcels processed: {len(data['features']):,}")
     print(f"  Non-playable skipped:    {skipped:,}")
     print(f"  Playable area:           {total_ha:.1f} ha")
     print()
-    print("  Crop distribution by area:")
+    print("  Crop distribution by area (raw CROME):")
     for fruit, ha in sorted(area_by_fruit.items(), key=lambda x: -x[1]):
-        pct = (ha / total_ha * 100) if total_ha else 0
         label = fruit if fruit else "FALLOW (bare)"
-        print(f"    {label:<16} {ha:>8.1f} ha  ({pct:.1f}%)")
+        print(f"    {label:<16} {ha:>8.1f} ha  ({ha/total_ha*100:.1f}%)")
 
     return dict(area_by_fruit), total_ha
 
@@ -341,8 +372,14 @@ def main():
     parser.add_argument(
         "--fields",
         type=int,
-        default=200,
-        help="Target number of in-game fields (default: 200)",
+        default=243,
+        help="Target number of in-game fields — must match field count in map i3d (default: 243)",
+    )
+    parser.add_argument(
+        "--use-crome-distribution",
+        action="store_true",
+        default=False,
+        help="Use raw CROME area-weighted distribution instead of SW arable override",
     )
     parser.add_argument(
         "--seed",
@@ -355,8 +392,10 @@ def main():
     rng = random.Random(args.seed)
 
     print(f"=== FS25 Field XML Generator — South Warwickshire ===\n")
-    print(f"Loading CROME data: {args.crome}")
-    distribution, total_ha = compute_distribution(args.crome)
+    use_crome = args.use_crome_distribution
+    if use_crome:
+        print(f"Loading CROME data: {args.crome}")
+    distribution, total_ha = compute_distribution(args.crome, use_sw_override=not use_crome)
 
     print(f"\nGenerating {args.fields} fields...")
     fields = build_field_list(distribution, total_ha, args.fields, rng)
