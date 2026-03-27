@@ -1,0 +1,63 @@
+{
+  "source": "CROME 2024 \u2014 DEFRA land use survey",
+  "area": "South Warwickshire 4km x 4km",
+  "total_playable_ha": 4963.4,
+  "target_fields": 130,
+  "distribution": {
+    "GRASS": {
+      "area_ha": 2824.6,
+      "percent": 56.9,
+      "approx_fields": 74
+    },
+    "FALLOW": {
+      "area_ha": 1065.0,
+      "percent": 21.5,
+      "approx_fields": 28
+    },
+    "BARLEY": {
+      "area_ha": 469.3,
+      "percent": 9.5,
+      "approx_fields": 12
+    },
+    "WHEAT": {
+      "area_ha": 432.3,
+      "percent": 8.7,
+      "approx_fields": 11
+    },
+    "CARROT": {
+      "area_ha": 82.3,
+      "percent": 1.7,
+      "approx_fields": 2
+    },
+    "MAIZE": {
+      "area_ha": 35.3,
+      "percent": 0.7,
+      "approx_fields": 1
+    },
+    "OAT": {
+      "area_ha": 32.4,
+      "percent": 0.7,
+      "approx_fields": 1
+    },
+    "OILSEEDRAPE": {
+      "area_ha": 11.2,
+      "percent": 0.2,
+      "approx_fields": 1
+    },
+    "POTATO": {
+      "area_ha": 5.4,
+      "percent": 0.1,
+      "approx_fields": 1
+    },
+    "SUGARBEET": {
+      "area_ha": 4.2,
+      "percent": 0.1,
+      "approx_fields": 1
+    },
+    "SOYBEAN": {
+      "area_ha": 1.2,
+      "percent": 0.0,
+      "approx_fields": 1
+    }
+  }
+}
