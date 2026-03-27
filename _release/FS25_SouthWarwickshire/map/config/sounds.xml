@@ -3179,7 +3179,7 @@
         <sample filename="$data/sounds/maps/shared/forest/ambWindForestMain_ST01.wav" >
             <settings audioGroup="ENVIRONMENT" minVolume="1.8" maxVolume="1.8" fadeInTime="8" fadeOutTime="10" minLoops="0" maxLoops="0"/>
             <required inForest="true"/>
-            <prevent rain="true" isIndoor="true"  winter="true" autumn="true" />
+            <prevent rain="true" isIndoor="true"  winter="true" />
         </sample>
 
         <sample filename="$data/sounds/maps/shared/forest/ambForestWindTrees_ST01.wav" probability="0.5" >
