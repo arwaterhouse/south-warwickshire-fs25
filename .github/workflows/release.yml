@@ -1,0 +1,63 @@
+name: Build & Release Mod
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v1.0.0)'
+        required: true
+      notes:
+        description: 'Release notes (what changed in this version)'
+        required: false
+        default: 'Automated release build.'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout with LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build mod
+        run: python _release/build.py
+
+      - name: Zip mod folder
+        run: |
+          cd _release
+          zip -r FS25_SouthWarwickshire.zip FS25_SouthWarwickshire/
+          echo "Release zip size: $(du -sh FS25_SouthWarwickshire.zip | cut -f1)"
+
+      - name: Determine version tag
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "tag=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "tag=${{ inputs.version }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ steps.version.outputs.tag }}"
+          NOTES="${{ inputs.notes }}"
+
+          gh release create "$VERSION" \
+            --title "South Warwickshire FS25 $VERSION" \
+            --notes "${NOTES:-Automated release build.}" \
+            "_release/FS25_SouthWarwickshire.zip#FS25_SouthWarwickshire.zip"
