@@ -504,44 +504,44 @@
         <variation weight="1" minHours="1" maxHours="3" minTemperature="9" maxTemperature="15">
           <clouds presetId="RAIN_1" />
           <rain presetId="RAIN_LIGHT" />
-          <wind speed="38" cirrusSpeedFactor="0.80" />
+          <wind speed="22" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="8" maxTemperature="14">
           <clouds presetId="RAIN_2" />
           <rain presetId="RAIN" />
-          <wind speed="44" cirrusSpeedFactor="0.80" />
+          <wind speed="35" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="7" maxTemperature="13">
           <clouds presetId="RAIN_3" />
           <rain presetId="RAIN_HEAVY" />
-          <wind speed="57" cirrusSpeedFactor="0.80" />
+          <wind speed="48" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="6" maxTemperature="12">
           <clouds presetId="RAIN_4" />
           <rain presetId="RAIN_HEAVY" />
-          <wind speed="68" cirrusSpeedFactor="0.80" />
+          <wind speed="58" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <object typeName="HAIL" class="WeatherObjectHail" weight="5">
         <variation weight="1" minHours="1" maxHours="3" minTemperature="9" maxTemperature="15">
           <clouds presetId="RAIN_1" />
           <rain presetId="HAIL" />
-          <wind speed="38" cirrusSpeedFactor="0.80" />
+          <wind speed="22" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="8" maxTemperature="14">
           <clouds presetId="RAIN_2" />
           <rain presetId="HAIL" />
-          <wind speed="44" cirrusSpeedFactor="0.80" />
+          <wind speed="35" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="7" maxTemperature="13">
           <clouds presetId="RAIN_3" />
           <rain presetId="HAIL" />
-          <wind speed="57" cirrusSpeedFactor="0.80" />
+          <wind speed="48" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="6" maxTemperature="12">
           <clouds presetId="RAIN_4" />
           <rain presetId="HAIL" />
-          <wind speed="68" cirrusSpeedFactor="0.80" />
+          <wind speed="58" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <fog>
@@ -591,44 +591,44 @@
         <variation weight="1" minHours="5" maxHours="10" minTemperature="16" maxTemperature="22">
           <clouds presetId="CLOUDY_LIGHT" />
           <rain presetId="DUST_WINDY" />
-          <wind speed="17" cirrusSpeedFactor="0.80" />
+          <wind speed="14" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="15" maxTemperature="21">
           <clouds presetId="CLOUDY" />
           <rain presetId="DUST_WINDY" />
-          <wind speed="21" cirrusSpeedFactor="0.80" />
+          <wind speed="17" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="14" maxTemperature="20">
           <clouds presetId="CLOUDY_MEDIUM" />
           <rain presetId="DUST_WINDY" />
-          <wind speed="24" cirrusSpeedFactor="0.80" />
+          <wind speed="20" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="14" maxTemperature="20">
           <clouds presetId="CLOUDY_DENSE" />
           <rain presetId="DUST_WINDY" />
-          <wind speed="28" cirrusSpeedFactor="0.80" />
+          <wind speed="24" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <object typeName="RAIN" class="WeatherObject" weight="10">
         <variation weight="1" minHours="1" maxHours="3" minTemperature="14" maxTemperature="21">
           <clouds presetId="RAIN_1" />
           <rain presetId="RAIN_LIGHT" />
-          <wind speed="38" cirrusSpeedFactor="0.80" />
+          <wind speed="18" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="14" maxTemperature="21">
           <clouds presetId="RAIN_2" />
           <rain presetId="RAIN" />
-          <wind speed="44" cirrusSpeedFactor="0.80" />
+          <wind speed="28" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="13" maxTemperature="20">
           <clouds presetId="RAIN_3" />
           <rain presetId="RAIN_HEAVY" />
-          <wind speed="57" cirrusSpeedFactor="0.80" />
+          <wind speed="40" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="12" maxTemperature="19">
           <clouds presetId="RAIN_4" />
           <rain presetId="RAIN_HEAVY" />
-          <wind speed="68" cirrusSpeedFactor="0.80" />
+          <wind speed="50" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <fog>
@@ -656,66 +656,66 @@
         <variation weight="1" minHours="6" maxHours="12" minTemperature="10" maxTemperature="16">
           <clouds presetId="SUNNY_BLUE_SKY" />
           <rain presetId="DUST" />
-          <wind speed="4" cirrusSpeedFactor="0.80" />
+          <wind speed="6" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="6" maxHours="12" minTemperature="9" maxTemperature="15">
           <clouds presetId="SUNNY_LIGHT_CLOUDS_1" />
           <rain presetId="DUST" />
-          <wind speed="8" cirrusSpeedFactor="0.80" />
+          <wind speed="10" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="8" maxHours="12" minTemperature="8" maxTemperature="14">
           <clouds presetId="SUNNY_LIGHT_CLOUDS_2" />
           <rain presetId="DUST" />
-          <wind speed="10" cirrusSpeedFactor="0.80" />
+          <wind speed="14" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="8" maxHours="12" minTemperature="8" maxTemperature="14">
           <clouds presetId="SUNNY_LIGHT_CLOUDS_3" />
           <rain presetId="DUST" />
-          <wind speed="13" cirrusSpeedFactor="0.80" />
+          <wind speed="18" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <object typeName="CLOUDY" class="WeatherObject" weight="14">
         <variation weight="1" minHours="5" maxHours="10" minTemperature="8" maxTemperature="14">
           <clouds presetId="CLOUDY_LIGHT" />
           <rain presetId="DUST_WINDY" />
-          <wind speed="17" cirrusSpeedFactor="0.80" />
+          <wind speed="22" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="7" maxTemperature="13">
           <clouds presetId="CLOUDY" />
           <rain presetId="DUST_WINDY" />
-          <wind speed="21" cirrusSpeedFactor="0.80" />
+          <wind speed="27" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="7" maxTemperature="13">
           <clouds presetId="CLOUDY_MEDIUM" />
           <rain presetId="DUST_WINDY" />
-          <wind speed="24" cirrusSpeedFactor="0.80" />
+          <wind speed="32" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="6" maxTemperature="12">
           <clouds presetId="CLOUDY_DENSE" />
           <rain presetId="DUST_WINDY" />
-          <wind speed="28" cirrusSpeedFactor="0.80" />
+          <wind speed="37" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <object typeName="RAIN" class="WeatherObject" weight="12">
         <variation weight="1" minHours="1" maxHours="3" minTemperature="6" maxTemperature="13">
           <clouds presetId="RAIN_1" />
           <rain presetId="RAIN_LIGHT" />
-          <wind speed="38" cirrusSpeedFactor="0.80" />
+          <wind speed="25" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="5" maxTemperature="12">
           <clouds presetId="RAIN_2" />
           <rain presetId="RAIN" />
-          <wind speed="44" cirrusSpeedFactor="0.80" />
+          <wind speed="40" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="5" maxTemperature="12">
           <clouds presetId="RAIN_3" />
           <rain presetId="RAIN_HEAVY" />
-          <wind speed="57" cirrusSpeedFactor="0.80" />
+          <wind speed="52" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="1" maxHours="3" minTemperature="4" maxTemperature="10">
           <clouds presetId="RAIN_4" />
           <rain presetId="RAIN_HEAVY" />
-          <wind speed="68" cirrusSpeedFactor="0.80" />
+          <wind speed="65" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <fog>
@@ -743,44 +743,44 @@
         <variation weight="1" minHours="6" maxHours="12" minTemperature="-6" maxTemperature="10">
           <clouds presetId="SUNNY_BLUE_SKY" />
           <rain presetId="SNOW_DUST" />
-          <wind speed="4" cirrusSpeedFactor="0.80" />
+          <wind speed="8" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="6" maxHours="12" minTemperature="-5" maxTemperature="7">
           <clouds presetId="SUNNY_LIGHT_CLOUDS_1" />
           <rain presetId="SNOW_DUST" />
-          <wind speed="8" cirrusSpeedFactor="0.80" />
+          <wind speed="13" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="8" maxHours="12" minTemperature="-6" maxTemperature="6">
           <clouds presetId="SUNNY_LIGHT_CLOUDS_2" />
           <rain presetId="SNOW_DUST" />
-          <wind speed="10" cirrusSpeedFactor="0.80" />
+          <wind speed="17" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="8" maxHours="12" minTemperature="-5" maxTemperature="5">
           <clouds presetId="SUNNY_LIGHT_CLOUDS_3" />
           <rain presetId="SNOW_DUST" />
-          <wind speed="13" cirrusSpeedFactor="0.80" />
+          <wind speed="22" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <object typeName="CLOUDY" class="WeatherObject" weight="10">
         <variation weight="1" minHours="5" maxHours="10" minTemperature="-6" maxTemperature="7">
           <clouds presetId="CLOUDY_LIGHT" />
           <rain presetId="SNOW_DUST" />
-          <wind speed="17" cirrusSpeedFactor="0.80" />
+          <wind speed="25" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="-7" maxTemperature="6">
           <clouds presetId="CLOUDY" />
           <rain presetId="SNOW_DUST" />
-          <wind speed="21" cirrusSpeedFactor="0.80" />
+          <wind speed="31" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="-8" maxTemperature="6">
           <clouds presetId="CLOUDY_MEDIUM" />
           <rain presetId="SNOW_DUST" />
-          <wind speed="24" cirrusSpeedFactor="0.80" />
+          <wind speed="37" cirrusSpeedFactor="0.80" />
         </variation>
         <variation weight="1" minHours="5" maxHours="10" minTemperature="-9" maxTemperature="5">
           <clouds presetId="CLOUDY_DENSE" />
           <rain presetId="SNOW_DUST" />
-          <wind speed="28" cirrusSpeedFactor="0.80" />
+          <wind speed="43" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <object typeName="SNOW" class="WeatherObject" weight="5">
@@ -802,7 +802,7 @@
         <variation weight="1" minHours="1" maxHours="3" minTemperature="-11" maxTemperature="2">
           <clouds presetId="RAIN_4" />
           <rain presetId="SNOW_WINDY" />
-          <wind speed="68" cirrusSpeedFactor="0.80" />
+          <wind speed="70" cirrusSpeedFactor="0.80" />
         </variation>
       </object>
       <fog>
