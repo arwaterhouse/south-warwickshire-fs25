@@ -102,30 +102,32 @@ PLAYABLE_CATEGORIES = {"arable", "root", "grassland", "fallow"}
 
 CROP_STATES = {
     "WHEAT": [
-        # All harvested — no re-drilling until September in UK
-        ("HARVESTED",   "HARVEST_READY", 45),   # stubble still on ground
-        ("HARVESTED",   "PLOWED",        40),   # ploughed post-harvest
-        ("HARVESTED",   "CULTIVATED",    15),   # cultivated, preparing seedbed
+        # Harvest finishes July-Aug; stubble dominates at game start.
+        # Only early-cut fields will have been ploughed/cultivated yet.
+        ("HARVESTED",   "HARVEST_READY", 70),   # stubble still standing
+        ("HARVESTED",   "PLOWED",        20),   # early ploughing started
+        ("HARVESTED",   "CULTIVATED",    10),   # cultivated seedbed (rare in Aug)
     ],
     "BARLEY": [
-        # Mostly harvested; a few late crops still standing
-        ("HARVESTED",   "HARVEST_READY", 40),
-        ("HARVESTED",   "PLOWED",        35),
-        ("6",           "CULTIVATED",    15),   # late-ripening crop still up
-        ("HARVESTED",   "CULTIVATED",    10),
+        # Spring barley harvest July-Aug; most fields still in stubble
+        ("HARVESTED",   "HARVEST_READY", 70),
+        ("HARVESTED",   "PLOWED",        15),
+        ("6",           "HARVEST_READY", 10),   # very late crop still standing
+        ("HARVESTED",   "CULTIVATED",     5),
     ],
     "OAT": [
-        ("HARVESTED",   "HARVEST_READY", 40),
-        ("HARVESTED",   "PLOWED",        35),
-        ("6",           "CULTIVATED",    15),
-        ("HARVESTED",   "CULTIVATED",    10),
+        ("HARVESTED",   "HARVEST_READY", 70),
+        ("HARVESTED",   "PLOWED",        15),
+        ("6",           "HARVEST_READY", 10),
+        ("HARVESTED",   "CULTIVATED",     5),
     ],
     "OILSEEDRAPE": [
-        # Winter OSR harvested July; some early-drilling new crop in Aug
-        ("HARVESTED",   "HARVEST_READY", 30),
-        ("HARVESTED",   "PLOWED",        30),
-        ("GERMINATING", "CULTIVATED",    25),   # early Aug drillers
-        ("1",           "CULTIVATED",    15),
+        # OSR harvested in July — slightly ahead of cereals, so more may
+        # have been ploughed already. Some early Aug re-drilling happening.
+        ("HARVESTED",   "HARVEST_READY", 45),   # stubble/standing residue
+        ("HARVESTED",   "PLOWED",        30),   # ploughed (earlier harvest)
+        ("GERMINATING", "CULTIVATED",    15),   # early Aug drillers
+        ("1",           "CULTIVATED",    10),
     ],
     "MAIZE": [
         # Standing crop, not harvested until Oct-Nov
