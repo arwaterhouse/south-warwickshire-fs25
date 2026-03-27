@@ -84,72 +84,86 @@ PLAYABLE_CATEGORIES = {"arable", "root", "grassland", "fallow"}
 # groundType:  CULTIVATED | PLOWED | HARVEST_READY | DEFAULT
 #
 # Rationale:
-#   Wheat/barley/oat — mostly harvested by Aug; winter wheat being re-drilled
-#   Oilseed rape     — drilled Aug/Sept so mostly germinating
-#   Maize            — harvested Oct/Nov so still standing
-#   Sugar beet       — harvested Oct-Feb so still in ground
-#   Potato           — harvest Aug-Oct so mix of growing and harvested
-#   Grass            — actively growing through autumn
-#   Fallow           — ploughed or cultivated bare ground
+#   Game start: AUGUST (UK)
+#
+#   WHEAT      — harvest complete by Aug. Stubble/bare ground; NO re-drilling
+#                until September. No germinating/early growth in August.
+#   BARLEY     — spring barley harvest July-Aug. Mostly harvested or late
+#                standing crop. NOT at stage 1 (planted March, way past that).
+#   OAT        — same as barley, harvested by Aug.
+#   OILSEEDRAPE— winter OSR harvested July. Some farmers drill new crop early
+#                Aug so GERMINATING is valid. Majority still bare post-harvest.
+#   MAIZE      — harvested Oct/Nov, so fully standing in Aug (stage 5-6).
+#   SUGARBEET  — harvested Oct-Feb, still in ground (stage 5-6).
+#   POTATO     — early varieties harvested Aug, main crop Sept-Oct.
+#   CARROT     — main crop harvest Sept-Nov, still growing in Aug (stage 4-5).
+#   GRASS      — cut multiple times by Aug; mix of regrowth and recently cut.
+#   FALLOW     — ploughed or cultivated bare ground.
 
 CROP_STATES = {
     "WHEAT": [
-        ("HARVESTED",   "HARVEST_READY", 30),
-        ("GERMINATING", "CULTIVATED",    25),
-        ("1",           "CULTIVATED",    20),
-        ("HARVESTED",   "PLOWED",        15),
-        ("2",           "CULTIVATED",    10),
+        # All harvested — no re-drilling until September in UK
+        ("HARVESTED",   "HARVEST_READY", 45),   # stubble still on ground
+        ("HARVESTED",   "PLOWED",        40),   # ploughed post-harvest
+        ("HARVESTED",   "CULTIVATED",    15),   # cultivated, preparing seedbed
     ],
     "BARLEY": [
+        # Mostly harvested; a few late crops still standing
         ("HARVESTED",   "HARVEST_READY", 40),
-        ("GERMINATING", "CULTIVATED",    25),
-        ("1",           "CULTIVATED",    20),
-        ("HARVESTED",   "PLOWED",        15),
+        ("HARVESTED",   "PLOWED",        35),
+        ("6",           "CULTIVATED",    15),   # late-ripening crop still up
+        ("HARVESTED",   "CULTIVATED",    10),
     ],
     "OAT": [
         ("HARVESTED",   "HARVEST_READY", 40),
-        ("GERMINATING", "CULTIVATED",    25),
-        ("1",           "CULTIVATED",    20),
-        ("HARVESTED",   "PLOWED",        15),
+        ("HARVESTED",   "PLOWED",        35),
+        ("6",           "CULTIVATED",    15),
+        ("HARVESTED",   "CULTIVATED",    10),
     ],
     "OILSEEDRAPE": [
-        ("GERMINATING", "CULTIVATED",    45),
-        ("1",           "CULTIVATED",    35),
-        ("2",           "CULTIVATED",    20),
+        # Winter OSR harvested July; some early-drilling new crop in Aug
+        ("HARVESTED",   "HARVEST_READY", 30),
+        ("HARVESTED",   "PLOWED",        30),
+        ("GERMINATING", "CULTIVATED",    25),   # early Aug drillers
+        ("1",           "CULTIVATED",    15),
     ],
     "MAIZE": [
-        ("5",           "CULTIVATED",    40),
-        ("6",           "CULTIVATED",    35),
-        ("4",           "CULTIVATED",    25),
-    ],
-    "SUGARBEET": [
-        ("5",           "CULTIVATED",    40),
-        ("6",           "CULTIVATED",    35),
-        ("4",           "CULTIVATED",    25),
-    ],
-    "POTATO": [
-        ("HARVESTED",   "HARVEST_READY", 35),
-        ("5",           "CULTIVATED",    30),
-        ("6",           "CULTIVATED",    20),
+        # Standing crop, not harvested until Oct-Nov
+        ("6",           "CULTIVATED",    40),
+        ("5",           "CULTIVATED",    45),
         ("4",           "CULTIVATED",    15),
     ],
-    "CARROT": [
+    "SUGARBEET": [
+        # Still in ground, harvested Oct-Feb
+        ("6",           "CULTIVATED",    40),
         ("5",           "CULTIVATED",    40),
-        ("4",           "CULTIVATED",    35),
-        ("HARVESTED",   "HARVEST_READY", 25),
+        ("4",           "CULTIVATED",    20),
+    ],
+    "POTATO": [
+        # Early varieties harvested by Aug; main crop still growing
+        ("HARVESTED",   "HARVEST_READY", 40),
+        ("6",           "CULTIVATED",    30),
+        ("5",           "CULTIVATED",    30),
+    ],
+    "CARROT": [
+        # Main harvest Sept-Nov; fully grown but still in ground
+        ("5",           "CULTIVATED",    45),
+        ("6",           "CULTIVATED",    35),
+        ("4",           "CULTIVATED",    20),
     ],
     "SOYBEAN": [
         ("5",           "CULTIVATED",    45),
-        ("4",           "CULTIVATED",    35),
-        ("6",           "CULTIVATED",    20),
+        ("6",           "CULTIVATED",    35),
+        ("4",           "CULTIVATED",    20),
     ],
     "GRASS": [
-        ("5",           "DEFAULT",       40),
-        ("4",           "DEFAULT",       35),
-        ("3",           "DEFAULT",       15),
-        ("HARVESTED",   "DEFAULT",       10),
+        # Cut 3+ times by August; mix of active regrowth and recently mown
+        ("HARVESTED",   "DEFAULT",       30),   # just cut / silage taken
+        ("4",           "DEFAULT",       30),   # regrowing
+        ("5",           "DEFAULT",       25),   # good regrowth
+        ("3",           "DEFAULT",       15),   # early regrowth after cut
     ],
-    None: [  # fallow
+    None: [  # fallow / bare
         (None,          "PLOWED",        55),
         (None,          "CULTIVATED",    45),
     ],
@@ -327,8 +341,8 @@ def main():
     parser.add_argument(
         "--fields",
         type=int,
-        default=130,
-        help="Target number of in-game fields (default: 130)",
+        default=200,
+        help="Target number of in-game fields (default: 200)",
     )
     parser.add_argument(
         "--seed",
