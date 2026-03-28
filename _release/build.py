@@ -31,14 +31,19 @@ OUT_ROOT    = HERE
 OUT_MOD     = OUT_ROOT / "FS25_SouthWarwickshire"
 OUT_GE      = OUT_ROOT / "GE_Scripts"
 
-# ── Files/folders to EXCLUDE from the map copy ───────────────────────────────
+# ── Top-level folders to exclude (ONLY at the root of map/) ──────────────────
 # These are development/generation artefacts the game never needs.
-MAP_EXCLUDES = {
-    # Top-level dev folders (saves ~376 MB)
-    "background",       # OBJ/PNG generation source files
+# NOTE: "background" here refers to map/background/ (raw satellite/OSM source).
+#       map/assets/background/ (background_terrain.i3d) is a game asset and
+#       must NOT be excluded — it controls the terrain beyond the map boundary.
+TOP_LEVEL_EXCLUDES = {
+    "background",       # OBJ/PNG generation source files  (map/background/)
     "satellite",        # source satellite imagery
     "previews",         # dev preview renders
-    # Top-level dev files
+}
+
+# ── Top-level files to exclude ───────────────────────────────────────────────
+TOP_LEVEL_FILE_EXCLUDES = {
     "custom_osm.osm",
     "generation_info.json",
     "generation_logs.json",
@@ -47,7 +52,10 @@ MAP_EXCLUDES = {
     "performance_report.json",
     "fs22_to_fs25_conversion_report.txt",
     "tree_custom_schema.json",
-    # map/map/ specific temp/backup files
+}
+
+# ── Files to exclude anywhere in the tree ────────────────────────────────────
+FILE_EXCLUDES_ANYWHERE = {
     "map.i3d.fs22_backup",
     "map.i3d_temp0",
 }
@@ -101,19 +109,21 @@ def minify_json(src: str) -> str:
 
 
 def copy_map(src: Path, dst: Path):
-    """Copy src into dst, skipping MAP_EXCLUDES entries."""
+    """Copy src into dst, applying top-level excludes only at this level."""
     dst.mkdir(parents=True, exist_ok=True)
     skipped = []
 
     for item in src.iterdir():
-        if item.name in MAP_EXCLUDES:
+        if item.is_dir() and item.name in TOP_LEVEL_EXCLUDES:
+            skipped.append(item.name)
+            continue
+        if item.is_file() and item.name in TOP_LEVEL_FILE_EXCLUDES:
             skipped.append(item.name)
             continue
 
         dest_item = dst / item.name
 
         if item.is_dir():
-            # Recurse, still applying per-file excludes
             _copy_dir_filtered(item, dest_item)
         elif item.is_file():
             _copy_file_optimised(item, dest_item)
@@ -122,9 +132,10 @@ def copy_map(src: Path, dst: Path):
 
 
 def _copy_dir_filtered(src: Path, dst: Path):
+    """Recursively copy a directory, skipping only FILE_EXCLUDES_ANYWHERE."""
     dst.mkdir(parents=True, exist_ok=True)
     for item in src.iterdir():
-        if item.name in MAP_EXCLUDES:
+        if item.name in FILE_EXCLUDES_ANYWHERE:
             continue
         dest_item = dst / item.name
         if item.is_dir():
