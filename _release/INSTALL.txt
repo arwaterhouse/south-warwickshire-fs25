@@ -14,6 +14,7 @@ INSTALL INSTRUCTIONS
    Scripts included:
      - sw_batch_spline_placer.lua
      - sw_british_flora_scanner.lua
+     - sw_export_placeables.lua
      - sw_flatten_under_building.lua
      - sw_foliage_brush.lua
      - sw_foliage_by_material.lua
@@ -22,6 +23,7 @@ INSTALL INSTRUCTIONS
      - sw_foliage_clear_fields.lua
      - sw_foliage_zone_painter.lua
      - sw_foliage_zone_painter_v2.lua
+     - sw_import_mod.lua
 
 3. To rebuild this release folder at any time, run:
    python build.py

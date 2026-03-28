@@ -1,46 +1,9 @@
--- Author: South Warwickshire FS25 Pipeline
--- Name: SW Import Mod
--- Description: Cherry-pick and import individual placeable mods into the scene
---              without re-running PlaceableImporter.
---
---              Click any variant button to import it.  The new object is placed
---              at ground level at world origin (0, terrain_Y, 0) — move it to
---              its intended position in GE, then run SW Export Placeables to XML
---              to write the updated positions back to placeables.xml.
---
--- Workflow:
---   1. Find the mod / variant you want in the list below
---   2. Click its "► Import" button
---   3. Move the new object to where you want it in the scene
---   4. Run SW Export Placeables to XML to save positions
---
--- Scene hierarchy created:
---   placeablePlaceholders
---     └─ Objects
---          └─ {ModName}
---               └─ {imported I3D node}
---
--- Attributes stamped on each imported node:
---   uniqueId      = ""   (empty string — marks it as a placeable for the exporter)
---   placeableFile = "placeables/{ModName}/{variant}.xml"
---
--- Hide: no
--- AlwaysLoaded: no
-
 source("editorUtils.lua")
-
--- ── Constants ────────────────────────────────────────────────────────────────
-
 local PLACEHOLDERS_NODE = "placeablePlaceholders"
 local OBJECTS_NODE      = "Objects"
 local MOD_ROOT          = "modPlaceholders/"
 local ATTR_UID          = "uniqueId"
 local ATTR_FILE         = "placeableFile"
-
--- ── Mod Catalogue ────────────────────────────────────────────────────────────
--- Each entry: modName, label, xmlFile (relative to mod folder), i3dFile (relative to mod folder)
--- These are pre-resolved from analysing every placeable XML in modPlaceholders.
-
 local CATALOGUE = {
     {
         mod = "FS22_British_Storage_Shed",
@@ -147,15 +110,11 @@ local CATALOGUE = {
         },
     },
 }
-
--- ── Helpers ───────────────────────────────────────────────────────────────────
-
 local function getMapPath()
     local full = getSceneFilename()
     if not full then return nil end
     return full:match("(.*[/\\])")
 end
-
 local function getTerrainId()
     local root = getRootNode()
     for i = 0, getNumOfChildren(root) - 1 do
@@ -164,7 +123,6 @@ local function getTerrainId()
     end
     return nil
 end
-
 local function findOrCreateChild(parentNode, name)
     for i = 0, getNumOfChildren(parentNode) - 1 do
         local c = getChildAt(parentNode, i)
@@ -174,54 +132,34 @@ local function findOrCreateChild(parentNode, name)
     link(parentNode, newNode)
     return newNode
 end
-
--- ── Core Import ───────────────────────────────────────────────────────────────
-
 local function importVariant(modName, xmlFilename, i3dFilename)
     local mapPath = getMapPath()
     if not mapPath then
         printError("[SW Import] Could not determine map path — is a scene open?")
         return
     end
-
-    -- Full disk paths
     local i3dPath = mapPath .. MOD_ROOT .. modName .. "/" .. i3dFilename
     local xmlPath = mapPath .. MOD_ROOT .. modName .. "/" .. xmlFilename   -- for reference only
-
-    -- Relative path written into the placeableFile attribute —
-    -- must match what the export script uses in placeables.xml
     local relXmlPath = "placeables/" .. modName .. "/" .. xmlFilename
-
     print(string.format("\n[SW Import] ──────────────────────────────────────────"))
     print(string.format("[SW Import] Importing: %s", i3dFilename))
     print(string.format("  Mod       : %s", modName))
     print(string.format("  I3D path  : %s", i3dPath))
-
-    -- ── 1. Verify the I3D file exists ─────────────────────────────────────────
     if not fileExists(i3dPath) then
         printError("[SW Import] I3D file not found: " .. i3dPath)
         printError("[SW Import] Check that modPlaceholders folder is in the right place.")
         return
     end
-
-    -- ── 2. Build / find scene hierarchy ──────────────────────────────────────
-    --   placeablePlaceholders → Objects → {modName} → imported node
-
     local rootNode = getRootNode()
     local phNode   = findOrCreateChild(rootNode, PLACEHOLDERS_NODE)
     local objNode  = findOrCreateChild(phNode,   OBJECTS_NODE)
     local modNode  = findOrCreateChild(objNode,  modName)
-
-    -- ── 3. Create I3D reference in scene ─────────────────────────────────────
     local objectId = createI3DReference(i3dPath, false)
     if not objectId or objectId == 0 then
         printError("[SW Import] createI3DReference failed for: " .. i3dPath)
         return
     end
-
     link(modNode, objectId)
-
-    -- ── 4. Position at ground level at world origin ───────────────────────────
     local groundY = 0
     local tid = getTerrainId()
     if tid then
@@ -229,13 +167,8 @@ local function importVariant(modName, xmlFilename, i3dFilename)
     end
     setTranslation(objectId, 0, groundY, 0)
     setRotation(objectId, 0, 0, 0)
-
-    -- ── 5. Stamp attributes ───────────────────────────────────────────────────
-    -- uniqueId = "" marks this as a placeable node for sw_export_placeables
-    -- placeableFile = relative XML path so the exporter knows which file it maps to
     setUserAttribute(objectId, ATTR_UID,  3, "")
     setUserAttribute(objectId, ATTR_FILE, 3, relXmlPath)
-
     print(string.format("[SW Import] ✓ Imported: %s", getName(objectId)))
     print(string.format("  Placed at : X=0  Y=%.2f  Z=0  (world origin — move it now)", groundY))
     print(string.format("  Attribute : placeableFile = %s", relXmlPath))
@@ -243,15 +176,10 @@ local function importVariant(modName, xmlFilename, i3dFilename)
     print("            SW Export Placeables to XML  to update placeables.xml")
     print("[SW Import] ──────────────────────────────────────────\n")
 end
-
--- ── UI ────────────────────────────────────────────────────────────────────────
-
 local frame  = UIRowLayoutSizer.new()
 local window = UIWindow.new(frame, "SW Import Mod")
 local border = UIRowLayoutSizer.new()
 UIPanel.new(frame, border, -1, -1, 420, -1, BorderDirection.ALL, 10, 1)
-
--- Instructions
 UILabel.new(border,
     "HOW TO USE\n" ..
     "─────────────────────────────────────────────\n" ..
@@ -262,18 +190,11 @@ UILabel.new(border,
     "Objects appear at world origin (0, ground, 0).\n" ..
     "Attributes are stamped so the exporter recognises them.",
     TextAlignment.LEFT)
-
 UIHorizontalLine.new(border, -1, -1, -1, -1, BorderDirection.BOTTOM, 8)
-
--- ── Render one section per mod ────────────────────────────────────────────────
-
 local function addModSection(parent, entry)
-    -- Section header
     local hdrRow = UIRowLayoutSizer.new()
     UIPanel.new(parent, hdrRow, -1, -1, -1, -1, BorderDirection.BOTTOM, 2)
     UILabel.new(hdrRow, "── " .. entry.mod .. " ──", TextAlignment.LEFT)
-
-    -- Variant buttons — up to 3 per row to keep window width sane
     local ROW_MAX = 3
     local btnRow  = nil
     for idx, v in ipairs(entry.variants) do
@@ -281,7 +202,6 @@ local function addModSection(parent, entry)
             btnRow = UIRowLayoutSizer.new()
             UIPanel.new(parent, btnRow, -1, -1, -1, -1, BorderDirection.BOTTOM, 4)
         end
-        -- Capture loop vars in closure
         local modName    = entry.mod
         local xmlFile    = v.xml
         local i3dFile    = v.i3d
@@ -291,19 +211,14 @@ local function addModSection(parent, entry)
         end)
     end
 end
-
 for _, entry in ipairs(CATALOGUE) do
     addModSection(border, entry)
 end
-
 UIHorizontalLine.new(border, -1, -1, -1, -1, BorderDirection.BOTTOM, 8)
-
 UILabel.new(border,
     "After importing, run  SW Export Placeables to XML\n" ..
     "to write all positions back to placeables.xml.",
     TextAlignment.LEFT)
-
 window:showWindow()
-
 print("\n[SW Import Mod] Ready — click any variant button to import it into the scene.")
 print("  Objects are placed at world origin.  Move them, then run SW Export to save.")
