@@ -1,24 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="92" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
-    <author>arwaterhouse</author>
+    <author>Barley Baron</author>
     <version>1.0.0.0</version>
     <title>
-        <en>South Warwickshire</en>
+        <en>Red Horse Valley</en>
     </title>
     <description>
         <en><![CDATA[
-South Warwickshire - a faithful recreation of the English countryside around Shipston-on-Stour. 4km x 4km map with authentic field layouts, hedgerows, and terrain.
+Red Horse Valley is a faithful recreation of the South Warwickshire countryside, set in the rolling hills and vale around Shipston-on-Stour.
+
+Based on real-world data, this 4km x 4km map captures the character of the English Midlands — wide arable fields divided by ancient hedgerows, winding country lanes, stone-walled farmsteads, and gentle valley terrain shaped by the River Stour.
+
+Farm a landscape that feels genuinely British: irregular field boundaries, mixed livestock and arable land, and the kind of countryside that Warwickshire has been known for since long before modern farming. Whether you're drilling winter wheat on the open hilltops or managing grassland along the valley floor, Red Horse Valley offers a rewarding and authentic farming experience.
+
+Features:
+- Real-world terrain based on South Warwickshire geography
+- Authentic British field layouts and hedgerow network
+- 4km x 4km playable area
+- Multiplayer supported
 ]]></en>
     </description>
     <iconFilename>preview.png</iconFilename>
     <multiplayer supported="true"/>
     <maps>
-        <map id="SouthWarwickshire" configFilename="map/map.xml" defaultVehiclesXMLFilename="map/config/vehicles.xml" defaultPlaceablesXMLFilename="map/config/placeables.xml" defaultHandToolsXMLFilename="map/config/handTools.xml" defaultItemsXMLFilename="map/config/items.xml">
+        <map id="RedHorseValley" configFilename="map/map.xml" defaultVehiclesXMLFilename="map/config/vehicles.xml" defaultPlaceablesXMLFilename="map/config/placeables.xml" defaultHandToolsXMLFilename="map/config/handTools.xml" defaultItemsXMLFilename="map/config/items.xml">
             <title>
-                <en>South Warwickshire</en>
+                <en>Red Horse Valley</en>
             </title>
             <description>
-                <en>A faithful recreation of the South Warwickshire countryside for Farming Simulator 25.</en>
+                <en>A faithful recreation of the South Warwickshire countryside around Shipston-on-Stour. Farm real-world terrain with authentic British field layouts, ancient hedgerows, and rolling vale scenery.</en>
             </description>
             <iconFilename>preview.png</iconFilename>
         </map>
