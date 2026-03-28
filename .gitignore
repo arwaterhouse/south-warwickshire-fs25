@@ -5,4 +5,5 @@ references/
 *.log
 map_template/
 .env
-_release/
+_release/*
+!_release/build.py
