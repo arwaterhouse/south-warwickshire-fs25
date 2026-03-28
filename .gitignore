@@ -5,3 +5,4 @@ references/
 *.log
 map_template/
 .env
+_release/
