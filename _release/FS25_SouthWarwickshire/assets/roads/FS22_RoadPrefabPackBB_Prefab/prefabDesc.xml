@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<prefabDesc descVersion="1">
+    <author>BulletBill</author>
+    <version>1.0.0.0</version>
+	
+	<title>
+        <en>Road Prefab Pack</en>
+		<de>Straßen-Fertigpaket</de>
+		<fr>Pack Préfabriqué Routier</fr>		
+    </title>
+	
+	<iconFilename>icon.dds</iconFilename>
+	
+	<description>
+        <en>
+            <![CDATA[This prefab pack contains a large collection of 504 individual road models, as well as addon decals and armco barriers to construct full road networks on your own maps. Each road model has a "joinNode" to allow quick and easy placement.
+
+- A Road System: (6.6m driving width, customisable road markings.)
+
+Straights: 5, 10, 20, and 50m.
+Straight Slopes: 30, and 50m. (5 and 10 degrees incline and decline.)
+Curves: 30 and 50m. (5, 10, 15, 20, 30, 45, and 90 degrees rotation, with 5 and 10 degrees incline and decline.)
+Sloped Curves: 30 and 50m. (5, 10, 15, 20, 30, 45, and 90 degrees rotation, with 5 and 10 degrees incline and decline.)
+Junctions: Crossroads, T-Junctions, and Y-Junctions. (Multiple versions to join the other road sizes together.)
+
+- B Road System: (6.0m driving width, customisable road markings.)
+
+Straights: 5, 10, 20, and 50m.
+Straight Slopes: 30, and 50m. (5 and 10 degrees incline and decline.)
+Curves: 30 and 50m. (5, 10, 15, 20, 30, 45, and 90 degrees rotation, with 5 and 10 degrees incline and decline.)
+Sloped Curves: 30 and 50m. (5, 10, 15, 20, 30, 45, and 90 degrees rotation, with 5 and 10 degrees incline and decline.)
+Junctions: Crossroads, T-Junctions, and Y-Junctions. (Multiple versions to join the other road sizes together.)
+
+- C Road System: (5.0m driving width.)
+
+Straights: 5, 10, and 20.
+Straight Slopes: 30m. (5 and 10 degrees incline and decline.)
+Curves: 30m. (5, 10, 15, 20, 30, 45, and 90 degrees rotation, with 5 and 10 degrees incline and decline.)
+Sloped Curves: 30m. (5, 10, 15, 20, 30, 45, and 90 degrees rotation, with 5 and 10 degrees incline and decline.)
+Junctions: Crossroads, T-Junctions, and Y-Junctions. (Multiple versions to join the other road sizes together.)
+
+- Lane System: (3.5m driving width.)
+
+Straights: 5, 10, and 20.
+Straight Slopes: 30m. (5 and 10 degrees incline and decline.)
+Curves: 30m. (5, 10, 15, 20, 30, 45, and 90 degrees rotation, with 5 and 10 degrees incline and decline.)
+Sloped Curves: 30m. (5, 10, 15, 20, 30, 45, and 90 degrees rotation, with 5 and 10 degrees incline and decline.)
+Junctions: Crossroads, T-Junctions, and Y-Junctions. (Multiple versions to join the other road sizes together.)
+
+Important Information: A and B Road sloped curved sections CANNOT be placed one after another, you have to use a straight slope section to stop the road going off-camber. C Road and Country Lane Sloped curves CAN be placed after each other.
+]]>
+        </en>
+        <de>
+            <![CDATA[Dieses vorgefertigte Paket enthält eine große Sammlung von 504 einzelnen Straßenmodellen sowie zusätzliche Aufkleber und Armco-Barrieren, um vollständige Straßennetze auf Ihren eigenen Karten zu konstruieren. Jedes Straßenmodell hat einen "JoinNode", um eine schnelle und einfache Platzierung zu ermöglichen.
+
+- Ein Straßensystem: (6,6 m Fahrbreite, anpassbare Straßenmarkierungen.)
+
+Geraden: 5, 10, 20 und 50 m.
+Gerade Pisten: 30 und 50 m. (5 und 10 Grad Steigung und Gefälle.)
+Kurven: 30 und 50m. (5, 10, 15, 20, 30, 45 und 90 Grad Drehung, mit 5 und 10 Grad Neigung und Neigung.)
+Gefällekurven: 30 und 50 m. (5, 10, 15, 20, 30, 45 und 90 Grad Drehung, mit 5 und 10 Grad Neigung und Neigung.)
+Kreuzungen: Kreuzungen, T-Kreuzungen und Y-Kreuzungen. (Mehrere Versionen, um die anderen Straßengrößen miteinander zu verbinden.)
+
+- B-Straßensystem: (6,0 m Fahrbreite, anpassbare Straßenmarkierungen.)
+
+Geraden: 5, 10, 20 und 50 m.
+Gerade Pisten: 30 und 50 m. (5 und 10 Grad Steigung und Gefälle.)
+Kurven: 30 und 50m. (5, 10, 15, 20, 30, 45 und 90 Grad Drehung, mit 5 und 10 Grad Neigung und Neigung.)
+Gefällekurven: 30 und 50 m. (5, 10, 15, 20, 30, 45 und 90 Grad Drehung, mit 5 und 10 Grad Neigung und Neigung.)
+Kreuzungen: Kreuzungen, T-Kreuzungen und Y-Kreuzungen. (Mehrere Versionen, um die anderen Straßengrößen miteinander zu verbinden.)
+
+- C-Straßensystem: (5,0 m Fahrbreite.)
+
+Geraden: 5, 10 und 20.
+Gerade Pisten: 30m. (5 und 10 Grad Steigung und Gefälle.)
+Kurven: 30m. (5, 10, 15, 20, 30, 45 und 90 Grad Drehung, mit 5 und 10 Grad Neigung und Neigung.)
+Gefällekurven: 30m. (5, 10, 15, 20, 30, 45 und 90 Grad Drehung, mit 5 und 10 Grad Neigung und Neigung.)
+Kreuzungen: Kreuzungen, T-Kreuzungen und Y-Kreuzungen. (Mehrere Versionen, um die anderen Straßengrößen miteinander zu verbinden.)
+
+- Fahrspursystem: (3,5 m Fahrbreite.)
+
+Geraden: 5, 10 und 20.
+Gerade Pisten: 30m. (5 und 10 Grad Steigung und Gefälle.)
+Kurven: 30m. (5, 10, 15, 20, 30, 45 und 90 Grad Drehung, mit 5 und 10 Grad Neigung und Neigung.)
+Gefällekurven: 30m. (5, 10, 15, 20, 30, 45 und 90 Grad Drehung, mit 5 und 10 Grad Neigung und Neigung.)
+Kreuzungen: Kreuzungen, T-Kreuzungen und Y-Kreuzungen. (Mehrere Versionen, um die anderen Straßengrößen miteinander zu verbinden.)
+
+Wichtige Informationen: A- und B-Straße mit geneigten Kurvenabschnitten können NICHT nacheinander platziert werden, Sie müssen einen geraden Neigungsabschnitt verwenden, um zu verhindern, dass die Straße von der Überhöhung abweicht. C Straßen- und Feldweg-Neigungskurven KÖNNEN hintereinander platziert werden.
+]]>
+        </de>
+        <fr>
+            <![CDATA[Ce pack préfabriqué contient une grande collection de 504 modèles de route individuels, ainsi que des décalcomanies supplémentaires et des barrières armco pour construire des réseaux routiers complets sur vos propres cartes. Chaque modèle de route a un "joinNode" pour permettre un placement rapide et facile.
+
+- Un Road System : (largeur de conduite de 6,6 m, marquage au sol personnalisable.)
+
+Lignes droites : 5, 10, 20 et 50 m.
+Pistes droites : 30 et 50m. (Inclinaison et déclin de 5 et 10 degrés.)
+Courbes : 30 et 50m. (Rotation de 5, 10, 15, 20, 30, 45 et 90 degrés, avec inclinaison et déclin de 5 et 10 degrés.)
+Courbes en pente : 30 et 50m. (Rotation de 5, 10, 15, 20, 30, 45 et 90 degrés, avec inclinaison et déclin de 5 et 10 degrés.)
+Jonctions : carrefours, carrefours en T et carrefours en Y. (Plusieurs versions pour joindre les autres tailles de route ensemble.)
+
+- Système routier B : (largeur de conduite de 6,0 m, marquage au sol personnalisable.)
+
+Lignes droites : 5, 10, 20 et 50 m.
+Pistes droites : 30 et 50m. (Inclinaison et déclin de 5 et 10 degrés.)
+Courbes : 30 et 50m. (Rotation de 5, 10, 15, 20, 30, 45 et 90 degrés, avec inclinaison et déclin de 5 et 10 degrés.)
+Courbes en pente : 30 et 50m. (Rotation de 5, 10, 15, 20, 30, 45 et 90 degrés, avec inclinaison et déclin de 5 et 10 degrés.)
+Jonctions : carrefours, carrefours en T et carrefours en Y. (Plusieurs versions pour joindre les autres tailles de route ensemble.)
+
+- Système routier C : (largeur de conduite de 5,0 m.)
+
+Lignes droites : 5, 10 et 20.
+Pistes droites : 30m. (Inclinaison et déclin de 5 et 10 degrés.)
+Courbes : 30m. (Rotation de 5, 10, 15, 20, 30, 45 et 90 degrés, avec inclinaison et déclin de 5 et 10 degrés.)
+Courbes en pente : 30m. (Rotation de 5, 10, 15, 20, 30, 45 et 90 degrés, avec inclinaison et déclin de 5 et 10 degrés.)
+Jonctions : carrefours, carrefours en T et carrefours en Y. (Plusieurs versions pour joindre les autres tailles de route ensemble.)
+
+- Système de voies : (largeur de conduite de 3,5 m.)
+
+Lignes droites : 5, 10 et 20.
+Pistes droites : 30m. (Inclinaison et déclin de 5 et 10 degrés.)
+Courbes : 30m. (Rotation de 5, 10, 15, 20, 30, 45 et 90 degrés, avec inclinaison et déclin de 5 et 10 degrés.)
+Courbes en pente : 30m. (Rotation de 5, 10, 15, 20, 30, 45 et 90 degrés, avec inclinaison et déclin de 5 et 10 degrés.)
+Jonctions : carrefours, carrefours en T et carrefours en Y. (Plusieurs versions pour joindre les autres tailles de route ensemble.)
+
+Information importante : Les sections courbes inclinées de la route A et B NE PEUVENT PAS être placées l'une après l'autre, vous devez utiliser une section de pente droite pour empêcher la route de se déverser. C Road et Country Lane Les courbes en pente PEUVENT être placées l'une après l'autre.
+]]>
+        </fr>		
+		
+    </description>
+	
+	<categories>
+        <category>others</category>
+    </categories>
+	
+	<prefabs>
+		<prefab name="ArmcoBarriers" i3dFilename="armcoBarriers.i3d" />
+		<prefab name="RoadDecals" i3dFilename="roadDecals.i3d" />
+		<prefab name="Roadkit" i3dFilename="roadkit.i3d" />
+    </prefabs>
+</prefabDesc>

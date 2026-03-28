@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<foliageType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../shared/xml/schema/foliageType.xsd">
+    <!-- bush 01
+
+    0 1 2 3
+
+    1 0 0 0 - Small
+    0 1 0 0 - Medium
+    1 1 0 0 - Big
+    0 0 1 0 - Super Big
+    1 0 1 0 - Blueberry Short
+    0 1 1 0 - Blueberry Small
+    1 1 1 0 - Blueberry Medium
+    0 0 0 1 - Blueberry Big
+    1 0 0 1 - Blueberry Tall
+    0 1 0 1 - Boxwood Small
+    1 1 0 1 - Boxwood Medium
+    0 0 1 1 - Boxwood Big
+    1 0 1 1 - Hazelnut Small
+    0 1 1 1 - Hazelnut Medium
+    1 1 1 1 - Hazelnut Big
+
+    -->
+    <foliageLayer densityMapChannelOffset="0" numDensityMapChannels="4" numBlocksPerUnit="0.5" shapeSource="decoBush.i3d">
+        <foliageStateDefaults distanceMapLayer="0" width="1.0" height="1.0" widthVariance="0.25" heightVariance="0.25" horizontalPositionVariance="0.75" />
+        <!-- default LOD distances etc -->
+        <foliageLodDefaults lod="0" viewDistance="45"  blendOutDistance="2" atlasSize="1" atlasOffset="1 0" texCoords="0 0 1 1"/>
+        <foliageLodDefaults lod="1" viewDistance="120" blendOutDistance="2" atlasSize="1" atlasOffset="1 0" texCoords="0 0 1 1"/>
+
+        <!-- 1 0 0 0 - Small -->
+        <foliageState name="Small" numBlocksPerUnit="0.75" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|0" />
+                <foliageLod blockShape="0>1|0" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 0 1 0 0 - Medium -->
+        <foliageState name="Medium" numBlocksPerUnit="0.55" >
+            <foliageShape>
+                <foliageLod blockShape="0>0|1" />
+                <foliageLod blockShape="0>1|1" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 1 1 0 0 - Big -->
+        <foliageState name="Big" numBlocksPerUnit="0.45" >
+            <foliageShape>
+                <foliageLod blockShape="0>0|2" />
+                <foliageLod blockShape="0>1|2" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 0 0 1 0 - Super Big -->
+        <foliageState name="Super Big" numBlocksPerUnit="0.35" >
+            <foliageShape>
+                <foliageLod blockShape="0>0|3" />
+                <foliageLod blockShape="0>1|3" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 1 0 1 0 - Blueberry Short -->
+        <foliageState name="Blueberry Short" numBlocksPerUnit="1.25" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|4" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|4" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 0 1 1 0 - Blueberry Small -->
+        <foliageState name="Blueberry Small" numBlocksPerUnit="1.3" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|5" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|5" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 1 1 1 0 - Blueberry Medium -->
+        <foliageState name="Blueberry Medium" numBlocksPerUnit="1.3" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|6" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|6" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 0 0 0 1 - Blueberry Big -->
+        <foliageState name="Blueberry Big" numBlocksPerUnit="0.60" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|7" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|7" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 1 0 0 1 - Blueberry Tall -->
+        <foliageState name="Blueberry Tall" numBlocksPerUnit="0.60" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|8" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|8" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 0 1 0 1 - Boxwood Small -->
+        <foliageState name="Boxwood Small" numBlocksPerUnit="1.3" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|9" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|9" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 1 1 0 1 - Boxwood Medium -->
+        <foliageState name="Boxwood Medium" numBlocksPerUnit="1.0" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|10" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|10" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 0 0 1 1 - Boxwood Big -->
+        <foliageState name="Boxwood Big" numBlocksPerUnit="0.8" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|11" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|11" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 1 0 1 1 - Hazelnut Small -->
+        <foliageState name="Hazelnut Small" numBlocksPerUnit="1.0" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|12" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|12" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 0 1 1 1 - Hazelnut Medium -->
+        <foliageState name="Hazelnut Medium" numBlocksPerUnit="0.8" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|13" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|13" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!-- 1 1 1 1 - Hazelnut Big -->
+        <foliageState name="Hazelnut Big" numBlocksPerUnit="0.7" >
+            <foliageShape>
+                <!-- - custom LOD distances -->
+                <foliageLod blockShape="0>0|14" atlasOffset="0 0" />
+                <foliageLod blockShape="0>1|14" atlasOffset="0 0" />
+            </foliageShape>
+        </foliageState>
+
+        <!--  -->
+    </foliageLayer>
+</foliageType>

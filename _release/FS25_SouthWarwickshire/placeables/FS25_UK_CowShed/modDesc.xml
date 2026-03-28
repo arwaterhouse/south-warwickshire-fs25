@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modDesc descVersion="95">
+    <author>mu.jdc</author>
+    <version>1.0.0.0</version>
+
+    <title>
+        <en>UK Cow Shed</en>
+    </title>
+
+    <description>
+        <en>​A UK style dairy cow shed with milk, slurry and manure triggers.
+
+Original model from Oak Bridge Farm which I have made into a stand alone placeable, there's a few changes from the original model including, removing the attached slurry pit and replacing it with a smaller slurry outlet and bringing the milk tank and trigger inside the shed, so now all 4 outer walls are unobstructed for better placement. I have also removed the clutter from inside the shed.
+
+Price: £40,000
+
+Daily Upkeep: £20
+
+Animal Capacity: 100 Cows
+
+Feed: 40,000L
+
+Milk: 30,000L
+
+Slurry: 500,000L
+
+Manure: 50,000L
+
+Straw: 40,000L
+
+
+
+:- Manure can be collected from inside the shed, either manually or using the trigger
+
+:- Bales are accepted for feed
+
+:- Straw must be blown in
+
+:- Switchable lights</en>
+    </description>
+
+    <!-- Main Menu Mod Icon -->
+    <iconFilename>icon_cowShed.dds</iconFilename>
+
+    <storeItems>
+        <storeItem xmlFilename="cowShed.xml" />
+    </storeItems>
+</modDesc>

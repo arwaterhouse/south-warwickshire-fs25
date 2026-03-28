@@ -44,7 +44,10 @@ local PRESETS = {
         desc = "Dried grasses, thistle, tall weeds - British verge",
         plants = {
             { plane="decoFoliage",  state=9,  nc=5, w=5 },  -- grassSmall (dried British grass)
+            { plane="decoFoliage",  state=10, nc=5, w=5 },  -- grassMedium
+            { plane="decoFoliage",  state=1,  nc=5, w=4 },  -- smallDenseMix (base cover)
             { plane="decoFoliage",  state=6,  nc=5, w=3 },  -- cirsium (thistle)
+            { plane="decoFoliage",  state=15, nc=5, w=3 },  -- mixed
             { plane="decoFoliage",  state=4,  nc=5, w=2 },  -- whiteTallWeed
             { plane="decoFoliage",  state=5,  nc=5, w=2 },  -- greenTallWeed
         }
@@ -66,6 +69,7 @@ local PRESETS = {
         name = "FOREST EDGE",
         desc = "Mixed margin - hazel, bracken, nettle, grass",
         plants = {
+            { plane="forestPlants", state=8,  nc=4, w=4 },  -- swordFern (bracken)
             { plane="forestPlants", state=10, nc=4, w=3 },  -- grass
             { plane="forestPlants", state=11, nc=4, w=2 },  -- stingingNettle
             { plane="forestPlants", state=3,  nc=4, w=2 },  -- clovers
@@ -80,6 +84,7 @@ local PRESETS = {
         plants = {
             { plane="decoFoliage",  state=1,  nc=5, w=5 },  -- smallDenseMix
             { plane="decoFoliage",  state=9,  nc=5, w=3 },  -- grassSmall
+            { plane="decoFoliage",  state=7,  nc=5, w=2 },  -- poppy
             { plane="decoFoliage",  state=15, nc=5, w=2 },  -- mixed
         }
     },
@@ -88,6 +93,7 @@ local PRESETS = {
         desc = "Leaf litter, bracken, nettle, branches",
         plants = {
             { plane="forestPlants", state=2,  nc=4, w=6 },  -- dryBranches (leaf litter)
+            { plane="forestPlants", state=8,  nc=4, w=4 },  -- swordFern (bracken)
             { plane="forestPlants", state=1,  nc=4, w=2 },  -- bigBranchesPure (fallen)
             { plane="forestPlants", state=11, nc=4, w=2 },  -- stingingNettle
             { plane="decoBush",     state=13, nc=4, w=1 },  -- HazelnutSmall (occasional)

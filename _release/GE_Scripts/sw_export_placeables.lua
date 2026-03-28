@@ -1,32 +1,7 @@
--- Author: South Warwickshire FS25 Pipeline
--- Name: SW Export Placeables to XML
--- Description: Scans all objects under placeablePlaceholders and writes their
---              current positions/rotations to placeables.xml.
---
---              Works with EXISTING imports (no reimport needed) AND any
---              copies/duplicates you have made freely in GE.
---
---              How it identifies each object:
---                1. Checks the 'placeableFile' attribute (set by updated importer)
---                2. Falls back to matching the GE node name against a built-in
---                   lookup table of every mod in modPlaceholders
---
--- Workflow:
---   1. Import placeables via PlaceableImporter (or leave existing ones in scene)
---   2. Copy, move and arrange buildings freely in GE
---   3. Click "Export to XML" — placeables.xml is rewritten with everything
---
--- Hide: no
--- AlwaysLoaded: no
-
 source("editorUtils.lua")
-
 local PLACEHOLDERS_NODE = "placeablePlaceholders"
 local ATTR_FILE         = "placeableFile"
 local ATTR_UID          = "uniqueId"
-
--- ── I3D root-node name → placeables.xml filename ──────────────────────────────
--- Generated from modPlaceholders — update if you add new mods.
 local I3D_TO_FILE = {
     ["7Bar"]                = "placeables/FS25_RDM_BritishFieldGates/7Bar.xml",
     ["FS25_GrainMachineShed"] = "placeables/FS25_UK_Grain_MachineryShed/ukGrainMachineryShed.xml",
@@ -58,30 +33,20 @@ local I3D_TO_FILE = {
     ["sheepGoatBarn"]       = "placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.xml",
     ["storageShed1"]        = "placeables/FS22_British_Storage_Shed/storageShed1.xml",
 }
-
--- ── Helpers ───────────────────────────────────────────────────────────────────
-
 local function getMapPath()
     local fullPath = getSceneFilename()
     if not fullPath then return nil end
     return fullPath:match("(.*[/\\])")
 end
-
--- A node is a real imported placeable if PlaceableImporter stamped a uniqueId
--- attribute on it (the attribute exists, even when its value is empty).
 local function isPlaceableNode(node)
-    -- getUserAttribute returns nil if attribute doesn't exist at all
     local uid = getUserAttribute(node, ATTR_UID)
     return uid ~= nil
 end
-
 local function getFilenameForNode(node)
-    -- Priority 1: explicit stamp from updated PlaceableImporter
     local attr = getUserAttribute(node, ATTR_FILE)
     if attr and attr ~= "" then
         return attr, "attr"
     end
-    -- Priority 2: look up GE node name in the built-in table
     local nodeName = getName(node)
     local found = I3D_TO_FILE[nodeName]
     if found then
@@ -89,24 +54,16 @@ local function getFilenameForNode(node)
     end
     return nil, "unknown"
 end
-
--- Recursively collect all placeable nodes under a given root
 local function collectPlaceableNodes(node, results)
     if isPlaceableNode(node) then
         table.insert(results, node)
-        -- Don't recurse into imported I3D children — the root IS the placeable
         return
     end
     for i = 0, getNumOfChildren(node) - 1 do
         collectPlaceableNodes(getChildAt(node, i), results)
     end
 end
-
--- ── Core ─────────────────────────────────────────────────────────────────────
-
 local function runExport()
-
-    -- 1. Find placeablePlaceholders node
     local root   = getRootNode()
     local phNode = nil
     for i = 0, getNumOfChildren(root) - 1 do
@@ -116,72 +73,54 @@ local function runExport()
             break
         end
     end
-
     if not phNode then
         printError("[SW Export] 'placeablePlaceholders' node not found in scene.")
         print("[SW Export] Import your placeables first using PlaceableImporter.")
         return
     end
-
-    -- 2. Collect all placeable nodes
     local nodes = {}
     collectPlaceableNodes(phNode, nodes)
-
     if #nodes == 0 then
         printError("[SW Export] No placeable objects found under placeablePlaceholders.")
         return
     end
-
     print(string.format("\n[SW Export] ──────────────────────────────────────────"))
     print(string.format("[SW Export] Found %d objects — resolving filenames...", #nodes))
-
-    -- 3. Build XML entries
     local lines   = {}
     local skipped = {}
     local modCounts = {}
     local id = 1
-
     table.insert(lines, '<?xml version="1.0" encoding="utf-8" standalone="no" ?>')
     table.insert(lines, '<placeables version="2"')
     table.insert(lines, '    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
     table.insert(lines, '    xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/savegame_placeables.xsd">')
-
     for _, node in ipairs(nodes) do
         local filename, src = getFilenameForNode(node)
-
         if not filename then
             table.insert(skipped, getName(node))
         else
             local px, py, pz = getWorldTranslation(node)
             local rx, ry, rz = getWorldRotation(node)
             rx, ry, rz = math.deg(rx), math.deg(ry), math.deg(rz)
-
             table.insert(lines, string.format(
                 '    <placeable filename="%s" position="%.3f %.3f %.3f" rotation="%.2f %.2f %.2f" id="%d"/>',
                 filename, px, py, pz, rx, ry, rz, id
             ))
-
             local modName = filename:match("placeables/([^/]+)/") or "unknown"
             modCounts[modName] = (modCounts[modName] or 0) + 1
-
             local tag = src == "attr" and "[A]" or "[L]"
             print(string.format("  %s [%d] %-35s  X=%7.1f  Z=%7.1f  rotY=%6.1f°",
                 tag, id, filename:match("[^/]+$") or filename, px, pz, ry))
-
             id = id + 1
         end
     end
-
     table.insert(lines, '</placeables>')
-
-    -- 4. Write file
     local mapPath = getMapPath()
     if not mapPath then
         printError("[SW Export] Could not determine map path.")
         return
     end
     local xmlPath = mapPath .. "config/placeables.xml"
-
     local f = io.open(xmlPath, "w")
     if not f then
         printError("[SW Export] Could not write to: " .. xmlPath)
@@ -189,8 +128,6 @@ local function runExport()
     end
     for _, line in ipairs(lines) do f:write(line .. "\n") end
     f:close()
-
-    -- 5. Summary
     print(string.format("[SW Export] ──────────────────────────────────────────"))
     print(string.format("[SW Export] Written %d entries to placeables.xml", id - 1))
     print("[SW Export] Breakdown by mod:")
@@ -212,14 +149,10 @@ local function runExport()
     print("[SW Export] [A]=attribute  [L]=name lookup")
     print("[SW Export] ──────────────────────────────────────────\n")
 end
-
--- ── UI ────────────────────────────────────────────────────────────────────────
-
 local frame  = UIRowLayoutSizer.new()
 local window = UIWindow.new(frame, "SW Export Placeables to XML")
 local border = UIRowLayoutSizer.new()
 UIPanel.new(frame, border, -1, -1, 380, -1, BorderDirection.ALL, 10, 1)
-
 UILabel.new(border,
     "HOW TO USE\n" ..
     "─────────────────────────────────────────────\n" ..
@@ -230,14 +163,11 @@ UILabel.new(border,
     "Works with existing imports — no reimport needed.\n" ..
     "[A] = identified via attribute  [L] = name lookup",
     TextAlignment.LEFT)
-
 UIHorizontalLine.new(border, -1, -1, -1, -1, BorderDirection.BOTTOM, 8)
-
 local btnRow = UIRowLayoutSizer.new()
 UIPanel.new(border, btnRow, -1, -1, -1, -1, BorderDirection.BOTTOM, 4)
 local exportBtn = UIButton.new(btnRow, "► Export All Placeables to XML", runExport)
 exportBtn:setBackgroundColor(0.6, 1.0, 0.55, 1.0)
-
 window:showWindow()
 print("\n[SW Export Placeables] Ready — click Export to write placeables.xml.")
 print("  Works with existing imports and any copies made in GE.")
