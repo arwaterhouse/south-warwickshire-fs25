@@ -23,11 +23,14 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - name: Checkout with LFS
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          lfs: true
+          lfs: false
           fetch-depth: 1
+
+      - name: Pull LFS for source files only
+        run: git lfs pull --include="map/,scripts/"
 
       - name: Set up Python
         uses: actions/setup-python@v5
