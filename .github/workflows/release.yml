@@ -21,11 +21,8 @@ jobs:
       contents: write
 
     steps:
-      - name: Install git-lfs
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y git-lfs
-          git lfs install
+      - name: Configure git-lfs
+        run: git lfs install
 
       - name: Checkout with LFS
         uses: actions/checkout@v5
