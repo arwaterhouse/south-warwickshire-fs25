@@ -29,10 +29,11 @@ jobs:
           lfs: false
           fetch-depth: 1
 
-      - name: Pull LFS for source files only
+      - name: Fetch LFS objects
         run: |
           git lfs install
-          git lfs pull --include="map/,scripts/"
+          git lfs fetch origin
+          git lfs checkout
 
       - name: Set up Python
         uses: actions/setup-python@v5
