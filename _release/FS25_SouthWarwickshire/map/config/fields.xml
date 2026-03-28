@@ -6,8 +6,8 @@
     <!-- CROME hex shapes NOT used — only statistical distribution -->
     <fields>
         <field fieldId="1" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="343" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="343" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="2" weedState="0">
@@ -27,7 +27,7 @@
         </field>
         <field fieldId="5" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="CULTIVATED" angle="327" />
+            <ground type="HARVEST_READY" angle="327" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="6" weedState="0">
@@ -76,8 +76,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="15" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="54" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="54" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="16" weedState="1">
@@ -111,8 +111,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="22" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="136" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="136" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="23" weedState="0">
@@ -146,8 +146,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="29" weedState="0">
-            <fruit type="OILSEEDRAPE" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="330" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="330" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="30" weedState="1">
@@ -161,7 +161,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="32" weedState="2">
-            <ground type="PLOWED" angle="96" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="96" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="33" weedState="0">
@@ -191,7 +192,7 @@
         </field>
         <field fieldId="38" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="85" />
+            <ground type="HARVEST_READY" angle="85" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="39" weedState="0">
@@ -205,7 +206,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="41" weedState="2">
-            <ground type="PLOWED" angle="335" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="335" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="42" weedState="0">
@@ -244,8 +246,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="49" weedState="0">
-            <fruit type="OILSEEDRAPE" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="58" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="58" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="50" weedState="2">
@@ -279,8 +281,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="56" weedState="0">
-            <fruit type="OAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="115" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="115" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="57" weedState="0">
@@ -289,8 +291,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="58" weedState="0">
-            <fruit type="OILSEEDRAPE" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="188" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="188" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="59" weedState="0">
@@ -319,7 +321,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="64" weedState="0">
-            <ground type="CULTIVATED" angle="193" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="193" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="65" weedState="0">
@@ -333,13 +336,13 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="67" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="194" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="194" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="68" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="281" />
+            <ground type="HARVEST_READY" angle="281" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="69" weedState="0">
@@ -384,7 +387,7 @@
         </field>
         <field fieldId="77" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="206" />
+            <ground type="HARVEST_READY" angle="206" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="78" weedState="0">
@@ -408,7 +411,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="82" weedState="0">
-            <ground type="PLOWED" angle="18" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="18" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="83" weedState="1">
@@ -488,12 +492,12 @@
         </field>
         <field fieldId="98" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="83" />
+            <ground type="HARVEST_READY" angle="83" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="99" weedState="1">
-            <fruit type="OILSEEDRAPE" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="357" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="357" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="100" weedState="0">
@@ -522,7 +526,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="105" weedState="0">
-            <ground type="CULTIVATED" angle="22" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="22" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="106" weedState="0">
@@ -547,7 +552,7 @@
         </field>
         <field fieldId="110" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="CULTIVATED" angle="4" />
+            <ground type="HARVEST_READY" angle="4" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="111" weedState="0">
@@ -566,12 +571,13 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="114" weedState="0">
-            <fruit type="OILSEEDRAPE" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="64" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="64" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="115" weedState="0">
-            <ground type="CULTIVATED" angle="7" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="7" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="116" weedState="0">
@@ -615,7 +621,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="124" weedState="0">
-            <ground type="PLOWED" angle="196" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="196" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="125" weedState="0">
@@ -624,8 +631,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="126" weedState="2">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="65" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="65" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="127" weedState="0">
@@ -669,7 +676,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="135" weedState="1">
-            <ground type="CULTIVATED" angle="169" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="169" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="136" weedState="0">
@@ -679,7 +687,7 @@
         </field>
         <field fieldId="137" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="CULTIVATED" angle="37" />
+            <ground type="HARVEST_READY" angle="37" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="138" weedState="0">
@@ -688,7 +696,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="139" weedState="0">
-            <ground type="PLOWED" angle="176" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="176" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="140" weedState="0">
@@ -722,7 +731,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="146" weedState="0">
-            <ground type="CULTIVATED" angle="225" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="225" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="147" weedState="2">
@@ -732,12 +742,12 @@
         </field>
         <field fieldId="148" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="CULTIVATED" angle="260" />
+            <ground type="HARVEST_READY" angle="260" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="149" weedState="1">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="CULTIVATED" angle="271" />
+            <ground type="HARVEST_READY" angle="271" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="150" weedState="2">
@@ -746,8 +756,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="151" weedState="1">
-            <fruit type="OILSEEDRAPE" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="154" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="154" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="152" weedState="0">
@@ -756,13 +766,13 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="153" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="37" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="37" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="154" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="CULTIVATED" angle="82" />
+            <ground type="HARVEST_READY" angle="82" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="155" weedState="0">
@@ -772,17 +782,17 @@
         </field>
         <field fieldId="156" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="78" />
+            <ground type="HARVEST_READY" angle="78" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="157" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="157" />
+            <ground type="HARVEST_READY" angle="157" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="158" weedState="0">
-            <fruit type="OAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="301" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="301" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="159" weedState="0">
@@ -797,7 +807,7 @@
         </field>
         <field fieldId="161" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="30" />
+            <ground type="HARVEST_READY" angle="30" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="162" weedState="1">
@@ -812,7 +822,7 @@
         </field>
         <field fieldId="164" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="284" />
+            <ground type="HARVEST_READY" angle="284" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="165" weedState="0">
@@ -832,7 +842,7 @@
         </field>
         <field fieldId="168" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="51" />
+            <ground type="HARVEST_READY" angle="51" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="169" weedState="0">
@@ -881,12 +891,13 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="178" weedState="0">
-            <ground type="PLOWED" angle="195" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="195" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="179" weedState="0">
-            <fruit type="OILSEEDRAPE" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="192" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="192" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="180" weedState="0">
@@ -921,12 +932,12 @@
         </field>
         <field fieldId="186" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="CULTIVATED" angle="26" />
+            <ground type="HARVEST_READY" angle="26" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="187" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="356" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="356" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="188" weedState="0">
@@ -960,8 +971,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="194" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="210" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="210" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="195" weedState="2">
@@ -1081,7 +1092,7 @@
         </field>
         <field fieldId="218" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="329" />
+            <ground type="HARVEST_READY" angle="329" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="219" weedState="1">
@@ -1096,7 +1107,7 @@
         </field>
         <field fieldId="221" weedState="0">
             <fruit type="WHEAT" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="292" />
+            <ground type="HARVEST_READY" angle="292" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="222" weedState="0">
@@ -1110,8 +1121,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="224" weedState="0">
-            <fruit type="OILSEEDRAPE" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="58" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="58" />
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="225" weedState="0">
@@ -1135,8 +1146,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="229" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="344" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="344" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="230" weedState="0">
@@ -1145,8 +1156,8 @@
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="231" weedState="0">
-            <fruit type="BARLEY" growthState="HARVESTED"/>
-            <ground type="PLOWED" angle="235" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="235" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="232" weedState="0">
@@ -1180,7 +1191,8 @@
             <spray type="FERTILIZER" level="1" />
         </field>
         <field fieldId="238" weedState="2">
-            <ground type="CULTIVATED" angle="333" />
+            <fruit type="WHEAT" growthState="HARVESTED"/>
+            <ground type="HARVEST_READY" angle="333" />
             <spray type="NONE" level="0" />
         </field>
         <field fieldId="239" weedState="0">
