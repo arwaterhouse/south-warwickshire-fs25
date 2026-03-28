@@ -21,12 +21,21 @@ jobs:
       contents: write
 
     steps:
+      - name: Install git-lfs
+        run: |
+          apt-get update
+          apt-get install -y git-lfs
+          git lfs install
+
       - name: Checkout with LFS
         uses: actions/checkout@v5
         with:
           lfs: true
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull LFS objects
+        run: git lfs pull --include="*.i3d,*.dds,*.gdm,*.png,*.zip,*.i3d.shapes"
 
       - name: Set up Python
         uses: actions/setup-python@v5
