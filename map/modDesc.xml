@@ -82,5 +82,7 @@ Features:
         <storeItem xmlFilename="placeables/FS25_GristMillWithMixer/srutownik.xml"/>
         <storeItem xmlFilename="placeables/FS25_GristMillWithMixer/Paleta.xml"/>
         <storeItem xmlFilename="placeables/FS25_GristMillWithMixer/srutownikpig.xml"/>
+        <!-- FS25_stockfence -->
+        <storeItem xmlFilename="assets/fences/FS25_stockfence/fieldFence.xml"/>
     </storeItems>
 </modDesc>
