@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="92" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>Barley Baron</author>
     <version>1.0.0.0</version>
@@ -114,5 +114,8 @@ Features:
         <!-- FS25_stockfence / steel fences -->
         <text name="fieldFence"><en>Field Fence</en></text>
         <text name="steelFence"><en>Steel Fence</en></text>
+
+        <!-- Red Horse Grain Merchants sell point -->
+        <text name="redHorseGrainMerchants"><en>Red Horse Grain Merchants</en></text>
     </l10n>
 </modDesc>
