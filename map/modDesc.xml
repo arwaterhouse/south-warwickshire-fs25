@@ -85,4 +85,34 @@ Features:
         <!-- FS25_stockfence -->
         <storeItem xmlFilename="assets/fences/FS25_stockfence/fieldFence.xml"/>
     </storeItems>
+
+    <l10n>
+        <!-- FS25_RDM_BritishGrainSheds -->
+        <text name="RDM_Shed1"><en>Single Door 1000T British Grain Barn</en></text>
+        <text name="RDM_Shed2"><en>Double Door 2000T British Grain Barn</en></text>
+        <text name="RDM_Shed3"><en>Double Door 2500T British Grain Barn with Vehicle Storage</en></text>
+        <text name="RDM_Shed4"><en>Sliding Door 2500T British Grain Barn</en></text>
+
+        <!-- FS25_RDM_BritishFieldGates -->
+        <text name="shopItem_7bar"><en>British 7 Bar Field Gates</en></text>
+
+        <!-- FS25_britishshedpack -->
+        <text name="shopItem_hayshed"><en>Hay Shed</en></text>
+        <text name="shopItem_HayShed"><en>Hay Shed</en></text>
+        <text name="shopItem_biggreenshed"><en>Big Green Shed</en></text>
+        <text name="shopItem_hedge"><en>Hedge</en></text>
+        <text name="shopItem_greenopenbarn"><en>Green Open Barn</en></text>
+
+        <!-- FS25_GristMillWithMixer -->
+        <text name="gristMill"><en>Grist Mill</en></text>
+
+        <!-- FS25_UkStyleGrainShed -->
+        <text name="action_lightOn"><en>Switch light on</en></text>
+        <text name="action_lightOut"><en>Switch light off</en></text>
+        <text name="partition_wall"><en>Partition Wall</en></text>
+
+        <!-- FS25_stockfence / steel fences -->
+        <text name="fieldFence"><en>Field Fence</en></text>
+        <text name="steelFence"><en>Steel Fence</en></text>
+    </l10n>
 </modDesc>
