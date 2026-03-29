@@ -7,7 +7,7 @@
 		<functions>
             <function>$l10n_function_garageBulk</function>
         </functions>
-        <image>store_ukGrainMachineryShed.dds</image>
+        <image>placeables/FS25_UK_Grain_MachineryShed/store_ukGrainMachineryShed.dds</image>
         <price>56000</price>
         <dailyUpkeep>25</dailyUpkeep>
         <lifetime>1000</lifetime>

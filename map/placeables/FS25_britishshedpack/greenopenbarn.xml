@@ -5,7 +5,7 @@
         <functions>
             <function>$l10n_function_garage</function>
         </functions>
-        <image>greenopenbarn.png</image>
+        <image>placeables/FS25_britishshedpack/greenopenbarn.png</image>
         <price>15000</price>
         <dailyUpkeep>0</dailyUpkeep>
         <canBeSold>true</canBeSold>

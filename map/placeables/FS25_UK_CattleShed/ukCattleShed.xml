@@ -4,7 +4,7 @@
         <name>            
            <en>UK Cattle Shed With Storage</en> 
         </name>
-		<image>store_CattleShed.dds</image>
+		<image>placeables/FS25_UK_CattleShed/store_CattleShed.dds</image>
         <price>70000</price>
         <functions>
             <function>$l10n_function_animalPenCow</function>

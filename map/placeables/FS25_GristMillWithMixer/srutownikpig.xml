@@ -8,7 +8,7 @@
         <functions>
             <function>$l10n_function_productionPoint</function>
         </functions>
-        <image>store_srutownik.png</image>
+        <image>placeables/FS25_GristMillWithMixer/store_srutownik.png</image>
         <price>14000</price>
         <lifetime>500</lifetime>
         <dailyUpkeep>25</dailyUpkeep>
