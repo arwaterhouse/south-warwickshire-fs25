@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!--
+    Paintable store item for Stinging Nettle foliage.
+
+    Brush parameters:
+      layer name : swBritishFlora   (must match layerName in map.xml)
+      value      : 2                (state 2 in sw_british_flora.xml)
+
+    Store icon:
+      Replace store_stingingNettle.dds with a 128x128 DDS (DXT5) image of the
+      plant once you have one.  Until then the grass placeholder is used.
+
+    i3d reference (base / storeIconRendering):
+      Points to sw_british_flora.i3d in the same folder.
+      The node path "1|0|0" selects:
+        top-level child 1 (stingingNettle group)
+        → child 0 (variant group)
+        → child 0 (LOD0 mesh)
+-->
+<placeable type="foliage"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+    <storeData>
+        <name>Stinging Nettle</name>
+        <functions>
+            <function>$l10n_function_foliage</function>
+        </functions>
+        <!-- TODO: replace with your own store_stingingNettle.dds once created -->
+        <image>$data/foliage/decoFoliage/store_decoGrassMediumUS.dds</image>
+
+        <price>25</price>
+        <dailyUpkeep>0</dailyUpkeep>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>NONE</brand>
+        <species>PLACEABLE</species>
+        <category>placeableMisc</category>
+        <canBeSold>true</canBeSold>
+        <showInStore>true</showInStore>
+
+        <vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+        <textureMemoryUsage>0</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+
+        <brush>
+            <type>foliage</type>
+            <category>landscaping</category>
+            <tab>plants</tab>
+            <parameters>
+                <parameter>swBritishFlora</parameter> <!-- foliage layer name -->
+                <parameter>2</parameter>              <!-- state 2 = stingingNettle -->
+            </parameters>
+        </brush>
+
+        <storeIconRendering>
+            <settings centerIcon="true"/>
+            <objectBundle>
+                <!-- relative path from this file's location -->
+                <object filename="sw_british_flora.i3d">
+                    <node node="1|0|0" translation="0 0 0" rotation="0 0 0" scale="1 1 1"/>
+                </object>
+            </objectBundle>
+        </storeIconRendering>
+    </storeData>
+
+    <!-- Used only for store icon generation. Not used in-game for placement. -->
+    <base>
+        <filename>sw_british_flora.i3d</filename>
+    </base>
+
+</placeable>
