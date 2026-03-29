@@ -31,10 +31,6 @@
     </description>
     <iconFilename>icon_grain_shed.dds</iconFilename>
     <multiplayer supported="true" />
-	    
-    <storeItems>
-	    <storeItem xmlFilename="grain_shed.xml"/>
-	</storeItems>
 	
     <l10n>
 

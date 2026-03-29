@@ -31,10 +31,6 @@ Torbreite: 0,9m, 1,2m, 1,5m, 2,4m, 3m, 3,3m, 3,6m, 4,2m und ein doppeltes 3,6m
 
     <iconFilename>icon_BritishFieldGates.dds</iconFilename>
 	<multiplayer supported="true"/>
-
-    <storeItems>
-		<storeItem xmlFilename="7Bar.xml"/>
-	</storeItems>
 	
 	<l10n>
         <text name="shopItem_7bar">

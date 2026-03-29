@@ -63,20 +63,5 @@ Täglicher Unterhalt €25
 <l10n filenamePrefix="languages/l10n"/>
     <iconFilename>icon_BritishGrainSheds.dds</iconFilename>
     <multiplayer supported="true"/>
-	
-	<storeItems>
-        <storeItem xmlFilename="shed01.xml"/>
-        <storeItem xmlFilename="shed01_B.xml"/>
-        <storeItem xmlFilename="shed01UB.xml"/>
-        <storeItem xmlFilename="shed01UB_B.xml"/>
-        <storeItem xmlFilename="shed02.xml"/>
-        <storeItem xmlFilename="shed02_B.xml"/>
-        <storeItem xmlFilename="shed02UB.xml"/>
-        <storeItem xmlFilename="shed02UB_B.xml"/>
-        <storeItem xmlFilename="shed03.xml"/>
-        <storeItem xmlFilename="shed03RUB.xml"/>
-        <storeItem xmlFilename="shed04.xml"/>
-	
-	</storeItems>
 
 </modDesc>

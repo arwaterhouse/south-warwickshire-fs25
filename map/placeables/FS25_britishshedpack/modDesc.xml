@@ -13,13 +13,6 @@
     <iconFilename>icon.dds</iconFilename>
     <multiplayer supported="true" />
 
-    <storeItems>
-        <storeItem xmlFilename="hayshed.xml"/>
-        <storeItem xmlFilename="greenopenbarn.xml"/>
-        <storeItem xmlFilename="britishhedge.xml"/>
-        <storeItem xmlFilename="biggreenshed.xml"/>
-    </storeItems>
-
     <l10n>
         <text name="shopItem_hayshed">
             <en>hayshed</en>

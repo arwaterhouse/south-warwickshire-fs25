@@ -31,10 +31,6 @@ Animales: 35 Vaches
     <iconFilename>icon_CattleShed.dds</iconFilename>
 
     <multiplayer supported="true" />
-
-    <storeItems>
-        <storeItem xmlFilename="ukCattleShed.xml"/>
-    </storeItems>
 	
     <placeableTypes>
         <type name="cowHusbandryManure" parent="baseHusbandry" filename="$dataS/scripts/vehicles/Vehicle.lua">

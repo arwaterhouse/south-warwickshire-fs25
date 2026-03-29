@@ -25,10 +25,5 @@ entretien quotidien €20
 
     <iconFilename>store/icon.dds</iconFilename>
     <multiplayer supported="true"/>
-	
-	<storeItems>
-        <storeItem xmlFilename="britishbaleshed.xml"/> 
-	
-	</storeItems>
 
 </modDesc>

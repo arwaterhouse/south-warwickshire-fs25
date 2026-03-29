@@ -31,10 +31,6 @@ Animales: 80 Vaches
     <iconFilename>icon_ukLargeBeefShed.dds</iconFilename>
 
     <multiplayer supported="true" />
-
-    <storeItems>
-        <storeItem xmlFilename="ukLargeBeefShed.xml"/>
-    </storeItems>
 	
     <placeableTypes>
         <type name="cowHusbandryManure" parent="baseHusbandry" filename="$dataS/scripts/vehicles/Vehicle.lua">

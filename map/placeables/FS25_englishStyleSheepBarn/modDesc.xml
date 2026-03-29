@@ -39,8 +39,4 @@ Platz für 35 Tiere am Anfang, aber mit dem erweiterbaren Zaun Option wächst di
 	
     <iconFilename>icon_sheepBarn.dds</iconFilename> 
     <multiplayer supported="true" />
-
-    <storeItems>
-        <storeItem xmlFilename="sheepGoatBarn.xml" />
-    </storeItems>
 </modDesc>

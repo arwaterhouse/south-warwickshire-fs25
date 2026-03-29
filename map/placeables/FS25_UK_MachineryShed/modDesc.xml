@@ -23,9 +23,6 @@ Upkeep: £5
     <iconFilename>icon.dds</iconFilename>
 
     <!-- Register store item so it appears in the Construction menu -->
-    <storeItems>
-        <storeItem xmlFilename="xml/machineShed02.xml" />
-    </storeItems>
 
     <!-- Register the placeable -->
     <placeables>

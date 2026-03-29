@@ -27,10 +27,6 @@ Entretien quotidien: 25€
 
     <iconFilename>icon_FS25_UK_shed.dds</iconFilename>
 	<multiplayer supported="true" />
-    
-	<storeItems>
-        <storeItem xmlFilename="ukShed.xml"/>
-    </storeItems>
 	
 	<placeableTypes>
 		<type name="Workshop" parent="simplePlaceable" className="Placeable" filename="$dataS/scripts/placeables/Placeable.lua" >	
