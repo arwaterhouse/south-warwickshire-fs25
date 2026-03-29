@@ -44,6 +44,9 @@
     <storeItem xmlFilename="$data/vehicles/train/wagonWoodChipsEU/wagonWoodChipsEU.xml" />
 
 <!-- PLANTS -->
+    <!-- South Warwickshire custom British flora -->
+    <storeItem xmlFilename="foliage/sw_british_flora/paintable_cowParsley.xml" />
+    <storeItem xmlFilename="foliage/sw_british_flora/paintable_stingingNettle.xml" />
     <storeItem xmlFilename="$data/foliage/decoFoliage/paintable_decoGrassShortUS.xml" />
     <storeItem xmlFilename="$data/foliage/decoFoliage/paintable_decoGrassMediumUS.xml" />
     <storeItem xmlFilename="$data/foliage/meadow/meadowUS/paintable_meadow.xml" />

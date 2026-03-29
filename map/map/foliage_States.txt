@@ -82,6 +82,8 @@ PEA_HAULM
 SPINACH
 	Foliage State ;  0 , Remove , 1. invisible , 2. greenSmall , 3. greenMiddleSecond , 4. greenBig , 5. greenBigSecond , 6. harvestReady , 7. harvestReadySecond , 8. dead , 9. harvested , 10. harvestedSecond ,  
 WEED
-	Foliage State ;  0 , Remove , 1. invisible , 2. invisible dense , 3. small alive , 4. small dense alive , 5. big alive , 6. small dense weeded alive , 7. small dead , 8. small dense dead , 9. big dead ,  
+	Foliage State ;  0 , Remove , 1. invisible , 2. invisible dense , 3. small alive , 4. small dense alive , 5. big alive , 6. small dense weeded alive , 7. small dead , 8. small dense dead , 9. big dead ,
+SWBRITISHFLORA
+	Foliage State ;  0 , Remove , 1. cowParsley , 2. stingingNettle ,
 STONE
 	Foliage State ;  0 , Remove , 1. invisible , 2. small , 3. medium , 4. big ,  

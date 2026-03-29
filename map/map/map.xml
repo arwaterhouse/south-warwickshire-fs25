@@ -65,12 +65,15 @@
     <decoFoliage layerName="waterPlants" startChannel="0" numChannels="4" mowable="true" />
     <decoFoliage layerName="decoBushUS" startChannel="0" numChannels="4" />
     <decoFoliage layerName="decoBush" startChannel="0" numChannels="4" />
+    <!-- South Warwickshire custom British flora: cow parsley, stinging nettles -->
+    <decoFoliage layerName="swBritishFlora" startChannel="0" numChannels="4" />
     <mapping name="grassShort" layerName="decoFoliage" state="9" />
   </decoFoliages>
   <paintableFoliages>
     <paintableFoliage layerName="meadow" startChannel="0" numStateChannels="4" />
     <paintableFoliage layerName="decoBushUS" startChannel="0" numStateChannels="4" />
     <paintableFoliage layerName="decoFoliage" startChannel="0" numStateChannels="4" />
+    <paintableFoliage layerName="swBritishFlora" startChannel="0" numStateChannels="4" />
   </paintableFoliages>
   <groundTypeMappings>
     <groundTypeMapping type="dirt" title="$l10n_groundType_dirt" layer="MUDLIGHT" />
