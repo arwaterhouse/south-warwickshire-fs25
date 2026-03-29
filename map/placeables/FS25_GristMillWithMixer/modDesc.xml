@@ -60,11 +60,5 @@ Fassungsvermögen: 1050 Liter
         <text name="gristMill"><en>Grist Mill</en><de>Schrotmühle</de></text>
 
     </l10n>
-	
-	<storeItems>
-        <storeItem xmlFilename="srutownik.xml"/>
-	<storeItem xmlFilename="Paleta.xml" />
-        <storeItem xmlFilename="srutownikpig.xml"/>
-    </storeItems>
 
 </modDesc>

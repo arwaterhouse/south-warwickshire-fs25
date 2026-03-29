@@ -41,8 +41,4 @@ Straw: 40,000L
 
     <!-- Main Menu Mod Icon -->
     <iconFilename>icon_cowShed.dds</iconFilename>
-
-    <storeItems>
-        <storeItem xmlFilename="cowShed.xml" />
-    </storeItems>
 </modDesc>

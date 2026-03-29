@@ -48,9 +48,4 @@ Entretien quotidien: 5€
 <iconFilename>icon_FS25_UK_BaleShed.dds</iconFilename>
 <multiplayer supported="true"/>
 
-<storeItems>
-	<storeItem xmlFilename="UKBaleShedAL.xml"/>
-	<storeItem xmlFilename="UKBaleShed.xml"/>
-</storeItems>
-
 </modDesc>

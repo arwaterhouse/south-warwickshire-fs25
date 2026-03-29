@@ -24,10 +24,6 @@ Hangar À Grains De Taille Moyenne Avec Une Cloison De Séparation Centrale :
     </description>
     <iconFilename>icon_grainShed.dds</iconFilename>
     <multiplayer supported="true" />
-	    
-    <storeItems>
-        <storeItem xmlFilename="grainShed.xml"/>		
-	</storeItems>
 	
 	<l10n>
          <text name="action_lightOn">

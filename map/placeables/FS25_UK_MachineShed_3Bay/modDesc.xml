@@ -29,9 +29,5 @@ Entretien quotidien: 5€
 
 <iconFilename>icon_FS25_MachineShed_3Bay.dds</iconFilename>
 <multiplayer supported="true"/>
-
-<storeItems>
-<storeItem xmlFilename="UK_MachineShed_3Bay.xml"/>
-</storeItems>
 	
 </modDesc>

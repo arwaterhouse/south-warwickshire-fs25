@@ -20,8 +20,4 @@ Unterhalt: 25 €
 </description>
     <iconFilename>icon_storageShed1.dds</iconFilename>
     <multiplayer supported="true" />
-
-    <storeItems>
-        <storeItem xmlFilename="storageShed1.xml" />
-    </storeItems>
 </modDesc>
