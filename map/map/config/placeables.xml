@@ -3,9 +3,9 @@
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml" position="-1351.6 0 1735.79" rotation="0 0 0" id="1"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed01UB_B.xml" position="-1431.11 0 1050.61" rotation="0 0 0" id="2"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed01UB.xml" position="-444.64 0 -1689.88" rotation="0 0 0" id="3"/>
-    <placeable filename="placeables/FS25_UK_BaleShed/FS25_UK_BaleShed.xml" position="-479.84 0 -1706.75" rotation="0 0 0" id="4"/>
+    <placeable filename="placeables/FS25_UK_BaleShed/UKBaleShed.xml" position="-479.84 0 -1706.75" rotation="0 0 0" id="4"/>
     <placeable filename="placeables/FS25_UkStyleGrainShed/grainShed.xml" position="-456.23 0 -1705.25" rotation="0 0 0" id="5"/>
-    <placeable filename="placeables/FS25_UK_CattleShed/FS25_UK_CattleShed.xml" position="1529.0 0 70.27" rotation="0 0 0" id="6"/>
+    <placeable filename="placeables/FS25_UK_CattleShed/ukCattleShed.xml" position="1529.0 0 70.27" rotation="0 0 0" id="6"/>
     <placeable filename="placeables/FS25_RDM_BritishFieldGates/7Bar.xml" position="1857.85 0 -753.66" rotation="0 0 0" id="7"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed01.xml" position="1881.0 0 -759.88" rotation="0 0 0" id="8"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed01UB.xml" position="1777.46 0 -822.35" rotation="0 0 0" id="9"/>
@@ -16,8 +16,8 @@
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml" position="1597.19 0 -495.4" rotation="0 0 0" id="14"/>
     <placeable filename="placeables/FS25_OldEnglishShed/grain_shed.xml" position="-1077.46 0 -1005.75" rotation="0 0 0" id="15"/>
     <placeable filename="placeables/FS25_OldEnglishShed/grain_shed.xml" position="-1204.95 0 -1027.89" rotation="0 0 0" id="16"/>
-    <placeable filename="placeables/FS25_UK_LargeBeefShed/FS25_UK_LargeBeefShed.xml" position="-1224.43 0 -1036.19" rotation="0 0 0" id="17"/>
-    <placeable filename="placeables/FS25_UK_CattleShed/FS25_UK_CattleShed.xml" position="-1256.73 0 -1069.68" rotation="0 0 0" id="18"/>
+    <placeable filename="placeables/FS25_UK_LargeBeefShed/ukLargeBeefShed.xml" position="-1224.43 0 -1036.19" rotation="0 0 0" id="17"/>
+    <placeable filename="placeables/FS25_UK_CattleShed/ukCattleShed.xml" position="-1256.73 0 -1069.68" rotation="0 0 0" id="18"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed02.xml" position="-1201.98 0 -1095.48" rotation="0 0 0" id="19"/>
     <placeable filename="placeables/FS25_OldEnglishShed/grain_shed.xml" position="-1215.09 0 -1071.11" rotation="0 0 0" id="20"/>
     <placeable filename="placeables/FS25_OldEnglishShed/grain_shed.xml" position="-1182.0 0 -1039.62" rotation="0 0 0" id="21"/>
@@ -25,7 +25,7 @@
     <placeable filename="placeables/FS25_OldEnglishShed/grain_shed.xml" position="656.83 0 -1103.91" rotation="0 0 0" id="23"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml" position="690.98 0 -1132.56" rotation="0 0 0" id="24"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed01.xml" position="646.94 0 -1163.33" rotation="0 0 0" id="25"/>
-    <placeable filename="placeables/FS25_UK_LargeBeefShed/FS25_UK_LargeBeefShed.xml" position="682.29 0 -1164.35" rotation="0 0 0" id="26"/>
+    <placeable filename="placeables/FS25_UK_LargeBeefShed/ukLargeBeefShed.xml" position="682.29 0 -1164.35" rotation="0 0 0" id="26"/>
     <placeable filename="placeables/FS25_OldEnglishShed/grain_shed.xml" position="1261.96 0 -1040.67" rotation="0 0 0" id="27"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed01_B.xml" position="1220.07 0 -1031.66" rotation="0 0 0" id="28"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed01_B.xml" position="1240.4 0 -1024.51" rotation="0 0 0" id="29"/>
@@ -42,12 +42,12 @@
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed01.xml" position="-408.12 0 1035.9" rotation="0 0 0" id="40"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml" position="204.89 0 520.9" rotation="0 0 0" id="41"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml" position="184.46 0 549.51" rotation="0 0 0" id="42"/>
-    <placeable filename="placeables/FS25_UK_LargeBeefShed/FS25_UK_LargeBeefShed.xml" position="126.26 0 595.36" rotation="0 0 0" id="43"/>
-    <placeable filename="placeables/FS25_UK_MachineryShed/placeables/machineShed02/machineShed02.xml" position="-1617.24 0 610.76" rotation="0 0 0" id="44"/>
+    <placeable filename="placeables/FS25_UK_LargeBeefShed/ukLargeBeefShed.xml" position="126.26 0 595.36" rotation="0 0 0" id="43"/>
+    <placeable filename="placeables/FS25_UK_MachineryShed/xml/machineShed02.xml" position="-1617.24 0 610.76" rotation="0 0 0" id="44"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml" position="-1621.07 0 635.61" rotation="0 0 0" id="45"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml" position="-1642.18 0 662.36" rotation="0 0 0" id="46"/>
     <placeable filename="placeables/FS25_UkStyleGrainShed/grainShed.xml" position="-1267.87 0 -1958.01" rotation="0 0 0" id="47"/>
-    <placeable filename="placeables/FS25_UK_BaleShed/FS25_UK_BaleShed.xml" position="-1282.01 0 -1914.95" rotation="0 0 0" id="48"/>
+    <placeable filename="placeables/FS25_UK_BaleShed/UKBaleShed.xml" position="-1282.01 0 -1914.95" rotation="0 0 0" id="48"/>
     <placeable filename="placeables/FS22_British_Storage_Shed/storageShed1.xml" position="0 0 0" rotation="0 0 0" id="49"/>
     <placeable filename="placeables/FS22_britishbaleshed/britishbaleshed.xml" position="0 0 0" rotation="0 0 0" id="50"/>
     <placeable filename="placeables/FS25_RDM_BritishGrainSheds/shed02UB_B.xml" position="0 0 0" rotation="0 0 0" id="51"/>

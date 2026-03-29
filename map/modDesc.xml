@@ -33,7 +33,54 @@ Features:
             <iconFilename>preview.png</iconFilename>
         </map>
     </maps>
-    <!--storeItems>
-        <storeItem xmlFilename="dc401.xml"/>
-    </storeItems-->
+    <storeItems>
+        <!-- FS25_RDM_BritishGrainSheds -->
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed01.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed01_B.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed01UB.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed01UB_B.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed02.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed02_B.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed02UB.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed02UB_B.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed03.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed03RUB.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishGrainSheds/shed04.xml"/>
+        <!-- FS25_UK_BaleShed -->
+        <storeItem xmlFilename="placeables/FS25_UK_BaleShed/UKBaleShed.xml"/>
+        <storeItem xmlFilename="placeables/FS25_UK_BaleShed/UKBaleShedAL.xml"/>
+        <!-- FS25_UkStyleGrainShed -->
+        <storeItem xmlFilename="placeables/FS25_UkStyleGrainShed/grainShed.xml"/>
+        <!-- FS25_UK_CattleShed -->
+        <storeItem xmlFilename="placeables/FS25_UK_CattleShed/ukCattleShed.xml"/>
+        <!-- FS25_UK_LargeBeefShed -->
+        <storeItem xmlFilename="placeables/FS25_UK_LargeBeefShed/ukLargeBeefShed.xml"/>
+        <!-- FS25_RDM_BritishFieldGates -->
+        <storeItem xmlFilename="placeables/FS25_RDM_BritishFieldGates/7Bar.xml"/>
+        <!-- FS25_UK_Shed -->
+        <storeItem xmlFilename="placeables/FS25_UK_Shed/ukShed.xml"/>
+        <!-- FS25_UK_MachineShed_3Bay -->
+        <storeItem xmlFilename="placeables/FS25_UK_MachineShed_3Bay/UK_MachineShed_3Bay.xml"/>
+        <!-- FS25_OldEnglishShed -->
+        <storeItem xmlFilename="placeables/FS25_OldEnglishShed/grain_shed.xml"/>
+        <!-- FS25_UK_MachineryShed -->
+        <storeItem xmlFilename="placeables/FS25_UK_MachineryShed/xml/machineShed02.xml"/>
+        <!-- FS25_UK_Grain_MachineryShed -->
+        <storeItem xmlFilename="placeables/FS25_UK_Grain_MachineryShed/ukGrainMachineryShed.xml"/>
+        <!-- FS25_britishshedpack -->
+        <storeItem xmlFilename="placeables/FS25_britishshedpack/hayshed.xml"/>
+        <storeItem xmlFilename="placeables/FS25_britishshedpack/greenopenbarn.xml"/>
+        <storeItem xmlFilename="placeables/FS25_britishshedpack/britishhedge.xml"/>
+        <storeItem xmlFilename="placeables/FS25_britishshedpack/biggreenshed.xml"/>
+        <!-- FS25_englishStyleSheepBarn -->
+        <storeItem xmlFilename="placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.xml"/>
+        <!-- FS25_UK_CowShed -->
+        <storeItem xmlFilename="placeables/FS25_UK_CowShed/cowShed.xml"/>
+        <!-- FS25_DairyWithGarage -->
+        <storeItem xmlFilename="placeables/FS25_DairyWithGarage/cowbarn.xml"/>
+        <!-- FS25_GristMillWithMixer -->
+        <storeItem xmlFilename="placeables/FS25_GristMillWithMixer/srutownik.xml"/>
+        <storeItem xmlFilename="placeables/FS25_GristMillWithMixer/Paleta.xml"/>
+        <storeItem xmlFilename="placeables/FS25_GristMillWithMixer/srutownikpig.xml"/>
+    </storeItems>
 </modDesc>
