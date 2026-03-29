@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+
+<modDesc descVersion="104">
+
+    <author>wiltshire_agri</author>	
+
+    <version>1.0.0.0</version>
+
+    <title>
+        <en>UK Stock Fence</en>
+        <de>Britischer Viehzaun</de>
+        <fr>Clôture De Stock Au Royaume-Uni</fr>
+    </title>
+	
+    <description>
+	    <en>
+<![CDATA[
+This mod contains a uk style stock fence.
+
+stock fence Object:
+- Price: 150$
+]]>
+		</en>
+        <de>
+<![CDATA[
+Dieser Mod enthält einen Lagerzaun im britischen Stil.
+
+Lagerzaun Objekt:
+- Preis: 150€
+]]>
+		</de>
+        <de>
+<![CDATA[
+Ce mod contient une clôture de style britannique.
+
+Objet de clôture en stock:
+- Preis: 150€
+]]>
+		</de>
+    </description>
+	
+    <iconFilename>icon_fieldFence.dds</iconFilename>
+    <multiplayer supported="true"/>
+	
+    <storeItems>
+        <storeItem xmlFilename="fieldFence.xml"/>
+    </storeItems>
+
+</modDesc>
