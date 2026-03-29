@@ -8,7 +8,7 @@
 		<functions>
             <function>$l10n_function_garage</function>
         </functions>
-        <image>store_storageShed1.png</image>
+        <image>placeables/FS22_British_Storage_Shed/store_storageShed1.png</image>
         <price>25000</price>
 		<dailyUpkeep>25</dailyUpkeep>
         <lifetime>1000</lifetime>
