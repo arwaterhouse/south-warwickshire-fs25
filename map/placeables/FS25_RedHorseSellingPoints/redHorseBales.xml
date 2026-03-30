@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<placeable type="sellingStation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/placeable.xsd">
+    <storeData>
+        <name>$l10n_redHorseBales</name>
+        <image>$data/placeables/mapUS/sellingPoints/grainElevatorTriggers/store_grainElevator.dds</image>
+        <price>0</price>
+        <dailyUpkeep>0</dailyUpkeep>
+        <canBeSold>false</canBeSold>
+        <showInStore>false</showInStore>
+        <category>sellingStations</category>
+        <species>placeable</species>
+    </storeData>
+    <base>
+        <filename>$data/placeables/mapUS/sellingPoints/grainElevatorTriggers/grainElevatorTriggers.i3d</filename>
+        <components>
+            <component1 node="0"/>
+        </components>
+    </base>
+    <sellingStation showInPricesMenu="true" showOnPDA="true">
+        <sellTrigger fillTypes="GRASS DRYGRASS STRAW SILAGE CHAFF" node="0>0"/>
+        <priceMultiplier value="1.0"/>
+    </sellingStation>
+</placeable>
