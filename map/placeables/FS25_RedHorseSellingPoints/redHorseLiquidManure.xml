@@ -17,7 +17,7 @@
         </components>
     </base>
     <loadingStation>
-        <storage capacity="100000000" fillType="LIQUIDMANURE" fillLevel="100000000"/>
-        <loadTrigger fillTypes="LIQUIDMANURE" pricePerLiter="1.0" node="0>0"/>
+        <storage capacity="9999999999" fillType="LIQUIDMANURE" fillLevel="9999999999"/>
+        <loadTrigger triggerNode="0>0" fillTypes="LIQUIDMANURE" pricePerLiter="1.0" fillLitersPerSecond="1000"/>
     </loadingStation>
 </placeable>
