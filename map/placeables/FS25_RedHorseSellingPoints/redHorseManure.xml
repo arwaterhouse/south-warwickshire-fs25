@@ -7,7 +7,7 @@
         <dailyUpkeep>0</dailyUpkeep>
         <canBeSold>false</canBeSold>
         <showInStore>false</showInStore>
-        <category>sellingStations</category>
+        <category>misc</category>
         <species>placeable</species>
     </storeData>
     <base>
