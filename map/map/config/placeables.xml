@@ -68,4 +68,9 @@
     <placeable filename="placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.xml" position="0 0 0" rotation="0 0 0" id="66"/>
     <!-- Red Horse Grain Merchants sell point - position needs setting in Giants Editor (between fields 184, 27, 236) -->
     <placeable filename="placeables/FS25_RedHorseGrainMerchants/redHorseGrainMerchants.xml" position="0 0 0" rotation="0 0 0" id="67"/>
+    <!-- Red Horse selling/buying stations - set positions in Giants Editor -->
+    <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml" position="0 0 0" rotation="0 0 0" id="68"/>
+    <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseBales.xml" position="0 0 0" rotation="0 0 0" id="69"/>
+    <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseManure.xml" position="0 0 0" rotation="0 0 0" id="70"/>
+    <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseLiquidManure.xml" position="0 0 0" rotation="0 0 0" id="71"/>
 </placeables>

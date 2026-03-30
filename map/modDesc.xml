@@ -84,6 +84,11 @@ Features:
         <storeItem xmlFilename="placeables/FS25_GristMillWithMixer/srutownikpig.xml"/>
         <!-- FS25_stockfence -->
         <storeItem xmlFilename="assets/fences/FS25_stockfence/fieldFence.xml"/>
+        <!-- FS25_RedHorseSellingPoints -->
+        <storeItem xmlFilename="placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RedHorseSellingPoints/redHorseBales.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RedHorseSellingPoints/redHorseManure.xml"/>
+        <storeItem xmlFilename="placeables/FS25_RedHorseSellingPoints/redHorseLiquidManure.xml"/>
     </storeItems>
 
     <l10n>
@@ -117,5 +122,11 @@ Features:
 
         <!-- Red Horse Grain Merchants sell point -->
         <text name="redHorseGrainMerchants"><en>Red Horse Grain Merchants</en></text>
+
+        <!-- Red Horse selling/buying stations -->
+        <text name="redHorseGrains"><en>Red Horse Grains</en></text>
+        <text name="redHorseBales"><en>Red Horse Bales</en></text>
+        <text name="redHorseManure"><en>Red Horse Manure</en></text>
+        <text name="redHorseLiquidManure"><en>Red Horse Liquid Manure</en></text>
     </l10n>
 </modDesc>
