@@ -67,8 +67,8 @@
     <placeable filename="placeables/FS25_britishshedpack/hayshed.xml" position="0 0 0" rotation="0 0 0" id="65"/>
     <placeable filename="placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.xml" position="0 0 0" rotation="0 0 0" id="66"/>
     <!-- Red Horse selling/buying stations - set positions in Giants Editor -->
-    <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml" position="0 0 0" rotation="0 0 0" id="68"/>
-    <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseBales.xml" position="0 0 0" rotation="0 0 0" id="69"/>
+    <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml" position="427.27398682 31 -1505.5300293" rotation="0 0 0" id="68"/>
+    <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseBales.xml" position="431.68591309 31 -1528.38696289" rotation="0 0 0" id="69"/>
     <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseManure.xml" position="1298.23168945 34.12016678 -1050.12683105" rotation="0 0 0" id="70"/>
     <placeable filename="placeables/FS25_RedHorseSellingPoints/redHorseLiquidManure.xml" position="1319.11706543 35.25759888 -1037.54992676" rotation="0 0 0" id="71"/>
 </placeables>
