@@ -120,9 +120,6 @@ Features:
         <text name="fieldFence"><en>Field Fence</en></text>
         <text name="steelFence"><en>Steel Fence</en></text>
 
-        <!-- Red Horse Grain Merchants sell point -->
-        <text name="redHorseGrainMerchants"><en>Red Horse Grain Merchants</en></text>
-
         <!-- Red Horse selling/buying stations -->
         <text name="redHorseGrains"><en>Red Horse Grains</en></text>
         <text name="redHorseBales"><en>Red Horse Bales</en></text>

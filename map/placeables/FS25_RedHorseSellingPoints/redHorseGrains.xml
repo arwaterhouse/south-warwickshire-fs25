@@ -16,8 +16,8 @@
             <component1 node="0"/>
         </components>
     </base>
-    <sellingStation>
-        <fillTypes>WHEAT BARLEY MAIZE CANOLA SUNFLOWER SOYBEAN OATS SORGHUM RYE TRITICALE SPELT</fillTypes>
-        <priceMultiplier>1.0</priceMultiplier>
+    <sellingStation showInPricesMenu="true" showOnPDA="true">
+        <sellTrigger fillTypes="WHEAT BARLEY MAIZE CANOLA SUNFLOWER SOYBEAN OATS SORGHUM RYE TRITICALE SPELT" node="0>0"/>
+        <priceMultiplier value="1.0"/>
     </sellingStation>
 </placeable>
