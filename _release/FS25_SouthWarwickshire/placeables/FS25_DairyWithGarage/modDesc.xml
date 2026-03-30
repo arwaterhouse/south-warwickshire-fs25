@@ -35,8 +35,5 @@ Kapazität: 70 Kühe
 	
 	<iconFilename>icon_cowbarn.dds</iconFilename>
 	<multiplayer supported="true" />
-	<storeItems>
-        <storeItem xmlFilename="cowbarn.xml"/>
-    </storeItems>
 
 </modDesc>
