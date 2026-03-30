@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<placeable type="sellingStation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/placeable.xsd">
+<placeable type="loadingStation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/placeable.xsd">
     <storeData>
         <name>$l10n_redHorseManure</name>
         <image>$data/placeables/mapUS/sellingPoints/grainElevatorTriggers/store_grainElevator.dds</image>
@@ -16,8 +16,8 @@
             <component1 node="0"/>
         </components>
     </base>
-    <sellingStation>
-        <fillTypes>MANURE</fillTypes>
-        <priceMultiplier>1.0</priceMultiplier>
-    </sellingStation>
+    <loadingStation>
+        <storage capacity="100000000" fillType="MANURE" fillLevel="100000000"/>
+        <loadTrigger fillTypes="MANURE" pricePerLiter="1.0" node="0>0"/>
+    </loadingStation>
 </placeable>
