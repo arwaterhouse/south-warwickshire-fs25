@@ -1,3 +1,100 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:73c79c2a46cac50b248842199b8393277973a34324e7d1ded5936b52792b536b
-size 6583
+<?xml version="1.0" encoding="utf-8"?>
+<i3D name="sw_water_splines" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Files />
+  <Shapes>
+    <NurbsCurve name="stream_0001" shapeId="1" degree="3" form="open">
+      <cv c="-2148.746, 0.000, -1913.858" />
+      <cv c="-2124.888, 0.000, -1897.171" />
+      <cv c="-2063.535, 0.000, -1890.358" />
+      <cv c="-1882.546, 0.000, -1884.904" />
+      <cv c="-1867.265, 0.000, -1883.178" />
+      <cv c="-1861.417, 0.000, -1882.521" />
+      <cv c="-1797.335, 0.000, -1806.879" />
+      <cv c="-1716.898, 0.000, -1767.695" />
+      <cv c="-1651.454, 0.000, -1753.724" />
+      <cv c="-1520.909, 0.000, -1731.917" />
+      <cv c="-1422.066, 0.000, -1700.914" />
+      <cv c="-1397.183, 0.000, -1683.537" />
+      <cv c="-1393.874, 0.000, -1673.614" />
+      <cv c="-1350.487, 0.000, -1543.496" />
+      <cv c="-1327.656, 0.000, -1478.753" />
+      <cv c="-1309.927, 0.000, -1433.089" />
+      <cv c="-1305.990, 0.000, -1430.278" />
+      <cv c="-1293.231, 0.000, -1421.167" />
+      <cv c="-1284.366, 0.000, -1408.220" />
+      <cv c="-1248.238, 0.000, -1400.038" />
+      <cv c="-1190.436, 0.000, -1339.963" />
+      <cv c="-1179.388, 0.000, -1328.482" />
+      <cv c="-1165.073, 0.000, -1309.056" />
+      <cv c="-1173.595, 0.000, -1287.939" />
+    </NurbsCurve>
+    <NurbsCurve name="stream_0002" shapeId="2" degree="3" form="open">
+      <cv c="3.618, 0.000, -821.475" />
+      <cv c="1.934, 0.000, -810.084" />
+      <cv c="-11.717, 0.000, -717.734" />
+      <cv c="-12.195, 0.000, -714.496" />
+    </NurbsCurve>
+    <NurbsCurve name="stream_0003" shapeId="3" degree="3" form="open">
+      <cv c="1375.617, 0.000, 75.219" />
+      <cv c="1366.328, 0.000, 70.655" />
+      <cv c="1359.653, 0.000, 69.976" />
+      <cv c="1355.433, 0.000, 66.091" />
+      <cv c="1345.214, 0.000, 57.397" />
+      <cv c="1339.721, 0.000, 57.051" />
+      <cv c="1335.836, 0.000, 59.679" />
+      <cv c="1332.628, 0.000, 63.898" />
+      <cv c="1328.066, 0.000, 63.308" />
+      <cv c="1318.607, 0.000, 58.410" />
+      <cv c="1309.906, 0.000, 57.898" />
+      <cv c="1304.838, 0.000, 56.551" />
+      <cv c="1300.023, 0.000, 50.639" />
+      <cv c="1293.942, 0.000, 42.357" />
+      <cv c="1287.273, 0.000, 40.843" />
+      <cv c="1285.413, 0.000, 43.960" />
+      <cv c="1275.700, 0.000, 45.741" />
+      <cv c="1264.805, 0.000, 41.010" />
+    </NurbsCurve>
+    <NurbsCurve name="stream_0004" shapeId="4" degree="3" form="open">
+      <cv c="1810.713, 0.000, -1865.022" />
+      <cv c="1701.727, 0.000, -1924.144" />
+      <cv c="1740.933, 0.000, -1987.440" />
+      <cv c="1749.114, 0.000, -1989.812" />
+      <cv c="1890.391, 0.000, -1931.157" />
+    </NurbsCurve>
+    <NurbsCurve name="stream_0005" shapeId="5" degree="3" form="open">
+      <cv c="1740.933, 0.000, -1987.440" />
+      <cv c="1612.132, 0.000, -2056.771" />
+      <cv c="1489.576, 0.000, -2122.650" />
+      <cv c="1411.389, 0.000, -2166.142" />
+      <cv c="1401.047, 0.000, -2174.970" />
+    </NurbsCurve>
+    <NurbsCurve name="stream_0006" shapeId="6" degree="3" form="open">
+      <cv c="1736.836, 0.000, -1858.910" />
+      <cv c="1708.841, 0.000, -1872.903" />
+      <cv c="1701.467, 0.000, -1871.434" />
+      <cv c="1690.236, 0.000, -1875.063" />
+      <cv c="1682.562, 0.000, -1883.456" />
+      <cv c="1685.360, 0.000, -1895.724" />
+      <cv c="1701.727, 0.000, -1924.144" />
+    </NurbsCurve>
+    <NurbsCurve name="stream_0007" shapeId="7" degree="3" form="open">
+      <cv c="1975.752, 0.000, -1522.924" />
+      <cv c="1956.368, 0.000, -1503.922" />
+      <cv c="1942.476, 0.000, -1484.185" />
+      <cv c="1930.048, 0.000, -1460.062" />
+      <cv c="1931.875, 0.000, -1447.260" />
+      <cv c="1928.715, 0.000, -1443.498" />
+    </NurbsCurve>
+  </Shapes>
+  <Scene>
+    <TransformGroup name="waterways" nodeId="1" visibility="true" translation="0 0 0" rotation="0 0 0" scale="1 1 1">
+      <Shape name="stream_0001" nodeId="2" shapeId="1" translation="0 0 0" />
+      <Shape name="stream_0002" nodeId="3" shapeId="2" translation="0 0 0" />
+      <Shape name="stream_0003" nodeId="4" shapeId="3" translation="0 0 0" />
+      <Shape name="stream_0004" nodeId="5" shapeId="4" translation="0 0 0" />
+      <Shape name="stream_0005" nodeId="6" shapeId="5" translation="0 0 0" />
+      <Shape name="stream_0006" nodeId="7" shapeId="6" translation="0 0 0" />
+      <Shape name="stream_0007" nodeId="8" shapeId="7" translation="0 0 0" />
+    </TransformGroup>
+  </Scene>
+</i3D>
