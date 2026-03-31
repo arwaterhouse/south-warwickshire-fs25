@@ -102,8 +102,12 @@ ROAD_HEDGE_DEFAULT_WIDTH_M = 8.0
 # Grass verge between tarmac edge and hedge centreline.
 ROAD_HEDGE_VERGE_M = 1.0
 
-# Road types to generate hedge splines for (both sides).
-ROAD_HEDGE_TYPES = {"road", "service"}
+# OSM highway types to generate road hedge splines for (both sides).
+# Filter by the 'highway' tag, not fs25_type, for finer control.
+# Available in this map: primary (26), unclassified (15), tertiary (3),
+#                        residential (44), service (87)
+# service/residential excluded by default — too many driveways/lanes.
+ROAD_HEDGE_HIGHWAY_TYPES = {"primary", "tertiary", "unclassified"}
 INPUT_FIELDS_OSM      = OUTPUTS_DIR / "fs25_fields_osm.geojson"   # new OSM-based fields with lucode
 INPUT_FIELDS_CROME    = OUTPUTS_DIR / "crome_south_warwickshire_fs25.geojson"  # fallback
 INPUT_WATER           = OUTPUTS_DIR / "fs25_water.geojson"
@@ -583,7 +587,7 @@ def build_road_hedge_i3d(road_features: list, output_path: Path):
     This guarantees hedges run perfectly parallel to roads at a consistent
     verge distance, regardless of how the original hedge survey data was drawn.
 
-    Only ROAD_HEDGE_TYPES road types are processed (road, service).
+    Only ROAD_HEDGE_HIGHWAY_TYPES OSM highway tags are processed.
     """
     if not SHAPELY_AVAILABLE:
         print("  WARNING: shapely not available — road hedge splines skipped")
@@ -596,11 +600,12 @@ def build_road_hedge_i3d(road_features: list, output_path: Path):
     # Project to metres for accurate offsetting
     roads_gdf = gpd.GeoDataFrame(
         [{"geometry": shape(f["geometry"]),
-          "fs25_type": f.get("properties", {}).get("fs25_type", "road"),
-          "width_m":   f.get("properties", {}).get("width_m", ROAD_HEDGE_DEFAULT_WIDTH_M),
-          "name":      f.get("properties", {}).get("name", "")}
+          "highway":  f.get("properties", {}).get("highway", ""),
+          "width_m":  f.get("properties", {}).get("width_m", ROAD_HEDGE_DEFAULT_WIDTH_M),
+          "name":     f.get("properties", {}).get("name", "")}
          for f in road_features
-         if f.get("geometry", {}).get("type") == "LineString"],
+         if f.get("geometry", {}).get("type") == "LineString"
+         and f.get("properties", {}).get("highway", "") in ROAD_HEDGE_HIGHWAY_TYPES],
         crs="EPSG:4326",
     ).to_crs("EPSG:27700")
 
@@ -609,8 +614,6 @@ def build_road_hedge_i3d(road_features: list, output_path: Path):
     li = ri = 0
 
     for _, row in roads_gdf.iterrows():
-        if row.fs25_type not in ROAD_HEDGE_TYPES:
-            continue
 
         offset_m = row.width_m / 2.0 + ROAD_HEDGE_VERGE_M
 
@@ -883,8 +886,9 @@ def main():
         road_feats = load_geojson(INPUT_ROADS)
         if road_feats:
             n_road = sum(1 for f in road_feats
-                         if f.get("properties", {}).get("fs25_type") in ROAD_HEDGE_TYPES)
-            print(f"  {n_road} road/service roads → parallel hedge offsets "
+                         if f.get("properties", {}).get("highway") in ROAD_HEDGE_HIGHWAY_TYPES)
+            print(f"  {n_road} roads ({', '.join(sorted(ROAD_HEDGE_HIGHWAY_TYPES))}) "
+                  f"→ parallel hedge offsets "
                   f"(width={ROAD_HEDGE_DEFAULT_WIDTH_M}m, verge={ROAD_HEDGE_VERGE_M}m)")
             build_road_hedge_i3d(road_feats, out_dir / "sw_road_hedge_splines.i3d")
 
