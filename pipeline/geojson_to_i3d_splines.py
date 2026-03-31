@@ -87,7 +87,7 @@ SCRIPT_DIR  = Path(__file__).resolve().parent
 ROOT_DIR    = SCRIPT_DIR.parent
 OUTPUTS_DIR = ROOT_DIR / "outputs"
 
-INPUT_HEDGES_EDITED   = OUTPUTS_DIR / "fs25_hedges_edited.geojson"  # user-edited authoritative hedge lines
+INPUT_HEDGES_EDITED   = ROOT_DIR / "data" / "fs25_hedges_edited.geojson"  # user-edited authoritative hedge lines
 INPUT_ROADS           = OUTPUTS_DIR / "fs25_roads.geojson"
 
 # ── Road / hedge placement constants ─────────────────────────────────────────
