@@ -66,6 +66,12 @@
     <storeItem xmlFilename="$data/foliage/decoBush/decoBushUS/paintable_witchHazel01.xml" />
     <storeItem xmlFilename="$data/foliage/decoBush/decoBushUS/paintable_witchHazel02.xml" />
 
+<!-- RED HORSE SELLING STATIONS (pre-placed, showInStore false) -->
+    <storeItem xmlFilename="placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml"/>
+    <storeItem xmlFilename="placeables/FS25_RedHorseSellingPoints/redHorseBales.xml"/>
+    <storeItem xmlFilename="placeables/FS25_RedHorseSellingPoints/redHorseManure.xml"/>
+    <storeItem xmlFilename="placeables/FS25_RedHorseSellingPoints/redHorseLiquidManure.xml"/>
+
 <!-- DECORATION -->
     <storeItem xmlFilename="$data/placeables/mapUS/stable02/stable02.xml" /> <!-- showInStore false -->
 </storeItems>
