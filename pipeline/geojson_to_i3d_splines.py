@@ -92,8 +92,8 @@ INPUT_ROADS           = OUTPUTS_DIR / "fs25_roads.geojson"
 
 # ── Road / hedge placement constants ─────────────────────────────────────────
 # Minimum clear gap between tarmac edge and hedge spline centreline.
-# UK country-lane verges are ~1-2 m wide; 2 m looks natural.
-VERGE_WIDTH_M = 10.0
+# UK country-lane verges are ~1-2 m wide; 1.5 m looks natural.
+VERGE_WIDTH_M = 1.5
 
 # Road exclusion clip buffer (applied AFTER offsetting parallel hedges).
 # Removes any residual hedge sections that still overlap a road after the
@@ -399,14 +399,13 @@ def offset_parallel_hedges(features: list, road_features: list) -> list:
         for x, y in orig_coords:
             pt = Point(x, y)
             nx, ny = x, y
+            best_push = 0.0  # track largest displacement so far
 
             for road_geom, target in road_targets:
                 dist = pt.distance(road_geom)
                 if dist >= target:
                     continue  # already far enough
                 if dist < 0.01:
-                    # Point is ON the road centreline — push perpendicular
-                    # by target distance; direction will be resolved below
                     dist = 0.01
 
                 # Nearest point on road centreline
@@ -416,14 +415,18 @@ def offset_parallel_hedges(features: list, road_features: list) -> list:
                 length = math.sqrt(dx * dx + dy * dy)
                 if length < 0.001:
                     continue
-                # Scale to exactly target distance
+                push = target - dist
+                if push <= best_push:
+                    continue  # a larger push from another road already applied
+                # Scale to exactly target distance from this road
                 scale = target / length
                 nx = nearest.x + dx * scale
                 ny = nearest.y + dy * scale
+                best_push = push
                 hedge_moved = True
-                moved_points += 1
-                break  # apply largest push only (handled by iterating road_targets)
 
+            if best_push > 0:
+                moved_points += 1
             new_coords.append((nx, ny))
 
         if hedge_moved:
