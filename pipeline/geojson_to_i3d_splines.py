@@ -581,11 +581,13 @@ def build_road_hedge_i3d(road_features: list, output_path: Path):
     Build sw_road_hedge_splines.i3d.
 
     Generates hedge splines as true parallel offsets of road centrelines.
-    Each road gets two splines — one on each side — offset by:
+    Each road gets two splines (one per side) offset by:
         road_width / 2  +  ROAD_HEDGE_VERGE_M
 
-    This guarantees hedges run perfectly parallel to roads at a consistent
-    verge distance, regardless of how the original hedge survey data was drawn.
+    Both sides go into a single 'road_hedges' group. Left/right separation
+    is not used because roads have inconsistent digitising direction, making
+    left/right labels meaningless. Instead, each road pair is named
+    road_001a / road_001b so you can identify and delete unwanted sides in GE.
 
     Only ROAD_HEDGE_HIGHWAY_TYPES OSM highway tags are processed.
     """
@@ -609,15 +611,15 @@ def build_road_hedge_i3d(road_features: list, output_path: Path):
         crs="EPSG:4326",
     ).to_crs("EPSG:27700")
 
-    left_splines  = []
-    right_splines = []
-    li = ri = 0
+    all_splines = []
+    road_i = 0
 
     for _, row in roads_gdf.iterrows():
-
+        road_i += 1
         offset_m = row.width_m / 2.0 + ROAD_HEDGE_VERGE_M
+        side_i = 0
 
-        for side, sign in (("left", 1), ("right", -1)):
+        for sign in (1, -1):
             try:
                 offset_geom = row.geometry.offset_curve(sign * offset_m)
             except Exception:
@@ -626,7 +628,6 @@ def build_road_hedge_i3d(road_features: list, output_path: Path):
             if offset_geom is None or offset_geom.is_empty:
                 continue
 
-            # offset_curve can return LineString or MultiLineString
             parts = (list(offset_geom.geoms)
                      if offset_geom.geom_type == "MultiLineString"
                      else [offset_geom])
@@ -635,7 +636,6 @@ def build_road_hedge_i3d(road_features: list, output_path: Path):
                 if part.length < MIN_SPLINE_LEN_M:
                     continue
 
-                # Re-project back to WGS84 then convert to FS25
                 part_wgs84 = (
                     gpd.GeoDataFrame([{"geometry": part}], crs="EPSG:27700")
                     .to_crs("EPSG:4326")
@@ -650,19 +650,15 @@ def build_road_hedge_i3d(road_features: list, output_path: Path):
                 if spline_length_fs25(cvs) < MIN_SPLINE_LEN_M:
                     continue
 
-                if side == "left":
-                    li += 1
-                    left_splines.append({"name": f"road_hedge_L_{li:04d}", "cvs": cvs})
-                else:
-                    ri += 1
-                    right_splines.append({"name": f"road_hedge_R_{ri:04d}", "cvs": cvs})
+                side_i += 1
+                label = chr(ord("a") + side_i - 1)  # a, b, c...
+                all_splines.append({"name": f"road_hedge_{road_i:03d}{label}", "cvs": cvs})
 
-    nl = builder.add_group("road_hedges_left",  left_splines,  form="open")
-    nr = builder.add_group("road_hedges_right", right_splines, form="open")
+    n = builder.add_group("road_hedges", all_splines, form="open")
     builder.write(output_path)
-    print(f"     road_hedges_left:  {nl:>4} splines")
-    print(f"     road_hedges_right: {nr:>4} splines")
+    print(f"     road_hedges: {n:>4} splines ({road_i} roads × 2 sides)")
     print(f"     offset = road_width/2 + {ROAD_HEDGE_VERGE_M}m verge")
+    print(f"     naming: road_001a/road_001b = two sides of same road")
 
 
 def build_road_i3d(features: list, output_path: Path):
@@ -936,10 +932,10 @@ def main():
     print()
     print("  ROAD HEDGES (sw_road_hedge_splines.i3d):")
     print("    1. Scene → Merge Scene → select sw_road_hedge_splines.i3d")
-    print("    2. Two groups: road_hedges_left / road_hedges_right")
-    print("    3. Run sw_batch_spline_placer.lua on each group")
-    print("    4. Select placed objects group → run AlignChildsToTerrain")
-    print("    NOTE: visually check and delete splines where no real hedge exists")
+    print("    2. One group: road_hedges (road_001a/road_001b = two sides of same road)")
+    print("    3. Delete any splines where no real hedge exists")
+    print("    4. Run sw_batch_spline_placer.lua on road_hedges group")
+    print("    5. Select placed objects group → run AlignChildsToTerrain")
     print()
     print("  ROADS (sw_road_splines.i3d):")
     print("    1. Scene → Merge Scene → select sw_road_splines.i3d")
