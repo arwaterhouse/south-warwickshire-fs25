@@ -26,23 +26,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          lfs: false
+          lfs: true
           fetch-depth: 1
-
-      - name: Cache LFS objects
-        uses: actions/cache@v4
-        id: lfs-cache
-        with:
-          path: .git/lfs
-          key: lfs-${{ hashFiles('.gitattributes') }}-${{ github.sha }}
-          restore-keys: |
-            lfs-${{ hashFiles('.gitattributes') }}-
-
-      - name: Fetch LFS objects
-        run: |
-          git lfs install
-          git lfs fetch origin --include="map/,scripts/"
-          git lfs checkout
 
       - name: Set up Python
         uses: actions/setup-python@v5
