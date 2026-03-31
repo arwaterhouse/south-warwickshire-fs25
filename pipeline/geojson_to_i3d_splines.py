@@ -90,21 +90,20 @@ OUTPUTS_DIR = ROOT_DIR / "outputs"
 INPUT_HEDGES_EDITED   = ROOT_DIR / "data" / "fs25_hedges_edited.geojson"  # user-edited authoritative hedge lines
 INPUT_ROADS           = OUTPUTS_DIR / "fs25_roads.geojson"
 
-# ── Road / hedge placement constants ─────────────────────────────────────────
-# Minimum clear gap between tarmac edge and hedge spline centreline.
-# UK country-lane verges are ~1-2 m wide; 1.5 m looks natural.
-VERGE_WIDTH_M = 1.5
-
-# Road exclusion clip buffer (applied AFTER offsetting parallel hedges).
-# Removes any residual hedge sections that still overlap a road after the
-# parallel-offset pass — keeps junction areas tidy.
+# ── Field hedge road-clipping constants ──────────────────────────────────────
+# Road exclusion clip buffer for field hedges.
+# Removes hedge sections that overlap a road surface (junction areas etc).
 ROAD_CLEARANCE_M = 1.0
 
-# Hedges within this angle of a road direction are treated as "parallel".
-PARALLEL_ANGLE_THRESH_DEG = 25
+# ── Road hedge generation constants ──────────────────────────────────────────
+# Standard road half-width used when per-road width_m is not available.
+ROAD_HEDGE_DEFAULT_WIDTH_M = 8.0
 
-# Only consider roads within this distance when checking for parallel hedges.
-PARALLEL_SEARCH_M = 15.0
+# Grass verge between tarmac edge and hedge centreline.
+ROAD_HEDGE_VERGE_M = 1.0
+
+# Road types to generate hedge splines for (both sides).
+ROAD_HEDGE_TYPES = {"road", "service"}
 INPUT_FIELDS_OSM      = OUTPUTS_DIR / "fs25_fields_osm.geojson"   # new OSM-based fields with lucode
 INPUT_FIELDS_CROME    = OUTPUTS_DIR / "crome_south_warwickshire_fs25.geojson"  # fallback
 INPUT_WATER           = OUTPUTS_DIR / "fs25_water.geojson"
@@ -543,19 +542,16 @@ def clip_hedges_away_from_roads(features: list, road_excl_zone) -> list:
 # ── Main processors ───────────────────────────────────────────────────────────
 
 def build_hedge_i3d(features: list, output_path: Path,
-                    road_excl_zone=None, road_features: list = None):
+                    road_excl_zone=None):
     """
-    Build sw_hedge_splines.i3d from fs25_hedges_edited.geojson.
-    Two-pass road handling:
-      1. Offset parallel hedges to natural verge position (VERGE_WIDTH_M from tarmac edge)
-      2. Clip any residual road-crossing sections at junctions
+    Build sw_hedge_splines.i3d from the user-edited field hedge data.
+    Field hedges are trusted as-is (hand-edited from aerial imagery).
+    Only clipping is applied to remove sections that cross road surfaces.
+    Road-parallel hedges are handled separately in sw_road_hedge_splines.i3d.
     """
     builder = I3DBuilder("sw_hedge_splines")
 
-    # Pass 1 — offset parallel hedges to sit at verge
-    features = offset_parallel_hedges(features, road_features or [])
-
-    # Pass 2 — clip anything still overlapping a road (junction sections)
+    # Clip anything that overlaps a road surface (junction crossings etc)
     before = sum(1 for f in features if f.get("geometry", {}).get("type") == "LineString")
     features = clip_hedges_away_from_roads(features, road_excl_zone)
     print(f"     road clipping: {before} → {len(features)} segments "
@@ -574,6 +570,96 @@ def build_hedge_i3d(features: list, output_path: Path,
     n = builder.add_group("hedges", hedge_splines, form="open")
     builder.write(output_path)
     print(f"     hedges: {n:>5} splines")
+
+
+def build_road_hedge_i3d(road_features: list, output_path: Path):
+    """
+    Build sw_road_hedge_splines.i3d.
+
+    Generates hedge splines as true parallel offsets of road centrelines.
+    Each road gets two splines — one on each side — offset by:
+        road_width / 2  +  ROAD_HEDGE_VERGE_M
+
+    This guarantees hedges run perfectly parallel to roads at a consistent
+    verge distance, regardless of how the original hedge survey data was drawn.
+
+    Only ROAD_HEDGE_TYPES road types are processed (road, service).
+    """
+    if not SHAPELY_AVAILABLE:
+        print("  WARNING: shapely not available — road hedge splines skipped")
+        return
+
+    from shapely.geometry import LineString as ShapelyLine, MultiLineString
+
+    builder = I3DBuilder("sw_road_hedge_splines")
+
+    # Project to metres for accurate offsetting
+    roads_gdf = gpd.GeoDataFrame(
+        [{"geometry": shape(f["geometry"]),
+          "fs25_type": f.get("properties", {}).get("fs25_type", "road"),
+          "width_m":   f.get("properties", {}).get("width_m", ROAD_HEDGE_DEFAULT_WIDTH_M),
+          "name":      f.get("properties", {}).get("name", "")}
+         for f in road_features
+         if f.get("geometry", {}).get("type") == "LineString"],
+        crs="EPSG:4326",
+    ).to_crs("EPSG:27700")
+
+    left_splines  = []
+    right_splines = []
+    li = ri = 0
+
+    for _, row in roads_gdf.iterrows():
+        if row.fs25_type not in ROAD_HEDGE_TYPES:
+            continue
+
+        offset_m = row.width_m / 2.0 + ROAD_HEDGE_VERGE_M
+
+        for side, sign in (("left", 1), ("right", -1)):
+            try:
+                offset_geom = row.geometry.offset_curve(sign * offset_m)
+            except Exception:
+                continue
+
+            if offset_geom is None or offset_geom.is_empty:
+                continue
+
+            # offset_curve can return LineString or MultiLineString
+            parts = (list(offset_geom.geoms)
+                     if offset_geom.geom_type == "MultiLineString"
+                     else [offset_geom])
+
+            for part in parts:
+                if part.length < MIN_SPLINE_LEN_M:
+                    continue
+
+                # Re-project back to WGS84 then convert to FS25
+                part_wgs84 = (
+                    gpd.GeoDataFrame([{"geometry": part}], crs="EPSG:27700")
+                    .to_crs("EPSG:4326")
+                    .iloc[0]
+                    .geometry
+                )
+                coords = list(part_wgs84.coords)
+                cvs = convert_coords(coords)
+                cvs = clip_cvs_to_map(cvs)
+                if len(cvs) < 2:
+                    continue
+                if spline_length_fs25(cvs) < MIN_SPLINE_LEN_M:
+                    continue
+
+                if side == "left":
+                    li += 1
+                    left_splines.append({"name": f"road_hedge_L_{li:04d}", "cvs": cvs})
+                else:
+                    ri += 1
+                    right_splines.append({"name": f"road_hedge_R_{ri:04d}", "cvs": cvs})
+
+    nl = builder.add_group("road_hedges_left",  left_splines,  form="open")
+    nr = builder.add_group("road_hedges_right", right_splines, form="open")
+    builder.write(output_path)
+    print(f"     road_hedges_left:  {nl:>4} splines")
+    print(f"     road_hedges_right: {nr:>4} splines")
+    print(f"     offset = road_width/2 + {ROAD_HEDGE_VERGE_M}m verge")
 
 
 def build_road_i3d(features: list, output_path: Path):
@@ -745,10 +831,13 @@ def main():
         help="Directory to write .i3d files (default: outputs/)",
     )
     parser.add_argument(
-        "--skip-hedges",  action="store_true", help="Skip hedge splines"
+        "--skip-hedges",       action="store_true", help="Skip field hedge splines"
     )
     parser.add_argument(
-        "--skip-roads",   action="store_true", help="Skip road splines"
+        "--skip-road-hedges",  action="store_true", help="Skip road hedge splines"
+    )
+    parser.add_argument(
+        "--skip-roads",        action="store_true", help="Skip road splines"
     )
     parser.add_argument(
         "--skip-fields",  action="store_true", help="Skip field boundary splines"
@@ -771,15 +860,14 @@ def main():
     warn_inconsistency()
 
     if not args.skip_hedges:
-        print("Building hedge splines...")
-        # Build road exclusion zone so hedges don't sit on road surfaces
+        print("Building field hedge splines...")
+        # Build road exclusion zone to clip field hedges that cross road surfaces
         road_excl_zone = None
-        road_feats = []
         if SHAPELY_AVAILABLE:
-            road_feats = load_geojson(INPUT_ROADS)
-            road_excl_zone = build_road_exclusion_zone(road_feats)
+            road_feats_for_clip = load_geojson(INPUT_ROADS)
+            road_excl_zone = build_road_exclusion_zone(road_feats_for_clip)
             if road_excl_zone:
-                print(f"  Road exclusion zone built from {len(road_feats)} roads "
+                print(f"  Road exclusion zone built from {len(road_feats_for_clip)} roads "
                       f"(clearance = {ROAD_CLEARANCE_M}m)")
             else:
                 print("  WARNING: could not build road exclusion zone — hedges unclipped")
@@ -788,8 +876,17 @@ def main():
         features = load_geojson(INPUT_HEDGES_EDITED)
         if features:
             build_hedge_i3d(features, out_dir / "sw_hedge_splines.i3d",
-                            road_excl_zone=road_excl_zone,
-                            road_features=road_feats)
+                            road_excl_zone=road_excl_zone)
+
+    if not args.skip_road_hedges:
+        print("Building road hedge splines...")
+        road_feats = load_geojson(INPUT_ROADS)
+        if road_feats:
+            n_road = sum(1 for f in road_feats
+                         if f.get("properties", {}).get("fs25_type") in ROAD_HEDGE_TYPES)
+            print(f"  {n_road} road/service roads → parallel hedge offsets "
+                  f"(width={ROAD_HEDGE_DEFAULT_WIDTH_M}m, verge={ROAD_HEDGE_VERGE_M}m)")
+            build_road_hedge_i3d(road_feats, out_dir / "sw_road_hedge_splines.i3d")
 
     if not args.skip_roads:
         print("Building road splines...")
@@ -827,11 +924,18 @@ def main():
     print("=" * 60)
     print("  Done. Import workflow in Giants Editor:")
     print()
-    print("  HEDGES (sw_hedge_splines.i3d):")
+    print("  FIELD HEDGES (sw_hedge_splines.i3d):")
     print("    1. Scene → Merge Scene → select sw_hedge_splines.i3d")
-    print("    2. Select the 'osm_hedges' or 'inferred_hedges' group")
+    print("    2. Select the 'hedges' group")
     print("    3. Run sw_batch_spline_placer.lua to place hedge objects")
     print("    4. Select placed objects group → run AlignChildsToTerrain")
+    print()
+    print("  ROAD HEDGES (sw_road_hedge_splines.i3d):")
+    print("    1. Scene → Merge Scene → select sw_road_hedge_splines.i3d")
+    print("    2. Two groups: road_hedges_left / road_hedges_right")
+    print("    3. Run sw_batch_spline_placer.lua on each group")
+    print("    4. Select placed objects group → run AlignChildsToTerrain")
+    print("    NOTE: visually check and delete splines where no real hedge exists")
     print()
     print("  ROADS (sw_road_splines.i3d):")
     print("    1. Scene → Merge Scene → select sw_road_splines.i3d")
