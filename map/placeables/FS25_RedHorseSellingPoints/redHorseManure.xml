@@ -16,8 +16,5 @@
             <component1 node="0"/>
         </components>
     </base>
-    <sellingStation>
-        <fillTypes>MANURE</fillTypes>
-        <priceMultiplier>1.0</priceMultiplier>
-    </sellingStation>
+    <sellingStation fillTypes="MANURE"/>
 </placeable>

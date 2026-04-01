@@ -16,8 +16,5 @@
             <component1 node="0"/>
         </components>
     </base>
-    <sellingStation>
-        <fillTypes>GRASS DRYGRASS STRAW SILAGE CHAFF</fillTypes>
-        <priceMultiplier>1.0</priceMultiplier>
-    </sellingStation>
+    <sellingStation fillTypes="GRASS DRYGRASS STRAW SILAGE CHAFF"/>
 </placeable>
