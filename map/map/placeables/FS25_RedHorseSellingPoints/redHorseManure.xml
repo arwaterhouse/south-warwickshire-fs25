@@ -27,7 +27,7 @@
     </storeData>
 
     <base>
-        <filename>map/placeables/sellingStationGeneric/sellingStationGeneric.i3d</filename>
+        <filename>../sellingStationGeneric/sellingStationGeneric.i3d</filename>
 	</base>
 
     <placement useRandomYRotation="false" useManualYRotation="true" />

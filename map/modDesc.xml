@@ -23,7 +23,7 @@ Features:
     <iconFilename>preview.png</iconFilename>
     <multiplayer supported="true"/>
     <maps>
-        <map id="RedHorseValley" configFilename="$mapDir$/map.xml" defaultVehiclesXMLFilename="$mapDir$/config/vehicles.xml" defaultPlaceablesXMLFilename="$mapDir$/config/placeables.xml" defaultHandToolsXMLFilename="$mapDir$/config/handTools.xml" defaultItemsXMLFilename="$mapDir$/config/items.xml">
+        <map id="RedHorseValley" configFilename="map/map.xml" defaultVehiclesXMLFilename="map/config/vehicles.xml" defaultPlaceablesXMLFilename="map/config/placeables.xml" defaultHandToolsXMLFilename="map/config/handTools.xml" defaultItemsXMLFilename="map/config/items.xml">
             <title>
                 <en>Red Horse Valley</en>
             </title>
@@ -35,60 +35,60 @@ Features:
     </maps>
     <storeItems>
         <!-- FS25_RDM_BritishGrainSheds -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed01.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed01_B.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed01UB.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed01UB_B.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed02.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed02_B.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed02UB.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed02UB_B.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed03.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed03RUB.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishGrainSheds/shed04.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed01.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed01_B.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed01UB.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed01UB_B.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed02.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed02_B.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed02UB.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed02UB_B.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed03.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed03RUB.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed04.xml"/>
         <!-- FS25_UK_BaleShed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_BaleShed/UKBaleShed.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_BaleShed/UKBaleShedAL.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_BaleShed/UKBaleShed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_BaleShed/UKBaleShedAL.xml"/>
         <!-- FS25_UkStyleGrainShed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UkStyleGrainShed/grainShed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UkStyleGrainShed/grainShed.xml"/>
         <!-- FS25_UK_CattleShed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_CattleShed/ukCattleShed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_CattleShed/ukCattleShed.xml"/>
         <!-- FS25_UK_LargeBeefShed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_LargeBeefShed/ukLargeBeefShed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_LargeBeefShed/ukLargeBeefShed.xml"/>
         <!-- FS25_RDM_BritishFieldGates -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RDM_BritishFieldGates/7Bar.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RDM_BritishFieldGates/7Bar.xml"/>
         <!-- FS25_UK_Shed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_Shed/ukShed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_Shed/ukShed.xml"/>
         <!-- FS25_UK_MachineShed_3Bay -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_MachineShed_3Bay/UK_MachineShed_3Bay.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_MachineShed_3Bay/UK_MachineShed_3Bay.xml"/>
         <!-- FS25_OldEnglishShed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_OldEnglishShed/grain_shed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_OldEnglishShed/grain_shed.xml"/>
         <!-- FS25_UK_MachineryShed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_MachineryShed/xml/machineShed02.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_MachineryShed/xml/machineShed02.xml"/>
         <!-- FS25_UK_Grain_MachineryShed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_Grain_MachineryShed/ukGrainMachineryShed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_Grain_MachineryShed/ukGrainMachineryShed.xml"/>
         <!-- FS25_britishshedpack -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_britishshedpack/hayshed.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_britishshedpack/greenopenbarn.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_britishshedpack/britishhedge.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_britishshedpack/biggreenshed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_britishshedpack/hayshed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_britishshedpack/greenopenbarn.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_britishshedpack/britishhedge.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_britishshedpack/biggreenshed.xml"/>
         <!-- FS25_englishStyleSheepBarn -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.xml"/>
         <!-- FS25_UK_CowShed -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_UK_CowShed/cowShed.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_UK_CowShed/cowShed.xml"/>
         <!-- FS25_DairyWithGarage -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_DairyWithGarage/cowbarn.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_DairyWithGarage/cowbarn.xml"/>
         <!-- FS25_GristMillWithMixer -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_GristMillWithMixer/srutownik.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_GristMillWithMixer/Paleta.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_GristMillWithMixer/srutownikpig.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_GristMillWithMixer/srutownik.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_GristMillWithMixer/Paleta.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_GristMillWithMixer/srutownikpig.xml"/>
         <!-- FS25_stockfence -->
-        <storeItem xmlFilename="$mapDir$/assets/fences/FS25_stockfence/fieldFence.xml"/>
+        <storeItem xmlFilename="map/assets/fences/FS25_stockfence/fieldFence.xml"/>
         <!-- FS25_RedHorseSellingPoints -->
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RedHorseSellingPoints/redHorseBales.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RedHorseSellingPoints/redHorseManure.xml"/>
-        <storeItem xmlFilename="$mapDir$/placeables/FS25_RedHorseSellingPoints/redHorseLiquidManure.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseBales.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseManure.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseLiquidManure.xml"/>
     </storeItems>
 
     <l10n>
