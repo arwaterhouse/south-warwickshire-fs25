@@ -34,6 +34,40 @@
     <storeItem xmlFilename="$data/placeables/mapUS/sellingPoints/gasStation/gasStation01.xml"/>
     <storeItem xmlFilename="$data/maps/mapUS/textures/buildings/animalTrader/animalTrader.xml"/>
 
+<!-- MAP-SPECIFIC PLACEABLES: British Buildings & Storage -->
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed01.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed01_B.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed01UB.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed01UB_B.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed02.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed02_B.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed02UB.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed02UB_B.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed03.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed03RUB.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishGrainSheds/shed04.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_BaleShed/UKBaleShed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_BaleShed/UKBaleShedAL.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UkStyleGrainShed/grainShed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_CattleShed/ukCattleShed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_LargeBeefShed/ukLargeBeefShed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_RDM_BritishFieldGates/7Bar.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_Shed/ukShed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_MachineShed_3Bay/UK_MachineShed_3Bay.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_OldEnglishShed/grain_shed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_MachineryShed/xml/machineShed02.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_Grain_MachineryShed/ukGrainMachineryShed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_britishshedpack/hayshed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_britishshedpack/greenopenbarn.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_britishshedpack/britishhedge.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_britishshedpack/biggreenshed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_UK_CowShed/cowShed.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_DairyWithGarage/cowbarn.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_GristMillWithMixer/srutownik.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_GristMillWithMixer/Paleta.xml"/>
+    <storeItem xmlFilename="$mapdir$/placeables/FS25_GristMillWithMixer/srutownikpig.xml"/>
+
 <!-- TRAIN AND WAGONS -->
     <storeItem xmlFilename="$data/vehicles/train/locomotiveUS/forestryLocomotive.xml" />
     <storeItem xmlFilename="$data/vehicles/train/wagonFlatBedUS/wagonFlatBedUS.xml" />
