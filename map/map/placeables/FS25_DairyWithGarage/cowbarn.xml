@@ -9,7 +9,7 @@
         <functions>
             <function>$l10n_function_garage</function>
         </functions>
-        <image>placeables/FS25_DairyWithGarage/store_cowbarn.dds</image>
+        <image>store_cowbarn.dds</image>
         <price>57000</price>
 		<dailyUpkeep>18</dailyUpkeep>
         <lifetime>1000</lifetime>
@@ -31,7 +31,7 @@
     </storeData>
 
     <base>
-        <filename>cowbarn.i3d</filename>
+        <filename>map/placeables/FS25_DairyWithGarage/cowbarn.i3d</filename>
 		<boughtWithFarmland>true</boughtWithFarmland>
 		<canBeRenamed>false</canBeRenamed>
     </base>

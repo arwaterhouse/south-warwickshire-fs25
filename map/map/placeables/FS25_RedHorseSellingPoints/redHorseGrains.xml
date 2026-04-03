@@ -27,8 +27,8 @@
     </storeData>
 
     <base>
-        <filename>../sellingStationGeneric/sellingStationGeneric.i3d</filename>
-	</base>
+        <filename>map/placeables/sellingStationGeneric/sellingStationGeneric.i3d</filename>
+    </base>
 
     <placement useRandomYRotation="false" useManualYRotation="true" />
 
@@ -55,7 +55,7 @@
         <triggerMarker node="unloadMarkerTrailer" filename="$data/shared/assets/marker/markerIconUnload.i3d"/>
     </triggerMarkers>
 
-    <sellingStation supportsExtension="false" litersForFullPriceDrop="200000" fullPriceRecoverHours="48">
+    <sellingStation appearsOnStats="true" supportsExtension="false" litersForFullPriceDrop="200000" fullPriceRecoverHours="48">
         <unloadTrigger exactFillRootNode="unloadNodeTrailer" fillTypeCategories="SELLINGSTATION_FIELDFRUITS" priceScale="1" aiNode="unloadNodeAI"/>
         <palletTrigger triggerNode="palletTrigger" fillTypeCategories="SELLINGSTATION_FIELDFRUITS" priceScale="1" />
         <baleTrigger triggerNode="baleTrigger" deleteLitersPerSecond="10000" fillTypeCategories="SELLINGSTATION_FIELDFRUITS" priceScale="1" />

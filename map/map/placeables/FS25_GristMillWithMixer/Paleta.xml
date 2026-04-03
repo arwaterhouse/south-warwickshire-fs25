@@ -4,7 +4,7 @@
 
 <storeData>
         <name>$l10n_fillType_mineralFeed</name>
-        <image>placeables/FS25_GristMillWithMixer/store_mineralFeedPallet.png</image>
+        <image>store_mineralFeedPallet.dds</image>
         <specs>
             <weight ignore="true"/>
         </specs>
@@ -37,7 +37,7 @@
 
     <base>
         <typeDesc>$l10n_typeDesc_pallet</typeDesc>
-        <filename>Paleta.i3d</filename>
+        <filename>map/placeables/FS25_GristMillWithMixer/Paleta.i3d</filename>
         <size width="1.4" length="1" height="0.9" />
         <canBeReset>false</canBeReset>
         <components maxMass="850">

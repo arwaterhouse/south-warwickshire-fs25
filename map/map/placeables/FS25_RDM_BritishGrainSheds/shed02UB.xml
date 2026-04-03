@@ -5,7 +5,7 @@
     <functions>
       <function>$l10n_function_garage</function>
     </functions>
-    <image>placeables/FS25_RDM_BritishGrainSheds/store_GreenGrainBarn2UB.dds</image>
+    <image>store_GreenGrainBarn2UB.dds</image>
     <price>110000</price>
     <dailyUpkeep>70</dailyUpkeep>
     <lifetime>1000</lifetime>
@@ -28,7 +28,7 @@
         <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
   </storeData>
   <base>
-    <filename>shed02UB.i3d</filename>
+    <filename>map/placeables/FS25_RDM_BritishGrainSheds/shed02UB.i3d</filename>
 	<canBeRenamed>true</canBeRenamed>
 	<boughtWithFarmland>true</boughtWithFarmland>
   </base>

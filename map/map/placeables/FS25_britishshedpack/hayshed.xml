@@ -5,7 +5,7 @@
         <functions>
             <function>$l10n_function_garage</function>
         </functions>
-        <image>placeables/FS25_britishshedpack/hayshed.png</image>
+        <image>hayshed.png</image>
         <price>10000</price>
         <dailyUpkeep>0</dailyUpkeep>
         <canBeSold>true</canBeSold>
@@ -29,7 +29,7 @@
     </storeData>
 
     <base>
-        <filename>hayshed.i3d</filename>
+        <filename>map/placeables/FS25_britishshedpack/hayshed.i3d</filename>
     </base>
 
     <placement useRandomYRotation="false" useManualYRotation="true">

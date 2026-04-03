@@ -7,7 +7,7 @@
 		<functions>
             <function>$l10n_function_workshop</function>
         </functions>
-        <image>placeables/FS25_UK_Shed/store_FS25_UK_shed.dds</image>
+        <image>store_FS25_UK_shed.dds</image>
         <price>95000</price>
         <dailyUpkeep>25</dailyUpkeep>
         <lifetime>1000</lifetime>
@@ -25,7 +25,7 @@
     </storeData>
 
     <base>
-        <filename>FS25_UK_machineShed.i3d</filename>
+        <filename>map/placeables/FS25_UK_Shed/FS25_UK_machineShed.i3d</filename>
         <canBeRenamed>true</canBeRenamed>
         <boughtWithFarmland>true</boughtWithFarmland>
     </base>

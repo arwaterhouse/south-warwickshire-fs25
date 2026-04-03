@@ -5,7 +5,7 @@
         <functions>
             <function>$l10n_function_decoration</function>
         </functions>
-        <image>placeables/FS25_RDM_BritishFieldGates/store_7Bar.dds</image>
+        <image>store_7Bar.dds</image>
         <price>150</price>
         <dailyUpkeep>0</dailyUpkeep>
         <lifetime>1000</lifetime>
@@ -32,7 +32,7 @@
 
     <base>
 		<boughtWithFarmland>false</boughtWithFarmland>
-        <filename>7Bar.i3d</filename>
+        <filename>map/placeables/FS25_RDM_BritishFieldGates/7Bar.i3d</filename>
     </base>
     <clearAreas/>
     <leveling/>

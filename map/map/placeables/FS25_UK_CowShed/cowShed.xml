@@ -2,7 +2,7 @@
 <placeable type="cowHusbandry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
     <storeData>
         <name>UK Cow Shed</name>
-        <image>placeables/FS25_UK_CowShed/store_cowShed.dds</image>
+        <image>store_cowShed.dds</image>
         <price>40000</price>
         <functions>
             <function>$l10n_function_animalPenCow</function>
@@ -30,7 +30,7 @@
     </storeData>
 
     <base>
-        <filename>cowShed.i3d</filename>
+        <filename>map/placeables/FS25_UK_CowShed/cowShed.i3d</filename>
 		<canBeRenamed>true</canBeRenamed>
         <boughtWithFarmland>false</boughtWithFarmland>
     </base>

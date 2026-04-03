@@ -5,7 +5,7 @@
         <functions>
             <function>$l10n_function_garage</function>
         </functions>
-        <image>placeables/FS25_britishshedpack/greenopenbarn.png</image>
+        <image>greenopenbarn.png</image>
         <price>1</price>
         <dailyUpkeep>0</dailyUpkeep>
         <canBeSold>true</canBeSold>
@@ -29,7 +29,7 @@
     </storeData>
 
     <base>
-        <filename>britishhedge.i3d</filename>
+        <filename>map/placeables/FS25_britishshedpack/britishhedge.i3d</filename>
     </base>
 
     <placement useRandomYRotation="false" useManualYRotation="true">

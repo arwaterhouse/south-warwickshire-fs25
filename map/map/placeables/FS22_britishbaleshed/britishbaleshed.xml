@@ -29,7 +29,7 @@
     </storeData>
 
     <base>
-        <filename>britishbaleshed.i3d</filename>
+        <filename>map/placeables/FS22_britishbaleshed/britishbaleshed.i3d</filename>
     </base>
 
     <placeableType>placeable</placeableType>

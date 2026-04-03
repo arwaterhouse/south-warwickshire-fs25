@@ -2,7 +2,7 @@
 <placeable type="sheepHusbandry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/placeable.xsd">
     <storeData>
         <name>Old English Sheep Barn</name>
-        <image>placeables/FS25_englishStyleSheepBarn/store_sheepBarn.dds</image>
+        <image>store_sheepBarn.dds</image>
         <price>48000</price>
         <functions>
             <function>$l10n_function_animalPenSheep</function>
@@ -26,7 +26,7 @@
     </storeData>
 
     <base>
-        <filename>sheepGoatBarn.i3d</filename>
+        <filename>map/placeables/FS25_englishStyleSheepBarn/sheepGoatBarn.i3d</filename>
         <canBeRenamed>true</canBeRenamed>
     </base>
 

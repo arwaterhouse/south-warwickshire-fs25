@@ -8,7 +8,7 @@
 		<functions>
             <function>$l10n_function_garage</function>
         </functions>
-        <image>placeables/FS22_British_Storage_Shed/store_storageShed1.png</image>
+        <image>store_storageShed1.dds</image>
         <price>25000</price>
 		<dailyUpkeep>25</dailyUpkeep>
         <lifetime>1000</lifetime>
@@ -30,7 +30,7 @@
     </storeData>
 
     <base>
-        <filename>storageShed1.i3d</filename>
+        <filename>map/placeables/FS22_British_Storage_Shed/storageShed1.i3d</filename>
         <canBeRenamed>true</canBeRenamed>
         <boughtWithFarmland>true</boughtWithFarmland>
     </base>

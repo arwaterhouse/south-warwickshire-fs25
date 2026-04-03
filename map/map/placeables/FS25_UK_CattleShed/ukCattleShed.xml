@@ -4,7 +4,7 @@
         <name>            
            <en>UK Cattle Shed With Storage</en> 
         </name>
-		<image>placeables/FS25_UK_CattleShed/store_CattleShed.dds</image>
+		<image>store_CattleShed.dds</image>
         <price>70000</price>
         <functions>
             <function>$l10n_function_animalPenCow</function>
@@ -23,7 +23,7 @@
     </storeData>
 
     <base>
-        <filename>placeables/FS25_UK_CattleShed/FS25_UK_CattleShed.i3d</filename>
+        <filename>map/placeables/FS25_UK_CattleShed/FS25_UK_CattleShed.i3d</filename>
         <canBeRenamed>true</canBeRenamed>
         <boughtWithFarmland>true</boughtWithFarmland>
     </base>

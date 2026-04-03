@@ -7,7 +7,7 @@
 		<functions>
             <function>$l10n_function_garageBulk</function>
         </functions>
-        <image>placeables/FS25_UK_Grain_MachineryShed/store_ukGrainMachineryShed.dds</image>
+        <image>store_ukGrainMachineryShed.dds</image>
         <price>56000</price>
         <dailyUpkeep>25</dailyUpkeep>
         <lifetime>1000</lifetime>
@@ -25,7 +25,7 @@
     </storeData>
 
     <base>
-        <filename>placeables/FS25_UK_Grain_MachineryShed/FS25_GrainMachineShed.i3d</filename>
+        <filename>map/placeables/FS25_UK_Grain_MachineryShed/FS25_GrainMachineShed.i3d</filename>
         <canBeRenamed>true</canBeRenamed>
         <boughtWithFarmland>true</boughtWithFarmland>
     </base>

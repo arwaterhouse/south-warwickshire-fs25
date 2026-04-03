@@ -34,6 +34,14 @@ Features:
         </map>
     </maps>
     <storeItems>
+        <!-- SELLING POINTS -->
+        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseBales.xml"/>
+
+        <!-- BUYING POINTS -->
+        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseManure.xml"/>
+        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseLiquidManure.xml"/>
+
         <!-- FS25_RDM_BritishGrainSheds -->
         <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed01.xml"/>
         <storeItem xmlFilename="map/placeables/FS25_RDM_BritishGrainSheds/shed01_B.xml"/>
@@ -84,11 +92,6 @@ Features:
         <storeItem xmlFilename="map/placeables/FS25_GristMillWithMixer/srutownikpig.xml"/>
         <!-- FS25_stockfence -->
         <storeItem xmlFilename="map/assets/fences/FS25_stockfence/fieldFence.xml"/>
-        <!-- FS25_RedHorseSellingPoints -->
-        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseGrains.xml"/>
-        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseBales.xml"/>
-        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseManure.xml"/>
-        <storeItem xmlFilename="map/placeables/FS25_RedHorseSellingPoints/redHorseLiquidManure.xml"/>
     </storeItems>
 
     <l10n>

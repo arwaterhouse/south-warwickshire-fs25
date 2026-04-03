@@ -7,7 +7,7 @@
         <functions>
             <function>$l10n_function_garage</function>
         </functions>
-        <image>placeables/FS25_UK_MachineShed_3Bay/store_MachineShed_3Bay.dds</image>
+        <image>store_MachineShed_3Bay.dds</image>
         <price>30000</price>
 		<dailyUpkeep>5</dailyUpkeep>
         <lifetime>1000</lifetime>
@@ -25,7 +25,7 @@
     </storeData>
 	
    <base>
-        <filename>FS25_MachineShed_3Bay.i3d</filename>
+        <filename>map/placeables/FS25_UK_MachineShed_3Bay/FS25_MachineShed_3Bay.i3d</filename>
         <canBeRenamed>true</canBeRenamed>
         <boughtWithFarmland>true</boughtWithFarmland>
     </base>

@@ -4,7 +4,7 @@
         <name>            
            <en>UK Large Cattle Shed</en> 
         </name>
-		<image>placeables/FS25_UK_LargeBeefShed/store_ukLargeBeefShed.dds</image>
+		<image>store_ukLargeBeefShed.dds</image>
         <price>120000</price>
         <functions>
             <function>$l10n_function_animalPenCow</function>
@@ -23,7 +23,7 @@
     </storeData>
 
     <base>
-        <filename>placeables/FS25_UK_LargeBeefShed/FS25_UK_LargeBeefShed.i3d</filename>
+        <filename>map/placeables/FS25_UK_LargeBeefShed/FS25_UK_LargeBeefShed.i3d</filename>
         <canBeRenamed>true</canBeRenamed>
         <boughtWithFarmland>true</boughtWithFarmland>
     </base>
